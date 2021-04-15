@@ -49,7 +49,7 @@ const SignUp = () => {
           abortEarly: false,
         });
 
-        // await api.post('users', data);
+        await api.post('users', data);
 
         addToast({
           type: 'success',
