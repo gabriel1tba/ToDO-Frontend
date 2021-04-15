@@ -1,16 +1,17 @@
 ## 💻 Tecnologias utilizadas
 
-- **React**
-- **TypeScript**
+- **react**
+- **typescript**
 - **eslint**
 - **prettier**
 - **husky**
 - **lint-staged**
-- **rotas privadas**
-- **Context API**
-- **Custom hook de toast**
-- **unform**
+- **private routes**
+- **context API**
+- **custom hookst**
+- **toast**
 - **styled-components**
+- **unform**
 - **react-icons**
 - **react-spring**
 - **axios**
