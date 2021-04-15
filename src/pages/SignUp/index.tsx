@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
@@ -32,8 +32,16 @@ const SignUp = () => {
 
   const formRef = useRef({} as FormHandles);
 
+  const [buttonLoading, setButtonLoading] = useState(false);
+
   const handleSubmit = useCallback(
     async (data: SignUpFormData) => {
+      setButtonLoading(true);
+
+      setTimeout(() => {
+        setButtonLoading(false);
+      }, 1000);
+
       try {
         formRef.current.setErrors({});
 
@@ -41,7 +49,7 @@ const SignUp = () => {
           abortEarly: false,
         });
 
-        await api.post('users', data);
+        // await api.post('users', data);
 
         addToast({
           type: 'success',
@@ -102,7 +110,9 @@ const SignUp = () => {
               placeholder="Senha"
             />
 
-            <Button type="submit">Cadastrar</Button>
+            <Button loading={buttonLoading} type="submit">
+              Cadastrar
+            </Button>
           </Form>
           <Link to="/">
             <FiArrowLeft /> Voltar para logon
