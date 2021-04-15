@@ -39,7 +39,7 @@ const SignIn = () => {
 
       setTimeout(() => {
         setButtonLoading(false);
-      }, 1000);
+      }, 10000);
 
       try {
         formRef.current.setErrors({});

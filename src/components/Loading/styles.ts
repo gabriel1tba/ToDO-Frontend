@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 export const LoadingRoller = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
   @keyframes lds-roller {
     0% {
       transform: rotate(0deg);
@@ -20,7 +16,7 @@ export const LoadingRoller = styled.div`
     display: inline-block;
     height: 64px;
     width: 64px;
-    transform: scale(1.5);
+    transform: scale(0.6);
 
     > div {
       animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
@@ -29,7 +25,7 @@ export const LoadingRoller = styled.div`
       &:after {
         position: absolute;
         display: block;
-        background: #4e9ad8;
+        background: #fff;
         border-radius: 50%;
         content: ' ';
         margin: -3px 0 0 -3px;
@@ -123,7 +119,7 @@ export const LoadingRing = styled.div`
     display: inline-block;
     width: 50px;
     height: 50px;
-    border: 3px solid #4e9ad8;
+    border: 3px solid #ff9000;
     border-radius: 50%;
     border-top-color: #fff;
     animation: spin 1s ease-in-out infinite;
