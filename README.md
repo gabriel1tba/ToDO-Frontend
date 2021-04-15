@@ -7,11 +7,11 @@
 - **husky**
 - **lint-staged**
 - **private routes**
-- **context API**
 - **custom hookst**
 - **toast**
 - **styled-components**
 - **unform**
+- **yup**
 - **react-icons**
 - **react-spring**
 - **axios**
