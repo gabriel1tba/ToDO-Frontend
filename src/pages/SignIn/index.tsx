@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -31,8 +31,12 @@ const SignIn = () => {
 
   const formRef = useRef({} as FormHandles);
 
+  const [buttonLoading, setButtonLoading] = useState(false);
+
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
+      setButtonLoading(true);
+
       try {
         formRef.current.setErrors({});
 
@@ -52,11 +56,16 @@ const SignIn = () => {
 
         addToast({
           type: 'error',
-          title: 'Erro na autenticação!',
-          description: 'Por favor, cheque seu email e senha!',
+          title: 'Erro ao fazer login!',
+          description:
+            'Cheque seu email e senha, ou tente novamente mais tarde!',
           secondsDuration: 5,
         });
       }
+
+      setTimeout(() => {
+        setButtonLoading(false);
+      }, 3000);
     },
     [addToast, signIn],
   );
@@ -86,7 +95,9 @@ const SignIn = () => {
               placeholder="Senha"
             />
 
-            <Button type="submit">Entrar</Button>
+            <Button loading={buttonLoading} type="submit">
+              Entrar
+            </Button>
 
             <a href="forgot">Esqueci minha senha</a>
           </Form>
