@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const LoadingRoller = styled.div`
+  margin-top: -1%;
   @keyframes lds-roller {
     0% {
       transform: rotate(0deg);
@@ -14,9 +15,9 @@ export const LoadingRoller = styled.div`
   .lds-roller {
     position: relative;
     display: inline-block;
-    height: 64px;
-    width: 64px;
-    transform: scale(0.6);
+    height: 50px;
+    width: 50px;
+    transform: scale(0.7);
 
     > div {
       animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;

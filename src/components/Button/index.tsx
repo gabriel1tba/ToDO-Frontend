@@ -9,13 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = ({ children, loading, ...rest }: ButtonProps) => {
   return (
     <S.Wrapper type="button" {...rest}>
-      {loading ? (
-        <div style={{ display: 'flex' }}>
-          <p>Carregando...</p> <Loading typeLoading="roller" />
-        </div>
-      ) : (
-        children
-      )}
+      {loading ? <Loading typeLoading="roller" /> : children}
     </S.Wrapper>
   );
 };
