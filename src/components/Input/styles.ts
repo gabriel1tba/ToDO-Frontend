@@ -12,9 +12,9 @@ export const Wrapper = styled.div<WrapperProps>`
   display: flex;
   align-items: center;
 
-  background: #232129;
+  background: #ffffff;
   border-radius: 10px;
-  border: 2px solid #232129;
+  border: 1px solid #666360;
   padding: 16px;
   width: 100%;
   color: #666360;
@@ -47,15 +47,15 @@ export const Wrapper = styled.div<WrapperProps>`
     border: 0;
     background: transparent;
 
-    color: #f4ede8;
-    box-shadow: 0 0 0 30px #232129 inset;
+    color: #202124;
+    box-shadow: 0 0 0 30px #ffffff inset;
 
     &:-webkit-autofill {
-      -webkit-text-fill-color: #f4ede8 !important;
+      -webkit-text-fill-color: #ff9000;
     }
 
     &::placeholder {
-      color: #666360;
+      color: #202124;
     }
   }
 

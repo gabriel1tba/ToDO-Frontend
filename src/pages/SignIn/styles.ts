@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-import signInBackgroundImg from '../../assets/sign-in-background.png';
+import signInBackgroundImg from '../../assets/sign-in-background.jpg';
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -44,10 +44,11 @@ export const AnimationContainer = styled.div`
 
     h1 {
       margin-bottom: 24px;
+      color: #666360;
     }
 
     a {
-      color: #f4ede8;
+      color: #666360;
       display: block;
       margin-top: 24px;
       text-decoration: none;

@@ -11,6 +11,8 @@ export const Wrapper = styled.button`
   font-weight: 500;
   margin-top: 16px;
 
+  font-size: 16px;
+
   transition: filter 0.3s;
 
   &:hover {
