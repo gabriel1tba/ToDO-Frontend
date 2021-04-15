@@ -47,7 +47,7 @@ const Input = ({ name, icon: Icon, ...rest }: InputProps) => {
       />
       {error && (
         <S.Error title={error}>
-          <FiAlertCircle color="#c43030" size={20} />
+          <FiAlertCircle color={isFocused ? '#ff9000' : '#c43030'} size={20} />
         </S.Error>
       )}
     </S.Wrapper>

@@ -40,6 +40,7 @@ export const Wrapper = styled.div<WrapperProps>`
     isFilled &&
     css`
       color: #ff9000;
+      border-color: #ff9000;
     `}
 
   input {
