@@ -6,8 +6,7 @@
 - **prettier**
 - **husky**
 - **lint-staged**
-- **private routes**
-- **custom hookst**
+- **custom hooks**
 - **toast**
 - **styled-components**
 - **unform**
