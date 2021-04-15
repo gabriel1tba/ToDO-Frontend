@@ -68,7 +68,7 @@ export const AnimationContainer = styled.div`
 
     display: flex;
     align-items: center;
-    transition: filter 0.3s;
+    transition: filter 0.4s;
 
     &:hover {
       filter: brightness(0.9);
