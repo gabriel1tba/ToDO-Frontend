@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.button`
   background: #ff9000;
-  color: #312e38;
+  color: #fff;
   height: 56px;
   border-radius: 10px;
   border: 0;
