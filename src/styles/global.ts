@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body{
-    background: #312E38;
+    background: ##F2F3F5;
     color: #FFF;
     --webkit-font-smoothing: antialiased;
   }

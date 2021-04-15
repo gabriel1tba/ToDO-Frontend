@@ -2,15 +2,17 @@
 
 - **React**
 - **TypeScript**
-- **Context API**
-- **Custom hook de toast**
 - **eslint**
 - **prettier**
 - **husky**
 - **lint-staged**
+- **rotas privadas**
+- **Context API**
+- **Custom hook de toast**
+- **unform**
+- **styled-components**
 - **react-icons**
 - **react-spring**
-- **styled-components**
 - **axios**
 
 &nbsp;

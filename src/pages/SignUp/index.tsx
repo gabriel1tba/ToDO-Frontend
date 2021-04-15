@@ -9,7 +9,7 @@ import { useToast } from '../../hooks/toast';
 
 import * as S from './styles';
 
-import logoImg from '../../assets/logo.svg';
+import logoImg from '../../assets/logo.png';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -79,7 +79,11 @@ const SignUp = () => {
 
       <S.Content>
         <S.AnimationContainer>
-          <img src={logoImg} alt="logo com nome da pagina" />
+          <img
+            src={logoImg}
+            style={{ marginBottom: '-10%' }}
+            alt="logo com nome da pagina"
+          />
 
           <Form onSubmit={handleSubmit} ref={formRef}>
             <h1>Faça seu cadastro</h1>
