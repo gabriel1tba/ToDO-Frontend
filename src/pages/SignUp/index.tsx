@@ -20,7 +20,7 @@ import { schema } from './schema';
 
 import getValidationErros from '../../utils/getValidationErros';
 
-interface SignUpFormData {
+interface ISignUpFormData {
   name: string;
   email: string;
   password: string;
@@ -35,7 +35,7 @@ const SignUp = () => {
   const [buttonLoading, setButtonLoading] = useState(false);
 
   const handleSubmit = useCallback(
-    async (data: SignUpFormData) => {
+    async (data: ISignUpFormData) => {
       setButtonLoading(true);
 
       setTimeout(() => {
