@@ -60,10 +60,9 @@ const SignIn = () => {
 
         addToast({
           type: 'error',
-          title: 'Erro ao fazer login!',
-          description:
-            'Cheque seu email e senha, ou tente novamente mais tarde!',
-          secondsDuration: 3,
+          title: 'Erro ao tentar logar!',
+          description: 'Verifique se o e-mail e senha estão corretos...',
+          secondsDuration: 5,
         });
       }
     },
@@ -80,7 +79,7 @@ const SignIn = () => {
           />
 
           <Form onSubmit={handleSubmit} ref={formRef}>
-            <h1>Faça seu logon </h1>
+            <h1>Faça seu login </h1>
 
             <Input
               icon={FiMail}

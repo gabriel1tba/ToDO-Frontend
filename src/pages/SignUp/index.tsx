@@ -53,7 +53,7 @@ const SignUp = () => {
 
         addToast({
           type: 'success',
-          title: 'Cadastrado com sucesso',
+          title: 'Cadastrado com sucesso!',
           description: 'Você será redirecionado em instantes...',
           secondsDuration: 3,
         });
@@ -121,7 +121,7 @@ const SignUp = () => {
             </Button>
           </Form>
           <Link to="/">
-            <FiArrowLeft /> Voltar para logon
+            <FiArrowLeft /> Fazer login
           </Link>
         </S.AnimationContainer>
       </S.Content>
