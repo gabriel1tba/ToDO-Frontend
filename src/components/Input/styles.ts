@@ -27,6 +27,9 @@ export const Wrapper = styled.div<WrapperProps>`
     hasError &&
     css`
       border-color: #c53030;
+      > svg {
+        stroke: #c53030;
+      }
     `}
 
   ${({ isFocused }) =>
@@ -34,6 +37,9 @@ export const Wrapper = styled.div<WrapperProps>`
     css`
       color: #ff9000;
       border-color: #ff9000;
+      > svg {
+        stroke: #ff9000;
+      }
     `}
 
   ${({ isFilled }) =>
