@@ -9,6 +9,12 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
+  @media (max-width: 1366px) {
+    transform: scale(0.8);
+    max-width: 550px;
+    font-size: 18px;
+  }
+
   display: flex;
   flex-direction: column;
   align-items: center;
