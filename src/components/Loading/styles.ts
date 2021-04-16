@@ -20,7 +20,7 @@ export const LoadingRoller = styled.div`
     transform: scale(0.7);
 
     > div {
-      animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      animation: lds-roller 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
       transform-origin: 32px 32px;
 
       &:after {

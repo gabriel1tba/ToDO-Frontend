@@ -89,7 +89,7 @@ const SignUp = () => {
         <S.AnimationContainer>
           <img
             src={logoImg}
-            style={{ marginBottom: '-10%' }}
+            style={{ marginBottom: '-20%' }}
             alt="logo com nome da pagina"
           />
 
