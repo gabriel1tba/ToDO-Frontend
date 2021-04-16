@@ -55,12 +55,12 @@ const SignUp = () => {
           type: 'success',
           title: 'Cadastrado com sucesso',
           description: 'Você será redirecionado em instantes...',
-          secondsDuration: 5,
+          secondsDuration: 3,
         });
 
         setTimeout(() => {
           history.push('/');
-        }, 2000);
+        }, 3000);
       } catch (error) {
         if (error instanceof ValidationError) {
           const errors = getValidationErros(error);
@@ -72,9 +72,9 @@ const SignUp = () => {
 
         addToast({
           type: 'error',
-          title: 'Erro no cadastro!',
-          description: 'Tente novamente mais, ou aguarde mais um pouco!',
-          secondsDuration: 2,
+          title: 'Erro ao cadastrar!',
+          description: 'Tente novamente mais, ou aguarde mais um pouco...',
+          secondsDuration: 5,
         });
       }
     },
