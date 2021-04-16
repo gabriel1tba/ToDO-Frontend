@@ -11,7 +11,7 @@ import ToastContainer from '../components/ToastContainer';
 import v4 from '../utils/uuidv4';
 
 interface ToastContextProps {
-  addToast: (message: Omit<ToastMessage, 'id'>) => void;
+  addToast: (message: Omit<IToastMessage, 'id'>) => void;
   removeToast: (id: string) => void;
 }
 
@@ -19,7 +19,7 @@ interface ToastProviderProps {
   children: ReactNode;
 }
 
-export interface ToastMessage {
+export interface IToastMessage {
   id: string;
   type?: 'success' | 'error' | 'info';
   title: string;
@@ -30,7 +30,7 @@ export interface ToastMessage {
 const ToastContext = createContext({} as ToastContextProps);
 
 const ToastProvider = ({ children }: ToastProviderProps) => {
-  const [toastMessage, setToastMessage] = useState<ToastMessage[]>([]);
+  const [toastMessage, setToastMessage] = useState<IToastMessage[]>([]);
 
   const addToast = useCallback(
     ({
@@ -38,7 +38,7 @@ const ToastProvider = ({ children }: ToastProviderProps) => {
       title,
       description,
       secondsDuration,
-    }: Omit<ToastMessage, 'id'>) => {
+    }: Omit<IToastMessage, 'id'>) => {
       const id = v4();
 
       const toast = {

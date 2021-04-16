@@ -7,12 +7,12 @@ import {
   FiXCircle,
 } from 'react-icons/fi';
 
-import { ToastMessage, useToast } from '../../../../hooks/toast';
+import { IToastMessage, useToast } from '../../../../hooks/toast';
 
 import * as S from './styles';
 
-interface ToastProps {
-  toastMessage: ToastMessage;
+interface IToast {
+  toastMessage: IToastMessage;
   style: AnimatedValue<ForwardedProps<ForwardedProps<CSSProperties>>>;
 }
 
@@ -22,7 +22,7 @@ const icons = {
   success: <FiCheckCircle size={24} />,
 };
 
-const Toast = ({ toastMessage, style }: ToastProps) => {
+const Toast = ({ toastMessage, style }: IToast) => {
   const { removeToast } = useToast();
 
   useEffect(() => {

@@ -1,12 +1,12 @@
 import * as S from './styles';
 
-interface TooltipProps {
+interface ITooltip {
   title: string;
   className?: string;
   children: React.ReactNode;
 }
 
-const Tooltip = ({ title, className, children }: TooltipProps) => {
+const Tooltip = ({ title, className, children }: ITooltip) => {
   return (
     <S.Wrapper className={className}>
       {children}

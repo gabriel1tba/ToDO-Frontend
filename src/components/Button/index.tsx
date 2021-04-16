@@ -1,5 +1,6 @@
-import Loading from '../Loading';
 import * as S from './styles';
+
+import Loading from '../Loading';
 
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;

@@ -2,13 +2,13 @@ import styled, { css } from 'styled-components';
 
 import Tooltip from '../Tooltip';
 
-interface WrapperProps {
+interface IWrapper {
   isFocused: boolean;
   isFilled: boolean;
   hasError: boolean;
 }
 
-export const Wrapper = styled.div<WrapperProps>`
+export const Wrapper = styled.div<IWrapper>`
   display: flex;
   align-items: center;
 

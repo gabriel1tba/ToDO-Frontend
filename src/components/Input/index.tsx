@@ -5,12 +5,12 @@ import { FiAlertCircle } from 'react-icons/fi';
 
 import * as S from './styles';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
   icon?: React.ComponentType<IconBaseProps>;
 }
 
-const Input = ({ name, icon: Icon, ...rest }: InputProps) => {
+const Input = ({ name, icon: Icon, ...rest }: IInput) => {
   const [isFocused, setIsFocued] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
 

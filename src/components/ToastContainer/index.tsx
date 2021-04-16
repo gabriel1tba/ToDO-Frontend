@@ -6,10 +6,10 @@ import { ToastMessage } from '../../hooks/toast';
 
 import Toast from './components/Toast';
 
-interface ToastContainerProps {
+interface IToastContainer {
   messages: ToastMessage[];
 }
-const ToastContainer = ({ messages }: ToastContainerProps) => {
+const ToastContainer = ({ messages }: IToastContainer) => {
   const toastTransition = useTransition(messages, (message) => message.id, {
     from: {
       right: '-120%',

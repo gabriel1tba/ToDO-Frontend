@@ -1,10 +1,10 @@
 import * as S from './styles';
 
-interface LoadingProps {
+interface ILoading {
   typeLoading: 'roller' | 'spinner';
 }
 
-const Loading = ({ typeLoading }: LoadingProps) => {
+const Loading = ({ typeLoading }: ILoading) => {
   return (
     <>
       {typeLoading === 'roller' && (
