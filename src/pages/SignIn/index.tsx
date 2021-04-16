@@ -63,7 +63,7 @@ const SignIn = () => {
           title: 'Erro ao fazer login!',
           description:
             'Cheque seu email e senha, ou tente novamente mais tarde!',
-          secondsDuration: 5,
+          secondsDuration: 3,
         });
       }
     },

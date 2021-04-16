@@ -3,9 +3,10 @@ import styled, { keyframes } from 'styled-components';
 import signInBackgroundImg from '../../assets/sign-in-background.jpg';
 
 export const Wrapper = styled.div`
-  height: 100vh;
   display: flex;
   align-items: stretch;
+
+  height: 100vh;
 `;
 
 export const Content = styled.div`

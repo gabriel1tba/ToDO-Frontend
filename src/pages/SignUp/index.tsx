@@ -60,7 +60,7 @@ const SignUp = () => {
 
         setTimeout(() => {
           history.push('/');
-        }, 5000);
+        }, 2000);
       } catch (error) {
         if (error instanceof ValidationError) {
           const errors = getValidationErros(error);
@@ -74,7 +74,7 @@ const SignUp = () => {
           type: 'error',
           title: 'Erro no cadastro!',
           description: 'Tente novamente mais, ou aguarde mais um pouco!',
-          secondsDuration: 5,
+          secondsDuration: 2,
         });
       }
     },
