@@ -7,45 +7,44 @@ import {
 } from 'react';
 import api from '../services/api';
 
-interface SignInCrendentials {
+interface ISignInCrendentials {
   email: string;
   password: string;
 }
 
-interface User {
+interface IUser {
   id: string;
   name: string;
   email: string;
-  avatar: string | null;
   created_at: string;
   updated_at: string;
 }
 
-interface AuthState {
+interface IAuthState {
   token: string;
-  user: User;
+  user: IUser;
 }
 
-interface AuthContextProps {
-  user: User;
-  signIn: (crendentials: SignInCrendentials) => Promise<void>;
+interface IAuthContext {
+  user: IUser;
+  signIn: (crendentials: ISignInCrendentials) => Promise<void>;
   signOut: () => void;
 }
 
-interface AuthProviderProps {
+interface IAuthProvider {
   children: ReactNode;
 }
 
-const AuthContext = createContext({} as AuthContextProps);
+const AuthContext = createContext({} as IAuthContext);
 
-const AuthProvider = ({ children }: AuthProviderProps) => {
+const AuthProvider = ({ children }: IAuthProvider) => {
   const [userData, setUserData] = useState(() => {
     const token = localStorage.getItem('@GoBarber:token');
     const user = localStorage.getItem('@GoBarber:user');
 
     return token && user
       ? { token, user: JSON.parse(user) }
-      : ({} as AuthState);
+      : ({} as IAuthState);
   });
 
   const signIn = useCallback(async ({ email, password }) => {
@@ -66,7 +65,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     localStorage.removeItem('@GoBarber:token');
     localStorage.removeItem('@GoBarber:user');
 
-    setUserData({} as AuthState);
+    setUserData({} as IAuthState);
   }, []);
 
   return (
@@ -76,7 +75,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   );
 };
 
-const useAuth = (): AuthContextProps => {
+const useAuth = (): IAuthContext => {
   const context = useContext(AuthContext);
 
   if (!context) throw new Error('');

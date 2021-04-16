@@ -2,11 +2,11 @@ import { ReactNode } from 'react';
 import { AuthProvider } from './auth';
 import { ToastProvider } from './toast';
 
-interface AppProviderProps {
+interface IAppProvider {
   children: ReactNode;
 }
 
-const AppProvider = ({ children }: AppProviderProps) => (
+const AppProvider = ({ children }: IAppProvider) => (
   <AuthProvider>
     <ToastProvider>{children}</ToastProvider>
   </AuthProvider>
