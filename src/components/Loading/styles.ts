@@ -17,6 +17,7 @@ export const LoadingRoller = styled.div`
     display: inline-block;
     height: 50px;
     width: 50px;
+
     transform: scale(0.7);
 
     > div {
@@ -25,10 +26,12 @@ export const LoadingRoller = styled.div`
 
       &:after {
         position: absolute;
+
         display: block;
         background: #fff;
-        border-radius: 50%;
         content: ' ';
+
+        border-radius: 50%;
         margin: -3px 0 0 -3px;
         height: 6px;
         width: 6px;
@@ -118,11 +121,13 @@ export const LoadingRing = styled.div`
 
   .spinner {
     display: inline-block;
+
     width: 50px;
     height: 50px;
     border: 3px solid #ff9000;
     border-radius: 50%;
     border-top-color: #fff;
+
     animation: spin 1s ease-in-out infinite;
   }
 
