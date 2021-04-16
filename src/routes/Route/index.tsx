@@ -6,7 +6,7 @@ import {
 
 import { useAuth } from '../../hooks/auth';
 
-interface RouteProps extends ReactDOMRouteProps {
+interface IRoute extends ReactDOMRouteProps {
   isPrivate?: boolean;
   component: React.ComponentType;
 }
@@ -15,7 +15,7 @@ const Route = ({
   isPrivate = false,
   component: Component,
   ...rest
-}: RouteProps) => {
+}: IRoute) => {
   const { user: Logged } = useAuth();
 
   return (
