@@ -109,6 +109,12 @@ const SignUp = () => {
               type="password"
               placeholder="Senha"
             />
+            <Input
+              icon={FiLock}
+              name="passwordConfirmation"
+              type="password"
+              placeholder="Confirme a senha"
+            />
 
             <Button loading={buttonLoading} type="submit">
               Cadastrar
