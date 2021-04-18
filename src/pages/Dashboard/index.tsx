@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
+
 import { useAuth } from '../../hooks/auth';
+
 import api from '../../services/api';
 
 const Dashboard = () => {
@@ -19,18 +21,24 @@ const Dashboard = () => {
 
   return (
     <ul>
-      {todos.map((todo: { title: string; description: string }) => (
-        <>
-          <li>
-            <strong>Título</strong>
-            <p>{todo.title}</p>
-          </li>
-          <li style={{ marginBottom: '10px' }}>
-            <strong>Descrição</strong>
-            <p>{todo.description}</p>
-          </li>
-        </>
-      ))}
+      {todos.length > 1 ? (
+        todos.map((todo: { title: string; description: string }) => (
+          <>
+            <li>
+              <strong>Título</strong>
+              <p>{todo.title}</p>
+            </li>
+            <li style={{ marginBottom: '10px' }}>
+              <strong>Descrição</strong>
+              <p>{todo.description}</p>
+            </li>
+          </>
+        ))
+      ) : (
+        <li>
+          <p>Sem tarefas</p>
+        </li>
+      )}
     </ul>
   );
 };
