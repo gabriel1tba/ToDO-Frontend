@@ -50,7 +50,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const signIn = useCallback(async ({ email, password }) => {
     const {
       data: { token, user },
-    } = await api.post('sessions', {
+    } = await api.post('auth', {
       email,
       password,
     });

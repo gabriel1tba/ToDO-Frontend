@@ -111,7 +111,7 @@ const SignUp = () => {
             />
             <Input
               icon={FiLock}
-              name="passwordConfirmation"
+              name="confirmPassword"
               type="password"
               placeholder="Confirme a senha"
             />
