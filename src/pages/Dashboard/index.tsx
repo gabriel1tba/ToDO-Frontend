@@ -1,20 +1,38 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { useAuth } from '../../hooks/auth';
 import api from '../../services/api';
 
 const Dashboard = () => {
-  const getTodos = async () => {
-    const { data } = await api.get(
-      'todos/5a9efaca-cce9-4f57-95e3-66106fbd657b',
-    );
+  const { user } = useAuth();
 
-    console.log({ data });
-  };
+  const [todos, setTodos] = useState([]);
+
+  const getTodoList = useCallback(async () => {
+    const { data } = await api.get(`todos/${user.id}`);
+
+    setTodos(data);
+  }, [user.id]);
 
   useEffect(() => {
-    getTodos();
-  }, []);
+    getTodoList();
+  }, [getTodoList]);
 
-  return <h1>Olá</h1>;
+  return (
+    <ul>
+      {todos.map((todo: { title: string; description: string }) => (
+        <>
+          <li>
+            <strong>Título</strong>
+            <p>{todo.title}</p>
+          </li>
+          <li style={{ marginBottom: '10px' }}>
+            <strong>Descrição</strong>
+            <p>{todo.description}</p>
+          </li>
+        </>
+      ))}
+    </ul>
+  );
 };
 
 export default Dashboard;
