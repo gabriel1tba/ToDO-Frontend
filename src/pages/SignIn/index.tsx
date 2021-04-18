@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -30,6 +30,9 @@ const SignIn = () => {
   const { addToast } = useToast();
 
   const formRef = useRef({} as FormHandles);
+
+  // State to useEffect cleanup function
+  const [didMount, setDidMount] = useState(false);
 
   const [buttonLoading, setButtonLoading] = useState(false);
 
@@ -68,6 +71,13 @@ const SignIn = () => {
     },
     [addToast, signIn],
   );
+
+  // useEffect cleanup function
+  useEffect(() => {
+    setDidMount(true);
+    return () => setDidMount(false);
+  }, []);
+
   return (
     <S.Wrapper>
       <S.Content>

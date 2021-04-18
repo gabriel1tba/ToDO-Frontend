@@ -39,8 +39,8 @@ const AuthContext = createContext({} as IAuthContext);
 
 const AuthProvider = ({ children }: IAuthProvider) => {
   const [userData, setUserData] = useState(() => {
-    const token = localStorage.getItem('@GoBarber:token');
-    const user = localStorage.getItem('@GoBarber:user');
+    const token = localStorage.getItem('@TodoApp:token');
+    const user = localStorage.getItem('@TodoApp:user');
 
     return token && user
       ? { token, user: JSON.parse(user) }
@@ -55,15 +55,15 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       password,
     });
 
-    localStorage.setItem('@GoBarber:token', token);
-    localStorage.setItem('@GoBarber:user', JSON.stringify(user));
+    localStorage.setItem('@TodoApp:token', token);
+    localStorage.setItem('@TodoApp:user', JSON.stringify(user));
 
     setUserData({ token, user });
   }, []);
 
   const signOut = useCallback(() => {
-    localStorage.removeItem('@GoBarber:token');
-    localStorage.removeItem('@GoBarber:user');
+    localStorage.removeItem('@TodoApp:token');
+    localStorage.removeItem('@TodoApp:user');
 
     setUserData({} as IAuthState);
   }, []);
