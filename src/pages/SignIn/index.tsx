@@ -32,7 +32,7 @@ const SignIn = () => {
   const formRef = useRef({} as FormHandles);
 
   // State to useEffect cleanup function
-  const didMount = useRef(false);
+  const [, setDidMount] = useState(false);
 
   const [buttonLoading, setButtonLoading] = useState(false);
 
@@ -74,10 +74,8 @@ const SignIn = () => {
 
   // useEffect cleanup function
   useEffect(() => {
-    didMount.current = true;
-    return () => {
-      didMount.current = false;
-    };
+    setDidMount(true);
+    return () => setDidMount(false);
   }, []);
 
   return (
