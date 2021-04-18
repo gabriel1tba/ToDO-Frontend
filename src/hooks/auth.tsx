@@ -42,9 +42,13 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     const token = localStorage.getItem('@TodoApp:token');
     const user = localStorage.getItem('@TodoApp:user');
 
-    return token && user
-      ? { token, user: JSON.parse(user) }
-      : ({} as IAuthState);
+    if (token && user) {
+      api.defaults.headers.authorization = `Bearer ${token}`;
+
+      return { token, user: JSON.parse(user) };
+    }
+
+    return {} as IAuthState;
   });
 
   const signIn = useCallback(async ({ email, password }) => {
@@ -57,6 +61,8 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
     localStorage.setItem('@TodoApp:token', token);
     localStorage.setItem('@TodoApp:user', JSON.stringify(user));
+
+    api.defaults.headers.authorization = `Bearer ${token}`;
 
     setUserData({ token, user });
   }, []);
