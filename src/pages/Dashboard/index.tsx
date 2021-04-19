@@ -20,26 +20,26 @@ const Dashboard = () => {
   }, [getTodoList]);
 
   return (
-    <ul>
+    <>
       {todos.length > 1 ? (
-        todos.map((todo: { title: string; description: string }) => (
-          <>
-            <li>
-              <strong>Título</strong>
-              <p>{todo.title}</p>
-            </li>
-            <li style={{ marginBottom: '10px' }}>
-              <strong>Descrição</strong>
-              <p>{todo.description}</p>
-            </li>
-          </>
-        ))
+        todos.map(
+          (todo: { title: string; description: string; id: string }) => (
+            <ul key={todo.id}>
+              <li style={{ marginBottom: '10px' }}>
+                <strong>Título</strong>
+                <p>{todo.title}</p>
+                <strong>Descrição</strong>
+                <p>{todo.description}</p>
+              </li>
+            </ul>
+          ),
+        )
       ) : (
         <li>
           <p>Sem tarefas</p>
         </li>
       )}
-    </ul>
+    </>
   );
 };
 

@@ -1,3 +1,11 @@
+# To DO Frontend
+
+&nbsp;
+
+## ⚙️ Em construção ⚙️
+
+![alt text](https://i.imgur.com/YWDTUTk.gif)
+
 ## 💻 Tecnologias utilizadas
 
 - **react**
@@ -11,8 +19,6 @@
 - **styled-components**
 - **unform**
 - **yup**
-- **react-icons**
-- **react-spring**
 - **axios**
 
 &nbsp;
