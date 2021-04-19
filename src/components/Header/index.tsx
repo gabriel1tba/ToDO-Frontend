@@ -28,7 +28,7 @@ const Header = () => {
       </div>
 
       <button onClick={handleSignOut}>
-        <VscSignOut size={30} color="#666360" />
+        <VscSignOut size={33} color="#666360" />
       </button>
     </S.Wrapper>
   );

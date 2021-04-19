@@ -24,5 +24,11 @@ export const Wrapper = styled.header`
   > button {
     background: none;
     border: none;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 `;
