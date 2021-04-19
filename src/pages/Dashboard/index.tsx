@@ -1,13 +1,23 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
+import { useHistory } from 'react-router';
+
+import Header from '../../components/Header';
 
 import { useAuth } from '../../hooks/auth';
 
 import api from '../../services/api';
 
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
+
+  const history = useHistory();
 
   const [todos, setTodos] = useState([]);
+
+  const logOut = useCallback(() => {
+    signOut();
+    history.push('/');
+  }, [history, signOut]);
 
   const getTodoList = useCallback(async () => {
     const { data } = await api.get(`todos/${user.id}`);
@@ -15,32 +25,7 @@ const Dashboard = () => {
     setTodos(data);
   }, [user.id]);
 
-  useEffect(() => {
-    getTodoList();
-  }, [getTodoList]);
-
-  return (
-    <>
-      {todos.length > 1 ? (
-        todos.map(
-          (todo: { title: string; description: string; id: string }) => (
-            <ul key={todo.id}>
-              <li style={{ marginBottom: '10px' }}>
-                <strong>Título</strong>
-                <p>{todo.title}</p>
-                <strong>Descrição</strong>
-                <p>{todo.description}</p>
-              </li>
-            </ul>
-          ),
-        )
-      ) : (
-        <li>
-          <p>Sem tarefas</p>
-        </li>
-      )}
-    </>
-  );
+  return <Header />;
 };
 
 export default Dashboard;
