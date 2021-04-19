@@ -14,7 +14,7 @@ const Dashboard = () => {
 
   const [todos, setTodos] = useState([]);
 
-  const logOut = useCallback(() => {
+  const handleSignOut = useCallback(() => {
     signOut();
     history.push('/');
   }, [history, signOut]);
