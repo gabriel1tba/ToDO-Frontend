@@ -20,9 +20,7 @@ const Header = ({ handleSignOut, userName }: IHeader) => {
             <h4>Seja bem-vindo,</h4>
             <h3>{userName}</h3>
           </>
-        ) : (
-          <h4>Seja bem vindo</h4>
-        )}
+        ) : null}
       </div>
 
       <button onClick={handleSignOut}>
