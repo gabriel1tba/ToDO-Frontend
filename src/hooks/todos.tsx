@@ -49,7 +49,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
   );
 };
 
-const useTodo = (): ITodoContext => {
+const useTodos = (): ITodoContext => {
   const context = useContext(TodoContext);
 
   if (!context) {
@@ -59,4 +59,4 @@ const useTodo = (): ITodoContext => {
   return context;
 };
 
-export { TodoProvider, useTodo };
+export { TodoProvider, useTodos };
