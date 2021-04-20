@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { useHistory } from 'react-router';
 
 import { VscSignOut } from 'react-icons/vsc';
 
@@ -12,15 +11,12 @@ import logoImg from '../../assets/logo.png';
 const Header = () => {
   const { user, signOut } = useAuth();
 
-  const history = useHistory();
-
   const handleSignOut = useCallback(() => {
     signOut();
-    history.push('/');
-  }, [history, signOut]);
+  }, [signOut]);
   return (
     <S.Wrapper>
-      <img src={logoImg} alt="Imagem do logo" />
+      <img src={logoImg} alt="Imagem com as letras da logo" />
 
       <div>
         <h4>Seja bem-vindo,</h4>

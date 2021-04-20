@@ -25,7 +25,7 @@ export const Wrapper = styled.header`
     background: none;
     border: none;
 
-    transition: transform 0.3s;
+    transition: transform 0.4s;
 
     &:hover {
       transform: scale(1.2);
