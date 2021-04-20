@@ -22,7 +22,7 @@ interface ITodo {
 
 interface ITodoContext {
   todos: ITodo[];
-  getTodos: () => void;
+  handleGetTodos: () => void;
 }
 
 interface ITodoProvider {
@@ -36,7 +36,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
 
   const [todos, setTodos] = useState<ITodo[]>([]);
 
-  const getTodos = useCallback(async () => {
+  const handleGetTodos = useCallback(async () => {
     if (user) {
       const { data } = await api.get(`todos/${user.id}`);
 
@@ -45,7 +45,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
   }, [user]);
 
   return (
-    <TodoContext.Provider value={{ todos, getTodos }}>
+    <TodoContext.Provider value={{ todos, handleGetTodos }}>
       {children}
     </TodoContext.Provider>
   );

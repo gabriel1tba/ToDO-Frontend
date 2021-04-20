@@ -7,11 +7,11 @@ import { useTodos } from '../../hooks/todos';
 
 const Dashboard = () => {
   const { user, signOut } = useAuth();
-  const { todos, getTodos } = useTodos();
+  const { todos, handleGetTodos } = useTodos();
 
   useEffect(() => {
-    getTodos();
-  }, [getTodos]);
+    handleGetTodos();
+  }, [handleGetTodos]);
 
   console.log(todos);
   return <Header userName={user.name} handleSignOut={signOut} />;

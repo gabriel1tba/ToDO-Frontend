@@ -5,11 +5,11 @@ import * as S from './styles';
 import logoImg from '../../assets/logo.png';
 
 interface IHeader {
-  handleSignOut: () => void;
   userName?: string;
+  handleSignOut: () => void;
 }
 
-const Header = ({ handleSignOut, userName }: IHeader) => {
+const Header = ({ userName, handleSignOut }: IHeader) => {
   return (
     <S.Wrapper>
       <img src={logoImg} alt="Imagem com as letras da logo" />
