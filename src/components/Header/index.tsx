@@ -1,26 +1,22 @@
-import { useCallback } from 'react';
-
 import { VscSignOut } from 'react-icons/vsc';
-
-import { useAuth } from '../../hooks/auth';
 
 import * as S from './styles';
 
 import logoImg from '../../assets/logo.png';
 
-const Header = () => {
-  const { user, signOut } = useAuth();
+interface IHeader {
+  handleSignOut: () => void;
+  userName: string;
+}
 
-  const handleSignOut = useCallback(() => {
-    signOut();
-  }, [signOut]);
+const Header = ({ handleSignOut, userName }: IHeader) => {
   return (
     <S.Wrapper>
       <img src={logoImg} alt="Imagem com as letras da logo" />
 
       <div>
         <h4>Seja bem-vindo,</h4>
-        <h3>{user.name}</h3>
+        <h3>{userName}</h3>
       </div>
 
       <button onClick={handleSignOut}>

@@ -37,10 +37,12 @@ const TodoProvider = ({ children }: ITodoProvider) => {
   const [todos, setTodos] = useState<ITodo[]>([]);
 
   const getTodos = useCallback(async () => {
-    const { data } = await api.get(`todos/${user.id}`);
+    if (user) {
+      const { data } = await api.get(`todos/${user.id}`);
 
-    setTodos(data);
-  }, [user.id]);
+      setTodos(data);
+    }
+  }, [user]);
 
   return (
     <TodoContext.Provider value={{ todos, getTodos }}>
