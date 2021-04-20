@@ -53,7 +53,7 @@ const useTodos = (): ITodoContext => {
   const context = useContext(TodoContext);
 
   if (!context) {
-    throw new Error('useToast must be used within a ToastProvider');
+    throw new Error('useTodos depende do TodosProvider');
   }
 
   return context;
