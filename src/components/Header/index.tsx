@@ -6,7 +6,7 @@ import logoImg from '../../assets/logo.png';
 
 interface IHeader {
   handleSignOut: () => void;
-  userName: string;
+  userName?: string;
 }
 
 const Header = ({ handleSignOut, userName }: IHeader) => {
@@ -15,8 +15,14 @@ const Header = ({ handleSignOut, userName }: IHeader) => {
       <img src={logoImg} alt="Imagem com as letras da logo" />
 
       <div>
-        <h4>Seja bem-vindo,</h4>
-        <h3>{userName}</h3>
+        {userName ? (
+          <>
+            <h4>Seja bem-vindo,</h4>
+            <h3>{userName}</h3>
+          </>
+        ) : (
+          <h4>Seja bem vindo</h4>
+        )}
       </div>
 
       <button onClick={handleSignOut}>
