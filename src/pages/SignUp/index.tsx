@@ -73,7 +73,8 @@ const SignUp = () => {
         addToast({
           type: 'error',
           title: 'Erro ao cadastrar!',
-          description: 'Tente novamente mais, ou aguarde mais um pouco...',
+          description:
+            'Um erro inesperado aconteceu... Tente novamente mais tarde.',
           secondsDuration: 5,
         });
       }

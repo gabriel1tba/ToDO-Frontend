@@ -53,7 +53,6 @@ const SignIn = () => {
 
         await signIn({ email: data.email, password: data.password });
       } catch (error) {
-        debugger;
         if (error instanceof ValidationError) {
           const errors = getValidationErros(error);
 
@@ -65,7 +64,8 @@ const SignIn = () => {
         addToast({
           type: 'error',
           title: 'Erro ao tentar logar!',
-          description: 'Verifique se o e-mail e senha estão corretos...',
+          description:
+            'Um erro inesperado aconteceu... Tente mais novamente tarde.',
           secondsDuration: 5,
         });
       }
