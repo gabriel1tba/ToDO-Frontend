@@ -65,7 +65,7 @@ const SignIn = () => {
           type: 'error',
           title: 'Erro ao tentar logar!',
           description:
-            'Um erro inesperado aconteceu... Tente mais novamente tarde.',
+            'Um erro inesperado aconteceu... Tente novamente mais tarde.',
           secondsDuration: 5,
         });
       }
