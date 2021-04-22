@@ -53,6 +53,7 @@ const SignIn = () => {
 
         await signIn({ email: data.email, password: data.password });
       } catch (error) {
+        debugger;
         if (error instanceof ValidationError) {
           const errors = getValidationErros(error);
 
