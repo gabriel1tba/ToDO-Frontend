@@ -1,4 +1,4 @@
-import { AiOutlineLogout } from 'react-icons/ai';
+import { VscSignOut } from 'react-icons/vsc';
 
 import * as S from './styles';
 
@@ -24,7 +24,7 @@ const Header = ({ userName, handleSignOut }: IHeader) => {
       </div>
 
       <button onClick={handleSignOut}>
-        <AiOutlineLogout size={40} color="#666360" />
+        <VscSignOut size={40} color="#666360" />
       </button>
     </S.Wrapper>
   );
