@@ -1,4 +1,6 @@
+import { BiListPlus } from 'react-icons/bi';
 import * as S from './styles';
+
 import Todo from './Todo';
 
 const TodoContainer = () => {
@@ -49,6 +51,9 @@ const TodoContainer = () => {
         <Todo />
         <Todo />
       </S.TodoWrapper>
+      <button>
+        <BiListPlus size={30} color="#fff" /> Nova tarefa
+      </button>
     </S.Wrapper>
   );
 };

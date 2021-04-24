@@ -9,6 +9,36 @@ export const Wrapper = styled.div`
   border: solid 1px rgba(0, 0, 0, 0.2);
 
   border-radius: 5px;
+
+  > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 180px;
+    height: 45px;
+
+    font-weight: 600;
+    font-size: 18px;
+
+    margin: -6px 0 0 200px;
+
+    color: #fff;
+    background-color: #3498db;
+
+    border: 0;
+    border-radius: 50px;
+
+    transition: filter 0.3s;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+
+    > svg {
+      margin-right: 10px;
+    }
+  }
 `;
 
 export const Header = styled.div`
@@ -87,9 +117,11 @@ export const TodoWrapper = styled.div`
   &::-webkit-scrollbar {
     width: 8px;
     height: 8px;
-
-    margin: 10px 0;
   }
+  &::-webkit-scrollbar-track {
+    margin: 20px;
+  }
+
   &::-webkit-scrollbar-thumb {
     background: #b8b1b1;
     border-radius: 10px;

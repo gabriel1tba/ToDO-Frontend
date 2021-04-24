@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 
   > input[type='checkbox'] {
     transform: scale(1.5);
-    margin-left: 2px;
+    margin-left: 4px;
   }
 
   > a {
@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
 
     svg {
       cursor: pointer;
-      margin-left: 5px;
+      margin-left: 7px;
 
       transition: transform 0.3s;
 
