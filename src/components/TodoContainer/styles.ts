@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   margin-top: 40px;
 
   width: 600px;
-  height: 500px;
+  height: 450px;
 
   border: solid 1px rgba(0, 0, 0, 0.2);
 
@@ -79,5 +79,24 @@ export const InputSearch = styled.input`
 `;
 
 export const TodoWrapper = styled.div`
-  height: 400px;
+  height: 310px;
+  overflow: scroll;
+
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+
+    margin: 10px 0;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #b8b1b1;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: inset 7px 10px 12px #f0f0f0;
+  }
 `;
