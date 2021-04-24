@@ -1,4 +1,5 @@
 import * as S from './styles';
+import Todo from './Todo';
 
 const TodoContainer = () => {
   return (
@@ -26,6 +27,28 @@ const TodoContainer = () => {
           Pendentes 2
         </span>
       </S.Header>
+
+      <S.InputSearch placeholder="Pesquise uma tarefa" />
+
+      <S.TodoWrapper>
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+      </S.TodoWrapper>
     </S.Wrapper>
   );
 };
