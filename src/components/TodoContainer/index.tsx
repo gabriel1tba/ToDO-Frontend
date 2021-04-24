@@ -1,9 +1,19 @@
+import { useEffect } from 'react';
+
+import { useTodos } from '../../hooks/todos';
+
 import { BiListPlus } from 'react-icons/bi';
 import * as S from './styles';
 
 import Todo from './Todo';
 
 const TodoContainer = () => {
+  const { todos, handleGetTodos } = useTodos();
+
+  useEffect(() => {
+    handleGetTodos();
+  }, [handleGetTodos]);
+
   return (
     <S.Wrapper>
       <S.Header>
@@ -13,7 +23,7 @@ const TodoContainer = () => {
             color: '#3498db',
           }}
         >
-          Total 5
+          Total {todos.length}
         </span>
         <span
           style={{
@@ -33,23 +43,9 @@ const TodoContainer = () => {
       <S.InputSearch placeholder="Pesquise uma tarefa" />
 
       <S.TodoWrapper>
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
+        {todos.map((todo) => (
+          <Todo key={todo.id} todo={todo} />
+        ))}
       </S.TodoWrapper>
       <button>
         <BiListPlus size={30} color="#fff" /> Nova tarefa

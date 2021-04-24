@@ -2,12 +2,31 @@ import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 
 import * as S from './styles';
 
-const Todo = () => {
+type Todo = {
+  id: string;
+  user_id: string;
+  completed: boolean;
+  title: string;
+  description: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+interface ITodo {
+  todo: Todo;
+}
+
+const Todo = ({ todo }: ITodo) => {
   return (
     <S.Wrapper>
-      <input type="checkbox" name="completed" id="completed" />
+      <input
+        defaultChecked={todo.completed}
+        type="checkbox"
+        name="completed"
+        id="completed"
+      />
 
-      <a onClick={() => alert('opa')}>Criar teste</a>
+      <a onClick={() => alert('opa')}>{todo.title}</a>
 
       <div>
         <FaEdit size={20} color="#2ecc71" />

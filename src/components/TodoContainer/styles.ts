@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   margin-top: 40px;
 
   width: 600px;
-  height: 450px;
+  height: 480px;
 
   border: solid 1px rgba(0, 0, 0, 0.2);
 
@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
     font-weight: 600;
     font-size: 18px;
 
-    margin: -6px 0 0 200px;
+    margin: 1px 0 0 200px;
 
     color: #fff;
     background-color: #3498db;
@@ -109,7 +109,7 @@ export const InputSearch = styled.input`
 `;
 
 export const TodoWrapper = styled.div`
-  height: 310px;
+  height: 335px;
   overflow: scroll;
 
   overflow-x: hidden;

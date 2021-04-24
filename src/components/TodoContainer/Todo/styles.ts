@@ -13,8 +13,10 @@ export const Wrapper = styled.div`
   }
 
   > a {
-    padding-right: 350px;
     cursor: pointer;
+    align-self: flex-start;
+
+    width: 400px;
   }
 
   > div {
