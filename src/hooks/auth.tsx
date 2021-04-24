@@ -84,7 +84,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 const useAuth = (): IAuthContext => {
   const context = useContext(AuthContext);
 
-  if (!context) throw new Error('useAuth  depende do AuthProvider');
+  if (!context) throw new Error('useAuth depende do AuthProvider');
 
   return context;
 };

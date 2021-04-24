@@ -9,9 +9,9 @@ interface IAppProvider {
 
 const AppProvider = ({ children }: IAppProvider) => (
   <AuthProvider>
-    <TodoProvider>
-      <ToastProvider>{children}</ToastProvider>
-    </TodoProvider>
+    <ToastProvider>
+      <TodoProvider>{children}</TodoProvider>
+    </ToastProvider>
   </AuthProvider>
 );
 

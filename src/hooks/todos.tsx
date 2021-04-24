@@ -6,6 +6,7 @@ import {
   ReactNode,
 } from 'react';
 
+import { useToast } from './toast';
 import { useAuth } from './auth';
 
 import api from '../services/api';
@@ -33,16 +34,27 @@ const TodoContext = createContext({} as ITodoContext);
 
 const TodoProvider = ({ children }: ITodoProvider) => {
   const { user } = useAuth();
+  const { addToast } = useToast();
 
   const [todos, setTodos] = useState<ITodo[]>([]);
 
   const handleGetTodos = useCallback(async () => {
     if (user) {
-      const { data } = await api.get(`todos/${user.id}`);
+      try {
+        const { data } = await api.get(`todos/${user.id}`);
 
-      setTodos(data);
+        setTodos(data);
+      } catch {
+        addToast({
+          type: 'error',
+          title: 'Erro ao obter lista de tarefas.',
+          description:
+            'Relogue para resolver o problema, caso não funcione, tente novamente mais tarde.',
+          secondsDuration: 10,
+        });
+      }
     }
-  }, [user]);
+  }, [addToast, user]);
 
   return (
     <TodoContext.Provider value={{ todos, handleGetTodos }}>
