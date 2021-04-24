@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  margin: 20px 18px;
+  margin: 25px 18px;
 
   > input[type='checkbox'] {
     transform: scale(1.5);
@@ -19,11 +19,12 @@ export const Wrapper = styled.div`
 
   > div {
     margin-right: -8px;
-    transition: transform 0.4s;
 
     svg {
-      margin-left: 5px;
       cursor: pointer;
+      margin-left: 5px;
+
+      transition: transform 0.3s;
 
       &:hover {
         transform: scale(1.2);
