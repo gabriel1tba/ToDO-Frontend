@@ -10,6 +10,8 @@ import Todo from './Todo';
 const TodoContainer = () => {
   const { todos, handleGetTodos } = useTodos();
 
+  console.log(todos);
+
   useEffect(() => {
     handleGetTodos();
   }, [handleGetTodos]);
@@ -43,9 +45,15 @@ const TodoContainer = () => {
       <S.InputSearch placeholder="Pesquise uma tarefa" />
 
       <S.TodoWrapper>
-        {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo} />
-        ))}
+        {todos.length > 0
+          ? todos
+              .sort(
+                (a, b) =>
+                  new Date(a.created_at).getTime() -
+                  new Date(b.created_at).getTime(),
+              )
+              .map((todo) => <Todo key={todo.id} todo={todo} />)
+          : null}
       </S.TodoWrapper>
       <button>
         <BiListPlus size={30} color="#fff" /> Nova tarefa
