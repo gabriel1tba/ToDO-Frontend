@@ -10,8 +10,6 @@ import Todo from './Todo';
 const TodoContainer = () => {
   const { todos, handleGetTodos } = useTodos();
 
-  console.log(todos);
-
   useEffect(() => {
     handleGetTodos();
   }, [handleGetTodos]);
@@ -25,7 +23,7 @@ const TodoContainer = () => {
             color: '#3498db',
           }}
         >
-          Total {todos.length}
+          Total {todos.length ?? 0}
         </span>
         <span
           style={{
@@ -33,12 +31,19 @@ const TodoContainer = () => {
             color: '#2ecc71',
           }}
         >
-          Concluídos 3
+          Concluídos{' '}
+          {todos
+            .map((todo) => Number(todo.completed), 0)
+            .reduce((count, currentPrice) => count + currentPrice, 0)}
         </span>
         <span
           style={{ backgroundColor: 'rgba(231, 76, 60,0.2)', color: '#e74c3c' }}
         >
-          Pendentes 2
+          Pendentes{' '}
+          {todos.length -
+            todos
+              .map((todo) => Number(todo.completed), 0)
+              .reduce((count, currentPrice) => count + currentPrice, 0) ?? 0}
         </span>
       </S.Header>
 
