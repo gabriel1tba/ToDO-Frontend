@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  margin-top: 40px;
+  margin-top: 32px;
 
   width: calc(100vw - 250px);
   height: 490px;
@@ -40,7 +40,7 @@ export const Wrapper = styled.div`
 `;
 
 export const TodoWrapper = styled.div`
-  height: 345px;
+  height: 450px;
   overflow: scroll;
 
   overflow-x: hidden;
