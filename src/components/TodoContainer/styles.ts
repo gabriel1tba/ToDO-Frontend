@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
     font-weight: 600;
     font-size: 18px;
 
-    margin: 8px 0 0 180px;
+    margin: 9px 0 0 180px;
 
     color: #fff;
     background-color: #3498db;
