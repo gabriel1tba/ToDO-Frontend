@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  margin: 25px 18px;
+  margin: 1px 40px 20px;
 
   > input[type='checkbox'] {
     transform: scale(1.5);
@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 
   > a {
     cursor: pointer;
-    width: 400px;
+    width: calc(100vw - 450px);
   }
 
   > div {

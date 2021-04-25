@@ -3,10 +3,8 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   margin-top: 40px;
 
-  width: 550px;
+  width: calc(100vw - 250px);
   height: 490px;
-
-  border: solid 1px rgba(0, 0, 0, 0.2);
 
   border-radius: 5px;
 
