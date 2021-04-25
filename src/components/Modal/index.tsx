@@ -1,3 +1,5 @@
+import { MdClose } from 'react-icons/md';
+
 import * as S from './styles';
 
 interface IModal {
@@ -6,16 +8,10 @@ interface IModal {
 
 const Modal = ({ handleCloseModal }: IModal) => {
   return (
-    <S.Overlay>
+    <S.Overlay onClick={handleCloseModal}>
       <S.Wrapper>
         <header>Editar</header>
-
-        <strong>Parabéns</strong>
-        <p>Você alcançou um novo level</p>
-
-        <button onClick={handleCloseModal}>
-          <img src="/icons/close.svg" alt="Icone de fechar" />
-        </button>
+        <MdClose size={20} onClick={handleCloseModal}></MdClose>
       </S.Wrapper>
     </S.Overlay>
   );

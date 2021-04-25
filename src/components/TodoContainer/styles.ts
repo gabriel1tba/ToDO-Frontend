@@ -111,8 +111,6 @@ export const TodoWrapper = styled.div`
 
   overflow-x: hidden;
 
-  z-index: 10;
-
   &::-webkit-scrollbar {
     width: 8px;
     height: 8px;

@@ -4,6 +4,8 @@ import { BsTrash } from 'react-icons/bs';
 
 import * as S from './styles';
 
+import Modal from '../../Modal';
+
 import { useToast } from '../../../hooks/toast';
 import { useTodos } from '../../../hooks/todos';
 
@@ -58,35 +60,39 @@ const Todo = ({ todo }: ITodo) => {
   );
 
   return (
-    <S.Wrapper>
-      <input
-        type="checkbox"
-        name="completed"
-        id="completed"
-        checked={todo.completed}
-        onChange={(event) => {
-          handleCompletedTodo(event.target.checked);
-        }}
-      />
+    <>
+      {openModal && <Modal handleCloseModal={handleCloseModal} />}
 
-      <a
-        style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-        onClick={() => alert(todo.title)}
-      >
-        {todo.title}
-      </a>
-
-      <div>
-        <FaEdit
-          onClick={() => {
-            setOpenModal(true);
+      <S.Wrapper>
+        <input
+          type="checkbox"
+          name="completed"
+          id="completed"
+          checked={todo.completed}
+          onChange={(event) => {
+            handleCompletedTodo(event.target.checked);
           }}
-          size={20}
-          color="#2ecc71"
         />
-        <BsTrash size={20} color="#e74c3c" />
-      </div>
-    </S.Wrapper>
+
+        <a
+          style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+          onClick={() => alert(todo.title)}
+        >
+          {todo.title}
+        </a>
+
+        <div>
+          <FaEdit
+            onClick={() => {
+              setOpenModal(true);
+            }}
+            size={20}
+            color="#2ecc71"
+          />
+          <BsTrash size={20} color="#e74c3c" />
+        </div>
+      </S.Wrapper>
+    </>
   );
 };
 
