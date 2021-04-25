@@ -26,7 +26,7 @@ const Todo = ({ todo }: ITodo) => {
         id="completed"
       />
 
-      <a onClick={() => alert('opa')}>{todo.title}</a>
+      <a onClick={() => alert(todo.title)}>{todo.title}</a>
 
       <div>
         <FaEdit size={20} color="#2ecc71" />

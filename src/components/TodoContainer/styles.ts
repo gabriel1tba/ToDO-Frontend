@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   margin-top: 40px;
 
   width: 600px;
-  height: 480px;
+  height: 490px;
 
   border: solid 1px rgba(0, 0, 0, 0.2);
 
@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
     font-weight: 600;
     font-size: 18px;
 
-    margin: 1px 0 0 200px;
+    margin: 8px 0 0 200px;
 
     color: #fff;
     background-color: #3498db;
@@ -72,10 +72,6 @@ export const Header = styled.div`
 `;
 
 export const InputSearch = styled.input`
-  @media (max-width: 1366px) {
-    font-size: 16px;
-  }
-
   margin: 18px;
 
   background: #ffffff;
@@ -89,7 +85,6 @@ export const InputSearch = styled.input`
   border: solid 1px rgba(0, 0, 0, 0.2);
 
   color: rgba(0, 0, 0, 0.5);
-  text-align: center;
 
   font-size: 15px;
 
@@ -99,12 +94,14 @@ export const InputSearch = styled.input`
 
   &:focus {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.3);
+    }
   }
 
   &::placeholder {
     color: rgba(0, 0, 0, 0.5);
     font-size: 15px;
-    text-align: center;
   }
 `;
 
@@ -129,6 +126,5 @@ export const TodoWrapper = styled.div`
   &::-webkit-scrollbar-track {
     background: #ffffff;
     border-radius: 10px;
-    box-shadow: inset 7px 10px 12px #f0f0f0;
   }
 `;

@@ -42,7 +42,7 @@ const TodoContainer = () => {
         </span>
       </S.Header>
 
-      <S.InputSearch placeholder="Pesquise uma tarefa" />
+      <S.InputSearch placeholder="Pesquise uma tarefa..." />
 
       <S.TodoWrapper>
         {todos.length > 0
