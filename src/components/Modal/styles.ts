@@ -52,3 +52,7 @@ export const Wrapper = styled.div`
     }
   }
 `;
+
+export const ModalWrapper = styled.div`
+  margin: 25px;
+`;

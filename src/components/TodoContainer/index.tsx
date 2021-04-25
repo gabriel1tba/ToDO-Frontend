@@ -5,7 +5,7 @@ import { useTodos } from '../../hooks/todos';
 import { BiListPlus } from 'react-icons/bi';
 import * as S from './styles';
 
-import Todo from './Todo';
+import Todo from './components/Todo';
 
 const TodoContainer = () => {
   const { todos, handleGetTodos } = useTodos();

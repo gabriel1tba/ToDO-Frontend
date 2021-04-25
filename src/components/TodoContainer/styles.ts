@@ -64,7 +64,7 @@ export const Header = styled.div`
     border-radius: 3rem;
     text-align: center;
 
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     padding: 0.05rem 0.8rem 0.1rem;
     line-height: inherit;

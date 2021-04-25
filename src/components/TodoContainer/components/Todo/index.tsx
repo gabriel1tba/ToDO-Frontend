@@ -4,12 +4,12 @@ import { BsTrash } from 'react-icons/bs';
 
 import * as S from './styles';
 
-import Modal from '../../Modal';
+import { useToast } from '../../../../hooks/toast';
+import { useTodos } from '../../../../hooks/todos';
 
-import { useToast } from '../../../hooks/toast';
-import { useTodos } from '../../../hooks/todos';
+import Modal from '../../../Modal';
 
-import api from '../../../services/api';
+import api from '../../../../services/api';
 
 type Todo = {
   id: string;
@@ -61,7 +61,11 @@ const Todo = ({ todo }: ITodo) => {
 
   return (
     <>
-      {openModal && <Modal handleCloseModal={handleCloseModal} />}
+      {openModal && (
+        <Modal title="Editar" handleCloseModal={handleCloseModal}>
+          olá
+        </Modal>
+      )}
 
       <S.Wrapper>
         <input
