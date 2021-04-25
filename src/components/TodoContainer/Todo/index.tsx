@@ -28,9 +28,9 @@ const Todo = ({ todo }: ITodo) => {
 
   const handleCompletedTodo = useCallback(
     async (checked: boolean) => {
-      todo.completed = checked;
-
       try {
+        todo.completed = checked;
+
         await api.patch('/todos', {
           ...todo,
         });
