@@ -1,13 +1,12 @@
 import { useCallback } from 'react';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 
+import * as S from './styles';
+
 import { useToast } from '../../../hooks/toast';
 import { useTodos } from '../../../hooks/todos';
-import useDebounce from '../../../hooks/debounce';
 
 import api from '../../../services/api';
-
-import * as S from './styles';
 
 type Todo = {
   id: string;
@@ -25,39 +24,42 @@ interface ITodo {
 
 const Todo = ({ todo }: ITodo) => {
   const { addToast } = useToast();
-  const { handleGetTodos } = useTodos();
+  const { handleUpdateTodos } = useTodos();
 
   const handleCompletedTodo = useCallback(
-    (checked: boolean) => {
+    async (checked: boolean) => {
       todo.completed = checked;
 
       try {
-        api.patch('/todos', {
+        await api.patch('/todos', {
           ...todo,
         });
-      } catch (error) {
+      } catch {
+        todo.completed = !checked;
+
         addToast({
           type: 'error',
           title: 'Erro ao fazer alteração.',
           description:
             'Um erro ocorreu ao marcar tarefa como completa. Tente novamente mais tarde.',
-          secondsDuration: 5,
+          secondsDuration: 8,
         });
       }
-
-      handleGetTodos();
+      handleUpdateTodos(todo);
     },
-    [addToast, handleGetTodos, todo],
+    [addToast, handleUpdateTodos, todo],
   );
 
   return (
     <S.Wrapper>
       <input
-        defaultChecked={todo.completed}
+        checked={todo.completed}
         type="checkbox"
         name="completed"
         id="completed"
-        onChange={(event) => handleCompletedTodo(event.target.checked)}
+        onChange={(event) => {
+          handleCompletedTodo(event.target.checked);
+        }}
       />
 
       <a onClick={() => alert(todo.title)}>{todo.title}</a>
