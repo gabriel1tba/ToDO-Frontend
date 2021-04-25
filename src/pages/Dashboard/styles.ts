@@ -5,4 +5,9 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  > div {
+    display: flex;
+    align-self: flex-start;
+  }
 `;

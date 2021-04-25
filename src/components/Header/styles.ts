@@ -6,7 +6,9 @@ export const Wrapper = styled.header`
   align-items: center;
   width: 100vw;
   height: 90px;
-  padding: 0 15rem;
+  padding: 0 3rem;
+
+  /* background: #fafafa; */
 
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
 
@@ -15,7 +17,7 @@ export const Wrapper = styled.header`
   }
 
   > div {
-    margin-right: 450px;
+    margin-right: 890px;
 
     > h3 {
       color: #ff9000;
