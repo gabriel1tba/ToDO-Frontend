@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   margin-top: 40px;
 
-  width: 600px;
+  width: 550px;
   height: 490px;
 
   border: solid 1px rgba(0, 0, 0, 0.2);
@@ -49,7 +49,7 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  padding: 10px 40px;
+  padding: 10px 15px;
 
   height: 50px;
 
@@ -110,6 +110,8 @@ export const TodoWrapper = styled.div`
   overflow: scroll;
 
   overflow-x: hidden;
+
+  z-index: 10;
 
   &::-webkit-scrollbar {
     width: 8px;
