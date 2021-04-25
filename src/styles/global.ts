@@ -14,8 +14,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body, input, button{
-    font: 'Roboto-Slab' 16px sans-serif;
-  }
+    font-family: 'Roboto', sans-serif;  }
 
   h1, h2, h3, h4, h5, h6, strong {
     font-weight: 500;

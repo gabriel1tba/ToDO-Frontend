@@ -14,8 +14,6 @@ export const Wrapper = styled.div`
 
   > a {
     cursor: pointer;
-    align-self: flex-start;
-
     width: 400px;
   }
 

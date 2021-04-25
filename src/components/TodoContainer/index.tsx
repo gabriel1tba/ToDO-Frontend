@@ -61,7 +61,7 @@ const TodoContainer = () => {
           : null}
       </S.TodoWrapper>
       <button>
-        <BiListPlus size={30} color="#fff" /> Nova tarefa
+        <BiListPlus size={25} color="#fff" /> Nova tarefa
       </button>
     </S.Wrapper>
   );

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Overlay = styled.div`
+  z-index: 1;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -13,29 +14,41 @@ export const Overlay = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  z-index: 100;
+  z-index: 2;
 
   position: relative;
   text-align: flex;
-  padding: 1rem 2rem;
   height: 400px;
   width: 600px;
   background: #fff;
   border-radius: 5px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
   header {
-    font-size: 30px;
-    font-weight: 600;
-    color: #5965e0;
-  }
+    margin: 10px 0;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
 
-  > svg {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    background: transparent;
-    border: none;
+    > p {
+      font-size: 20px;
+      color: #666360;
 
-    cursor: pointer;
+      margin: 0 0 10px 20px;
+
+      cursor: default;
+    }
+
+    > svg {
+      cursor: pointer;
+
+      position: absolute;
+      top: 10px;
+      right: 20px;
+
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
   }
 `;

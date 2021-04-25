@@ -15,13 +15,13 @@ export const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
 
-    width: 180px;
-    height: 45px;
+    width: 160px;
+    height: 38px;
 
     font-weight: 600;
-    font-size: 18px;
+    font-size: 17px;
 
-    margin: 9px 0 0 180px;
+    margin: 4px 0 0 190px;
 
     color: #fff;
     background-color: #3498db;
@@ -106,7 +106,7 @@ export const InputSearch = styled.input`
 `;
 
 export const TodoWrapper = styled.div`
-  height: 335px;
+  height: 345px;
   overflow: scroll;
 
   overflow-x: hidden;

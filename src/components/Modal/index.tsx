@@ -8,10 +8,12 @@ interface IModal {
 
 const Modal = ({ handleCloseModal }: IModal) => {
   return (
-    <S.Overlay onClick={handleCloseModal}>
+    <S.Overlay>
       <S.Wrapper>
-        <header>Editar</header>
-        <MdClose size={20} onClick={handleCloseModal}></MdClose>
+        <header>
+          <p>Modal</p>
+          <MdClose size={25} color="#666360" onClick={handleCloseModal} />
+        </header>
       </S.Wrapper>
     </S.Overlay>
   );
