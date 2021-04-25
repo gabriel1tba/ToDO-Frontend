@@ -53,16 +53,21 @@ const Todo = ({ todo }: ITodo) => {
   return (
     <S.Wrapper>
       <input
-        checked={todo.completed}
         type="checkbox"
         name="completed"
         id="completed"
+        checked={todo.completed}
         onChange={(event) => {
           handleCompletedTodo(event.target.checked);
         }}
       />
 
-      <a onClick={() => alert(todo.title)}>{todo.title}</a>
+      <a
+        style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+        onClick={() => alert(todo.title)}
+      >
+        {todo.title}
+      </a>
 
       <div>
         <FaEdit size={20} color="#2ecc71" />
