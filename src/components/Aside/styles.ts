@@ -13,7 +13,7 @@ export const Wrapper = styled.aside`
 `;
 
 export const InputSearch = styled.input`
-  margin: 40px 40px 0;
+  margin: 48px 40px 0;
 
   background: #ffffff;
   padding: 8px;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  margin-top: 32px;
+  margin-top: 50px;
 
   width: calc(100vw - 250px);
   height: 490px;
@@ -46,11 +46,8 @@ export const TodoWrapper = styled.div`
   overflow-x: hidden;
 
   &::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-  &::-webkit-scrollbar-track {
-    margin: 20px;
+    width: 10px;
+    height: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -60,5 +57,7 @@ export const TodoWrapper = styled.div`
   &::-webkit-scrollbar-track {
     background: #ffffff;
     border-radius: 10px;
+
+    margin: 0 0 15px;
   }
 `;
