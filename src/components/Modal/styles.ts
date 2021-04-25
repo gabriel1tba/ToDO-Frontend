@@ -12,7 +12,7 @@ export const Overlay = styled.div`
   background: rgba(242, 243, 245, 0.8);
 `;
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
   position: relative;
   text-align: center;
   padding: 2rem 3rem;

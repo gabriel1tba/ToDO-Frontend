@@ -7,7 +7,7 @@ interface IModal {
 const Modal = ({ handleCloseModal }: IModal) => {
   return (
     <S.Overlay>
-      <S.Container>
+      <S.Wrapper>
         <header>Editar</header>
 
         <strong>Parabéns</strong>
@@ -16,7 +16,7 @@ const Modal = ({ handleCloseModal }: IModal) => {
         <button onClick={handleCloseModal}>
           <img src="/icons/close.svg" alt="Icone de fechar" />
         </button>
-      </S.Container>
+      </S.Wrapper>
     </S.Overlay>
   );
 };

@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { BsTrash } from 'react-icons/bs';
 
@@ -26,6 +26,12 @@ interface ITodo {
 const Todo = ({ todo }: ITodo) => {
   const { addToast } = useToast();
   const { handleUpdateTodos } = useTodos();
+
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleCloseModal = useCallback(() => {
+    setOpenModal(false);
+  }, []);
 
   const handleCompletedTodo = useCallback(
     async (checked: boolean) => {
@@ -71,7 +77,13 @@ const Todo = ({ todo }: ITodo) => {
       </a>
 
       <div>
-        <FaEdit size={20} color="#2ecc71" />
+        <FaEdit
+          onClick={() => {
+            setOpenModal(true);
+          }}
+          size={20}
+          color="#2ecc71"
+        />
         <BsTrash size={20} color="#e74c3c" />
       </div>
     </S.Wrapper>
