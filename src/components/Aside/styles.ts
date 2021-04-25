@@ -34,11 +34,13 @@ export const InputSearch = styled.input`
     margin-right: 16px;
   }
 
+  transition: all 0.3s;
+
   &:focus {
     width: 95%;
-    margin: 40px 5px 0;
+    margin: 40px 6px 0;
 
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 
     &::placeholder {
       color: rgba(0, 0, 0, 0.3);

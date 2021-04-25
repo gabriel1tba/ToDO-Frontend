@@ -7,7 +7,7 @@ const Aside = () => {
 
   return (
     <S.Wrapper>
-      <S.InputSearch placeholder="Pesquise uma tarefa..." />
+      <S.InputSearch placeholder="Pesquisar tarefas..." />
 
       <S.BadgeContainer>
         <span
