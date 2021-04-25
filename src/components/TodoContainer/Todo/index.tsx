@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
-import { FaEdit, FaTrashAlt } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
+import { BsTrash } from 'react-icons/bs';
 
 import * as S from './styles';
 
@@ -71,7 +72,7 @@ const Todo = ({ todo }: ITodo) => {
 
       <div>
         <FaEdit size={20} color="#2ecc71" />
-        <FaTrashAlt size={20} color="#e74c3c" />
+        <BsTrash size={20} color="#e74c3c" />
       </div>
     </S.Wrapper>
   );
