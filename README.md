@@ -10,8 +10,6 @@
 
 - **react**
 - **typescript**
-- **eslint**
-- **prettier**
 - **husky**
 - **lint-staged**
 - **custom hooks**
