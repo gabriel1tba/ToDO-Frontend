@@ -12,7 +12,7 @@ export const Wrapper = styled.aside`
   align-self: flex-start;
 
   > div {
-    margin: 30px 35px 30px;
+    margin: 140px 35px 30px;
   }
 `;
 
