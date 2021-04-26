@@ -23,6 +23,8 @@ const Header = ({ userName, handleSignOut }: IHeader) => {
         ) : null}
       </div>
 
+      <S.InputSearch placeholder="Pesquisar tarefas..." />
+
       <button onClick={handleSignOut}>
         <VscSignOut size={35} color="#666360" />
       </button>

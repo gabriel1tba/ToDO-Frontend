@@ -9,8 +9,8 @@ export const Wrapper = styled.div`
 
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
-  margin-bottom: 0;
+
+  margin: 40px 0 0 130px;
 
   > div {
     display: flex;
@@ -81,5 +81,6 @@ export const TodoWrapper = styled.ul<IButton>`
     border-radius: 10px;
 
     margin: 15px 0 0;
+    margin-left: 50px;
   }
 `;
