@@ -38,10 +38,6 @@ const SignUp = () => {
     async (data: ISignUpFormData) => {
       setButtonLoading(true);
 
-      setTimeout(() => {
-        setButtonLoading(false);
-      }, 1000);
-
       try {
         formRef.current.setErrors({});
 
@@ -78,6 +74,7 @@ const SignUp = () => {
           secondsDuration: 5,
         });
       }
+      setButtonLoading(false);
     },
     [addToast, history],
   );
