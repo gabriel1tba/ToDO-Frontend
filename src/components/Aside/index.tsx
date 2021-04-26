@@ -27,12 +27,9 @@ const Aside = () => {
         />
         <Badge
           title="Tarefas pendentes"
-          unit={
-            todos.length -
-            todos
-              .map((todo) => Number(todo.completed), 0)
-              .reduce((count, currentPrice) => count + currentPrice, 0)
-          }
+          unit={todos
+            .map((todo) => Number(!todo.completed), 0)
+            .reduce((count, currentPrice) => count + currentPrice, 0)}
           fontColor="#e74c3c"
           rgbaBackground="rgba(231, 76, 60,0.2)"
         />

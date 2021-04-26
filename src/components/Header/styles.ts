@@ -11,11 +11,12 @@ export const Wrapper = styled.header`
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
 
   > img {
+    margin-left: -40px;
     transform: scale(0.8);
   }
 
   > div {
-    margin-right: 890px;
+    margin-right: 940px;
 
     > h3 {
       color: #ff9000;
