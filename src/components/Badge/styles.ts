@@ -1,28 +1,19 @@
 import styled from 'styled-components';
 
-export const BadgeWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin: 30px 40px 30px;
-
+export const Badge = styled.span`
   cursor: default;
 
-  > span {
-    display: inline-block;
+  display: inline-block;
 
-    margin: 10px 0;
+  margin: 10px 0 20px;
 
-    border-radius: 3rem;
-    text-align: start;
+  border-radius: 3rem;
+  text-align: start;
 
-    height: 25px;
-    width: 180px;
+  height: 25px;
 
-    font-size: 14px;
-    font-weight: 500;
-    padding: 0.3rem 0.8rem 0.1rem;
-    line-height: inherit;
-  }
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0.3rem 0.8rem 0.1rem;
+  line-height: inherit;
 `;

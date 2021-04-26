@@ -9,16 +9,14 @@ interface IBadge {
 
 const Badge = ({ title, unit, fontColor, rgbaBackground }: IBadge) => {
   return (
-    <S.BadgeWrapper>
-      <span
-        style={{
-          color: fontColor,
-          backgroundColor: rgbaBackground,
-        }}
-      >
-        {`${title} ${unit ?? ''}`}
-      </span>
-    </S.BadgeWrapper>
+    <S.Badge
+      style={{
+        color: fontColor,
+        backgroundColor: rgbaBackground,
+      }}
+    >
+      {`${title} ${unit ?? ''}`}
+    </S.Badge>
   );
 };
 

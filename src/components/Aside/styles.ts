@@ -10,6 +10,10 @@ export const Wrapper = styled.aside`
   margin-top: 2px;
 
   align-self: flex-start;
+
+  > div {
+    margin: 30px 40px 30px;
+  }
 `;
 
 export const InputSearch = styled.input`
