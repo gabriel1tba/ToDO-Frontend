@@ -2,7 +2,8 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { ValidationError } from 'yup';
-import { FiMail } from 'react-icons/fi';
+
+import * as S from './styles';
 
 import getValidationErros from '../../../../../utils/getValidationErros';
 
@@ -57,11 +58,15 @@ const EditOrDelete = () => {
   );
 
   return (
-    <Form onSubmit={handleSubmit} ref={formRef}>
-      <Input icon={FiMail} name="title" type="text" placeholder="Título" />
-      <TextArea name="description" placeholder="Descrição" />
-      <button type="submit">Editar</button>
-    </Form>
+    <S.Wrapper>
+      <Form onSubmit={handleSubmit} ref={formRef}>
+        <Input name="title" type="text" placeholder="Título" />
+        <TextArea rows={4} name="description" placeholder="Descrição" />
+        <S.Button color=" #007bff" type="submit">
+          Salvar alterações
+        </S.Button>
+      </Form>
+    </S.Wrapper>
   );
 };
 
