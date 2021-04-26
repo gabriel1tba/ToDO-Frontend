@@ -6,10 +6,17 @@ export const Wrapper = styled.div`
 
   display: flex;
   flex-direction: column;
-  padding-left: 0;
+  margin-top: 40px;
   margin-bottom: 0;
 
-  margin-top: 0;
+  > p {
+    display: block;
+    margin: 10px 40px 10px;
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #666360;
+  }
 
   > button {
     display: flex;
@@ -61,6 +68,6 @@ export const TodoWrapper = styled.ul`
     background: #ffffff;
     border-radius: 10px;
 
-    margin: 0 0 15px;
+    margin: 15px 0 0;
   }
 `;
