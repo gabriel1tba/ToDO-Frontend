@@ -13,10 +13,10 @@ export const Wrapper = styled.aside`
 `;
 
 export const InputSearch = styled.input`
-  margin: 48px 40px 0;
+  margin: 48px 35px 0;
 
   padding: 8px;
-  width: 70%;
+  width: 180px;
   height: 35px;
   color: #666360;
 
@@ -37,7 +37,7 @@ export const InputSearch = styled.input`
 
   &:focus {
     width: 95%;
-    margin: 40px 6px 0;
+    margin: 48px 6px 0;
 
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 
@@ -55,7 +55,7 @@ export const InputSearch = styled.input`
 export const BadgeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 
   margin: 30px 40px 30px;
 
@@ -67,9 +67,10 @@ export const BadgeContainer = styled.div`
     margin: 10px 0;
 
     border-radius: 3rem;
-    text-align: center;
+    text-align: start;
 
     height: 25px;
+    width: 180px;
 
     font-size: 14px;
     font-weight: 500;

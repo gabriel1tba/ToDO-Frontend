@@ -27,11 +27,12 @@ const TodoContainer = () => {
               )
               .map((todo) => <Todo key={todo.id} todo={todo} />)
           : null}
+
+        <button>
+          <FiPlus size={25} color="#3498db" />
+          Adicionar tarefa
+        </button>
       </S.TodoWrapper>
-      <button>
-        <FiPlus size={25} color="#3498db" />
-        Adicionar tarefa
-      </button>
     </S.Wrapper>
   );
 };

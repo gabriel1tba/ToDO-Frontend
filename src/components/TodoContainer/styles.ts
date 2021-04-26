@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: calc(100vw - 250px);
-  height: 490px;
+  max-height: 490px;
 
   display: flex;
   flex-direction: column;
@@ -17,6 +17,13 @@ export const Wrapper = styled.div`
     line-height: 1.2;
     color: #666360;
   }
+`;
+
+export const TodoWrapper = styled.ul`
+  height: 450px;
+  overflow: scroll;
+
+  overflow-x: hidden;
 
   > button {
     display: flex;
@@ -29,7 +36,7 @@ export const Wrapper = styled.div`
     font-weight: 500;
     font-size: 17px;
 
-    margin: 4px 0 0 30 px;
+    margin: 10px 0 0 25px;
 
     color: #3498db;
     background-color: transparent;
@@ -44,16 +51,9 @@ export const Wrapper = styled.div`
     }
 
     > svg {
-      margin-right: 18px;
+      margin-right: 10px;
     }
   }
-`;
-
-export const TodoWrapper = styled.ul`
-  height: 450px;
-  overflow: scroll;
-
-  overflow-x: hidden;
 
   &::-webkit-scrollbar {
     width: 10px;
