@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  margin: 0 40px 20px;
+  margin: 15px 40px -5px;
 
-  height: 38px;
+  padding-bottom: 10px;
 
-  padding-bottom: 18px;
-
-  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-spacing: 15px;
+  border-right: 0;
+  border-top: 0;
+  border-left: 0;
+  border-radius: 0;
 
   > input[type='checkbox'] {
     transform: scale(1.5);

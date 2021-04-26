@@ -1,28 +1,31 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  margin-top: 50px;
-
   width: calc(100vw - 250px);
   height: 490px;
 
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  margin-top: 0;
 
   > button {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 160px;
+    width: 180px;
     height: 38px;
 
-    font-weight: 600;
+    font-weight: 500;
     font-size: 17px;
 
-    margin: 4px 0 0 190px;
+    margin: 4px 0 0 30 px;
 
-    color: #fff;
-    background-color: #3498db;
+    color: #3498db;
+    background-color: transparent;
 
     border: 0;
     border-radius: 50px;
@@ -34,12 +37,12 @@ export const Wrapper = styled.div`
     }
 
     > svg {
-      margin-right: 10px;
+      margin-right: 18px;
     }
   }
 `;
 
-export const TodoWrapper = styled.div`
+export const TodoWrapper = styled.ul`
   height: 450px;
   overflow: scroll;
 

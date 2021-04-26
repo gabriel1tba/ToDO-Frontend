@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
+import { FiPlus } from 'react-icons/fi';
 
 import { useTodos } from '../../hooks/todos';
 
-import { BiListPlus } from 'react-icons/bi';
 import * as S from './styles';
 
 import Todo from './components/Todo';
@@ -28,7 +28,8 @@ const TodoContainer = () => {
           : null}
       </S.TodoWrapper>
       <button>
-        <BiListPlus size={25} color="#fff" /> Nova tarefa
+        <FiPlus size={25} color="#3498db" />
+        Adicionar tarefa
       </button>
     </S.Wrapper>
   );
