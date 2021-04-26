@@ -6,6 +6,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     outline: 0;
     box-sizing: border-box;
+
   }
   body{
     background: #fff;

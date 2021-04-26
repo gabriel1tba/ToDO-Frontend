@@ -15,7 +15,6 @@ export const Wrapper = styled.aside`
 export const InputSearch = styled.input`
   margin: 48px 40px 0;
 
-  background: #ffffff;
   padding: 8px;
   width: 70%;
   height: 35px;

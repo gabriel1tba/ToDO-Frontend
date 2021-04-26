@@ -8,9 +8,7 @@ export const Wrapper = styled.header`
   height: 90px;
   padding: 0 3rem;
 
-  /* background: #fafafa; */
-
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
 
   > img {
     transform: scale(0.8);

@@ -30,7 +30,7 @@ export const Wrapper = styled.li`
     appearance: none;
 
     &:checked {
-      background-color: rgba(46, 204, 113, 0.7);
+      background-color: rgba(46, 204, 113, 0.2);
       border: solid 1px #2ecc71;
     }
   }
