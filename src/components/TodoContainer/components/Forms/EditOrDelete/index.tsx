@@ -13,6 +13,7 @@ import Input from '../../../../Input';
 import TextArea from '../../../../TextArea';
 
 import { useToast } from '../../../../../hooks/toast';
+import Loading from '../../../../Loading';
 
 interface IFormData {
   title: string;
@@ -65,6 +66,8 @@ const EditOrDelete = () => {
           secondsDuration: 5,
         });
       }
+
+      setButtonLoading(false);
     },
     [addToast],
   );
@@ -75,7 +78,11 @@ const EditOrDelete = () => {
         <Input name="title" type="text" placeholder="Título" />
         <TextArea rows={4} name="description" placeholder="Descrição" />
         <S.Button color=" #007bff" type="submit">
-          Salvar alterações
+          {buttonLoading ? (
+            <Loading typeLoading="roller" />
+          ) : (
+            'Salvar alterações'
+          )}
         </S.Button>
       </Form>
     </S.Wrapper>

@@ -16,8 +16,10 @@ export const Button = styled.button<IButton>`
   color: #fff;
   background-color: ${({ color }) => color};
 
-  margin-top: 50px;
+  margin-top: 40px;
   margin-left: 370px;
+
+  width: 150px;
 
   font-weight: 400;
   text-align: center;
@@ -28,10 +30,20 @@ export const Button = styled.button<IButton>`
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
+  height: 40px;
+
 
   transition: filter 0.3s;
 
   &:hover {
     filter: brightness(0.8);
+  }
+
+  > div {
+    transform: scale(0.8);
+    height: 25px;
+    margin-top: -13px;
+    margin-bottom: 15px;
+  }
   }
 `;
