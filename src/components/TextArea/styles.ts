@@ -27,9 +27,6 @@ export const Wrapper = styled.div<IWrapper>`
     hasError &&
     css`
       border-color: #c53030;
-      > svg {
-        stroke: #c53030;
-      }
     `}
 
   ${({ isFocused }) =>
@@ -37,9 +34,6 @@ export const Wrapper = styled.div<IWrapper>`
     css`
       color: #ff9000;
       border-color: #ff9000;
-      > svg {
-        stroke: #ff9000;
-      }
     `}
 
   ${({ isFilled }) =>
@@ -67,19 +61,11 @@ export const Wrapper = styled.div<IWrapper>`
       color: #202124;
     }
   }
-
-  svg {
-    margin-right: 16px;
-  }
 `;
 
 export const Error = styled(Tooltip)`
   height: 20px;
   margin-left: 16px;
-
-  > svg {
-    margin: 0;
-  }
 
   span {
     background: #c53030;
