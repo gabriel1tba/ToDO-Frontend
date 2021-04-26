@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
+interface IButton {
+  hastodos: boolean;
+}
+
 export const Wrapper = styled.div`
   width: calc(100vw - 250px);
-  max-height: 490px;
 
   display: flex;
   flex-direction: column;
@@ -19,8 +22,8 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const TodoWrapper = styled.ul`
-  height: 450px;
+export const TodoWrapper = styled.ul<IButton>`
+  height: calc(100vh - 200px);
   overflow: scroll;
 
   overflow-x: hidden;
@@ -30,13 +33,13 @@ export const TodoWrapper = styled.ul`
     align-items: center;
     justify-content: center;
 
-    width: 180px;
+    width: 260px;
     height: 38px;
 
     font-weight: 500;
     font-size: 17px;
 
-    margin: 10px 0 0 25px;
+    margin: 10px 0 0 ${({ hastodos }) => (hastodos ? '-12px' : '31px')};
 
     color: #3498db;
     background-color: transparent;

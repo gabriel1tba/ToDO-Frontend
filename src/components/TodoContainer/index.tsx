@@ -16,9 +16,9 @@ const TodoContainer = () => {
 
   return (
     <S.Wrapper>
-      <p>Suas tarefas</p>
-      <S.TodoWrapper>
-        {todos.length > 0
+      <p>{todos.length ? 'Suas tarefas' : 'Sem tarefas'}</p>
+      <S.TodoWrapper hastodos={!!todos.length}>
+        {todos.length
           ? todos
               .sort(
                 (a, b) =>
@@ -30,7 +30,7 @@ const TodoContainer = () => {
 
         <button>
           <FiPlus size={25} color="#3498db" />
-          Adicionar tarefa
+          {todos.length ? 'Adicionar tarefa' : 'Adicione sua primeira tarefa'}
         </button>
       </S.TodoWrapper>
     </S.Wrapper>
