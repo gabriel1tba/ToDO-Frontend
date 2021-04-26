@@ -54,6 +54,8 @@ const SignIn = () => {
 
           formRef.current.setErrors(errors);
 
+          setButtonLoading(false);
+
           return;
         }
 

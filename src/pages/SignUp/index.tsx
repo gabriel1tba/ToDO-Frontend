@@ -63,6 +63,8 @@ const SignUp = () => {
 
           formRef.current.setErrors(errors);
 
+          setButtonLoading(false);
+
           return;
         }
 

@@ -31,10 +31,6 @@ const EditOrDelete = () => {
     async (data: IFormData) => {
       setButtonLoading(true);
 
-      setTimeout(() => {
-        setButtonLoading(false);
-      }, 1000);
-
       try {
         formRef.current.setErrors({});
         await schema.validate(data, {
@@ -54,6 +50,8 @@ const EditOrDelete = () => {
           const errors = getValidationErros(error);
 
           formRef.current.setErrors(errors);
+
+          setButtonLoading(false);
 
           return;
         }
