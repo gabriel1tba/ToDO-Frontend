@@ -12,13 +12,22 @@ export const Wrapper = styled.div`
   margin-top: 40px;
   margin-bottom: 0;
 
-  > p {
-    display: block;
-    margin: 10px 40px 10px;
-    font-family: inherit;
-    font-size: 18px;
-    line-height: 1.2;
-    color: #666360;
+  > div {
+    display: flex;
+    justify-content: space-between;
+
+    > p {
+      display: block;
+      margin: 10px 40px 10px;
+      font-family: inherit;
+      font-size: 18px;
+      line-height: 1.2;
+      color: #666360;
+    }
+
+    > div {
+      margin-right: 30px;
+    }
   }
 `;
 
