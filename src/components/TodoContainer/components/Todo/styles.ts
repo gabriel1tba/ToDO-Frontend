@@ -7,18 +7,22 @@ export const Wrapper = styled.li`
 
   margin: 15px 40px -5px;
 
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-spacing: 15px;
-  border-right: 0;
-  border-top: 0;
-  border-left: 0;
-  border-radius: 0;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: calc(100vw - 765px);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+  }
 
   > input[type='checkbox'] {
     transform: scale(1.5);
-    margin-left: 5px;
+    margin-right: 20px;
 
     width: 0.8em;
     height: 0.8em;
@@ -37,15 +41,15 @@ export const Wrapper = styled.li`
 
   > a {
     cursor: pointer;
-    width: calc(100vw - 450px);
+    width: calc(100vw - 860px);
   }
 
   > div {
-    margin-right: 1px;
+    margin-right: 350px;
 
     svg {
       cursor: pointer;
-      margin-left: 7px;
+      margin-left: 5px;
 
       transition: transform 0.3s;
 

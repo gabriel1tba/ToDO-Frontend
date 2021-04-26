@@ -5,20 +5,21 @@ interface IButton {
 }
 
 export const Wrapper = styled.div`
-  width: calc(100vw - 250px);
+  width: calc(100vw - 330px);
 
   display: flex;
   flex-direction: column;
 
-  margin: 40px 0 0 130px;
+  margin: 40px 0 0 330px;
 
   > div {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 25px;
 
     > p {
       display: block;
-      margin: 10px 40px 10px;
+      margin: 5px 40px 10px;
       font-family: inherit;
       font-size: 18px;
       line-height: 1.2;
@@ -26,13 +27,13 @@ export const Wrapper = styled.div`
     }
 
     > div {
-      margin-right: 30px;
+      margin-right: 380px;
     }
   }
 `;
 
 export const TodoWrapper = styled.ul<IButton>`
-  height: calc(100vh - 200px);
+  height: calc(100vh - 235px);
   overflow: scroll;
 
   overflow-x: hidden;
@@ -48,7 +49,7 @@ export const TodoWrapper = styled.ul<IButton>`
     font-weight: 500;
     font-size: 17px;
 
-    margin: 10px 0 0 ${({ hastodos }) => (hastodos ? '-12px' : '31px')};
+    margin: 10px 0 0 ${({ hastodos }) => (hastodos ? '-16px' : '31px')};
 
     color: #3498db;
     background-color: transparent;

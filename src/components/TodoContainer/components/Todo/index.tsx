@@ -63,7 +63,10 @@ const Todo = ({ todo }: ITodo) => {
     <>
       {openModal && (
         <Modal title="Editar" handleCloseModal={handleCloseModal}>
-          olá
+          <strong style={{ display: 'inline-block', marginBottom: '10px' }}>
+            {todo.title}
+          </strong>
+          <p>{todo.description}</p>
         </Modal>
       )}
 
