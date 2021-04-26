@@ -7,7 +7,7 @@ export const Wrapper = styled.li`
 
   margin: 15px 40px -5px;
 
-  padding-bottom: 15px;
+  padding-bottom: 14px;
 
   position: relative;
 
@@ -22,7 +22,7 @@ export const Wrapper = styled.li`
 
   > input[type='checkbox'] {
     transform: scale(1.5);
-    margin-right: 20px;
+    margin-right: 10px;
 
     width: 0.8em;
     height: 0.8em;

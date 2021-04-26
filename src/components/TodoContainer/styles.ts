@@ -15,11 +15,11 @@ export const Wrapper = styled.div`
   > div {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin-bottom: 23px;
 
     > p {
       display: block;
-      margin: 5px 40px 10px;
+      margin: 5px 38px 10px;
       font-family: inherit;
       font-size: 18px;
       line-height: 1.2;
@@ -49,7 +49,7 @@ export const TodoWrapper = styled.ul<IButton>`
     font-weight: 500;
     font-size: 17px;
 
-    margin: 10px 0 0 ${({ hastodos }) => (hastodos ? '-16px' : '31px')};
+    margin: 10px 0 0 ${({ hastodos }) => (hastodos ? '-16px' : '30px')};
 
     color: #3498db;
     background-color: transparent;
