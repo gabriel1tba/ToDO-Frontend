@@ -7,12 +7,13 @@ import { FiMail } from 'react-icons/fi';
 import getValidationErros from '../../../../../utils/getValidationErros';
 
 import Input from '../../../../Input';
+import TextArea from '../../../../TextArea';
 
 import { useToast } from '../../../../../hooks/toast';
 
 interface ISignInFormData {
-  email: string;
-  password: string;
+  title: string;
+  description: string;
 }
 
 const EditOrDelete = () => {
@@ -57,8 +58,9 @@ const EditOrDelete = () => {
 
   return (
     <Form onSubmit={handleSubmit} ref={formRef}>
-      <Input icon={FiMail} name="email" type="text" placeholder="E-mail" />
-      <button type="submit">Editar</button>tton
+      <Input icon={FiMail} name="title" type="text" placeholder="Título" />
+      <TextArea name="description" placeholder="Descrição" />
+      <button type="submit">Editar</button>
     </Form>
   );
 };

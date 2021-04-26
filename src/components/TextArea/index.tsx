@@ -8,7 +8,7 @@ interface ITextArea extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;
 }
 
-const ITextArea = ({ name, ...rest }: ITextArea) => {
+const TextArea = ({ name, ...rest }: ITextArea) => {
   const [isFocused, setIsFocued] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
 
@@ -51,4 +51,4 @@ const ITextArea = ({ name, ...rest }: ITextArea) => {
   );
 };
 
-export default ITextArea;
+export default TextArea;

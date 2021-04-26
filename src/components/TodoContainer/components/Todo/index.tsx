@@ -10,6 +10,7 @@ import { useTodos } from '../../../../hooks/todos';
 import Modal from '../../../Modal';
 
 import api from '../../../../services/api';
+import EditOrDelete from '../Forms/EditOrDelete';
 
 type Todo = {
   id: string;
@@ -63,10 +64,7 @@ const Todo = ({ todo }: ITodo) => {
     <>
       {openModal && (
         <Modal title="Editar" handleCloseModal={handleCloseModal}>
-          <strong style={{ display: 'inline-block', marginBottom: '10px' }}>
-            {todo.title}
-          </strong>
-          <p>{todo.description}</p>
+          <EditOrDelete />
         </Modal>
       )}
 
