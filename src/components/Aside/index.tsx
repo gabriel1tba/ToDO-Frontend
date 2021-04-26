@@ -13,13 +13,13 @@ const Aside = () => {
       <div>
         <Badge
           title="Tarefas Totais"
-          unit={todos.length ?? 0}
+          dynamicAmount={todos.length ?? 0}
           fontColor="#3498db"
           rgbaBackground="rgba(52, 152, 219, 0.2)"
         />
         <Badge
           title="Tarefas concluídas"
-          unit={todos
+          dynamicAmount={todos
             .map((todo) => Number(todo.completed), 0)
             .reduce((count, currentPrice) => count + currentPrice, 0)}
           fontColor="#2ecc71"
@@ -27,7 +27,7 @@ const Aside = () => {
         />
         <Badge
           title="Tarefas pendentes"
-          unit={todos
+          dynamicAmount={todos
             .map((todo) => Number(!todo.completed), 0)
             .reduce((count, currentPrice) => count + currentPrice, 0)}
           fontColor="#e74c3c"

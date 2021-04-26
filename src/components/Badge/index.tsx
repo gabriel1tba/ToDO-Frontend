@@ -2,12 +2,12 @@ import * as S from './styles';
 
 interface IBadge {
   title: string;
-  unit?: number;
+  dynamicAmount?: number;
   fontColor: string;
   rgbaBackground: string;
 }
 
-const Badge = ({ title, unit, fontColor, rgbaBackground }: IBadge) => {
+const Badge = ({ title, dynamicAmount, fontColor, rgbaBackground }: IBadge) => {
   return (
     <S.Badge
       style={{
@@ -15,7 +15,7 @@ const Badge = ({ title, unit, fontColor, rgbaBackground }: IBadge) => {
         backgroundColor: rgbaBackground,
       }}
     >
-      {`${title} ${unit ?? ''}`}
+      {`${title} ${dynamicAmount ?? ''}`}
     </S.Badge>
   );
 };
