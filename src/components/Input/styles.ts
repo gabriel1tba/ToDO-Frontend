@@ -20,7 +20,7 @@ export const Wrapper = styled.div<IWrapper>`
   color: #666360;
 
   & + div {
-    margin-top: 8px;
+    margin-top: 10px;
   }
 
   ${({ hasError }) =>

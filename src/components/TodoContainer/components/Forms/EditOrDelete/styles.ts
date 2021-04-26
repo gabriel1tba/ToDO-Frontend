@@ -9,24 +9,6 @@ export const Wrapper = styled.div`
 
   div {
     border-radius: 0.25rem;
-    margin-bottom: 30px;
-    > form {
-      &:first-child {
-        input {
-          &::placeholder {
-            font-size: 14px;
-          }
-        }
-      }
-
-      div {
-        textarea {
-          &::placeholder {
-            font-size: 14px;
-          }
-        }
-      }
-    }
   }
 `;
 
@@ -34,7 +16,7 @@ export const Button = styled.button<IButton>`
   color: #fff;
   background-color: ${({ color }) => color};
 
-  margin-top: 10px;
+  margin-top: 50px;
   margin-left: 370px;
 
   font-weight: 400;

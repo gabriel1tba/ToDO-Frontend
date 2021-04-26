@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { ValidationError } from 'yup';
@@ -7,12 +7,14 @@ import * as S from './styles';
 
 import getValidationErros from '../../../../../utils/getValidationErros';
 
+import { schema } from './schema';
+
 import Input from '../../../../Input';
 import TextArea from '../../../../TextArea';
 
 import { useToast } from '../../../../../hooks/toast';
 
-interface ISignInFormData {
+interface IFormData {
   title: string;
   description: string;
 }
@@ -25,7 +27,7 @@ const EditOrDelete = () => {
   const [buttonLoading, setButtonLoading] = useState(false);
 
   const handleSubmit = useCallback(
-    async (data: ISignInFormData) => {
+    async (data: IFormData) => {
       setButtonLoading(true);
 
       setTimeout(() => {
@@ -34,6 +36,16 @@ const EditOrDelete = () => {
 
       try {
         formRef.current.setErrors({});
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+
+        addToast({
+          type: 'success',
+          title: 'Cadastrado com sucesso!',
+          description: 'Você será redirecionado em instantes...',
+          secondsDuration: 3,
+        });
 
         console.log(data);
       } catch (error) {
