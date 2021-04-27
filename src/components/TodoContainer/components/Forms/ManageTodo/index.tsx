@@ -25,12 +25,19 @@ interface IFormData {
   description: string;
 }
 
-interface IEditOrDelete {
+interface IManageTodo {
   todo: Item;
   handleCloseModal: () => void;
+  editTodo: boolean;
+  showTodo: boolean;
 }
 
-const EditOrDelete = ({ todo, handleCloseModal }: IEditOrDelete) => {
+const ManageTodo = ({
+  showTodo,
+  editTodo,
+  todo,
+  handleCloseModal,
+}: IManageTodo) => {
   const { addToast } = useToast();
   const { updateTodos } = useTodos();
 
@@ -100,18 +107,28 @@ const EditOrDelete = ({ todo, handleCloseModal }: IEditOrDelete) => {
 
         <label htmlFor="description">Descrição</label>
         <TextArea rows={4} name="description" />
-        <S.Footer color=" #28a745">
-          <button type="submit">
-            {buttonLoading ? (
-              <Loading typeLoading="roller" />
-            ) : (
-              'Salvar alterações'
-            )}
-          </button>
+        <S.Footer color={editTodo ? '#28a745' : '#dc3545'}>
+          {editTodo ? (
+            <button type="submit">
+              {buttonLoading ? (
+                <Loading typeLoading="roller" />
+              ) : (
+                'Salvar alterações'
+              )}
+            </button>
+          ) : (
+            <button type="submit">
+              {buttonLoading ? (
+                <Loading typeLoading="roller" />
+              ) : (
+                'Excluir tarefa'
+              )}
+            </button>
+          )}
         </S.Footer>
       </Form>
     </S.Wrapper>
   );
 };
 
-export default EditOrDelete;
+export default ManageTodo;

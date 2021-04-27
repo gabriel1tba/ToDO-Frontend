@@ -10,7 +10,7 @@ import { useTodos } from '../../../../hooks/todos';
 import Modal from '../../../Modal';
 
 import api from '../../../../services/api';
-import EditOrDelete from '../Forms/EditOrDelete';
+import ManageTodo from '../Forms/ManageTodo';
 
 import { Item } from '../../interfaces';
 
@@ -23,6 +23,9 @@ const Todo = ({ todo }: ITodo) => {
   const { updateTodos } = useTodos();
 
   const [openModal, setOpenModal] = useState(false);
+
+  const [showTodo, setShowTodo] = useState(false);
+  const [editTodo, setEditTodo] = useState(false);
 
   const handleCloseModal = useCallback(() => {
     setOpenModal(false);
@@ -56,7 +59,12 @@ const Todo = ({ todo }: ITodo) => {
     <>
       {openModal && (
         <Modal title="Editar" handleCloseModal={handleCloseModal}>
-          <EditOrDelete todo={todo} handleCloseModal={handleCloseModal} />
+          <ManageTodo
+            todo={todo}
+            editTodo={editTodo}
+            showTodo={showTodo}
+            handleCloseModal={handleCloseModal}
+          />
         </Modal>
       )}
 
@@ -73,7 +81,11 @@ const Todo = ({ todo }: ITodo) => {
 
         <a
           style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-          onClick={() => alert(todo.title)}
+          onClick={() => {
+            setShowTodo(true);
+            setEditTodo(false);
+            setOpenModal(true);
+          }}
         >
           {todo.title}
         </a>
@@ -81,12 +93,22 @@ const Todo = ({ todo }: ITodo) => {
         <div>
           <FaEdit
             onClick={() => {
+              setShowTodo(false);
+              setEditTodo(true);
               setOpenModal(true);
             }}
             size={20}
             color="#2ecc71"
           />
-          <BsTrash size={20} color="#e74c3c" />
+          <BsTrash
+            onClick={() => {
+              setShowTodo(false);
+              setEditTodo(false);
+              setOpenModal(true);
+            }}
+            size={20}
+            color="#e74c3c"
+          />
         </div>
       </S.Wrapper>
     </>
