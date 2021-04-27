@@ -10,8 +10,8 @@ export const Wrapper = styled.div`
   label {
     display: block;
     padding-top: calc(0.375rem + 1px);
-    padding-bottom: calc(0.375rem + 5px);
-    margin-top: 10px;
+    padding-bottom: calc(0.375rem + 1px);
+    margin-top: 20px;
     font-size: inherit;
     line-height: 1.5;
 

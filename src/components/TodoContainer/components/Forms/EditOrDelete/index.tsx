@@ -46,9 +46,8 @@ const EditOrDelete = ({ todo, handleCloseModal }: IEditOrDelete) => {
 
         addToast({
           type: 'success',
-          title: 'Cadastrado com sucesso!',
-          description: 'Você será redirecionado em instantes...',
-          secondsDuration: 3,
+          title: 'Atualizado com sucesso!',
+          secondsDuration: 30,
         });
       } catch (error) {
         if (error instanceof ValidationError) {
@@ -78,14 +77,16 @@ const EditOrDelete = ({ todo, handleCloseModal }: IEditOrDelete) => {
 
   return (
     <S.Wrapper>
-      <Form onSubmit={handleSubmit} ref={formRef}>
-        <label>
-          Título
-          <Input name="title" type="text" />
-        </label>
-        <label>
-          Descrição <TextArea rows={3} name="description" />
-        </label>
+      <Form
+        initialData={{ title: todo.title, description: todo.description }}
+        onSubmit={handleSubmit}
+        ref={formRef}
+      >
+        <label htmlFor="title">Título</label>
+        <Input name="title" type="text" />
+
+        <label htmlFor="description">Descrição</label>
+        <TextArea rows={4} name="description" />
         <S.Footer color=" #28a745">
           <button type="submit">
             {buttonLoading ? (

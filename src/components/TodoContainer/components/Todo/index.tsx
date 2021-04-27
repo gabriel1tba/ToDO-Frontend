@@ -43,8 +43,7 @@ const Todo = ({ todo }: ITodo) => {
         addToast({
           type: 'error',
           title: 'Erro ao fazer alteração.',
-          description:
-            'Um erro ocorreu ao marcar tarefa como completa. Tente novamente mais tarde.',
+          description: 'Um erro ocorreu ao marcar tarefa como completa.',
           secondsDuration: 8,
         });
       }
