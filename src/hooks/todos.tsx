@@ -24,7 +24,8 @@ interface ITodo {
 interface ITodoContext {
   todos: ITodo[];
   getTodosFromDB: () => void;
-  updateLocalTodos: (todoClicked: ITodo) => void;
+  updateLocalTodos: (seletectedTodo: ITodo) => void;
+  deleteLocalTodo: (seletectedTodo: ITodo) => void;
 }
 
 interface ITodoProvider {
@@ -64,27 +65,54 @@ const TodoProvider = ({ children }: ITodoProvider) => {
   }, [addToast, user]);
 
   const updateLocalTodos = useCallback(
-    (todoClicked: ITodo) => {
-      setTodos(
-        todos
-          .sort(
-            (a: ITodo, b: ITodo) =>
-              new Date(a.created_at).getTime() -
-              new Date(b.created_at).getTime(),
-          )
-          .map((todo) => {
-            if (todoClicked.id === todo.id) {
-              todo = todoClicked;
-            }
-            return todo;
-          }),
-      );
+    (seletectedTodo: ITodo) => {
+      try {
+        setTodos(
+          todos
+            .sort(
+              (a: ITodo, b: ITodo) =>
+                new Date(a.created_at).getTime() -
+                new Date(b.created_at).getTime(),
+            )
+            .map((todo) => {
+              if (seletectedTodo.id === todo.id) {
+                todo = seletectedTodo;
+              }
+              return todo;
+            }),
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [todos],
+  );
+
+  const deleteLocalTodo = useCallback(
+    (seletectedTodo: ITodo) => {
+      try {
+        setTodos(
+          todos
+            .sort(
+              (a: ITodo, b: ITodo) =>
+                new Date(a.created_at).getTime() -
+                new Date(b.created_at).getTime(),
+            )
+            .filter((todo) => {
+              return todo !== seletectedTodo;
+            }),
+        );
+      } catch (error) {
+        console.log(error);
+      }
     },
     [todos],
   );
 
   return (
-    <TodoContext.Provider value={{ todos, getTodosFromDB, updateLocalTodos }}>
+    <TodoContext.Provider
+      value={{ todos, getTodosFromDB, updateLocalTodos, deleteLocalTodo }}
+    >
       {children}
     </TodoContext.Provider>
   );
