@@ -24,11 +24,11 @@ export const Wrapper = styled.div`
   border: 1px solid #ced4da;
   header {
     margin: 15px 0;
-    border-bottom: solid 0.5px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid #ced4da;
 
     > p {
       font-size: 20px;
-      color: #000;
+      color: #343a40;
 
       margin: 0 0 15px 20px;
 
