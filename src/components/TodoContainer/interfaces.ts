@@ -1,4 +1,4 @@
-export type Item = {
+export interface Item {
   id: string;
   user_id: string;
   completed: boolean;
@@ -6,4 +6,16 @@ export type Item = {
   description: string | null;
   created_at: string;
   updated_at: string;
-};
+}
+
+export interface IFormData {
+  title: string;
+  description: string;
+}
+
+export interface IManageTodo {
+  todo: Item;
+  handleCloseModal: () => void;
+  editTodo: boolean;
+  showTodo: boolean;
+}

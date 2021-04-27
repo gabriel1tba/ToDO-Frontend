@@ -98,7 +98,7 @@ const Todo = ({ todo }: ITodo) => {
               setOpenModal(true);
             }}
             size={20}
-            color="#2ecc71"
+            color="#ffc107"
           />
           <BsTrash
             onClick={() => {
@@ -107,7 +107,7 @@ const Todo = ({ todo }: ITodo) => {
               setOpenModal(true);
             }}
             size={20}
-            color="#e74c3c"
+            color="#dc3545"
           />
         </div>
       </S.Wrapper>

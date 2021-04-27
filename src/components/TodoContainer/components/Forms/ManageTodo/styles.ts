@@ -2,10 +2,6 @@ import styled from 'styled-components';
 
 import { animationFromAbove } from '../../../styles';
 
-interface IButton {
-  color: string;
-}
-
 export const Wrapper = styled.div`
   margin: -25px 1px;
 
@@ -45,7 +41,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Footer = styled.footer<IButton>`
+export const Footer = styled.footer`
   position: relative;
   margin-top: 10px;
 
@@ -59,7 +55,6 @@ export const Footer = styled.footer<IButton>`
   }
   button {
     color: #fff;
-    background-color: ${({ color }) => color};
 
     margin-top: 30px;
     margin-left: 305px;

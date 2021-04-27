@@ -18,19 +18,7 @@ import api from '../../../../../services/api';
 
 import { schema } from './schema';
 
-import { Item } from '../../../interfaces';
-
-interface IFormData {
-  title: string;
-  description: string;
-}
-
-interface IManageTodo {
-  todo: Item;
-  handleCloseModal: () => void;
-  editTodo: boolean;
-  showTodo: boolean;
-}
+import { IFormData, IManageTodo } from '../../../interfaces';
 
 const ManageTodo = ({
   showTodo,
@@ -107,9 +95,21 @@ const ManageTodo = ({
 
         <label htmlFor="description">Descrição</label>
         <TextArea rows={4} name="description" />
-        <S.Footer color={editTodo ? '#28a745' : '#dc3545'}>
-          {editTodo ? (
-            <button type="submit">
+        <S.Footer>
+          {showTodo ? (
+            <button
+              type="button"
+              style={{
+                backgroundColor: '#007bff',
+                width: '100px',
+                marginLeft: '355px',
+              }}
+              onClick={handleCloseModal}
+            >
+              {buttonLoading ? <Loading typeLoading="roller" /> : 'Voltar'}
+            </button>
+          ) : editTodo ? (
+            <button style={{ backgroundColor: '#007bff' }} type="submit">
               {buttonLoading ? (
                 <Loading typeLoading="roller" />
               ) : (
@@ -117,7 +117,7 @@ const ManageTodo = ({
               )}
             </button>
           ) : (
-            <button type="submit">
+            <button style={{ backgroundColor: '#dc3545' }} type="submit">
               {buttonLoading ? (
                 <Loading typeLoading="roller" />
               ) : (
