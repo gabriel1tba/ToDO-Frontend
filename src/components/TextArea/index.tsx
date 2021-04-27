@@ -14,7 +14,7 @@ const TextArea = ({ name, ...rest }: ITextArea) => {
 
   const textAreaRef = useRef({} as HTMLTextAreaElement);
 
-  const { fieldName, error, registerField } = useField(name);
+  const { fieldName, error, registerField, defaultValue } = useField(name);
 
   const handleInputFocus = useCallback(() => {
     setIsFocued(true);
@@ -37,6 +37,7 @@ const TextArea = ({ name, ...rest }: ITextArea) => {
   return (
     <S.Wrapper hasError={!!error} isFocused={isFocused} isFilled={isFilled}>
       <textarea
+        defaultValue={defaultValue}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
         ref={textAreaRef}

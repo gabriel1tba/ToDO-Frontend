@@ -16,7 +16,7 @@ const Input = ({ name, icon: Icon, ...rest }: IInput) => {
 
   const inputRef = useRef({} as HTMLInputElement);
 
-  const { fieldName, error, registerField } = useField(name);
+  const { fieldName, error, registerField, defaultValue } = useField(name);
 
   const handleInputFocus = useCallback(() => {
     setIsFocued(true);
@@ -40,6 +40,7 @@ const Input = ({ name, icon: Icon, ...rest }: IInput) => {
     <S.Wrapper hasError={!!error} isFocused={isFocused} isFilled={isFilled}>
       {Icon && <Icon size={20} />}
       <input
+        defaultValue={defaultValue}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
         ref={inputRef}
