@@ -9,6 +9,23 @@ export const Wrapper = styled.div`
 
   div {
     border-radius: 0.25rem;
+
+    input {
+      height: 13px;
+      color: rgba(0, 0, 0, 0.6);
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 14px;
+      }
+    }
+
+    textarea {
+      color: rgba(0, 0, 0, 0.7);
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.7);
+        font-size: 14px;
+      }
+    }
   }
 `;
 
@@ -17,7 +34,7 @@ export const Button = styled.button<IButton>`
   background-color: ${({ color }) => color};
 
   margin-top: 40px;
-  margin-left: 370px;
+  margin-left: 368px;
 
   width: 150px;
 

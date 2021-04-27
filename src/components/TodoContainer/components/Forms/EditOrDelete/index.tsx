@@ -73,9 +73,9 @@ const EditOrDelete = () => {
   return (
     <S.Wrapper>
       <Form onSubmit={handleSubmit} ref={formRef}>
-        <Input name="title" type="text" placeholder="Título" />
-        <TextArea rows={4} name="description" placeholder="Descrição" />
-        <S.Button color=" #007bff" type="submit">
+        <Input name="title" type="text" />
+        <TextArea rows={4} name="description" />
+        <S.Button color=" #28a745" type="submit">
           {buttonLoading ? (
             <Loading typeLoading="roller" />
           ) : (
