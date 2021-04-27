@@ -47,7 +47,7 @@ const EditOrDelete = ({ todo, handleCloseModal }: IEditOrDelete) => {
         addToast({
           type: 'success',
           title: 'Atualizado com sucesso!',
-          secondsDuration: 30,
+          secondsDuration: 3,
         });
       } catch (error) {
         if (error instanceof ValidationError) {
