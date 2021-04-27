@@ -21,8 +21,7 @@ export const Wrapper = styled.div`
   width: 500px;
   background: #fff;
   border-radius: 5px;
-  border: solid 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+  border: 1px solid #ced4da;
   header {
     margin: 15px 0;
     border-bottom: solid 0.5px rgba(0, 0, 0, 0.2);
