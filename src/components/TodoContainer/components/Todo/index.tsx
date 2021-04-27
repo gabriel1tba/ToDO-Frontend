@@ -20,7 +20,7 @@ interface ITodo {
 
 const Todo = ({ todo }: ITodo) => {
   const { addToast } = useToast();
-  const { updateLocalTodos } = useTodos();
+  const { updateTodos } = useTodos();
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -39,7 +39,7 @@ const Todo = ({ todo }: ITodo) => {
           description: todo.description,
         });
 
-        updateLocalTodos(data);
+        updateTodos(data);
       } catch {
         addToast({
           type: 'error',
@@ -49,7 +49,7 @@ const Todo = ({ todo }: ITodo) => {
         });
       }
     },
-    [addToast, updateLocalTodos, todo],
+    [addToast, updateTodos, todo],
   );
 
   return (

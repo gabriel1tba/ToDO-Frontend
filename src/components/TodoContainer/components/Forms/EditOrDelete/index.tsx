@@ -32,7 +32,7 @@ interface IEditOrDelete {
 
 const EditOrDelete = ({ todo, handleCloseModal }: IEditOrDelete) => {
   const { addToast } = useToast();
-  const { updateLocalTodos } = useTodos();
+  const { updateTodos } = useTodos();
 
   const formRef = useRef({} as FormHandles);
 
@@ -55,7 +55,7 @@ const EditOrDelete = ({ todo, handleCloseModal }: IEditOrDelete) => {
           description: formData.description,
         });
 
-        updateLocalTodos(data);
+        updateTodos(data);
 
         addToast({
           type: 'success',
@@ -85,7 +85,7 @@ const EditOrDelete = ({ todo, handleCloseModal }: IEditOrDelete) => {
       setButtonLoading(false);
       handleCloseModal();
     },
-    [addToast, handleCloseModal, todo.id, updateLocalTodos],
+    [addToast, handleCloseModal, todo.id, updateTodos],
   );
 
   return (

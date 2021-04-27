@@ -24,8 +24,9 @@ interface ITodo {
 interface ITodoContext {
   todos: ITodo[];
   getTodosFromDB: () => void;
-  updateLocalTodos: (seletectedTodo: ITodo) => void;
-  deleteLocalTodo: (seletectedTodo: ITodo) => void;
+  createTodo: (seletectedTodo: ITodo) => void;
+  updateTodos: (seletectedTodo: ITodo) => void;
+  deleteTodo: (seletectedTodo: ITodo) => void;
 }
 
 interface ITodoProvider {
@@ -64,7 +65,15 @@ const TodoProvider = ({ children }: ITodoProvider) => {
     }
   }, [addToast, user]);
 
-  const updateLocalTodos = useCallback(
+  const createTodo = useCallback((seletectedTodo: ITodo) => {
+    try {
+      setTodos((prevState) => [...prevState, seletectedTodo]);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  const updateTodos = useCallback(
     (seletectedTodo: ITodo) => {
       try {
         setTodos(
@@ -88,7 +97,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
     [todos],
   );
 
-  const deleteLocalTodo = useCallback(
+  const deleteTodo = useCallback(
     (seletectedTodo: ITodo) => {
       try {
         setTodos(
@@ -111,7 +120,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
 
   return (
     <TodoContext.Provider
-      value={{ todos, getTodosFromDB, updateLocalTodos, deleteLocalTodo }}
+      value={{ todos, getTodosFromDB, createTodo, updateTodos, deleteTodo }}
     >
       {children}
     </TodoContext.Provider>
