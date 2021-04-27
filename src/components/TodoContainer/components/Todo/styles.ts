@@ -21,21 +21,33 @@ export const Wrapper = styled.li`
   }
 
   > input[type='checkbox'] {
-    transform: scale(1.5);
-    margin-right: 10px;
-
-    width: 0.8em;
-    height: 0.8em;
-    border-radius: 50%;
-
-    border: solid 1px #666360;
-    cursor: pointer;
-
+    width: 17px !important;
+    height: 17px !important;
+    margin: 5px;
     appearance: none;
+    box-shadow: none;
+    font-size: 2em;
+    border: solid 2px #2ecc71;
 
     &:checked {
-      background-color: rgba(46, 204, 113, 0.2);
-      border: solid 1px #2ecc71;
+      background-color: #2ecc71;
+
+      display: inline-block;
+
+      padding-top: -2px;
+      padding-left: 3px;
+      &:after {
+        content: '';
+        display: block;
+
+        width: 4.5px;
+        height: 9px;
+
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+
+        transform: rotate(45deg);
+      }
     }
   }
 
