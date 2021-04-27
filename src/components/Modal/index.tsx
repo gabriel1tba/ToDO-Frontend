@@ -14,7 +14,7 @@ const Modal = ({ children, title, handleCloseModal }: IModal) => {
       <S.Wrapper>
         <header>
           <p>{title}</p>
-          <MdClose size={25} color="#666360" onClick={handleCloseModal} />
+          <MdClose size={20} color="#666360" onClick={handleCloseModal} />
         </header>
 
         <S.ModalWrapper>{children}</S.ModalWrapper>

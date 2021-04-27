@@ -18,18 +18,18 @@ export const Wrapper = styled.div`
 
   position: relative;
   text-align: flex;
-  width: 600px;
+  width: 500px;
   background: #fff;
   border-radius: 5px;
   border: solid 1px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
   header {
     margin: 15px 0;
-    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+    border-bottom: solid 0.5px rgba(0, 0, 0, 0.2);
 
     > p {
       font-size: 20px;
-      color: #666360;
+      color: #000;
 
       margin: 0 0 15px 20px;
 
@@ -40,7 +40,7 @@ export const Wrapper = styled.div`
       cursor: pointer;
 
       position: absolute;
-      top: 10px;
+      top: 15px;
       right: 20px;
 
       transition: transform 0.3s;
