@@ -44,7 +44,13 @@ const TodoProvider = ({ children }: ITodoProvider) => {
       try {
         const { data } = await api.get(`todos/${user.id}`);
 
-        setTodos(data);
+        setTodos(
+          data.sort(
+            (a: ITodo, b: ITodo) =>
+              new Date(a.created_at).getTime() -
+              new Date(b.created_at).getTime(),
+          ),
+        );
       } catch {
         addToast({
           type: 'error',
@@ -60,12 +66,18 @@ const TodoProvider = ({ children }: ITodoProvider) => {
   const updateLocalTodos = useCallback(
     (todoClicked: ITodo) => {
       setTodos(
-        todos.map((todo) => {
-          if (todoClicked.id === todo.id) {
-            todo = todoClicked;
-          }
-          return todo;
-        }),
+        todos
+          .sort(
+            (a: ITodo, b: ITodo) =>
+              new Date(a.created_at).getTime() -
+              new Date(b.created_at).getTime(),
+          )
+          .map((todo) => {
+            if (todoClicked.id === todo.id) {
+              todo = todoClicked;
+            }
+            return todo;
+          }),
       );
     },
     [todos],

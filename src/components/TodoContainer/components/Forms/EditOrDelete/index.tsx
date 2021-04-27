@@ -10,8 +10,11 @@ import TextArea from '../../../../TextArea';
 import Loading from '../../../../Loading';
 
 import { useToast } from '../../../../../hooks/toast';
+import { useTodos } from '../../../../../hooks/todos';
 
 import getValidationErros from '../../../../../utils/getValidationErros';
+
+import api from '../../../../../services/api';
 
 import { schema } from './schema';
 
@@ -29,20 +32,30 @@ interface IEditOrDelete {
 
 const EditOrDelete = ({ todo, handleCloseModal }: IEditOrDelete) => {
   const { addToast } = useToast();
+  const { updateLocalTodos } = useTodos();
 
   const formRef = useRef({} as FormHandles);
 
   const [buttonLoading, setButtonLoading] = useState(false);
 
   const handleSubmit = useCallback(
-    async (data: IFormData) => {
+    async (formData: IFormData) => {
       setButtonLoading(true);
 
       try {
         formRef.current.setErrors({});
-        await schema.validate(data, {
+
+        await schema.validate(formData, {
           abortEarly: false,
         });
+
+        const { data } = await api.patch('/todos', {
+          id: todo.id,
+          title: formData.title,
+          description: formData.description,
+        });
+
+        updateLocalTodos(data);
 
         addToast({
           type: 'success',
@@ -72,7 +85,7 @@ const EditOrDelete = ({ todo, handleCloseModal }: IEditOrDelete) => {
       setButtonLoading(false);
       handleCloseModal();
     },
-    [addToast, handleCloseModal],
+    [addToast, handleCloseModal, todo.id, updateLocalTodos],
   );
 
   return (

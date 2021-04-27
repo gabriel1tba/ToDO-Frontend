@@ -31,8 +31,9 @@ const Todo = ({ todo }: ITodo) => {
   const handleCompletedTodo = useCallback(
     async (checked: boolean) => {
       try {
-        const { data } = await api.patch('/toddos', {
+        const { data } = await api.patch('/todos', {
           id: todo.id,
+
           completed: checked,
           title: todo.title,
           description: todo.description,

@@ -46,13 +46,7 @@ const TodoContainer = () => {
       </div>
       <S.TodoWrapper hastodos={!!todos.length}>
         {todos.length
-          ? todos
-              .sort(
-                (a, b) =>
-                  new Date(a.created_at).getTime() -
-                  new Date(b.created_at).getTime(),
-              )
-              .map((todo) => <Todo key={todo.id} todo={todo} />)
+          ? todos.map((todo) => <Todo key={todo.id} todo={todo} />)
           : null}
 
         <button>
