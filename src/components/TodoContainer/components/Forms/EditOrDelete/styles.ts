@@ -5,7 +5,7 @@ interface IButton {
 }
 
 export const Wrapper = styled.div`
-  margin: 0 1px;
+  margin: -25px 1px;
 
   label {
     display: block;
@@ -20,7 +20,6 @@ export const Wrapper = styled.div`
 
   div {
     border-radius: 0.25rem;
-    border: 1px solid #ced4da;
     input {
       height: 13px;
       color: rgba(0, 0, 0, 0.7);
@@ -42,36 +41,49 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Button = styled.button<IButton>`
-  color: #fff;
-  background-color: ${({ color }) => color};
+export const Footer = styled.footer<IButton>`
+  position: relative;
+  margin-top: 10px;
 
-  margin-top: 30px;
-  margin-left: 305px;
-
-  width: 150px;
-
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  height: 40px;
-
-  transition: filter 0.3s;
-
-  &:hover {
-    filter: brightness(0.8);
+  &:before {
+    content: '';
+    position: absolute;
+    right: -22px;
+    bottom: 55px;
+    width: 500px;
+    border-top: 1px solid #ced4da;
   }
+  button {
+    color: #fff;
+    background-color: ${({ color }) => color};
 
-  > div {
-    transform: scale(0.8);
-    height: 25px;
-    margin-top: -13px;
-    margin-bottom: 15px;
+    margin-top: 30px;
+    margin-left: 305px;
+
+    width: 150px;
+
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    height: 40px;
+
+    transition: filter 0.3s;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+
+    > div {
+      transform: scale(0.8);
+      height: 25px;
+      margin-top: -13px;
+      margin-bottom: 15px;
+    }
   }
 `;

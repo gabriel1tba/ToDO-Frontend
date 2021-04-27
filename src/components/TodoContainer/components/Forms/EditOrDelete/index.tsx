@@ -80,13 +80,15 @@ const EditOrDelete = () => {
         <label>
           Descrição <TextArea rows={3} name="description" />
         </label>
-        <S.Button color=" #28a745" type="submit">
-          {buttonLoading ? (
-            <Loading typeLoading="roller" />
-          ) : (
-            'Salvar alterações'
-          )}
-        </S.Button>
+        <S.Footer color=" #28a745">
+          <button type="submit">
+            {buttonLoading ? (
+              <Loading typeLoading="roller" />
+            ) : (
+              'Salvar alterações'
+            )}
+          </button>
+        </S.Footer>
       </Form>
     </S.Wrapper>
   );
