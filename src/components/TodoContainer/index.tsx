@@ -9,11 +9,11 @@ import Todo from './components/Todo';
 import Badge from '../Badge';
 
 const TodoContainer = () => {
-  const { todos, handleGetTodos } = useTodos();
+  const { todos, getTodosFromDB } = useTodos();
 
   useEffect(() => {
-    handleGetTodos();
-  }, [handleGetTodos]);
+    getTodosFromDB();
+  }, [getTodosFromDB]);
 
   return (
     <S.Wrapper>

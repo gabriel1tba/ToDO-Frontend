@@ -12,23 +12,15 @@ import Modal from '../../../Modal';
 import api from '../../../../services/api';
 import EditOrDelete from '../Forms/EditOrDelete';
 
-type Todo = {
-  id: string;
-  user_id: string;
-  completed: boolean;
-  title: string;
-  description: string | null;
-  created_at: string;
-  updated_at: string;
-};
+import { Item } from '../../interfaces';
 
 interface ITodo {
-  todo: Todo;
+  todo: Item;
 }
 
 const Todo = ({ todo }: ITodo) => {
   const { addToast } = useToast();
-  const { handleUpdateTodos } = useTodos();
+  const { updateLocalTodos } = useTodos();
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -46,7 +38,7 @@ const Todo = ({ todo }: ITodo) => {
           description: todo.description,
         });
 
-        handleUpdateTodos(data);
+        updateLocalTodos(data);
       } catch {
         addToast({
           type: 'error',
@@ -57,14 +49,14 @@ const Todo = ({ todo }: ITodo) => {
         });
       }
     },
-    [addToast, handleUpdateTodos, todo],
+    [addToast, updateLocalTodos, todo],
   );
 
   return (
     <>
       {openModal && (
         <Modal title="Editar" handleCloseModal={handleCloseModal}>
-          <EditOrDelete />
+          <EditOrDelete todo={todo} handleCloseModal={handleCloseModal} />
         </Modal>
       )}
 

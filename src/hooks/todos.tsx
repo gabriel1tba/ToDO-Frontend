@@ -23,8 +23,8 @@ interface ITodo {
 
 interface ITodoContext {
   todos: ITodo[];
-  handleGetTodos: () => void;
-  handleUpdateTodos: (todoClicked: ITodo) => void;
+  getTodosFromDB: () => void;
+  updateLocalTodos: (todoClicked: ITodo) => void;
 }
 
 interface ITodoProvider {
@@ -39,7 +39,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
 
   const [todos, setTodos] = useState<ITodo[]>([]);
 
-  const handleGetTodos = useCallback(async () => {
+  const getTodosFromDB = useCallback(async () => {
     if (user) {
       try {
         const { data } = await api.get(`todos/${user.id}`);
@@ -57,7 +57,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
     }
   }, [addToast, user]);
 
-  const handleUpdateTodos = useCallback(
+  const updateLocalTodos = useCallback(
     (todoClicked: ITodo) => {
       setTodos(
         todos.map((todo) => {
@@ -72,7 +72,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
   );
 
   return (
-    <TodoContext.Provider value={{ todos, handleGetTodos, handleUpdateTodos }}>
+    <TodoContext.Provider value={{ todos, getTodosFromDB, updateLocalTodos }}>
       {children}
     </TodoContext.Provider>
   );
