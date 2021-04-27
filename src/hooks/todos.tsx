@@ -39,20 +39,6 @@ const TodoProvider = ({ children }: ITodoProvider) => {
 
   const [todos, setTodos] = useState<ITodo[]>([]);
 
-  const handleUpdateTodos = useCallback(
-    (todoClicked: ITodo) => {
-      setTodos(
-        todos.map((todo) => {
-          if (todoClicked.id === todo.id) {
-            todo = todoClicked;
-          }
-          return todo;
-        }),
-      );
-    },
-    [todos],
-  );
-
   const handleGetTodos = useCallback(async () => {
     if (user) {
       try {
@@ -70,6 +56,20 @@ const TodoProvider = ({ children }: ITodoProvider) => {
       }
     }
   }, [addToast, user]);
+
+  const handleUpdateTodos = useCallback(
+    (todoClicked: ITodo) => {
+      setTodos(
+        todos.map((todo) => {
+          if (todoClicked.id === todo.id) {
+            todo = todoClicked;
+          }
+          return todo;
+        }),
+      );
+    },
+    [todos],
+  );
 
   return (
     <TodoContext.Provider value={{ todos, handleGetTodos, handleUpdateTodos }}>

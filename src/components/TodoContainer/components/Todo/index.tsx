@@ -39,14 +39,14 @@ const Todo = ({ todo }: ITodo) => {
   const handleCompletedTodo = useCallback(
     async (checked: boolean) => {
       try {
-        await api.patch('/todos', {
+        const { data } = await api.patch('/todos', {
           id: todo.id,
           completed: checked,
           title: todo.title,
           description: todo.description,
         });
 
-        todo.completed = checked;
+        handleUpdateTodos(data);
       } catch {
         addToast({
           type: 'error',
@@ -56,7 +56,6 @@ const Todo = ({ todo }: ITodo) => {
           secondsDuration: 8,
         });
       }
-      handleUpdateTodos(todo);
     },
     [addToast, handleUpdateTodos, todo],
   );
