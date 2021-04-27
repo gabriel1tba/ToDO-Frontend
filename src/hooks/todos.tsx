@@ -131,7 +131,7 @@ const useTodos = (): ITodoContext => {
   const context = useContext(TodoContext);
 
   if (!context) {
-    throw new Error('useTodos depende do TodosProvider');
+    throw new Error('useTodos depende do TodoProvider');
   }
 
   return context;

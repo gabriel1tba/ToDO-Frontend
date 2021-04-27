@@ -75,7 +75,7 @@ const EditOrDelete = ({ todo, handleCloseModal }: IEditOrDelete) => {
 
         addToast({
           type: 'error',
-          title: 'Erro ao tentar logar!',
+          title: 'Erro ao tentar atualizar!',
           description:
             'Um erro inesperado aconteceu... Tente novamente mais tarde.',
           secondsDuration: 5,

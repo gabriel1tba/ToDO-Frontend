@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
+import { animationFromAbove } from '../../../styles';
+
 interface IButton {
   color: string;
 }
 
 export const Wrapper = styled.div`
   margin: -25px 1px;
+
+  animation: ${animationFromAbove} 0.8s;
 
   label {
     display: block;

@@ -1,8 +1,20 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 interface IButton {
   hastodos: boolean;
 }
+
+export const animationFromAbove = keyframes`
+  from{
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 export const Wrapper = styled.div`
   width: calc(100vw - 330px);
@@ -37,6 +49,8 @@ export const TodoWrapper = styled.ul<IButton>`
   overflow: scroll;
 
   overflow-x: hidden;
+
+  animation: ${animationFromAbove} 1s;
 
   > button {
     display: flex;
