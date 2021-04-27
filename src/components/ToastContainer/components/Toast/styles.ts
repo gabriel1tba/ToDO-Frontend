@@ -22,7 +22,7 @@ const toastTypes = {
 };
 
 export const Wrapper = styled(animated.div)<ToastProps>`
-  width: 300px;
+  width: 320px;
 
   position: fixed;
   margin-right: 10px;

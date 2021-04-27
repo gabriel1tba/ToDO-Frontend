@@ -4,15 +4,27 @@ interface IButton {
   hastodos: boolean;
 }
 
-export const animationFromAbove = keyframes`
+const animationFromRight = keyframes`
   from{
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateX(60px);
   }
 
   to{
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
+  }
+`;
+
+const animationFromLeft = keyframes`
+  from{
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateX(0);
   }
 `;
 
@@ -25,13 +37,15 @@ export const Wrapper = styled.div`
   margin: 40px 0 0 330px;
 
   > div {
+    animation: ${animationFromLeft} 1s;
+
     display: flex;
     justify-content: space-between;
     margin-bottom: 23px;
 
     > p {
       display: block;
-      margin: 5px 38px 10px;
+      margin: 5px 45px 10px;
       font-family: inherit;
       font-size: 18px;
       line-height: 1.2;
@@ -45,12 +59,12 @@ export const Wrapper = styled.div`
 `;
 
 export const TodoWrapper = styled.ul<IButton>`
+  animation: ${animationFromRight} 1s;
+
   height: calc(100vh - 235px);
   overflow: scroll;
 
   overflow-x: hidden;
-
-  animation: ${animationFromAbove} 1s;
 
   > button {
     display: flex;

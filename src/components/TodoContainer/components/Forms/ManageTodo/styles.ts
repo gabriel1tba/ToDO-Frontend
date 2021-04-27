@@ -1,11 +1,21 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-import { animationFromAbove } from '../../../styles';
+export const animationFromAbove = keyframes`
+  from{
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 export const Wrapper = styled.div`
   margin: -25px 1px;
 
-  animation: ${animationFromAbove} 0.8s;
+  animation: ${animationFromAbove} 0.7s;
 
   label {
     display: block;
