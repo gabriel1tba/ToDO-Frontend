@@ -39,14 +39,15 @@ const Todo = ({ todo }: ITodo) => {
   const handleCompletedTodo = useCallback(
     async (checked: boolean) => {
       try {
-        todo.completed = checked;
-
         await api.patch('/todos', {
-          ...todo,
+          id: todo.id,
+          completed: checked,
+          title: todo.title,
+          description: todo.description,
         });
-      } catch {
-        todo.completed = !checked;
 
+        todo.completed = checked;
+      } catch {
         addToast({
           type: 'error',
           title: 'Erro ao fazer alteração.',
