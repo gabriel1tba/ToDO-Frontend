@@ -36,7 +36,10 @@ const ManageTodo = ({
   const [buttonLoading, setButtonLoading] = useState(false);
 
   const formattedTimestamp = useCallback((timeStamp: string) => {
-    return new Date(timeStamp).toLocaleString();
+    return new Date(timeStamp).toLocaleString('pt-BR', {
+      // Time Zone de -7 horas
+      timeZone: 'America/Cambridge_Bay',
+    });
   }, []);
 
   const handleSubmit = useCallback(
@@ -92,7 +95,7 @@ const ManageTodo = ({
       setButtonLoading(false);
       handleCloseModal();
     },
-    [addToast, deleteTodo, editTodo, handleCloseModal, todo.id, updateTodos],
+    [addToast, deleteTodo, editTodo, handleCloseModal, todo, updateTodos],
   );
 
   return (
