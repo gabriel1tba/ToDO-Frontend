@@ -58,7 +58,16 @@ const Todo = ({ todo }: ITodo) => {
   return (
     <>
       {openModal && (
-        <Modal title="Editar" handleCloseModal={handleCloseModal}>
+        <Modal
+          title={
+            showTodo
+              ? 'Modal de visualização'
+              : editTodo
+              ? 'Modal de edição'
+              : 'Modal de exclusão'
+          }
+          handleCloseModal={handleCloseModal}
+        >
           <ManageTodo
             todo={todo}
             editTodo={editTodo}

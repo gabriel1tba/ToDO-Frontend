@@ -93,10 +93,20 @@ const ManageTodo = ({
         ref={formRef}
       >
         <label htmlFor="title">Título</label>
-        <Input name="title" type="text" />
+        <Input
+          readOnly={showTodo || !editTodo}
+          name="title"
+          type="text"
+          style={{ pointerEvents: showTodo || !editTodo ? 'none' : 'all' }}
+        />
 
         <label htmlFor="description">Descrição</label>
-        <TextArea rows={4} name="description" />
+        <TextArea
+          readOnly={showTodo || !editTodo}
+          rows={4}
+          name="description"
+          style={{ pointerEvents: showTodo || !editTodo ? 'none' : 'all' }}
+        />
         <S.Footer>
           {showTodo ? (
             <button
