@@ -57,6 +57,8 @@ export const Footer = styled.footer`
   position: relative;
   margin-top: 10px;
 
+  display: flex;
+  justify-content: flex-end;
   &:before {
     content: '';
     position: absolute;
@@ -66,35 +68,31 @@ export const Footer = styled.footer`
     border-top: 1px solid #ced4da;
   }
   button {
-    color: #fff;
+    display: flex;
+    align-items: center;
+
+    height: 40px;
 
     margin-top: 30px;
-    margin-left: 305px;
+    padding: 0.375rem 0.7rem;
 
-    width: 150px;
-
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    border: 1px solid transparent;
-    padding: 0.375rem 0.75rem;
+    color: #fff;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 18px;
+    font-weight: 400;
+
+    border: 1px solid transparent;
     border-radius: 0.25rem;
-    height: 40px;
 
     transition: filter 0.3s;
 
-    &:hover {
-      filter: brightness(0.8);
+    svg {
+      margin-left: 1px;
+      margin-right: 4px;
     }
 
-    > div {
-      transform: scale(0.8);
-      height: 25px;
-      margin-top: -13px;
-      margin-bottom: 15px;
+    &:hover {
+      filter: brightness(0.8);
     }
   }
 `;

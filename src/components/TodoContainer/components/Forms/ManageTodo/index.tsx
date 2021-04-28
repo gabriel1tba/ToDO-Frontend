@@ -2,19 +2,21 @@ import { useState, useCallback, useRef } from 'react';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { ValidationError } from 'yup';
+import { FaEdit } from 'react-icons/fa';
+import { BsTrash } from 'react-icons/bs';
+import { IoCloseSharp } from 'react-icons/io5';
 
 import * as S from './styles';
 
 import Input from '../../../../Input';
 import TextArea from '../../../../TextArea';
-import Loading from '../../../../Loading';
 
 import { useToast } from '../../../../../hooks/toast';
 import { useTodos } from '../../../../../hooks/todos';
 
-import getValidationErros from '../../../../../utils/getValidationErros';
-
 import api from '../../../../../services/api';
+
+import getValidationErros from '../../../../../utils/getValidationErros';
 
 import { schema } from './schema';
 
@@ -101,27 +103,33 @@ const ManageTodo = ({
               type="button"
               style={{
                 backgroundColor: '#007bff',
-                width: '100px',
-                marginLeft: '355px',
               }}
               onClick={handleCloseModal}
             >
-              {buttonLoading ? <Loading typeLoading="roller" /> : 'Voltar'}
+              <IoCloseSharp size={20} color="#FFF" /> Fechar
             </button>
           ) : editTodo ? (
             <button style={{ backgroundColor: '#007bff' }} type="submit">
               {buttonLoading ? (
-                <Loading typeLoading="roller" />
+                <>
+                  <FaEdit size={15} color="#FFF" /> Carregando...
+                </>
               ) : (
-                'Salvar alterações'
+                <>
+                  <FaEdit size={15} color="#FFF" /> Salvar alterações
+                </>
               )}
             </button>
           ) : (
             <button style={{ backgroundColor: '#dc3545' }} type="submit">
               {buttonLoading ? (
-                <Loading typeLoading="roller" />
+                <>
+                  <BsTrash size={15} color="#FFF" /> Carregando...
+                </>
               ) : (
-                'Excluir tarefa'
+                <>
+                  <BsTrash size={15} color="#FFF" /> Excluir tarefa
+                </>
               )}
             </button>
           )}
