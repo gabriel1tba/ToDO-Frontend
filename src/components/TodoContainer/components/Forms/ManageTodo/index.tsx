@@ -37,12 +37,11 @@ const ManageTodo = ({
 
   const [buttonLoading, setButtonLoading] = useState(false);
 
-  const formattedTimestamp = useCallback((timeStamp: string) => {
+  const formattedTimestamp = (timeStamp: string) => {
     return new Date(timeStamp).toLocaleString('pt-BR', {
-      // Time Zone de -7 horas
-      timeZone: 'America/Cambridge_Bay',
+      timeZone: 'America/Sao_Paulo',
     });
-  }, []);
+  };
 
   const handleSubmit = useCallback(
     async (formData: IFormData) => {
