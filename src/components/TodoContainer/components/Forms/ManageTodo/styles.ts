@@ -64,7 +64,7 @@ export const Footer = styled.footer`
     position: absolute;
     right: -22px;
     bottom: 55px;
-    width: 500px;
+    width: 550px;
     border-top: 1px solid #ced4da;
   }
   button {
@@ -94,5 +94,16 @@ export const Footer = styled.footer`
     &:hover {
       filter: brightness(0.8);
     }
+  }
+`;
+
+export const TimeWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0 !important;
+
+  div {
+    margin-bottom: -20px;
+    padding: 0 !important;
   }
 `;

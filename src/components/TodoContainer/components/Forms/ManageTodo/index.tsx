@@ -35,6 +35,10 @@ const ManageTodo = ({
 
   const [buttonLoading, setButtonLoading] = useState(false);
 
+  const formattedTimestamp = useCallback((timeStamp: string) => {
+    return new Date(timeStamp).toLocaleString();
+  }, []);
+
   const handleSubmit = useCallback(
     async (formData: IFormData) => {
       setButtonLoading(true);
@@ -94,19 +98,31 @@ const ManageTodo = ({
       >
         <label htmlFor="title">Título</label>
         <Input
-          readOnly={showTodo || !editTodo}
           name="title"
           type="text"
+          readOnly={showTodo || !editTodo}
           style={{ pointerEvents: showTodo || !editTodo ? 'none' : 'all' }}
         />
 
         <label htmlFor="description">Descrição</label>
         <TextArea
-          readOnly={showTodo || !editTodo}
           rows={4}
           name="description"
+          readOnly={showTodo || !editTodo}
           style={{ pointerEvents: showTodo || !editTodo ? 'none' : 'all' }}
         />
+
+        <S.TimeWrapper style={{ marginTop: '30px' }}>
+          <div>
+            <strong>Criado em </strong>
+            <small>{formattedTimestamp(todo.created_at)}</small>
+          </div>
+
+          <div>
+            <strong>Atualizado em </strong>
+            <small>{formattedTimestamp(todo.updated_at)}</small>
+          </div>
+        </S.TimeWrapper>
         <S.Footer>
           {showTodo ? (
             <button

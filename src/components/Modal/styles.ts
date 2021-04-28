@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 
   position: relative;
   text-align: flex;
-  width: 500px;
+  width: 550px;
   background: #fff;
   border-radius: 5px;
   border: 1px solid #ced4da;
