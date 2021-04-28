@@ -18,18 +18,16 @@ import api from '../../../../../services/api';
 
 import getValidationErros from '../../../../../utils/getValidationErros';
 
-import formattedTimestamp from '../../../../../utils/formattedTimestamp';
-
 import { schema } from './schema';
 
-import { IFormData, Item } from '../../../interfaces';
+import { IFormData } from '../../../interfaces';
 
 interface INewTodo {
-  todo: Item;
+  user_id: string;
   handleCloseModal: () => void;
 }
 
-const ManageTodo = ({ todo, handleCloseModal }: INewTodo) => {
+const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
   const { addToast } = useToast();
   const { createTodo } = useTodos();
 
@@ -49,7 +47,7 @@ const ManageTodo = ({ todo, handleCloseModal }: INewTodo) => {
         });
 
         const { data } = await api.post('/todos', {
-          id: todo.user_id,
+          user_id,
           title: formData.title,
           description: formData.description,
         });
@@ -58,7 +56,7 @@ const ManageTodo = ({ todo, handleCloseModal }: INewTodo) => {
 
         addToast({
           type: 'success',
-          title: 'Adicionado com sucesso!',
+          title: 'Tarefa criada com sucesso!',
           secondsDuration: 3,
         });
       } catch (error) {
@@ -84,35 +82,20 @@ const ManageTodo = ({ todo, handleCloseModal }: INewTodo) => {
       setButtonLoading(false);
       handleCloseModal();
     },
-    [addToast, createTodo, handleCloseModal, todo.user_id],
+    [addToast, createTodo, handleCloseModal, user_id],
   );
 
   return (
     <S.Wrapper>
-      <Form
-        initialData={{ title: todo.title, description: todo.description }}
-        onSubmit={handleSubmit}
-        ref={formRef}
-      >
+      <Form onSubmit={handleSubmit} ref={formRef}>
         <label htmlFor="title">Título</label>
         <Input name="title" type="text" />
 
         <label htmlFor="description">Descrição</label>
         <TextArea rows={4} name="description" />
 
-        <S.TimeWrapper style={{ marginTop: '30px' }}>
-          <div>
-            <strong>Criado em </strong>
-            <small>{formattedTimestamp(todo.created_at)}</small>
-          </div>
-
-          <div>
-            <strong>Atualizado em </strong>
-            <small>{formattedTimestamp(todo.updated_at)}</small>
-          </div>
-        </S.TimeWrapper>
         <S.Footer>
-          <button style={{ backgroundColor: '#dc3545' }} type="submit">
+          <button style={{ backgroundColor: '#007bff' }} type="submit">
             {buttonLoading ? (
               <>
                 <AiOutlineHourglass size={15} color="#FFF" /> Carregando...
@@ -129,4 +112,4 @@ const ManageTodo = ({ todo, handleCloseModal }: INewTodo) => {
   );
 };
 
-export default ManageTodo;
+export default NewTodo;
