@@ -30,8 +30,10 @@ export const Wrapper = styled.div`
 
   div {
     border-radius: 0.25rem;
+    padding: 6px;
     input {
-      height: 13px;
+      height: 28px;
+      font-size: 16px;
       color: rgba(0, 0, 0, 0.7);
       &::placeholder {
         color: rgba(0, 0, 0, 0.6);
@@ -41,7 +43,7 @@ export const Wrapper = styled.div`
 
     textarea {
       color: rgba(0, 0, 0, 0.7);
-      font-size: 15px;
+      font-size: 16px;
 
       &::placeholder {
         color: rgba(0, 0, 0, 0.6);
