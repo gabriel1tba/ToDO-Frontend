@@ -2,9 +2,11 @@ import { useState, useCallback, useRef } from 'react';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { ValidationError } from 'yup';
+
 import { FaEdit } from 'react-icons/fa';
 import { BsTrash } from 'react-icons/bs';
 import { IoCloseSharp } from 'react-icons/io5';
+import { AiOutlineHourglass } from 'react-icons/ai';
 
 import * as S from './styles';
 
@@ -147,7 +149,7 @@ const ManageTodo = ({
             <button style={{ backgroundColor: '#007bff' }} type="submit">
               {buttonLoading ? (
                 <>
-                  <FaEdit size={15} color="#FFF" /> Carregando...
+                  <AiOutlineHourglass size={15} color="#FFF" /> Carregando...
                 </>
               ) : (
                 <>
@@ -159,7 +161,7 @@ const ManageTodo = ({
             <button style={{ backgroundColor: '#dc3545' }} type="submit">
               {buttonLoading ? (
                 <>
-                  <BsTrash size={15} color="#FFF" /> Carregando...
+                  <AiOutlineHourglass size={15} color="#FFF" /> Carregando...
                 </>
               ) : (
                 <>
