@@ -31,6 +31,11 @@ export const Wrapper = styled.div`
   div {
     border-radius: 0.25rem;
     padding: 6px;
+
+    svg {
+      margin-top: -6px;
+    }
+
     input {
       height: 28px;
       font-size: 16px;
