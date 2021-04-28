@@ -102,14 +102,14 @@ const TodoProvider = ({ children }: ITodoProvider) => {
       try {
         setTodos(
           todos
+            .filter((todo) => {
+              return todo !== seletectedTodo;
+            })
             .sort(
               (a: ITodo, b: ITodo) =>
                 new Date(a.created_at).getTime() -
                 new Date(b.created_at).getTime(),
-            )
-            .filter((todo) => {
-              return todo !== seletectedTodo;
-            }),
+            ),
         );
       } catch (error) {
         console.log(error);

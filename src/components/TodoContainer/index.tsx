@@ -15,6 +15,8 @@ const TodoContainer = () => {
     getTodosFromDB();
   }, [getTodosFromDB]);
 
+  console.log(todos);
+
   return (
     <S.Wrapper>
       <div>

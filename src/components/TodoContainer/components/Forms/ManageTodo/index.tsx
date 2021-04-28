@@ -29,7 +29,7 @@ const ManageTodo = ({
   handleCloseModal,
 }: IManageTodo) => {
   const { addToast } = useToast();
-  const { updateTodos } = useTodos();
+  const { updateTodos, deleteTodo } = useTodos();
 
   const formRef = useRef({} as FormHandles);
 
@@ -50,17 +50,23 @@ const ManageTodo = ({
           abortEarly: false,
         });
 
-        const { data } = await api.patch('/todos', {
-          id: todo.id,
-          title: formData.title,
-          description: formData.description,
-        });
+        const { data } = editTodo
+          ? await api.patch('/todos', {
+              id: todo.id,
+              title: formData.title,
+              description: formData.description,
+            })
+          : await api.delete('/todos', {
+              data: {
+                id: todo.id,
+              },
+            });
 
-        updateTodos(data);
+        editTodo ? updateTodos(data) : deleteTodo(todo);
 
         addToast({
           type: 'success',
-          title: 'Atualizado com sucesso!',
+          title: editTodo ? 'Atualizado com sucesso!' : 'Removido com sucesso!',
           secondsDuration: 3,
         });
       } catch (error) {
@@ -76,7 +82,7 @@ const ManageTodo = ({
 
         addToast({
           type: 'error',
-          title: 'Erro ao tentar atualizar!',
+          title: 'Erro ao tentar executar ação!',
           description:
             'Um erro inesperado aconteceu... Tente novamente mais tarde.',
           secondsDuration: 5,
@@ -86,7 +92,7 @@ const ManageTodo = ({
       setButtonLoading(false);
       handleCloseModal();
     },
-    [addToast, handleCloseModal, todo.id, updateTodos],
+    [addToast, deleteTodo, editTodo, handleCloseModal, todo.id, updateTodos],
   );
 
   return (
