@@ -4,7 +4,7 @@
 
 ## ⚙️ Em construção ⚙️
 
-![alt text](https://i.imgur.com/TkPBu1n.gif)
+![alt text](https://i.imgur.com/XbZz3uy.gif)
 
 ## 💻 Tecnologias utilizadas
 
