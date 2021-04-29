@@ -98,11 +98,11 @@ const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
           <button style={{ backgroundColor: '#007bff' }} type="submit">
             {buttonLoading ? (
               <>
-                <AiOutlineHourglass size={15} color="#FFF" /> Carregando...
+                <AiOutlineHourglass size={15} /> Carregando...
               </>
             ) : (
               <>
-                <FiPlus size={15} color="#FFF" /> Nova tarefa
+                <FiPlus size={15} /> Salvar
               </>
             )}
           </button>

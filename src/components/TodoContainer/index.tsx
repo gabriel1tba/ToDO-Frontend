@@ -28,7 +28,7 @@ const TodoContainer = () => {
   return (
     <>
       {openModal && (
-        <Modal title="Modal de criação" handleCloseModal={handleCloseModal}>
+        <Modal title="Nova tarefa" handleCloseModal={handleCloseModal}>
           <NewTodo user_id={user.id} handleCloseModal={handleCloseModal} />
         </Modal>
       )}

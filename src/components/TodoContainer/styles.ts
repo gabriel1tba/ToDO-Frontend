@@ -46,7 +46,7 @@ export const Wrapper = styled.div<IStyled>`
     > p {
       display: block;
       margin: 5px 45px ${({ hastodos }) => (hastodos ? '20px' : '45px')}
-        ${({ hastodos }) => (hastodos ? '40px' : '45px')};
+        ${({ hastodos }) => (hastodos ? '43px' : '45px')};
       font-family: inherit;
       font-size: 18px;
       line-height: 1.2;

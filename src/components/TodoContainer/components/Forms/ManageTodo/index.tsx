@@ -142,17 +142,17 @@ const ManageTodo = ({
               }}
               onClick={handleCloseModal}
             >
-              <IoCloseSharp size={20} color="#FFF" /> Fechar
+              <IoCloseSharp size={20} /> Fechar
             </button>
           ) : editTodo ? (
             <button style={{ backgroundColor: '#007bff' }} type="submit">
               {buttonLoading ? (
                 <>
-                  <AiOutlineHourglass size={15} color="#FFF" /> Carregando...
+                  <AiOutlineHourglass size={15} /> Carregando...
                 </>
               ) : (
                 <>
-                  <FaEdit size={15} color="#FFF" /> Salvar alterações
+                  <FaEdit size={15} /> Salvar alterações
                 </>
               )}
             </button>
@@ -160,11 +160,11 @@ const ManageTodo = ({
             <button style={{ backgroundColor: '#dc3545' }} type="submit">
               {buttonLoading ? (
                 <>
-                  <AiOutlineHourglass size={15} color="#FFF" /> Carregando...
+                  <AiOutlineHourglass size={15} /> Carregando...
                 </>
               ) : (
                 <>
-                  <BsTrash size={15} color="#FFF" /> Excluir tarefa
+                  <BsTrash size={15} /> Confirmar exclusão
                 </>
               )}
             </button>

@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
       font-size: 20px;
       color: #343a40;
 
-      margin: 0 0 15px 20px;
+      margin: 0 0 15px 21px;
 
       cursor: default;
     }

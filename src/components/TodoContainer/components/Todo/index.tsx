@@ -61,10 +61,10 @@ const Todo = ({ todo }: ITodo) => {
         <Modal
           title={
             showTodo
-              ? 'Modal de visualização'
+              ? 'Detalhes da tarefa'
               : editTodo
-              ? 'Modal de edição'
-              : 'Modal de exclusão'
+              ? 'Editar tarefa'
+              : 'Excluir tarefa'
           }
           handleCloseModal={handleCloseModal}
         >
