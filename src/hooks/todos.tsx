@@ -9,7 +9,7 @@ import {
 import { useToast } from './toast';
 import { useAuth } from './auth';
 
-import api from '../services/api';
+import api from 'services/api';
 
 interface ITodo {
   id: string;

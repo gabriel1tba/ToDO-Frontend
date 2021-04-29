@@ -6,9 +6,9 @@ import {
   ReactNode,
 } from 'react';
 
-import ToastContainer from '../components/ToastContainer';
+import ToastContainer from 'components/ToastContainer';
 
-import v4 from '../utils/uuidv4';
+import v4 from 'utils/uuidv4';
 
 interface IToastContext {
   addToast: (message: Omit<IToastMessage, 'id'>) => void;
