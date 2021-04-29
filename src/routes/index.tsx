@@ -1,13 +1,13 @@
 import { Suspense, lazy } from 'react';
 import { Switch } from 'react-router-dom';
-import Loading from '../components/Loading';
+import Loading from 'components/Loading';
 
 import Route from './Route';
 
-const SignIn = lazy(() => import('../pages/SignIn'));
-const SignUp = lazy(() => import('../pages/SignUp'));
-const Forgot = lazy(() => import('../pages/Forgot'));
-const Dashboard = lazy(() => import('../pages/Dashboard'));
+const SignIn = lazy(() => import('pages/SignIn'));
+const SignUp = lazy(() => import('pages/SignUp'));
+const Forgot = lazy(() => import('pages/Forgot'));
+const Dashboard = lazy(() => import('pages/Dashboard'));
 
 const Routes = () => {
   return (
