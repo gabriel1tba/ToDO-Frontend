@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-interface IButton {
+interface IStyled {
   hastodos: boolean;
 }
 
@@ -28,7 +28,7 @@ const animationFromLeft = keyframes`
   }
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<IStyled>`
   width: calc(100vw - 330px);
 
   display: flex;
@@ -45,7 +45,8 @@ export const Wrapper = styled.div`
 
     > p {
       display: block;
-      margin: 5px 45px 10px;
+      margin: 5px 45px ${({ hastodos }) => (hastodos ? '20px' : '45px')}
+        ${({ hastodos }) => (hastodos ? '40px' : '45px')};
       font-family: inherit;
       font-size: 18px;
       line-height: 1.2;
@@ -58,7 +59,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const TodoWrapper = styled.ul<IButton>`
+export const TodoWrapper = styled.ul<IStyled>`
   animation: ${animationFromRight} 1s;
 
   height: calc(100vh - 235px);
@@ -77,7 +78,7 @@ export const TodoWrapper = styled.ul<IButton>`
     font-weight: 500;
     font-size: 17px;
 
-    margin: 10px 0 0 ${({ hastodos }) => (hastodos ? '-16px' : '30px')};
+    margin: 10px 0 0 ${({ hastodos }) => (hastodos ? '-10px' : '37px')};
 
     color: #3498db;
     background-color: transparent;
