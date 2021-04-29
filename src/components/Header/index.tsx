@@ -11,7 +11,7 @@ interface IHeader {
 }
 
 const Header = ({ userName, handleSignOut }: IHeader) => {
-  const { handleSearchWord } = useTodos();
+  const { getSearchedWord } = useTodos();
 
   return (
     <S.Wrapper>
@@ -27,7 +27,7 @@ const Header = ({ userName, handleSignOut }: IHeader) => {
       </div>
 
       <S.InputSearch
-        onChange={(event) => handleSearchWord(event.target.value)}
+        onChange={(event) => getSearchedWord(event.target.value)}
         placeholder="Pesquisar tarefas..."
       />
 

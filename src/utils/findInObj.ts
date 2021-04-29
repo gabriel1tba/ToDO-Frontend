@@ -1,18 +1,22 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const findInObj = (object: any, value: any): any => {
+const findInObj = (objectToFilter: any, wordToFilter: any): any => {
   // @OBSERVAÇÃO: Remove chaves com valores nulos
   // Object.keys(object).forEach(
   //   (key) => object[key] === null && delete object[key],
   // );
 
-  return Object.values(object).some((v) =>
-    typeof v === 'object'
-      ? findInObj(v, value)
-      : typeof v === 'string'
-      ? v.toLowerCase().includes(value.toLowerCase()) && v === object['title']
-      : typeof v === 'number'
-      ? String(v).includes(value) || (isNaN(v) && isNaN(value))
-      : v === value,
+  return Object.values(objectToFilter).some((object) =>
+    typeof object === 'object'
+      ? findInObj(object, wordToFilter)
+      : typeof object === 'string'
+      ? object.toLowerCase().includes(wordToFilter.toLowerCase()) &&
+        object === objectToFilter['title']
+      : typeof object === 'number'
+      ? String(object).includes(wordToFilter) ||
+        (isNaN(object) &&
+          isNaN(wordToFilter) &&
+          object === objectToFilter['title'])
+      : object === wordToFilter,
   );
 };
 

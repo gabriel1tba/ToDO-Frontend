@@ -30,7 +30,7 @@ interface ITodoContext {
   updateTodo: (seletectedTodo: ITodo) => void;
   deleteTodo: (seletectedTodo: ITodo) => void;
   filteredTodos: (value: string) => ITodo[];
-  handleSearchWord: (word: string) => void;
+  getSearchedWord: (word: string) => void;
   searchedWord: string;
 }
 
@@ -138,7 +138,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
     [todos],
   );
 
-  const handleSearchWord = useCallback((word: string) => {
+  const getSearchedWord = useCallback((word: string) => {
     setSearchedWord(word);
   }, []);
 
@@ -151,7 +151,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
         updateTodo,
         deleteTodo,
         filteredTodos,
-        handleSearchWord,
+        getSearchedWord,
         searchedWord,
       }}
     >
