@@ -12,7 +12,7 @@ import Badge from '../Badge';
 import Modal from '../Modal';
 
 const TodoContainer = () => {
-  const { todos, getTodosFromDB, filterArrayTodos, searchedWord } = useTodos();
+  const { todos, getTodosFromDB, filteredTodos, searchedWord } = useTodos();
   const { user } = useAuth();
 
   const [openModal, setOpenModal] = useState(false);
@@ -38,13 +38,13 @@ const TodoContainer = () => {
           <div>
             <Badge
               title="Totais"
-              dynamicAmount={todos.length ?? 0}
+              dynamicAmount={filteredTodos(searchedWord).length ?? 0}
               fontColor="#3498db"
               rgbaBackground="rgba(52, 152, 219, 0.2)"
             />
             <Badge
               title="Concluídas"
-              dynamicAmount={todos
+              dynamicAmount={filteredTodos(searchedWord)
                 .map((todo) => Number(todo.completed), 0)
                 .reduce((count, currentPrice) => count + currentPrice, 0)}
               fontColor="#2ecc71"
@@ -52,7 +52,7 @@ const TodoContainer = () => {
             />
             <Badge
               title="Pendentes"
-              dynamicAmount={todos
+              dynamicAmount={filteredTodos(searchedWord)
                 .map((todo) => Number(!todo.completed), 0)
                 .reduce((count, currentPrice) => count + currentPrice, 0)}
               fontColor="#e74c3c"
@@ -62,7 +62,7 @@ const TodoContainer = () => {
         </div>
         <S.TodoWrapper hastodos={!!todos.length}>
           {todos.length
-            ? filterArrayTodos(searchedWord).map((todo) => (
+            ? filteredTodos(searchedWord).map((todo) => (
                 <Todo key={todo.id} todo={todo} />
               ))
             : null}

@@ -29,7 +29,7 @@ interface ITodoContext {
   createTodo: (seletectedTodo: ITodo) => void;
   updateTodo: (seletectedTodo: ITodo) => void;
   deleteTodo: (seletectedTodo: ITodo) => void;
-  filterArrayTodos: (value: string) => ITodo[];
+  filteredTodos: (value: string) => ITodo[];
   handleSearchWord: (word: string) => void;
   searchedWord: string;
 }
@@ -124,11 +124,11 @@ const TodoProvider = ({ children }: ITodoProvider) => {
     [todos],
   );
 
-  const filterArrayTodos = useCallback(
+  const filteredTodos = useCallback(
     (value: string): ITodo[] => {
       const filteredArray: ITodo[] = [];
 
-      todos.map((object: ITodo) => {
+      todos.forEach((object: ITodo) => {
         if (findInObj(object, value)) {
           filteredArray.push(object);
         }
@@ -150,7 +150,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
         createTodo,
         updateTodo,
         deleteTodo,
-        filterArrayTodos,
+        filteredTodos,
         handleSearchWord,
         searchedWord,
       }}

@@ -1,5 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const findInObj = (object: any, value: any): any => {
+  // @OBSERVAÇÃO: Remove chaves com valores nulos
   // Object.keys(object).forEach(
   //   (key) => object[key] === null && delete object[key],
   // );
