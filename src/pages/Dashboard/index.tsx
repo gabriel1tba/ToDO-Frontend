@@ -4,18 +4,21 @@ import Header from '../../components/Header';
 import TodoContainer from '../../components/TodoContainer';
 
 import { useAuth } from '../../hooks/auth';
+import { TodoProvider } from 'hooks/todos';
 
 const Dashboard = () => {
   const { user, signOut } = useAuth();
 
   return (
-    <S.Wrapper>
-      <Header userName={user.name} handleSignOut={signOut} />
+    <TodoProvider>
+      <S.Wrapper>
+        <Header userName={user.name} handleSignOut={signOut} />
 
-      <div>
-        <TodoContainer />
-      </div>
-    </S.Wrapper>
+        <div>
+          <TodoContainer />
+        </div>
+      </S.Wrapper>
+    </TodoProvider>
   );
 };
 

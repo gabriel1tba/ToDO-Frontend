@@ -6,10 +6,10 @@ import {
   ReactNode,
 } from 'react';
 
-import { useToast } from '../../../hooks/toast';
-import { useAuth } from '../../../hooks/auth';
+import { useToast } from './toast';
+import { useAuth } from './auth';
 
-import api from '../../../services/api';
+import api from '../services/api';
 
 interface ITodo {
   id: string;
