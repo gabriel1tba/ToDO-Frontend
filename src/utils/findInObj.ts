@@ -6,10 +6,10 @@ const findInObj = (object: any, value: any): any => {
   // );
 
   return Object.values(object).some((v) =>
-    typeof v === 'object' && !Array.isArray(object)
+    typeof v === 'object'
       ? findInObj(v, value)
       : typeof v === 'string'
-      ? v.toLowerCase().includes(value.toLowerCase())
+      ? v.toLowerCase().includes(value.toLowerCase()) && v === object['title']
       : typeof v === 'number'
       ? String(v).includes(value) || (isNaN(v) && isNaN(value))
       : v === value,
