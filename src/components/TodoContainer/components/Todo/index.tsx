@@ -4,12 +4,12 @@ import { BsTrash } from 'react-icons/bs';
 
 import * as S from './styles';
 
-import { useToast } from '../../../../hooks/toast';
-import { useTodos } from '../../../../pages/Dashboard/hooks/todos';
+import { useToast } from 'hooks/toast';
+import { useTodos } from 'hooks/todos';
 
-import Modal from '../../../Modal';
+import Modal from 'components/Modal';
 
-import api from '../../../../services/api';
+import api from 'services/api';
 import ManageTodo from '../Forms/ManageTodo';
 
 import { Item } from '../../interfaces';

@@ -2,7 +2,7 @@ import { VscSignOut } from 'react-icons/vsc';
 
 import * as S from './styles';
 
-import logoImg from '../../assets/logo.png';
+import logoImg from 'assets/logo.png';
 
 interface IHeader {
   userName?: string;

@@ -3,13 +3,13 @@ import { FiPlus } from 'react-icons/fi';
 
 import * as S from './styles';
 
-import { useTodos } from '../../hooks/todos';
-import { useAuth } from '../../hooks/auth';
+import { useTodos } from 'hooks/todos';
+import { useAuth } from 'hooks/auth';
 
 import Todo from './components/Todo';
+import NewTodo from './components/Forms/NewTodo';
 import Badge from '../Badge';
 import Modal from '../Modal';
-import NewTodo from './components/Forms/NewTodo';
 
 const TodoContainer = () => {
   const { todos, getTodosFromDB } = useTodos();

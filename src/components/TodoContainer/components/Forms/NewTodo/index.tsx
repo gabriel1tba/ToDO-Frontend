@@ -8,15 +8,15 @@ import { AiOutlineHourglass } from 'react-icons/ai';
 
 import * as S from './styles';
 
-import Input from '../../../../Input';
-import TextArea from '../../../../TextArea';
+import Input from 'components/Input';
+import TextArea from 'components/TextArea';
 
-import { useToast } from '../../../../../hooks/toast';
-import { useTodos } from '../../../../../hooks/todos';
+import { useToast } from 'hooks/toast';
+import { useTodos } from 'hooks/todos';
 
-import api from '../../../../../services/api';
+import api from 'services/api';
 
-import getValidationErros from '../../../../../utils/getValidationErros';
+import getValidationErros from 'utils/getValidationErros';
 
 import { schema } from './schema';
 
