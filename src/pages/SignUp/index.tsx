@@ -5,20 +5,20 @@ import { FormHandles } from '@unform/core';
 import { ValidationError } from 'yup';
 import { FiArrowLeft, FiMail, FiUser, FiLock } from 'react-icons/fi';
 
-import { useToast } from '../../hooks/toast';
-
 import * as S from './styles';
 
-import logoImg from '../../assets/logo.png';
+import { useToast } from 'hooks/toast';
 
-import Input from '../../components/Input';
-import Button from '../../components/Button';
+import logoImg from 'assets/logo.png';
 
-import api from '../../services/api';
+import Input from 'components/Input';
+import Button from 'components/Button';
+
+import api from 'services/api';
 
 import { schema } from './schema';
 
-import getValidationErros from '../../utils/getValidationErros';
+import getValidationErros from 'utils/getValidationErros';
 
 interface ISignUpFormData {
   name: string;

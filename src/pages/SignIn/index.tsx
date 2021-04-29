@@ -6,19 +6,19 @@ import { ValidationError } from 'yup';
 
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 
-import { useAuth } from '../../hooks/auth';
-import { useToast } from '../../hooks/toast';
+import { useAuth } from 'hooks/auth';
+import { useToast } from 'hooks/toast';
 
 import * as S from './styles';
 
-import logoImg from '../../assets/logo.png';
+import logoImg from 'assets/logo.png';
 
-import Input from '../../components/Input';
-import Button from '../../components/Button';
+import Input from 'components/Input';
+import Button from 'components/Button';
 
 import { schema } from './schema';
 
-import getValidationErros from '../../utils/getValidationErros';
+import getValidationErros from 'utils/getValidationErros';
 
 interface ISignInFormData {
   email: string;
