@@ -11,6 +11,8 @@ import { useAuth } from './auth';
 
 import api from 'services/api';
 
+import findInObj from 'utils/findInObj';
+
 interface ITodo {
   id: string;
   user_id: string;
@@ -114,6 +116,20 @@ const TodoProvider = ({ children }: ITodoProvider) => {
       } catch (error) {
         console.log(error);
       }
+    },
+    [todos],
+  );
+
+  const filterArrayTodos = useCallback(
+    (value: string): ITodo[] => {
+      const filteredArray: ITodo[] = [];
+
+      todos.forEach((object: ITodo) => {
+        if (findInObj(object, value)) {
+          filteredArray.push(object);
+        }
+      });
+      return filteredArray;
     },
     [todos],
   );
