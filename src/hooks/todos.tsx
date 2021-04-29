@@ -29,6 +29,9 @@ interface ITodoContext {
   createTodo: (seletectedTodo: ITodo) => void;
   updateTodo: (seletectedTodo: ITodo) => void;
   deleteTodo: (seletectedTodo: ITodo) => void;
+  filterArrayTodos: (value: string) => ITodo[];
+  handleSearchWord: (word: string) => void;
+  searchedWord: string;
 }
 
 interface ITodoProvider {
@@ -42,6 +45,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
   const { addToast } = useToast();
 
   const [todos, setTodos] = useState<ITodo[]>([]);
+  const [searchedWord, setSearchedWord] = useState<string>('');
 
   const getTodosFromDB = useCallback(async () => {
     if (user) {
@@ -124,7 +128,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
     (value: string): ITodo[] => {
       const filteredArray: ITodo[] = [];
 
-      todos.forEach((object: ITodo) => {
+      todos.map((object: ITodo) => {
         if (findInObj(object, value)) {
           filteredArray.push(object);
         }
@@ -134,9 +138,22 @@ const TodoProvider = ({ children }: ITodoProvider) => {
     [todos],
   );
 
+  const handleSearchWord = useCallback((word: string) => {
+    setSearchedWord(word);
+  }, []);
+
   return (
     <TodoContext.Provider
-      value={{ todos, getTodosFromDB, createTodo, updateTodo, deleteTodo }}
+      value={{
+        todos,
+        getTodosFromDB,
+        createTodo,
+        updateTodo,
+        deleteTodo,
+        filterArrayTodos,
+        handleSearchWord,
+        searchedWord,
+      }}
     >
       {children}
     </TodoContext.Provider>

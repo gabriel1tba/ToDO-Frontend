@@ -12,7 +12,7 @@ import Badge from '../Badge';
 import Modal from '../Modal';
 
 const TodoContainer = () => {
-  const { todos, getTodosFromDB } = useTodos();
+  const { todos, getTodosFromDB, filterArrayTodos, searchedWord } = useTodos();
   const { user } = useAuth();
 
   const [openModal, setOpenModal] = useState(false);
@@ -62,7 +62,9 @@ const TodoContainer = () => {
         </div>
         <S.TodoWrapper hastodos={!!todos.length}>
           {todos.length
-            ? todos.map((todo) => <Todo key={todo.id} todo={todo} />)
+            ? filterArrayTodos(searchedWord).map((todo) => (
+                <Todo key={todo.id} todo={todo} />
+              ))
             : null}
 
           <button onClick={() => setOpenModal(true)}>

@@ -3,6 +3,7 @@ import { VscSignOut } from 'react-icons/vsc';
 import * as S from './styles';
 
 import logoImg from 'assets/logo.png';
+import { useTodos } from 'hooks/todos';
 
 interface IHeader {
   userName?: string;
@@ -10,6 +11,8 @@ interface IHeader {
 }
 
 const Header = ({ userName, handleSignOut }: IHeader) => {
+  const { handleSearchWord } = useTodos();
+
   return (
     <S.Wrapper>
       <img src={logoImg} alt="Imagem com as letras da logo" />
@@ -23,7 +26,10 @@ const Header = ({ userName, handleSignOut }: IHeader) => {
         ) : null}
       </div>
 
-      <S.InputSearch placeholder="Pesquisar tarefas..." />
+      <S.InputSearch
+        onChange={(event) => handleSearchWord(event.target.value)}
+        placeholder="Pesquisar tarefas..."
+      />
 
       <button onClick={handleSignOut}>
         <VscSignOut size={35} color="#666360" />
