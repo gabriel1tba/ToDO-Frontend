@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { ValidationError } from 'yup';
@@ -42,6 +42,15 @@ const ManageTodo = ({
       timeZone: 'America/Sao_Paulo',
     });
   };
+
+  // State to useEffect cleanup function
+  const [, setDidMount] = useState(false);
+
+  // useEffect cleanup function
+  useEffect(() => {
+    setDidMount(true);
+    return () => setDidMount(false);
+  }, []);
 
   const handleSubmit = useCallback(
     async (formData: IFormData) => {

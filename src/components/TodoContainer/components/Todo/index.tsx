@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { BsTrash } from 'react-icons/bs';
 
@@ -29,6 +29,15 @@ const Todo = ({ todo }: ITodo) => {
 
   const handleCloseModal = useCallback(() => {
     setOpenModal(false);
+  }, []);
+
+  // State to useEffect cleanup function
+  const [, setDidMount] = useState(false);
+
+  // useEffect cleanup function
+  useEffect(() => {
+    setDidMount(true);
+    return () => setDidMount(false);
   }, []);
 
   const handleCompletedTodo = useCallback(
