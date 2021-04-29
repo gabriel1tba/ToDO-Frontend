@@ -5,7 +5,7 @@ import { BsTrash } from 'react-icons/bs';
 import * as S from './styles';
 
 import { useToast } from '../../../../hooks/toast';
-import { useTodos } from '../../../../hooks/todos';
+import { useTodos } from '../../../../pages/Dashboard/hooks/todos';
 
 import Modal from '../../../Modal';
 
@@ -20,7 +20,7 @@ interface ITodo {
 
 const Todo = ({ todo }: ITodo) => {
   const { addToast } = useToast();
-  const { updateTodos } = useTodos();
+  const { updateTodo } = useTodos();
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -42,7 +42,7 @@ const Todo = ({ todo }: ITodo) => {
           description: todo.description,
         });
 
-        updateTodos(data);
+        updateTodo(data);
       } catch {
         addToast({
           type: 'error',
@@ -52,7 +52,7 @@ const Todo = ({ todo }: ITodo) => {
         });
       }
     },
-    [addToast, updateTodos, todo],
+    [addToast, updateTodo, todo],
   );
 
   return (

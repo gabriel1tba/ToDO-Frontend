@@ -6,10 +6,10 @@ import {
   ReactNode,
 } from 'react';
 
-import { useToast } from './toast';
-import { useAuth } from './auth';
+import { useToast } from '../../../hooks/toast';
+import { useAuth } from '../../../hooks/auth';
 
-import api from '../services/api';
+import api from '../../../services/api';
 
 interface ITodo {
   id: string;
@@ -25,7 +25,7 @@ interface ITodoContext {
   todos: ITodo[];
   getTodosFromDB: () => void;
   createTodo: (seletectedTodo: ITodo) => void;
-  updateTodos: (seletectedTodo: ITodo) => void;
+  updateTodo: (seletectedTodo: ITodo) => void;
   deleteTodo: (seletectedTodo: ITodo) => void;
 }
 
@@ -73,7 +73,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
     }
   }, []);
 
-  const updateTodos = useCallback(
+  const updateTodo = useCallback(
     (seletectedTodo: ITodo) => {
       try {
         setTodos(
@@ -120,7 +120,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
 
   return (
     <TodoContext.Provider
-      value={{ todos, getTodosFromDB, createTodo, updateTodos, deleteTodo }}
+      value={{ todos, getTodosFromDB, createTodo, updateTodo, deleteTodo }}
     >
       {children}
     </TodoContext.Provider>

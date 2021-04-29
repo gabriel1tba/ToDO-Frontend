@@ -31,7 +31,7 @@ const ManageTodo = ({
   handleCloseModal,
 }: IManageTodo) => {
   const { addToast } = useToast();
-  const { updateTodos, deleteTodo } = useTodos();
+  const { updateTodo, deleteTodo } = useTodos();
 
   const formRef = useRef({} as FormHandles);
 
@@ -66,7 +66,7 @@ const ManageTodo = ({
               },
             });
 
-        editTodo ? updateTodos(data) : deleteTodo(todo);
+        editTodo ? updateTodo(data) : deleteTodo(todo);
 
         addToast({
           type: 'success',
@@ -96,7 +96,7 @@ const ManageTodo = ({
       setButtonLoading(false);
       handleCloseModal();
     },
-    [addToast, deleteTodo, editTodo, handleCloseModal, todo, updateTodos],
+    [addToast, deleteTodo, editTodo, handleCloseModal, todo, updateTodo],
   );
 
   return (
