@@ -29,9 +29,8 @@ interface ITodoContext {
   createTodo: (seletectedTodo: ITodo) => void;
   updateTodo: (seletectedTodo: ITodo) => void;
   deleteTodo: (seletectedTodo: ITodo) => void;
-  filteredTodos: (value: string) => ITodo[];
   getSearchedWord: (word: string) => void;
-  searchedWord: string;
+  filteredTodos: ITodo[];
 }
 
 interface ITodoProvider {
@@ -124,23 +123,25 @@ const TodoProvider = ({ children }: ITodoProvider) => {
     [todos],
   );
 
-  const filteredTodos = useCallback(
+  const getSearchedWord = useCallback((word: string) => {
+    setSearchedWord(word);
+  }, []);
+
+  const filterTodos = useCallback(
     (value: string): ITodo[] => {
-      const filteredArray: ITodo[] = [];
+      const todosFound: ITodo[] = [];
 
       todos.forEach((object: ITodo) => {
         if (findInObj(object, value)) {
-          filteredArray.push(object);
+          todosFound.push(object);
         }
       });
-      return filteredArray;
+      return todosFound;
     },
     [todos],
   );
 
-  const getSearchedWord = useCallback((word: string) => {
-    setSearchedWord(word);
-  }, []);
+  const filteredTodos = filterTodos(searchedWord);
 
   return (
     <TodoContext.Provider
@@ -150,9 +151,8 @@ const TodoProvider = ({ children }: ITodoProvider) => {
         createTodo,
         updateTodo,
         deleteTodo,
-        filteredTodos,
         getSearchedWord,
-        searchedWord,
+        filteredTodos,
       }}
     >
       {children}

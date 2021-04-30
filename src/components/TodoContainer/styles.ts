@@ -34,7 +34,7 @@ export const Wrapper = styled.div<IStyled>`
   display: flex;
   flex-direction: column;
 
-  margin: 40px 0 0 330px;
+  margin: 70px 0 0 330px;
 
   > div {
     animation: ${animationFromLeft} 1s;
