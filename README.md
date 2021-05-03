@@ -6,7 +6,7 @@
 
 To DO é uma single-page application, feita em React, onde usuários podem se cadastrar, e criar sua lista de tarefas totalmente gerenciável.
 
-![alt text](https://i.imgur.com/XbZz3uy.gif)
+![alt text](https://i.imgur.com/8BFYqox.gif)
 
 ## 💻 Tecnologias utilizadas
 
