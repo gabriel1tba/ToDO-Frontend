@@ -39,7 +39,7 @@ export const Wrapper = styled.div<IStyled>`
 
     display: flex;
     justify-content: space-between;
-    margin-bottom: 23px;
+    margin-bottom: 10px;
 
     > p {
       display: block;
@@ -52,7 +52,7 @@ export const Wrapper = styled.div<IStyled>`
     }
 
     > div {
-      margin-right: 350px;
+      margin-right: 345px;
     }
   }
 `;
@@ -76,7 +76,7 @@ export const TodoWrapper = styled.ul<IStyled>`
     font-weight: 500;
     font-size: 17px;
 
-    margin: 15px 0 0 ${({ hastodos }) => (hastodos ? '-43px' : '37px')};
+    margin: 10px 0 0 ${({ hastodos }) => (hastodos ? '-43px' : '37px')};
 
     color: #3498db;
     background-color: transparent;
