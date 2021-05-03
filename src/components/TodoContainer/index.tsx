@@ -32,6 +32,7 @@ const TodoContainer = () => {
           <NewTodo user_id={user.id} handleCloseModal={handleCloseModal} />
         </Modal>
       )}
+
       <S.Wrapper hastodos={!!todos.length}>
         <div>
           <p>{todos.length ? 'Suas tarefas' : 'Sem tarefas'}</p>

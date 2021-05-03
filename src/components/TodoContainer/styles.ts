@@ -7,7 +7,7 @@ interface IStyled {
 const animationFromRight = keyframes`
   from{
     opacity: 0;
-    transform: translateX(60px);
+    transform: translateX(20px);
   }
 
   to{
@@ -19,7 +19,7 @@ const animationFromRight = keyframes`
 const animationFromLeft = keyframes`
   from{
     opacity: 0;
-    transform: translateX(-60px);
+    transform: translateX(-20px);
   }
 
   to{
@@ -29,12 +29,10 @@ const animationFromLeft = keyframes`
 `;
 
 export const Wrapper = styled.div<IStyled>`
-  width: calc(100vw - 330px);
+  width: calc(100vw - 390px);
 
   display: flex;
   flex-direction: column;
-
-  margin: 70px 0 0 330px;
 
   > div {
     animation: ${animationFromLeft} 1s;
@@ -45,8 +43,8 @@ export const Wrapper = styled.div<IStyled>`
 
     > p {
       display: block;
-      margin: 5px 45px ${({ hastodos }) => (hastodos ? '20px' : '45px')}
-        ${({ hastodos }) => (hastodos ? '43px' : '45px')};
+      margin: 5px 45px ${({ hastodos }) => (hastodos ? '20px' : '25px')}
+        ${({ hastodos }) => (hastodos ? '8px' : '45px')};
       font-family: inherit;
       font-size: 18px;
       line-height: 1.2;
@@ -54,7 +52,7 @@ export const Wrapper = styled.div<IStyled>`
     }
 
     > div {
-      margin-right: 380px;
+      margin-right: 350px;
     }
   }
 `;
@@ -62,7 +60,7 @@ export const Wrapper = styled.div<IStyled>`
 export const TodoWrapper = styled.ul<IStyled>`
   animation: ${animationFromRight} 1s;
 
-  height: calc(100vh - 235px);
+  height: calc(100vh -80px);
   overflow: scroll;
 
   overflow-x: hidden;
@@ -78,7 +76,7 @@ export const TodoWrapper = styled.ul<IStyled>`
     font-weight: 500;
     font-size: 17px;
 
-    margin: 10px 0 0 ${({ hastodos }) => (hastodos ? '-10px' : '37px')};
+    margin: 15px 0 0 ${({ hastodos }) => (hastodos ? '-43px' : '37px')};
 
     color: #3498db;
     background-color: transparent;

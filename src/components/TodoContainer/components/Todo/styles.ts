@@ -5,7 +5,7 @@ export const Wrapper = styled.li`
   justify-content: space-between;
   align-items: center;
 
-  margin: 15px 40px -5px;
+  margin: 15px 5px -5px;
 
   padding-bottom: 14px;
 
