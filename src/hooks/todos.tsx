@@ -11,8 +11,6 @@ import { useAuth } from './auth';
 
 import api from 'services/api';
 
-import findInObj from 'utils/findInObj';
-
 interface ITodo {
   id: string;
   user_id: string;
@@ -127,6 +125,22 @@ const TodoProvider = ({ children }: ITodoProvider) => {
     setSearchedWord(word);
   }, []);
 
+  const findInObj = useCallback(
+    (objectToFilter: ITodo, wordToFilter: string): boolean => {
+      return Object.values(objectToFilter).some((object) =>
+        typeof object === 'object'
+          ? findInObj(object, wordToFilter)
+          : typeof object === 'string'
+          ? object.toLowerCase().includes(wordToFilter.toLowerCase()) &&
+            object === objectToFilter['title']
+          : typeof object === 'number'
+          ? String(object).includes(wordToFilter) || isNaN(object)
+          : object === wordToFilter && object === objectToFilter['title'],
+      );
+    },
+    [],
+  );
+
   const filterTodos = useCallback(
     (value: string): ITodo[] => {
       const todosFound: ITodo[] = [];
@@ -138,7 +152,7 @@ const TodoProvider = ({ children }: ITodoProvider) => {
       });
       return todosFound;
     },
-    [todos],
+    [findInObj, todos],
   );
 
   const filteredTodos = filterTodos(searchedWord);
