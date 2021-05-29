@@ -26,7 +26,11 @@ const ManageTodo = ({
   todo,
   handleCloseModal,
 }: IManageTodo) => {
-  const { register, handleSubmit, errors } = useForm<IFormData>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormData>({
     resolver: yupResolver(schema),
   });
 

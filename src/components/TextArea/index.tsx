@@ -6,7 +6,7 @@ import * as S from './styles';
 
 interface ITextArea extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;
-  ref: React.LegacyRef<HTMLTextAreaElement> | undefined;
+  ref: React.LegacyRef<HTMLTextAreaElement>;
   error: string | undefined;
   defaultValue?: string | number | string[] | undefined;
 }

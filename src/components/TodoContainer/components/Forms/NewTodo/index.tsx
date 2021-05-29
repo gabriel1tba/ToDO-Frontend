@@ -24,7 +24,11 @@ interface INewTodo {
 }
 
 const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
-  const { register, handleSubmit, errors } = useForm<IFormData>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormData>({
     resolver: yupResolver(schema),
   });
 

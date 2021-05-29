@@ -25,7 +25,11 @@ interface ISignUpFormData {
 }
 
 const SignUp = () => {
-  const { register, handleSubmit, errors } = useForm<ISignUpFormData>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ISignUpFormData>({
     resolver: yupResolver(schema),
   });
 

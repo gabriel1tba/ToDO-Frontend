@@ -7,12 +7,11 @@ import * as S from './styles';
 interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
   icon?: React.ComponentType<IconBaseProps>;
-  ref: React.LegacyRef<HTMLInputElement> | undefined;
+  ref: React.LegacyRef<HTMLInputElement>;
   error: string | undefined;
   defaultValue?: string | number | string[] | undefined;
 }
 
-// eslint-disable-next-line react/display-name
 const Input = forwardRef(
   ({ name, icon: Icon, error, defaultValue = '', ...rest }: IInput, ref) => {
     const [isFocused, setIsFocued] = useState(false);
@@ -58,5 +57,7 @@ const Input = forwardRef(
     );
   },
 );
+
+Input.displayName = 'Input';
 
 export default Input;
