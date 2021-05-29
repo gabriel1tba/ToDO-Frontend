@@ -7,7 +7,7 @@ import * as S from './styles';
 interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
   icon?: React.ComponentType<IconBaseProps>;
-  ref: React.LegacyRef<HTMLInputElement>;
+  ref: React.LegacyRef<HTMLInputElement> | undefined;
   error: string | undefined;
   defaultValue?: string | number | string[] | undefined;
 }

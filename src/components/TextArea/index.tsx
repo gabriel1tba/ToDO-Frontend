@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import { forwardRef, useCallback, useRef, useState } from 'react';
 import { FiAlertCircle } from 'react-icons/fi';
 
@@ -50,5 +49,7 @@ const TextArea = forwardRef(
     );
   },
 );
+
+TextArea.displayName = 'TextArea';
 
 export default TextArea;
