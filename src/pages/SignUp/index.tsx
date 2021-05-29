@@ -1,8 +1,7 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { Form } from '@unform/web';
-import { FormHandles } from '@unform/core';
-import { ValidationError } from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { FiArrowLeft, FiMail, FiUser, FiLock } from 'react-icons/fi';
 
 import * as S from './styles';
@@ -18,33 +17,28 @@ import api from 'services/api';
 
 import { schema } from './schema';
 
-import getValidationErros from 'utils/getValidationErros';
-
 interface ISignUpFormData {
   name: string;
   email: string;
   password: string;
+  confirmPassword: string;
 }
 
 const SignUp = () => {
+  const { register, handleSubmit, errors } = useForm<ISignUpFormData>({
+    resolver: yupResolver(schema),
+  });
+
   const { addToast } = useToast();
   const history = useHistory();
 
-  const formRef = useRef({} as FormHandles);
-
   const [buttonLoading, setButtonLoading] = useState(false);
 
-  const handleSubmit = useCallback(
+  const onSubmit = useCallback(
     async (data: ISignUpFormData) => {
       setButtonLoading(true);
 
       try {
-        formRef.current.setErrors({});
-
-        await schema.validate(data, {
-          abortEarly: false,
-        });
-
         await api.post('users', data);
 
         addToast({
@@ -57,17 +51,7 @@ const SignUp = () => {
         setTimeout(() => {
           history.push('/');
         }, 3000);
-      } catch (error) {
-        if (error instanceof ValidationError) {
-          const errors = getValidationErros(error);
-
-          formRef.current.setErrors(errors);
-
-          setButtonLoading(false);
-
-          return;
-        }
-
+      } catch {
         addToast({
           type: 'error',
           title: 'Erro ao cadastrar!',
@@ -93,33 +77,46 @@ const SignUp = () => {
             alt="logo com nome da pagina"
           />
 
-          <Form onSubmit={handleSubmit} ref={formRef}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <h1>Faça seu cadastro</h1>
 
-            <Input icon={FiUser} name="name" type="text" placeholder="Nome" />
+            <Input
+              icon={FiUser}
+              name="name"
+              type="text"
+              placeholder="Nome"
+              error={errors.name?.message}
+              ref={register}
+            />
             <Input
               icon={FiMail}
               name="email"
               type="text"
               placeholder="E-mail"
+              error={errors.email?.message}
+              ref={register}
             />
             <Input
               icon={FiLock}
               name="password"
               type="password"
               placeholder="Senha"
+              error={errors.password?.message}
+              ref={register}
             />
             <Input
               icon={FiLock}
               name="confirmPassword"
               type="password"
               placeholder="Confirme a senha"
+              error={errors.confirmPassword?.message}
+              ref={register}
             />
 
             <Button loading={buttonLoading} type="submit">
               Cadastrar
             </Button>
-          </Form>
+          </form>
           <Link to="/">
             <FiArrowLeft /> Fazer login
           </Link>

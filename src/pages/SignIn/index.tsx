@@ -1,9 +1,7 @@
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FormHandles } from '@unform/core';
-import { Form } from '@unform/web';
-import { ValidationError } from 'yup';
-
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 
 import { useAuth } from 'hooks/auth';
@@ -18,47 +16,31 @@ import Button from 'components/Button';
 
 import { schema } from './schema';
 
-import getValidationErros from 'utils/getValidationErros';
-
 interface ISignInFormData {
   email: string;
   password: string;
 }
 
 const SignIn = () => {
+  const { register, handleSubmit, errors } = useForm<ISignInFormData>({
+    resolver: yupResolver(schema),
+  });
+
   const { signIn } = useAuth();
   const { addToast } = useToast();
-
-  const formRef = useRef({} as FormHandles);
 
   // State to useEffect cleanup function
   const [, setDidMount] = useState(false);
 
   const [buttonLoading, setButtonLoading] = useState(false);
 
-  const handleSubmit = useCallback(
+  const onSubmit = useCallback(
     async (data: ISignInFormData) => {
       setButtonLoading(true);
 
       try {
-        formRef.current.setErrors({});
-
-        await schema.validate(data, {
-          abortEarly: false,
-        });
-
         await signIn({ email: data.email, password: data.password });
-      } catch (error) {
-        if (error instanceof ValidationError) {
-          const errors = getValidationErros(error);
-
-          formRef.current.setErrors(errors);
-
-          setButtonLoading(false);
-
-          return;
-        }
-
+      } catch {
         addToast({
           type: 'error',
           title: 'Erro ao tentar logar!',
@@ -88,7 +70,7 @@ const SignIn = () => {
             alt="logo com nome da pagina"
           />
 
-          <Form onSubmit={handleSubmit} ref={formRef}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <h1>Faça seu login </h1>
 
             <Input
@@ -96,12 +78,16 @@ const SignIn = () => {
               name="email"
               type="text"
               placeholder="E-mail"
+              error={errors.email?.message}
+              ref={register}
             />
             <Input
               icon={FiLock}
               name="password"
               type="password"
               placeholder="Senha"
+              error={errors.password?.message}
+              ref={register}
             />
 
             <Button loading={buttonLoading} type="submit">
@@ -109,7 +95,7 @@ const SignIn = () => {
             </Button>
 
             <Link to="forgot">Esqueci minha senha</Link>
-          </Form>
+          </form>
           <Link to="/register">
             <FiLogIn /> Criar conta
           </Link>

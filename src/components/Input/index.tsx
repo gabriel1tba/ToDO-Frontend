@@ -31,7 +31,12 @@ const Input = forwardRef(
     }, []);
 
     return (
-      <S.Wrapper hasError={!!error} isFocused={isFocused} isFilled={isFilled}>
+      <S.Wrapper
+        hasError={!!error}
+        isFocused={isFocused}
+        isFilled={isFilled}
+        ref={inputRef}
+      >
         {Icon && <Icon size={20} />}
         <input
           defaultValue={defaultValue}
