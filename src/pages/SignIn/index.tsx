@@ -22,11 +22,7 @@ interface ISignInFormData {
 }
 
 const SignIn = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ISignInFormData>({
+  const { register, handleSubmit, errors } = useForm<ISignInFormData>({
     resolver: yupResolver(schema),
   });
 
