@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-
 import { FiPlus } from 'react-icons/fi';
 import { AiOutlineHourglass } from 'react-icons/ai';
 
@@ -19,10 +18,6 @@ import { schema } from './schema';
 
 import { IFormData } from '../../../interfaces';
 
-interface IForm {
-  title: string;
-  description: string;
-}
 interface INewTodo {
   user_id: string;
   handleCloseModal: () => void;

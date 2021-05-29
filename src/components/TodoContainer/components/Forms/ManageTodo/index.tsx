@@ -1,8 +1,6 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { FormHandles } from '@unform/core';
-import { Form } from '@unform/web';
-import { ValidationError } from 'yup';
-
+import { useState, useEffect, useCallback } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { FaEdit } from 'react-icons/fa';
 import { BsTrash } from 'react-icons/bs';
 import { IoCloseSharp } from 'react-icons/io5';
@@ -18,8 +16,6 @@ import { useTodos } from 'hooks/todos';
 
 import api from 'services/api';
 
-import getValidationErros from 'utils/getValidationErros';
-
 import { schema } from './schema';
 
 import { IFormData, IManageTodo } from '../../../interfaces';
@@ -30,10 +26,12 @@ const ManageTodo = ({
   todo,
   handleCloseModal,
 }: IManageTodo) => {
+  const { register, handleSubmit, errors } = useForm<IFormData>({
+    resolver: yupResolver(schema),
+  });
+
   const { addToast } = useToast();
   const { updateTodo, deleteTodo } = useTodos();
-
-  const formRef = useRef({} as FormHandles);
 
   const [buttonLoading, setButtonLoading] = useState(false);
 
@@ -52,17 +50,11 @@ const ManageTodo = ({
     return () => setDidMount(false);
   }, []);
 
-  const handleSubmit = useCallback(
+  const onSubmit = useCallback(
     async (formData: IFormData) => {
       setButtonLoading(true);
 
       try {
-        formRef.current.setErrors({});
-
-        await schema.validate(formData, {
-          abortEarly: false,
-        });
-
         const { data } = editTodo
           ? await api.patch('/todos', {
               id: todo.id,
@@ -82,17 +74,7 @@ const ManageTodo = ({
           title: editTodo ? 'Atualizado com sucesso!' : 'Removido com sucesso!',
           secondsDuration: 3,
         });
-      } catch (error) {
-        if (error instanceof ValidationError) {
-          const errors = getValidationErros(error);
-
-          formRef.current.setErrors(errors);
-
-          setButtonLoading(false);
-
-          return;
-        }
-
+      } catch {
         addToast({
           type: 'error',
           title: 'Erro ao tentar executar ação!',
@@ -110,17 +92,16 @@ const ManageTodo = ({
 
   return (
     <S.Wrapper>
-      <Form
-        initialData={{ title: todo.title, description: todo.description }}
-        onSubmit={handleSubmit}
-        ref={formRef}
-      >
+      <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="title">Título</label>
         <Input
           name="title"
           type="text"
           readOnly={showTodo || !editTodo}
           style={{ pointerEvents: showTodo || !editTodo ? 'none' : 'all' }}
+          error={errors.title?.message}
+          ref={register}
+          defaultValue={todo.title}
         />
 
         <label htmlFor="description">Descrição</label>
@@ -129,6 +110,9 @@ const ManageTodo = ({
           name="description"
           readOnly={showTodo || !editTodo}
           style={{ pointerEvents: showTodo || !editTodo ? 'none' : 'all' }}
+          error={errors.description?.message}
+          ref={register}
+          defaultValue={todo.description ?? ''}
         />
 
         <S.TimeWrapper style={{ marginTop: '30px' }}>
@@ -179,7 +163,7 @@ const ManageTodo = ({
             </button>
           )}
         </S.Footer>
-      </Form>
+      </form>
     </S.Wrapper>
   );
 };
