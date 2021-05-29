@@ -1,7 +1,6 @@
-import { useState, useCallback, useRef } from 'react';
-import { FormHandles } from '@unform/core';
-import { Form } from '@unform/web';
-import { ValidationError } from 'yup';
+import { useState, useCallback } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import { FiPlus } from 'react-icons/fi';
 import { AiOutlineHourglass } from 'react-icons/ai';
@@ -16,32 +15,34 @@ import { useTodos } from 'hooks/todos';
 
 import api from 'services/api';
 
-import getValidationErros from 'utils/getValidationErros';
-
 import { schema } from './schema';
 
 import { IFormData } from '../../../interfaces';
 
+interface IForm {
+  title: string;
+  description: string;
+}
 interface INewTodo {
   user_id: string;
   handleCloseModal: () => void;
 }
 
 const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
+  const { register, handleSubmit, errors } = useForm<IForm>({
+    resolver: yupResolver(schema),
+  });
+
   const { addToast } = useToast();
   const { createTodo } = useTodos();
 
-  const formRef = useRef({} as FormHandles);
-
   const [buttonLoading, setButtonLoading] = useState(false);
 
-  const handleSubmit = useCallback(
+  const onSubmit = useCallback(
     async (formData: IFormData) => {
       setButtonLoading(true);
 
       try {
-        formRef.current.setErrors({});
-
         await schema.validate(formData, {
           abortEarly: false,
         });
@@ -59,17 +60,7 @@ const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
           title: 'Tarefa criada com sucesso!',
           secondsDuration: 3,
         });
-      } catch (error) {
-        if (error instanceof ValidationError) {
-          const errors = getValidationErros(error);
-
-          formRef.current.setErrors(errors);
-
-          setButtonLoading(false);
-
-          return;
-        }
-
+      } catch {
         addToast({
           type: 'error',
           title: 'Erro ao criar tarefa!',
@@ -87,12 +78,22 @@ const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
 
   return (
     <S.Wrapper>
-      <Form onSubmit={handleSubmit} ref={formRef}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="title">Título</label>
-        <Input name="title" type="text" />
+        <Input
+          name="title"
+          type="text"
+          error={errors.title?.message}
+          ref={register}
+        />
 
         <label htmlFor="description">Descrição</label>
-        <TextArea rows={4} name="description" />
+        <TextArea
+          rows={4}
+          name="description"
+          error={errors.description?.message}
+          ref={register}
+        />
 
         <S.Footer>
           <button style={{ backgroundColor: '#007bff' }} type="submit">
@@ -107,7 +108,7 @@ const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
             )}
           </button>
         </S.Footer>
-      </Form>
+      </form>
     </S.Wrapper>
   );
 };
