@@ -16,7 +16,7 @@ To DO é uma single-page application, feita em React, onde usuários podem se ca
 - **lint-staged**
 - **custom hooks**
 - **styled-components**
-- **unform**
+- **react-hook-form**
 - **yup**
 - **axios**
 
