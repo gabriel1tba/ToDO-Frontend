@@ -39,7 +39,7 @@ const SignUp = () => {
       setButtonLoading(true);
 
       try {
-        await api.post('users', data);
+        await api.post('user', data);
 
         addToast({
           type: 'success',

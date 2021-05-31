@@ -14,18 +14,14 @@ const ToastContainer = ({ messages }: IToastContainer) => {
     from: {
       right: '-120%',
       opacity: 0,
-      transform: 'rotateZ(0deg)',
     },
     enter: {
       right: '0%',
       opacity: 1,
-      transform: 'rotateZ(360deg)',
-      transition: 'transform 200ms',
     },
     leave: {
       right: '-120%',
       opacity: 0,
-      transform: 'rotateZ(0deg)',
     },
   });
   return (
