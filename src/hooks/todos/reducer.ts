@@ -3,6 +3,13 @@ import { ITodo } from './interfaces';
 
 const todoReducer = (state: ITodo[], action: TodoActions): ITodo[] => {
   switch (action.type) {
+    case ActionType.GetTodos: {
+      return state.sort(
+        (a: ITodo, b: ITodo) =>
+          new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
+      );
+    }
+
     case ActionType.CreateTodo: {
       return [...state, action.payload];
     }

@@ -1,11 +1,16 @@
 import { ITodo } from './interfaces';
 
 export enum ActionType {
+  GetTodos,
   CreateTodo,
   UpdateTodo,
   DeleteTodo,
 }
 
+export interface GetTodos {
+  type: ActionType.GetTodos;
+  payload: ITodo[];
+}
 export interface CreateTodo {
   type: ActionType.CreateTodo;
   payload: ITodo;
@@ -21,4 +26,4 @@ export interface DeleteTodo {
   payload: ITodo;
 }
 
-export type TodoActions = CreateTodo | UpdateTodo | DeleteTodo;
+export type TodoActions = GetTodos | CreateTodo | UpdateTodo | DeleteTodo;

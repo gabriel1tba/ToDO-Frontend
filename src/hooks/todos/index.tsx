@@ -11,6 +11,7 @@ import { useAuth } from '../auth';
 
 import api from 'services/api';
 
+import { ActionType } from './actions';
 import { ITodoContext, ITodoProvider, ITodo } from './interfaces';
 
 import todoReducer from './reducer';
@@ -21,23 +22,16 @@ const TodoProvider = ({ children }: ITodoProvider) => {
   const { user } = useAuth();
   const { addToast } = useToast();
 
-  const [initialTodos, setTodos] = useState<ITodo[]>([]);
   const [searchedWord, setSearchedWord] = useState<string>('');
 
-  const [todos, todoDispatch] = useReducer(todoReducer, initialTodos);
+  const [todos, todoDispatch] = useReducer(todoReducer, []);
 
   const getTodosFromDB = useCallback(async () => {
     if (user) {
       try {
         const { data } = await api.get(`todos/${user.id}`);
 
-        setTodos(
-          data.sort(
-            (a: ITodo, b: ITodo) =>
-              new Date(a.created_at).getTime() -
-              new Date(b.created_at).getTime(),
-          ),
-        );
+        todoDispatch({ type: ActionType.GetTodos, payload: data });
       } catch {
         addToast({
           type: 'error',
