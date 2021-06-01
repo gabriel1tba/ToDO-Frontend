@@ -4,7 +4,7 @@ import { ITodo } from './interfaces';
 const todoReducer = (state: ITodo[], action: TodoActions): ITodo[] => {
   switch (action.type) {
     case ActionType.GetTodos: {
-      return state.sort(
+      return action.payload.sort(
         (a: ITodo, b: ITodo) =>
           new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
       );
