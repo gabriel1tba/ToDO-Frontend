@@ -12,7 +12,7 @@ import Input from 'components/Input';
 import TextArea from 'components/TextArea';
 
 import { useToast } from 'hooks/toast';
-import { useTodos } from 'hooks/todos/todos';
+import { useTodos } from 'hooks/todos';
 
 import api from 'services/api';
 
