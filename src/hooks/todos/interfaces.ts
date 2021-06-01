@@ -1,3 +1,5 @@
+import { TodoActions } from './actions';
+
 export interface ITodo {
   id: string;
   user_id: string;
@@ -11,9 +13,7 @@ export interface ITodo {
 export interface ITodoContext {
   todos: ITodo[];
   getTodosFromDB: () => void;
-  createTodo: (seletectedTodo: ITodo) => void;
-  updateTodo: (seletectedTodo: ITodo) => void;
-  deleteTodo: (seletectedTodo: ITodo) => void;
+  todoDispatch: React.Dispatch<TodoActions>;
   getSearchedWord: (word: string) => void;
   filteredTodos: ITodo[];
 }
