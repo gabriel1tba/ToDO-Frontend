@@ -14,13 +14,15 @@ import ManageTodo from '../Forms/ManageTodo';
 
 import { Item } from '../../interfaces';
 
+import { ActionType } from 'hooks/todos/actions';
+
 interface ITodo {
   todo: Item;
 }
 
 const Todo = ({ todo }: ITodo) => {
   const { addToast } = useToast();
-  const { updateTodo } = useTodos();
+  const { todoDispatch } = useTodos();
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -51,7 +53,7 @@ const Todo = ({ todo }: ITodo) => {
           description: todo.description,
         });
 
-        updateTodo(data);
+        todoDispatch({ type: ActionType.UpdateTodo, payload: data });
       } catch {
         addToast({
           type: 'error',
@@ -61,7 +63,7 @@ const Todo = ({ todo }: ITodo) => {
         });
       }
     },
-    [addToast, updateTodo, todo],
+    [todo.id, todo.title, todo.description, todoDispatch, addToast],
   );
 
   return (

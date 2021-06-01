@@ -18,6 +18,8 @@ import { schema } from './schema';
 
 import { IFormData } from '../../../interfaces';
 
+import { ActionType } from 'hooks/todos/actions';
+
 interface INewTodo {
   user_id: string;
   handleCloseModal: () => void;
@@ -29,7 +31,7 @@ const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
   });
 
   const { addToast } = useToast();
-  const { createTodo } = useTodos();
+  const { todoDispatch } = useTodos();
 
   const [buttonLoading, setButtonLoading] = useState(false);
 
@@ -48,7 +50,7 @@ const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
           description: formData.description,
         });
 
-        createTodo(data);
+        todoDispatch({ type: ActionType.CreateTodo, payload: data });
 
         addToast({
           type: 'success',
@@ -68,7 +70,7 @@ const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
       setButtonLoading(false);
       handleCloseModal();
     },
-    [addToast, createTodo, handleCloseModal, user_id],
+    [addToast, handleCloseModal, todoDispatch, user_id],
   );
 
   return (
