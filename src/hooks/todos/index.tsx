@@ -1,39 +1,11 @@
-import {
-  createContext,
-  useContext,
-  useCallback,
-  useState,
-  ReactNode,
-} from 'react';
+import { createContext, useContext, useCallback, useState } from 'react';
 
 import { useToast } from '../toast';
 import { useAuth } from '../auth';
 
 import api from 'services/api';
 
-interface ITodo {
-  id: string;
-  user_id: string;
-  completed: boolean;
-  title: string;
-  description: string | null;
-  created_at: string;
-  updated_at: string;
-}
-
-interface ITodoContext {
-  todos: ITodo[];
-  getTodosFromDB: () => void;
-  createTodo: (seletectedTodo: ITodo) => void;
-  updateTodo: (seletectedTodo: ITodo) => void;
-  deleteTodo: (seletectedTodo: ITodo) => void;
-  getSearchedWord: (word: string) => void;
-  filteredTodos: ITodo[];
-}
-
-interface ITodoProvider {
-  children: ReactNode;
-}
+import { ITodoContext, ITodoProvider, ITodo } from './interfaces';
 
 const TodoContext = createContext({} as ITodoContext);
 
