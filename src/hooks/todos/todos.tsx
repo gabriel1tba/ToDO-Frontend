@@ -6,8 +6,8 @@ import {
   ReactNode,
 } from 'react';
 
-import { useToast } from './toast';
-import { useAuth } from './auth';
+import { useToast } from '../toast';
+import { useAuth } from '../auth';
 
 import api from 'services/api';
 

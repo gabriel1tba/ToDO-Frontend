@@ -3,7 +3,7 @@ import { FiPlus } from 'react-icons/fi';
 
 import * as S from './styles';
 
-import { useTodos } from 'hooks/todos';
+import { useTodos } from 'hooks/todos/todos';
 import { useAuth } from 'hooks/auth';
 
 import Badge from '../Badge';
