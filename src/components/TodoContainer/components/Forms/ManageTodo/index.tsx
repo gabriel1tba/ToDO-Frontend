@@ -19,6 +19,7 @@ import api from 'services/api';
 import { schema } from './schema';
 
 import { IFormData, IManageTodo } from '../../../interfaces';
+import { ActionType } from 'hooks/todos/actions';
 
 const ManageTodo = ({
   showTodo,
@@ -31,7 +32,7 @@ const ManageTodo = ({
   });
 
   const { addToast } = useToast();
-  const { updateTodo, deleteTodo } = useTodos();
+  const { todoDispatch } = useTodos();
 
   const [buttonLoading, setButtonLoading] = useState(false);
 
@@ -67,7 +68,9 @@ const ManageTodo = ({
               },
             });
 
-        editTodo ? updateTodo(data) : deleteTodo(todo);
+        editTodo
+          ? todoDispatch({ type: ActionType.UpdateTodo, payload: data })
+          : todoDispatch({ type: ActionType.DeleteTodo, payload: todo });
 
         addToast({
           type: 'success',
@@ -87,7 +90,7 @@ const ManageTodo = ({
       setButtonLoading(false);
       handleCloseModal();
     },
-    [addToast, deleteTodo, editTodo, handleCloseModal, todo, updateTodo],
+    [addToast, editTodo, handleCloseModal, todo, todoDispatch],
   );
 
   return (
