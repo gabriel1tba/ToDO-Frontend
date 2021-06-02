@@ -11,7 +11,7 @@ import * as S from './styles';
 import Input from 'components/Input';
 import TextArea from 'components/TextArea';
 
-import { useToast } from 'hooks/toast';
+import { useToast } from 'hooks/toast/toast';
 import { useTodos } from 'hooks/todos';
 
 import api from 'services/api';

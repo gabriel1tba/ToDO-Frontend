@@ -12,6 +12,7 @@ import { useAuth } from '../auth';
 import api from 'services/api';
 
 import { ActionType } from './actions';
+
 import { ITodoContext, ITodoProvider, ITodo } from './interfaces';
 
 import todoReducer from './reducer';

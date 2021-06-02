@@ -1,40 +1,8 @@
-import {
-  useState,
-  createContext,
-  useCallback,
-  ReactNode,
-  useContext,
-} from 'react';
+import { useState, createContext, useCallback, useContext } from 'react';
 
 import api from 'services/api';
 
-interface ISignInCrendentials {
-  email: string;
-  password: string;
-}
-
-interface IUser {
-  id: string;
-  name: string;
-  email: string;
-  created_at: string;
-  updated_at: string;
-}
-
-interface IAuthState {
-  token: string;
-  user: IUser;
-}
-
-interface IAuthContext {
-  user: IUser;
-  signIn: (crendentials: ISignInCrendentials) => Promise<void>;
-  signOut: () => void;
-}
-
-interface IAuthProvider {
-  children: ReactNode;
-}
+import { IAuthContext, IAuthProvider, IAuthState } from './interfaces';
 
 const AuthContext = createContext({} as IAuthContext);
 
