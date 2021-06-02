@@ -4,7 +4,7 @@ import { BsTrash } from 'react-icons/bs';
 
 import * as S from './styles';
 
-import { useToast } from 'hooks/toast/toast';
+import { useToast } from 'hooks/toast';
 import { useTodos } from 'hooks/todos';
 
 import Modal from 'components/Modal';
