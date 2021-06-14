@@ -4,7 +4,7 @@ import Header from 'components/Header';
 import TodoContainer from 'components/TodoContainer';
 
 import { useAuth } from 'hooks/auth';
-import { TodoProvider } from 'hooks/todos';
+import { TodoProvider } from 'context/todos';
 
 const Dashboard = () => {
   const { user, signOut } = useAuth();
