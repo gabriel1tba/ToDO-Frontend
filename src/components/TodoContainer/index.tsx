@@ -11,6 +11,8 @@ import Modal from '../Modal';
 import Todo from './components/Todo';
 import NewTodo from './components/Forms/NewTodo';
 
+import { ITodo } from 'context/todos/interfaces';
+
 const TodoContainer = () => {
   const { todos, getTodosFromDB, filteredTodos } = useTodos();
   const { user } = useAuth();
@@ -63,7 +65,13 @@ const TodoContainer = () => {
         </div>
         <S.TodoWrapper hastodos={!!todos.length}>
           {todos.length
-            ? filteredTodos.map((todo) => <Todo key={todo.id} todo={todo} />)
+            ? filteredTodos
+                .sort(
+                  (a: ITodo, b: ITodo) =>
+                    new Date(a.created_at).getTime() -
+                    new Date(b.created_at).getTime(),
+                )
+                .map((todo) => <Todo key={todo.id} todo={todo} />)
             : null}
 
           <button onClick={() => setOpenModal(true)}>

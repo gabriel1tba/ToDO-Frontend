@@ -4,10 +4,7 @@ import { ITodo } from '../../context/todos/interfaces';
 const todoReducer = (state: ITodo[], action: TodoActions): ITodo[] => {
   switch (action.type) {
     case ActionType.GetTodos: {
-      return action.payload.sort(
-        (a: ITodo, b: ITodo) =>
-          new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
-      );
+      return action.payload;
     }
 
     case ActionType.CreateTodo: {
@@ -15,28 +12,18 @@ const todoReducer = (state: ITodo[], action: TodoActions): ITodo[] => {
     }
 
     case ActionType.UpdateTodo: {
-      return state
-        .sort(
-          (a: ITodo, b: ITodo) =>
-            new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
-        )
-        .map((todo) => {
-          if (action.payload.id === todo.id) {
-            todo = action.payload;
-          }
-          return todo;
-        });
+      return state.map((todo) => {
+        if (action.payload.id === todo.id) {
+          todo = action.payload;
+        }
+        return todo;
+      });
     }
 
     case ActionType.DeleteTodo: {
-      return state
-        .filter((todo) => {
-          return todo !== action.payload;
-        })
-        .sort(
-          (a: ITodo, b: ITodo) =>
-            new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
-        );
+      return state.filter((todo) => {
+        return todo !== action.payload;
+      });
     }
 
     default:
