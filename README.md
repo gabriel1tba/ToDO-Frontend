@@ -26,17 +26,17 @@ To DO é uma single-page application, feita em React, onde usuários podem se ca
 
 Cadastro e autenticação de usuários;
 
-Criação, edição, visualização e remoção de tarefas;
+Criação, edição, visualização e remoção das tarefas;
 
-Modal para gerenciamento de tarefas;
+Modal para gerenciamento das tarefas;
 
-Filtragem de tarefas;
+Filtragem das tarefas;
 
 Validação de formulário;
 
 Rotas privadas;
 
-Toasts.
+Toasts de notificação.
 
 &nbsp;
 
