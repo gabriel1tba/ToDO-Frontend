@@ -8,8 +8,8 @@ import { AiOutlineHourglass } from 'react-icons/ai';
 
 import * as S from './styles';
 
-import Input from 'components/Input';
-import TextArea from 'components/TextArea';
+import { Input } from 'components/Input';
+import { TextArea } from 'components/TextArea';
 
 import { useToast } from 'hooks/toast';
 import useTodos from 'hooks/todos';
