@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FiPlus } from 'react-icons/fi';
@@ -26,19 +26,15 @@ interface INewTodo {
 }
 
 const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
-  const { register, handleSubmit, errors } = useForm<IFormData>({
+  const { register, handleSubmit, errors, formState } = useForm<IFormData>({
     resolver: yupResolver(schema),
   });
 
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();
 
-  const [buttonLoading, setButtonLoading] = useState(false);
-
   const onSubmit = useCallback(
     async (formData: IFormData) => {
-      setButtonLoading(true);
-
       try {
         await schema.validate(formData, {
           abortEarly: false,
@@ -67,7 +63,6 @@ const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
         });
       }
 
-      setButtonLoading(false);
       handleCloseModal();
     },
     [addToast, handleCloseModal, todoDispatch, user_id],
@@ -94,7 +89,7 @@ const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
 
         <S.Footer>
           <button style={{ backgroundColor: '#007bff' }} type="submit">
-            {buttonLoading ? (
+            {formState.isSubmitting ? (
               <>
                 <AiOutlineHourglass size={15} /> Carregando...
               </>

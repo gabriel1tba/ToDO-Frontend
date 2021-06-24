@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -25,19 +25,20 @@ interface ISignUpFormData {
 }
 
 const SignUp = () => {
-  const { register, handleSubmit, errors } = useForm<ISignUpFormData>({
+  const {
+    register,
+    handleSubmit,
+    errors,
+    formState,
+  } = useForm<ISignUpFormData>({
     resolver: yupResolver(schema),
   });
 
   const { addToast } = useToast();
   const history = useHistory();
 
-  const [buttonLoading, setButtonLoading] = useState(false);
-
   const onSubmit = useCallback(
     async (data: ISignUpFormData) => {
-      setButtonLoading(true);
-
       try {
         await api.post('user', data);
 
@@ -60,7 +61,6 @@ const SignUp = () => {
           secondsDuration: 5,
         });
       }
-      setButtonLoading(false);
     },
     [addToast, history],
   );
@@ -113,7 +113,7 @@ const SignUp = () => {
               ref={register}
             />
 
-            <Button loading={buttonLoading} type="submit">
+            <Button loading={formState.isSubmitting} type="submit">
               Cadastrar
             </Button>
           </form>

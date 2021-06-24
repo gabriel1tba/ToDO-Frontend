@@ -27,14 +27,12 @@ const ManageTodo = ({
   todo,
   handleCloseModal,
 }: IManageTodo) => {
-  const { register, handleSubmit, errors } = useForm<IFormData>({
+  const { register, handleSubmit, errors, formState } = useForm<IFormData>({
     resolver: yupResolver(schema),
   });
 
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();
-
-  const [buttonLoading, setButtonLoading] = useState(false);
 
   const formattedTimestamp = (timeStamp: string) => {
     return new Date(timeStamp).toLocaleString('pt-BR', {
@@ -53,8 +51,6 @@ const ManageTodo = ({
 
   const onSubmit = useCallback(
     async (formData: IFormData) => {
-      setButtonLoading(true);
-
       try {
         const { data } = editTodo
           ? await api.patch('/todos', {
@@ -87,7 +83,6 @@ const ManageTodo = ({
         });
       }
 
-      setButtonLoading(false);
       handleCloseModal();
     },
     [addToast, editTodo, handleCloseModal, todo, todoDispatch],
@@ -142,7 +137,7 @@ const ManageTodo = ({
             </button>
           ) : editTodo ? (
             <button style={{ backgroundColor: '#007bff' }} type="submit">
-              {buttonLoading ? (
+              {formState.isSubmitting ? (
                 <>
                   <AiOutlineHourglass size={15} /> Carregando...
                 </>
@@ -154,7 +149,7 @@ const ManageTodo = ({
             </button>
           ) : (
             <button style={{ backgroundColor: '#dc3545' }} type="submit">
-              {buttonLoading ? (
+              {formState.isSubmitting ? (
                 <>
                   <AiOutlineHourglass size={15} /> Carregando...
                 </>

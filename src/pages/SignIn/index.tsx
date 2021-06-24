@@ -22,7 +22,12 @@ interface ISignInFormData {
 }
 
 const SignIn = () => {
-  const { register, handleSubmit, errors } = useForm<ISignInFormData>({
+  const {
+    register,
+    handleSubmit,
+    errors,
+    formState,
+  } = useForm<ISignInFormData>({
     resolver: yupResolver(schema),
   });
 
@@ -32,12 +37,8 @@ const SignIn = () => {
   // State to useEffect cleanup function
   const [, setDidMount] = useState(false);
 
-  const [buttonLoading, setButtonLoading] = useState(false);
-
   const onSubmit = useCallback(
     async (data: ISignInFormData) => {
-      setButtonLoading(true);
-
       try {
         await signIn({ email: data.email, password: data.password });
       } catch {
@@ -49,7 +50,6 @@ const SignIn = () => {
           secondsDuration: 5,
         });
       }
-      setButtonLoading(false);
     },
     [addToast, signIn],
   );
@@ -90,7 +90,7 @@ const SignIn = () => {
               ref={register}
             />
 
-            <Button loading={buttonLoading} type="submit">
+            <Button loading={formState.isSubmitting} type="submit">
               Entrar
             </Button>
 
