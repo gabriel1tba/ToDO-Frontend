@@ -17,7 +17,7 @@ interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   defaultValue?: string | number | string[] | undefined;
 }
 
-const InputBase: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
+const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
   { name, icon: Icon, error, defaultValue = '', ...rest },
   ref,
 ) => {
@@ -61,4 +61,4 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
   );
 };
 
-export const Input = forwardRef(InputBase);
+export default forwardRef(Input);

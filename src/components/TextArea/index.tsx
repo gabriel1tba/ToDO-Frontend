@@ -15,7 +15,7 @@ interface ITextArea extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   defaultValue?: string | number | string[] | undefined;
 }
 
-const TextAreaBase: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
+const TextArea: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
   { name, error, defaultValue = '', ...rest }: ITextArea,
   ref,
 ) => {
@@ -53,4 +53,4 @@ const TextAreaBase: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
   );
 };
 
-export const TextArea = forwardRef(TextAreaBase);
+export default forwardRef(TextArea);

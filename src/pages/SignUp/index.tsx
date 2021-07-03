@@ -10,7 +10,7 @@ import { useToast } from 'hooks/toast';
 
 import logoImg from 'assets/logo.png';
 
-import { Input } from 'components/Input';
+import Input from 'components/Input';
 import Button from 'components/Button';
 
 import api from 'services/api';

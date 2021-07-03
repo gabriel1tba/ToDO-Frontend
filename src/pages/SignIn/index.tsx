@@ -11,7 +11,7 @@ import * as S from './styles';
 
 import logoImg from 'assets/logo.png';
 
-import { Input } from 'components/Input';
+import Input from 'components/Input';
 import Button from 'components/Button';
 
 import { schema } from './schema';
