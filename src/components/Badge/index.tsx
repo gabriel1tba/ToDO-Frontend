@@ -1,23 +1,23 @@
+import { memo } from 'react';
 import * as S from './styles';
 
 interface IBadge {
   title: string;
-  dynamicAmount?: number;
   fontColor: string;
-  rgbaBackground: string;
+  backgroundColor: string;
 }
 
-const Badge = ({ title, dynamicAmount, fontColor, rgbaBackground }: IBadge) => {
+const Badge = ({ title, fontColor, backgroundColor }: IBadge) => {
   return (
     <S.Badge
       style={{
         color: fontColor,
-        backgroundColor: rgbaBackground,
+        backgroundColor,
       }}
     >
-      {`${title} ${dynamicAmount ?? ''}`}
+      {title}
     </S.Badge>
   );
 };
 
-export default Badge;
+export default memo(Badge);

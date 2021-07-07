@@ -17,11 +17,31 @@ const TodoContainer = () => {
   const { todos, getTodosFromDB, filteredTodos } = useTodos();
   const { user } = useAuth();
 
+  const [totals, setTotals] = useState(0);
+  const [completeds, setCompleteds] = useState(0);
+  const [pendings, setPendings] = useState(0);
+
   const [openModal, setOpenModal] = useState(false);
 
   const handleCloseModal = useCallback(() => {
     setOpenModal(false);
   }, []);
+
+  useEffect(() => {
+    setTotals(filteredTodos.length);
+
+    setCompleteds(
+      filteredTodos
+        .map((todo) => Number(todo.completed), 0)
+        .reduce((count, currentPrice) => count + currentPrice, 0),
+    );
+
+    setPendings(
+      filteredTodos
+        .map((todo) => Number(!todo.completed), 0)
+        .reduce((count, currentPrice) => count + currentPrice, 0),
+    );
+  }, [filteredTodos]);
 
   useEffect(() => {
     getTodosFromDB();
@@ -40,26 +60,19 @@ const TodoContainer = () => {
           <p>{todos.length ? 'Suas tarefas' : 'Sem tarefas'}</p>
           <div>
             <Badge
-              title="Totais"
-              dynamicAmount={filteredTodos.length ?? 0}
+              title={`Totais ${totals}`}
               fontColor="#3498db"
-              rgbaBackground="rgba(52, 152, 219, 0.2)"
+              backgroundColor="rgba(52, 152, 219, 0.2)"
             />
             <Badge
-              title="Concluídas"
-              dynamicAmount={filteredTodos
-                .map((todo) => Number(todo.completed), 0)
-                .reduce((count, currentPrice) => count + currentPrice, 0)}
+              title={`Concluídas ${completeds}`}
               fontColor="#2ecc71"
-              rgbaBackground="rgba(46, 204, 113, 0.2)"
+              backgroundColor="rgba(46, 204, 113, 0.2)"
             />
             <Badge
-              title="Pendentes"
-              dynamicAmount={filteredTodos
-                .map((todo) => Number(!todo.completed), 0)
-                .reduce((count, currentPrice) => count + currentPrice, 0)}
+              title={`Pendentes ${pendings}`}
               fontColor="#e74c3c"
-              rgbaBackground="rgba(231, 76, 60,0.2)"
+              backgroundColor="rgba(231, 76, 60,0.2)"
             />
           </div>
         </div>
