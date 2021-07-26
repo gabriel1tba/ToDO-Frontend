@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { FiPlus } from 'react-icons/fi';
 
 import * as S from './styles';
@@ -17,31 +17,31 @@ const TodoContainer = () => {
   const { todos, getTodosFromDB, filteredTodos } = useTodos();
   const { user } = useAuth();
 
-  const [totals, setTotals] = useState(0);
-  const [completeds, setCompleteds] = useState(0);
-  const [pendings, setPendings] = useState(0);
+  const totals = useMemo(() => {
+    const calcResult = filteredTodos.length;
+
+    return calcResult;
+  }, [filteredTodos.length]);
+  const completeds = useMemo(() => {
+    const calcResult = filteredTodos
+      .map((todo) => Number(todo.completed), 0)
+      .reduce((count, currentPrice) => count + currentPrice, 0);
+
+    return calcResult;
+  }, [filteredTodos]);
+  const pendings = useMemo(() => {
+    const calcResult = filteredTodos
+      .map((todo) => Number(!todo.completed), 0)
+      .reduce((count, currentPrice) => count + currentPrice, 0);
+
+    return calcResult;
+  }, [filteredTodos]);
 
   const [openModal, setOpenModal] = useState(false);
 
   const handleCloseModal = useCallback(() => {
     setOpenModal(false);
   }, []);
-
-  useEffect(() => {
-    setTotals(filteredTodos.length);
-
-    setCompleteds(
-      filteredTodos
-        .map((todo) => Number(todo.completed), 0)
-        .reduce((count, currentPrice) => count + currentPrice, 0),
-    );
-
-    setPendings(
-      filteredTodos
-        .map((todo) => Number(!todo.completed), 0)
-        .reduce((count, currentPrice) => count + currentPrice, 0),
-    );
-  }, [filteredTodos]);
 
   useEffect(() => {
     getTodosFromDB();
