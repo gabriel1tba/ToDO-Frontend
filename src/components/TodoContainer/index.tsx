@@ -17,11 +17,14 @@ const TodoContainer = () => {
   const { todos, getTodosFromDB, filteredTodos } = useTodos();
   const { user } = useAuth();
 
+  const [openModal, setOpenModal] = useState(false);
+
   const totals = useMemo(() => {
     const calcResult = filteredTodos.length;
 
     return calcResult;
   }, [filteredTodos.length]);
+
   const completeds = useMemo(() => {
     const calcResult = filteredTodos
       .map((todo) => Number(todo.completed), 0)
@@ -29,6 +32,7 @@ const TodoContainer = () => {
 
     return calcResult;
   }, [filteredTodos]);
+
   const pendings = useMemo(() => {
     const calcResult = filteredTodos
       .map((todo) => Number(!todo.completed), 0)
@@ -36,8 +40,6 @@ const TodoContainer = () => {
 
     return calcResult;
   }, [filteredTodos]);
-
-  const [openModal, setOpenModal] = useState(false);
 
   const handleCloseModal = useCallback(() => {
     setOpenModal(false);
