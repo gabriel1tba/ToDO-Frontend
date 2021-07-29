@@ -12,10 +12,10 @@ import * as S from './styles';
 interface ITextArea extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;
   error: string | undefined;
-  defaultValue?: string | number | string[] | undefined;
+  ref: React.LegacyRef<HTMLTextAreaElement> | undefined;
 }
 
-const TextArea: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
+const TextArea: ForwardRefRenderFunction<S.IWrapper, ITextArea> = (
   { name, error, defaultValue = '', ...rest }: ITextArea,
   ref,
 ) => {

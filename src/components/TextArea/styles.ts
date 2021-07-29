@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import Tooltip from '../Tooltip';
 
-interface IWrapper {
+export interface IWrapper {
   isFocused: boolean;
   isFilled: boolean;
   hasError: boolean;
