@@ -50,10 +50,6 @@ export const Wrapper = styled.div<IWrapper>`
     `}
 
   input {
-    @media (max-width: 1366px) {
-      font-size: 16px;
-    }
-
     flex: 1;
     border: 0;
     background: transparent;
