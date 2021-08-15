@@ -51,11 +51,13 @@ const TodoContainer = () => {
 
   return (
     <>
-      {openModal && (
-        <Modal title="Nova tarefa" handleCloseModal={handleCloseModal}>
-          <NewTodo user_id={user.id} handleCloseModal={handleCloseModal} />
-        </Modal>
-      )}
+      <Modal
+        title="Nova tarefa"
+        handleCloseModal={handleCloseModal}
+        openModal={openModal}
+      >
+        <NewTodo user_id={user.id} handleCloseModal={handleCloseModal} />
+      </Modal>
 
       <S.Wrapper hastodos={!!todos.length}>
         <div>

@@ -68,25 +68,24 @@ const Todo = ({ todo }: ITodo) => {
 
   return (
     <>
-      {openModal && (
-        <Modal
-          title={
-            showTodo
-              ? 'Detalhes da tarefa'
-              : editTodo
-              ? 'Editar tarefa'
-              : 'Excluir tarefa'
-          }
+      <Modal
+        title={
+          showTodo
+            ? 'Detalhes da tarefa'
+            : editTodo
+            ? 'Editar tarefa'
+            : 'Excluir tarefa'
+        }
+        openModal={openModal}
+        handleCloseModal={handleCloseModal}
+      >
+        <ManageTodo
+          todo={todo}
+          editTodo={editTodo}
+          showTodo={showTodo}
           handleCloseModal={handleCloseModal}
-        >
-          <ManageTodo
-            todo={todo}
-            editTodo={editTodo}
-            showTodo={showTodo}
-            handleCloseModal={handleCloseModal}
-          />
-        </Modal>
-      )}
+        />
+      </Modal>
 
       <S.Wrapper>
         <input

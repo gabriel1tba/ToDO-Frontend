@@ -76,7 +76,7 @@ export const TodoWrapper = styled.ul<IStyled>`
     font-weight: 500;
     font-size: 17px;
 
-    margin: 10px 0 0 ${({ hastodos }) => (hastodos ? '-43px' : '37px')};
+    margin: 10px 0 0 ${({ hastodos }) => (hastodos ? '-45px' : '37px')};
 
     color: #3498db;
     background-color: transparent;

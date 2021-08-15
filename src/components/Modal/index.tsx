@@ -3,13 +3,14 @@ import { MdClose } from 'react-icons/md';
 import * as S from './styles';
 
 interface IModal {
-  handleCloseModal: () => void;
   title: string;
   children: React.ReactNode;
+  openModal: boolean;
+  handleCloseModal: () => void;
 }
 
-const Modal = ({ children, title, handleCloseModal }: IModal) => {
-  return (
+const Modal = ({ children, title, handleCloseModal, openModal }: IModal) => {
+  return openModal ? (
     <S.Overlay>
       <S.Wrapper>
         <header>
@@ -20,7 +21,7 @@ const Modal = ({ children, title, handleCloseModal }: IModal) => {
         <S.ModalWrapper>{children}</S.ModalWrapper>
       </S.Wrapper>
     </S.Overlay>
-  );
+  ) : null;
 };
 
 export default Modal;
