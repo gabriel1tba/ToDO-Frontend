@@ -74,17 +74,13 @@ const Todo = ({ todo }: ITodo) => {
             : 'Excluir tarefa'
         }
         openModal={openModal}
-        handleCloseModal={() => {
-          hadleToggleModal();
-        }}
+        handleCloseModal={hadleToggleModal}
       >
         <ManageTodo
           todo={todo}
           editTodo={editTodo}
           showTodo={showTodo}
-          handleCloseModal={() => {
-            hadleToggleModal();
-          }}
+          handleCloseModal={hadleToggleModal}
         />
       </Modal>
 

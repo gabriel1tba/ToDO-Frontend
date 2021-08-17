@@ -50,17 +50,10 @@ const TodoContainer = () => {
     <>
       <Modal
         title="Nova tarefa"
-        handleCloseModal={() => {
-          hadleToggleModal();
-        }}
+        handleCloseModal={hadleToggleModal}
         openModal={openModal}
       >
-        <NewTodo
-          user_id={user.id}
-          handleCloseModal={() => {
-            hadleToggleModal();
-          }}
-        />
+        <NewTodo user_id={user.id} handleCloseModal={hadleToggleModal} />
       </Modal>
 
       <S.Wrapper hastodos={!!todos.length}>
