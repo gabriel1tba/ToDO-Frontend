@@ -25,7 +25,7 @@ const Todo = ({ todo }: ITodo) => {
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();
 
-  const [openModal, hadleToggleModal] = useToggle(false);
+  const [openModal, hadleToggleModal] = useToggle();
 
   const [showTodo, setShowTodo] = useState(false);
   const [editTodo, setEditTodo] = useState(false);

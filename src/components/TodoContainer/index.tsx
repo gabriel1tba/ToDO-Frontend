@@ -18,7 +18,7 @@ const TodoContainer = () => {
   const { todos, getTodosFromDB, filteredTodos } = useTodos();
   const { user } = useAuth();
 
-  const [openModal, hadleToggleModal] = useToggle(false);
+  const [openModal, hadleToggleModal] = useToggle();
 
   const totals = useMemo(() => {
     const calcResult = filteredTodos.length;
