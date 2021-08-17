@@ -1,9 +1,10 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useEffect, useMemo } from 'react';
 import { FiPlus } from 'react-icons/fi';
 
 import * as S from './styles';
 
 import useTodos from 'hooks/todos';
+import useToggle from 'hooks/toggle';
 import { useAuth } from 'hooks/auth';
 
 import Badge from '../Badge';
@@ -17,7 +18,7 @@ const TodoContainer = () => {
   const { todos, getTodosFromDB, filteredTodos } = useTodos();
   const { user } = useAuth();
 
-  const [openModal, setOpenModal] = useState(false);
+  const [openModal, hadleToggleModal] = useToggle(false);
 
   const totals = useMemo(() => {
     const calcResult = filteredTodos.length;
@@ -41,10 +42,6 @@ const TodoContainer = () => {
     return calcResult;
   }, [filteredTodos]);
 
-  const handleCloseModal = useCallback(() => {
-    setOpenModal(false);
-  }, []);
-
   useEffect(() => {
     getTodosFromDB();
   }, [getTodosFromDB]);
@@ -53,10 +50,17 @@ const TodoContainer = () => {
     <>
       <Modal
         title="Nova tarefa"
-        handleCloseModal={handleCloseModal}
+        handleCloseModal={() => {
+          hadleToggleModal();
+        }}
         openModal={openModal}
       >
-        <NewTodo user_id={user.id} handleCloseModal={handleCloseModal} />
+        <NewTodo
+          user_id={user.id}
+          handleCloseModal={() => {
+            hadleToggleModal();
+          }}
+        />
       </Modal>
 
       <S.Wrapper hastodos={!!todos.length}>
@@ -91,7 +95,11 @@ const TodoContainer = () => {
                 .map((todo) => <Todo key={todo.id} todo={todo} />)
             : null}
 
-          <button onClick={() => setOpenModal(true)}>
+          <button
+            onClick={() => {
+              hadleToggleModal();
+            }}
+          >
             <FiPlus size={25} color="#3498db" />
             {todos.length ? 'Adicionar tarefa' : 'Adicione sua primeira tarefa'}
           </button>

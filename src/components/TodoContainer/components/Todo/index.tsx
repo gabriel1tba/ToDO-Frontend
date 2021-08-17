@@ -1,11 +1,12 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { BsTrash } from 'react-icons/bs';
 
 import * as S from './styles';
 
-import { useToast } from 'hooks/toast';
 import useTodos from 'hooks/todos';
+import useToggle from 'hooks/toggle';
+import { useToast } from 'hooks/toast';
 
 import Modal from 'components/Modal';
 
@@ -24,14 +25,10 @@ const Todo = ({ todo }: ITodo) => {
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();
 
-  const [openModal, setOpenModal] = useState(false);
+  const [openModal, hadleToggleModal] = useToggle(false);
 
   const [showTodo, setShowTodo] = useState(false);
   const [editTodo, setEditTodo] = useState(false);
-
-  const handleCloseModal = useCallback(() => {
-    setOpenModal(false);
-  }, []);
 
   // State to useEffect cleanup function
   const [, setDidMount] = useState(false);
@@ -77,13 +74,17 @@ const Todo = ({ todo }: ITodo) => {
             : 'Excluir tarefa'
         }
         openModal={openModal}
-        handleCloseModal={handleCloseModal}
+        handleCloseModal={() => {
+          hadleToggleModal();
+        }}
       >
         <ManageTodo
           todo={todo}
           editTodo={editTodo}
           showTodo={showTodo}
-          handleCloseModal={handleCloseModal}
+          handleCloseModal={() => {
+            hadleToggleModal();
+          }}
         />
       </Modal>
 
@@ -103,7 +104,7 @@ const Todo = ({ todo }: ITodo) => {
           onClick={() => {
             setShowTodo(true);
             setEditTodo(false);
-            setOpenModal(true);
+            hadleToggleModal();
           }}
         >
           {todo.title}
@@ -114,7 +115,7 @@ const Todo = ({ todo }: ITodo) => {
             onClick={() => {
               setShowTodo(false);
               setEditTodo(true);
-              setOpenModal(true);
+              hadleToggleModal();
             }}
             size={20}
             color="#ffc107"
@@ -123,7 +124,7 @@ const Todo = ({ todo }: ITodo) => {
             onClick={() => {
               setShowTodo(false);
               setEditTodo(false);
-              setOpenModal(true);
+              hadleToggleModal();
             }}
             size={20}
             color="#dc3545"
