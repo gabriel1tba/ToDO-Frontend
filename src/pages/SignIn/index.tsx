@@ -90,7 +90,12 @@ const SignIn = () => {
               ref={register}
             />
 
-            <Button loading={formState.isSubmitting} type="submit">
+            <Button
+              loading={formState.isSubmitting}
+              size="fullWidth"
+              background="#ff9000"
+              type="submit"
+            >
               Entrar
             </Button>
 

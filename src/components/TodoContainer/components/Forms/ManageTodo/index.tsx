@@ -10,6 +10,7 @@ import * as S from './styles';
 
 import Input from 'components/Input';
 import TextArea from 'components/TextArea';
+import Button from 'components/Button';
 
 import { useToast } from 'hooks/toast';
 import useTodos from 'hooks/todos';
@@ -126,39 +127,32 @@ const ManageTodo = ({
         </S.TimeWrapper>
         <S.Footer>
           {showTodo ? (
-            <button
-              type="button"
-              style={{
-                backgroundColor: '#007bff',
-              }}
+            <Button
+              background="#007bff"
+              icon={<IoCloseSharp size={18} />}
               onClick={handleCloseModal}
             >
-              <IoCloseSharp size={20} /> Fechar
-            </button>
+              Fechar
+            </Button>
           ) : editTodo ? (
-            <button style={{ backgroundColor: '#007bff' }} type="submit">
-              {formState.isSubmitting ? (
-                <>
-                  <AiOutlineHourglass size={15} /> Carregando...
-                </>
-              ) : (
-                <>
-                  <FaEdit size={15} /> Salvar alterações
-                </>
-              )}
-            </button>
+            <Button
+              background="#007bff"
+              type="submit"
+              icon={<FaEdit size={15} />}
+              onClick={handleCloseModal}
+              loading={formState.isSubmitting}
+            >
+              Salvar alterações
+            </Button>
           ) : (
-            <button style={{ backgroundColor: '#dc3545' }} type="submit">
-              {formState.isSubmitting ? (
-                <>
-                  <AiOutlineHourglass size={15} /> Carregando...
-                </>
-              ) : (
-                <>
-                  <BsTrash size={15} /> Confirmar exclusão
-                </>
-              )}
-            </button>
+            <Button
+              background="#dc3545"
+              type="submit"
+              icon={<BsTrash size={15} />}
+              loading={formState.isSubmitting}
+            >
+              Confirmar exclusão
+            </Button>
           )}
         </S.Footer>
       </form>

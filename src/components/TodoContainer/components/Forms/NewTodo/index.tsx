@@ -2,12 +2,12 @@ import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FiPlus } from 'react-icons/fi';
-import { AiOutlineHourglass } from 'react-icons/ai';
 
 import * as S from './styles';
 
 import Input from 'components/Input';
 import TextArea from 'components/TextArea';
+import Button from 'components/Button';
 
 import { useToast } from 'hooks/toast';
 import useTodos from 'hooks/todos';
@@ -88,17 +88,14 @@ const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
         />
 
         <S.Footer>
-          <button style={{ backgroundColor: '#007bff' }} type="submit">
-            {formState.isSubmitting ? (
-              <>
-                <AiOutlineHourglass size={15} /> Carregando...
-              </>
-            ) : (
-              <>
-                <FiPlus size={15} /> Salvar
-              </>
-            )}
-          </button>
+          <Button
+            background="#007bff"
+            type="submit"
+            icon={<FiPlus size={18} />}
+            loading={formState.isSubmitting}
+          >
+            Salvar
+          </Button>
         </S.Footer>
       </form>
     </S.Wrapper>

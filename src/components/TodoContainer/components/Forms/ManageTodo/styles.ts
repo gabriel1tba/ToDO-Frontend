@@ -72,34 +72,6 @@ export const Footer = styled.footer`
     width: 550px;
     border-top: 1px solid #ced4da;
   }
-  button {
-    display: flex;
-    align-items: center;
-
-    height: 40px;
-
-    margin-top: 30px;
-    padding: 0.375rem 0.7rem;
-
-    color: #fff;
-    font-size: 1rem;
-    line-height: 18px;
-    font-weight: 400;
-
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
-
-    transition: filter 0.3s;
-
-    svg {
-      margin-left: 1px;
-      margin-right: 4px;
-    }
-
-    &:hover {
-      filter: brightness(0.8);
-    }
-  }
 `;
 
 export const TimeWrapper = styled.div`
