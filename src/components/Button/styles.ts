@@ -24,6 +24,7 @@ const wrapperModifiers = {
       margin-right: 4px;
     }
   `,
+
   fullWidth: () => css`
     color: #fff;
     height: 56px;
