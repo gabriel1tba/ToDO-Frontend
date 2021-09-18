@@ -15,7 +15,7 @@ export const Wrapper = styled.div<IWrapper>`
   background: #ffffff;
   border-radius: 10px;
   border: 1px solid #666360;
-  padding: 16px;
+  padding: 14px;
   width: 100%;
   color: #666360;
 

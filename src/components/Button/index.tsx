@@ -1,6 +1,6 @@
-import * as S from './styles';
+import { FaHourglass } from 'react-icons/fa';
 
-import Loading from '../Loading';
+import * as S from './styles';
 
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -21,7 +21,9 @@ const Button = ({
   return (
     <S.Wrapper type="button" size={size} background={background} {...rest}>
       {loading ? (
-        <Loading typeLoading="roller" />
+        <S.WrapperLoading size={size}>
+          <FaHourglass size={15} /> Carregando...
+        </S.WrapperLoading>
       ) : (
         <>
           {icon} {children}

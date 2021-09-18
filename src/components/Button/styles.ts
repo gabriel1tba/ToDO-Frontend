@@ -27,7 +27,7 @@ const wrapperModifiers = {
 
   fullWidth: () => css`
     color: #fff;
-    height: 56px;
+    height: 52px;
     border-radius: 10px;
     border: 0;
     padding: 0 16px;
@@ -35,7 +35,7 @@ const wrapperModifiers = {
     font-weight: 500;
     margin-top: 16px;
 
-    font-size: 16px;
+    font-size: 18px;
   `,
 };
 
@@ -48,5 +48,16 @@ export const Wrapper = styled.button<WrapperButton>`
 
   &:hover {
     filter: brightness(0.8);
+  }
+`;
+
+export const WrapperLoading = styled.div<Omit<WrapperButton, 'background'>>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > svg {
+    margin-bottom: ${({ size }) => (size === 'normal' ? '-6px' : '0px')};
+    margin-right: 5px;
   }
 `;

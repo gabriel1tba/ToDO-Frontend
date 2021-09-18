@@ -4,7 +4,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { FaEdit } from 'react-icons/fa';
 import { BsTrash } from 'react-icons/bs';
 import { IoCloseSharp } from 'react-icons/io5';
-import { AiOutlineHourglass } from 'react-icons/ai';
 
 import * as S from './styles';
 
@@ -129,7 +128,7 @@ const ManageTodo = ({
           {showTodo ? (
             <Button
               background="#007bff"
-              icon={<IoCloseSharp size={18} />}
+              icon={<IoCloseSharp size={20} />}
               onClick={handleCloseModal}
             >
               Fechar
@@ -139,7 +138,6 @@ const ManageTodo = ({
               background="#007bff"
               type="submit"
               icon={<FaEdit size={15} />}
-              onClick={handleCloseModal}
               loading={formState.isSubmitting}
             >
               Salvar alterações

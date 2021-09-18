@@ -124,9 +124,8 @@ export const LoadingRing = styled.div`
 
     width: 50px;
     height: 50px;
-    border: 3px solid #ff9000;
+    border: 3px solid #fff;
     border-radius: 50%;
-    border-top-color: #fff;
 
     animation: spin 1s ease-in-out infinite;
   }
