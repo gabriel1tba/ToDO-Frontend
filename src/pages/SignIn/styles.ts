@@ -17,6 +17,10 @@ export const Content = styled.div`
 
   width: 100%;
   max-width: 700px;
+
+  @media (max-width: 1024px) {
+    max-width: 100%;
+  }
 `;
 
 const animationFromLeft = keyframes`
@@ -59,6 +63,18 @@ export const AnimationContainer = styled.div`
         filter: brightness(0.9);
       }
     }
+
+    @media (max-width: 1024px) {
+      width: 400px;
+    }
+
+    @media (max-width: 540px) {
+      width: 300px;
+    }
+
+    @media (max-width: 320px) {
+      width: 280px;
+    }
   }
 
   > a {
@@ -87,4 +103,8 @@ export const Background = styled.div`
 
   background: url(${signInBackgroundImg}) no-repeat center;
   background-size: cover;
+
+  @media (max-width: 1024px) {
+    visibility: hidden;
+  }
 `;
