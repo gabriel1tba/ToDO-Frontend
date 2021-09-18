@@ -31,6 +31,11 @@ export const Wrapper = styled(animated.div)<ToastProps>`
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   display: flex;
 
+  @media (max-width: 375px) {
+    width: 280px;
+    padding: 14px 26px 14px 14px;
+  }
+
   ${(props) => toastTypes[props.type || 'info']}
   > svg {
     margin: 4px 12px 0 0;
