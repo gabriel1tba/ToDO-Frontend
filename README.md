@@ -12,8 +12,8 @@ To DO é uma single-page application, feita em React, onde usuários podem se ca
 
 - **react**
 - **typescript**
-- **husky**
-- **lint-staged**
+- **husky + lint-staged**
+- **context API*
 - **custom hooks**
 - **styled-components**
 - **react-hook-form**
