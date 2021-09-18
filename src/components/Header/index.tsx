@@ -15,25 +15,28 @@ const Header = ({ userName, handleSignOut }: IHeader) => {
 
   return (
     <S.Wrapper>
-      <img src={logoImg} alt="Imagem com as letras da logo" />
-
       <div>
-        {userName ? (
-          <>
-            <h4>Seja bem-vindo,</h4>
-            <h3>{userName}</h3>
-          </>
-        ) : null}
+        <img src={logoImg} alt="Imagem com as letras da logo" />
+
+        <div>
+          {userName ? (
+            <>
+              <h4>Seja bem-vindo,</h4>
+              <h3>{userName}</h3>
+            </>
+          ) : null}
+        </div>
       </div>
+      <div>
+        <S.InputSearch
+          onChange={(event) => getSearchedWord(event.target.value)}
+          placeholder="Pesquisar tarefas..."
+        />
 
-      <S.InputSearch
-        onChange={(event) => getSearchedWord(event.target.value)}
-        placeholder="Pesquisar tarefas..."
-      />
-
-      <button onClick={handleSignOut}>
-        <VscSignOut size={35} color="#666360" />
-      </button>
+        <button onClick={handleSignOut}>
+          <VscSignOut size={35} color="#666360" />
+        </button>
+      </div>
     </S.Wrapper>
   );
 };
