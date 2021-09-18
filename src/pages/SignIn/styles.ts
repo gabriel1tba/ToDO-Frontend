@@ -82,7 +82,7 @@ export const AnimationContainer = styled.div`
     margin-top: -20px;
     text-decoration: none;
     transition: filter 0.3s;
-    margin-right: 10px;
+    margin-right: 20px;
 
     display: flex;
     align-items: center;
