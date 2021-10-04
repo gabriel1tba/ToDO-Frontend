@@ -6,6 +6,7 @@ import * as S from './styles';
 interface ITextArea extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;
   error: string | undefined;
+  ref: React.LegacyRef<HTMLTextAreaElement> | undefined;
 }
 
 const TextArea: ForwardRefRenderFunction<S.IWrapper, ITextArea> = (

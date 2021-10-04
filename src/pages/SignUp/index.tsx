@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -37,33 +36,30 @@ const SignUp = () => {
   const { addToast } = useToast();
   const history = useHistory();
 
-  const onSubmit = useCallback(
-    async (data: ISignUpFormData) => {
-      try {
-        await api.post('user', data);
+  const onSubmit = async (data: ISignUpFormData) => {
+    try {
+      await api.post('user', data);
 
-        addToast({
-          type: 'success',
-          title: 'Cadastrado com sucesso!',
-          description: 'Você será redirecionado em instantes...',
-          secondsDuration: 3,
-        });
+      addToast({
+        type: 'success',
+        title: 'Cadastrado com sucesso!',
+        description: 'Você será redirecionado em instantes...',
+        secondsDuration: 3,
+      });
 
-        setTimeout(() => {
-          history.push('/');
-        }, 3000);
-      } catch {
-        addToast({
-          type: 'error',
-          title: 'Erro ao cadastrar!',
-          description:
-            'Um erro inesperado aconteceu... Tente novamente mais tarde.',
-          secondsDuration: 5,
-        });
-      }
-    },
-    [addToast, history],
-  );
+      setTimeout(() => {
+        history.push('/');
+      }, 3000);
+    } catch {
+      addToast({
+        type: 'error',
+        title: 'Erro ao cadastrar!',
+        description:
+          'Um erro inesperado aconteceu... Tente novamente mais tarde.',
+        secondsDuration: 5,
+      });
+    }
+  };
 
   return (
     <S.Wrapper>

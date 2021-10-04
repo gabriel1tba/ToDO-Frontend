@@ -8,6 +8,7 @@ interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
   icon?: React.ComponentType<IconBaseProps>;
   error: string | undefined;
+  ref: React.LegacyRef<HTMLInputElement> | undefined;
 }
 
 const Input: ForwardRefRenderFunction<S.IWrapper, IInput> = (

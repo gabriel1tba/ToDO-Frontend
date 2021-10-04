@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FaEdit } from 'react-icons/fa';
@@ -49,44 +49,41 @@ const ManageTodo = ({
     return () => setDidMount(false);
   }, []);
 
-  const onSubmit = useCallback(
-    async (formData: IFormData) => {
-      try {
-        const { data } = editTodo
-          ? await api.patch('/todos', {
+  const onSubmit = async (formData: IFormData) => {
+    try {
+      const { data } = editTodo
+        ? await api.patch('/todos', {
+            id: todo.id,
+            title: formData.title,
+            description: formData.description,
+          })
+        : await api.delete('/todos', {
+            data: {
               id: todo.id,
-              title: formData.title,
-              description: formData.description,
-            })
-          : await api.delete('/todos', {
-              data: {
-                id: todo.id,
-              },
-            });
+            },
+          });
 
-        editTodo
-          ? todoDispatch({ type: ActionType.UpdateTodo, payload: data })
-          : todoDispatch({ type: ActionType.DeleteTodo, payload: todo });
+      editTodo
+        ? todoDispatch({ type: ActionType.UpdateTodo, payload: data })
+        : todoDispatch({ type: ActionType.DeleteTodo, payload: todo });
 
-        addToast({
-          type: 'success',
-          title: editTodo ? 'Atualizado com sucesso!' : 'Removido com sucesso!',
-          secondsDuration: 3,
-        });
-      } catch {
-        addToast({
-          type: 'error',
-          title: 'Erro ao tentar executar ação!',
-          description:
-            'Um erro inesperado aconteceu... Tente novamente mais tarde.',
-          secondsDuration: 5,
-        });
-      }
+      addToast({
+        type: 'success',
+        title: editTodo ? 'Atualizado com sucesso!' : 'Removido com sucesso!',
+        secondsDuration: 3,
+      });
+    } catch {
+      addToast({
+        type: 'error',
+        title: 'Erro ao tentar executar ação!',
+        description:
+          'Um erro inesperado aconteceu... Tente novamente mais tarde.',
+        secondsDuration: 5,
+      });
+    }
 
-      handleCloseModal();
-    },
-    [addToast, editTodo, handleCloseModal, todo, todoDispatch],
-  );
+    handleCloseModal();
+  };
 
   return (
     <S.Wrapper>

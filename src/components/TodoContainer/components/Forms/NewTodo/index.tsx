@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FiPlus } from 'react-icons/fi';
@@ -33,40 +32,37 @@ const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();
 
-  const onSubmit = useCallback(
-    async (formData: IFormData) => {
-      try {
-        await schema.validate(formData, {
-          abortEarly: false,
-        });
+  const onSubmit = async (formData: IFormData) => {
+    try {
+      await schema.validate(formData, {
+        abortEarly: false,
+      });
 
-        const { data } = await api.post('/todos', {
-          user_id,
-          title: formData.title,
-          description: formData.description,
-        });
+      const { data } = await api.post('/todos', {
+        user_id,
+        title: formData.title,
+        description: formData.description,
+      });
 
-        todoDispatch({ type: ActionType.CreateTodo, payload: data });
+      todoDispatch({ type: ActionType.CreateTodo, payload: data });
 
-        addToast({
-          type: 'success',
-          title: 'Tarefa criada com sucesso!',
-          secondsDuration: 3,
-        });
-      } catch {
-        addToast({
-          type: 'error',
-          title: 'Erro ao criar tarefa!',
-          description:
-            'Um erro inesperado aconteceu... Tente novamente mais tarde.',
-          secondsDuration: 5,
-        });
-      }
+      addToast({
+        type: 'success',
+        title: 'Tarefa criada com sucesso!',
+        secondsDuration: 3,
+      });
+    } catch {
+      addToast({
+        type: 'error',
+        title: 'Erro ao criar tarefa!',
+        description:
+          'Um erro inesperado aconteceu... Tente novamente mais tarde.',
+        secondsDuration: 5,
+      });
+    }
 
-      handleCloseModal();
-    },
-    [addToast, handleCloseModal, todoDispatch, user_id],
-  );
+    handleCloseModal();
+  };
 
   return (
     <S.Wrapper>

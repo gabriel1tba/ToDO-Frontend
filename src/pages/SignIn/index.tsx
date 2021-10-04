@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -37,22 +37,19 @@ const SignIn = () => {
   // State to useEffect cleanup function
   const [, setDidMount] = useState(false);
 
-  const onSubmit = useCallback(
-    async (data: ISignInFormData) => {
-      try {
-        await signIn({ email: data.email, password: data.password });
-      } catch {
-        addToast({
-          type: 'error',
-          title: 'Erro ao tentar logar!',
-          description:
-            'Um erro inesperado aconteceu... Tente novamente mais tarde.',
-          secondsDuration: 5,
-        });
-      }
-    },
-    [addToast, signIn],
-  );
+  const onSubmit = async (data: ISignInFormData) => {
+    try {
+      await signIn({ email: data.email, password: data.password });
+    } catch {
+      addToast({
+        type: 'error',
+        title: 'Erro ao tentar logar!',
+        description:
+          'Um erro inesperado aconteceu... Tente novamente mais tarde.',
+        secondsDuration: 5,
+      });
+    }
+  };
 
   // useEffect cleanup function
   useEffect(() => {
