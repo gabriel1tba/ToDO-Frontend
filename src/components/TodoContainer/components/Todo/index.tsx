@@ -15,7 +15,7 @@ import ManageTodo from '../Forms/ManageTodo';
 
 import { Item } from '../../interfaces';
 
-import { ActionType } from 'hooks/todos/actions';
+import { ActionType } from 'context/todos/actions';
 
 interface ITodo {
   todo: Item;

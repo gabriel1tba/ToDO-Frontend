@@ -19,7 +19,7 @@ import api from 'services/api';
 import { schema } from './schema';
 
 import { IFormData, IManageTodo } from '../../../interfaces';
-import { ActionType } from 'hooks/todos/actions';
+import { ActionType } from 'context/todos/actions';
 
 const ManageTodo = ({
   showTodo,

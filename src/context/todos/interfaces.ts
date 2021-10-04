@@ -1,4 +1,4 @@
-import { TodoActions } from '../../hooks/todos/actions';
+import { TodoActions } from './actions';
 
 export interface ITodo {
   id: string;

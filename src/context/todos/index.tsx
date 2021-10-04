@@ -5,11 +5,11 @@ import { useAuth } from 'hooks/auth';
 
 import api from 'services/api';
 
-import { ActionType } from 'hooks/todos/actions';
+import { ActionType } from './actions';
 
 import { ITodoContext, ITodoProvider, ITodo } from './interfaces';
 
-import todoReducer from 'hooks/todos/reducer';
+import todoReducer from './reducer';
 
 const TodoContext = createContext({} as ITodoContext);
 
