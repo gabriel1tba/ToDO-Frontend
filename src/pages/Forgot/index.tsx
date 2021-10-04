@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { useHistory } from 'react-router';
 
 import Header from 'components/Header';
@@ -8,9 +7,9 @@ import forgotImg from 'assets/underConstruction.jpg';
 const Forgot = () => {
   const history = useHistory();
 
-  const handleSignOut = useCallback(() => {
+  const handleSignOut = () => {
     history.push('/');
-  }, [history]);
+  };
 
   return (
     <>

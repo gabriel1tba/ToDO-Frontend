@@ -1,10 +1,4 @@
-import {
-  forwardRef,
-  ForwardRefRenderFunction,
-  useCallback,
-  useRef,
-  useState,
-} from 'react';
+import { forwardRef, ForwardRefRenderFunction, useRef, useState } from 'react';
 import { FiAlertCircle } from 'react-icons/fi';
 
 import * as S from './styles';
@@ -12,7 +6,6 @@ import * as S from './styles';
 interface ITextArea extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;
   error: string | undefined;
-  ref: React.LegacyRef<HTMLTextAreaElement> | undefined;
 }
 
 const TextArea: ForwardRefRenderFunction<S.IWrapper, ITextArea> = (
@@ -24,15 +17,15 @@ const TextArea: ForwardRefRenderFunction<S.IWrapper, ITextArea> = (
 
   const textAreaRef = useRef({} as HTMLTextAreaElement);
 
-  const handleInputFocus = useCallback(() => {
+  const handleInputFocus = () => {
     setIsFocued(true);
-  }, []);
+  };
 
-  const handleInputBlur = useCallback(() => {
+  const handleInputBlur = () => {
     setIsFocued(false);
 
     textAreaRef.current.value ? setIsFilled(true) : setIsFilled(false);
-  }, []);
+  };
 
   return (
     <S.Wrapper hasError={!!error} isFocused={isFocused} isFilled={isFilled}>

@@ -1,10 +1,4 @@
-import {
-  useCallback,
-  useRef,
-  useState,
-  forwardRef,
-  ForwardRefRenderFunction,
-} from 'react';
+import { useRef, useState, forwardRef, ForwardRefRenderFunction } from 'react';
 import { IconBaseProps } from 'react-icons';
 import { FiAlertCircle } from 'react-icons/fi';
 
@@ -14,7 +8,6 @@ interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
   icon?: React.ComponentType<IconBaseProps>;
   error: string | undefined;
-  ref: React.LegacyRef<HTMLInputElement> | undefined;
 }
 
 const Input: ForwardRefRenderFunction<S.IWrapper, IInput> = (
@@ -26,15 +19,15 @@ const Input: ForwardRefRenderFunction<S.IWrapper, IInput> = (
 
   const inputRef = useRef({} as HTMLInputElement);
 
-  const handleInputFocus = useCallback(() => {
+  const handleInputFocus = () => {
     setIsFocued(true);
-  }, []);
+  };
 
-  const handleInputBlur = useCallback(() => {
+  const handleInputBlur = () => {
     setIsFocued(false);
 
     inputRef.current.value ? setIsFilled(true) : setIsFilled(false);
-  }, []);
+  };
 
   return (
     <S.Wrapper
