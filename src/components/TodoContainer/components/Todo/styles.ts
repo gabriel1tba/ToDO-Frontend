@@ -17,7 +17,7 @@ export const Wrapper = styled.li`
     left: 0;
     bottom: 0;
     width: calc(100vw - 765px);
-    border: 1px solid rgba(0, 0, 0, 0.125);
+    border: 0.5px solid rgba(0, 0, 0, 0.125);
   }
 
   > input[type='checkbox'] {

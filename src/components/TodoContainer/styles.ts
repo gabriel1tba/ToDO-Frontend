@@ -43,8 +43,8 @@ export const Wrapper = styled.div<IStyled>`
 
     > p {
       display: block;
-      margin: 5px 45px ${({ hastodos }) => (hastodos ? '20px' : '25px')}
-        ${({ hastodos }) => (hastodos ? '8px' : '45px')};
+      margin: 5px 45px
+        ${({ hastodos }) => (hastodos ? '20px 8px' : '25px 45px')};
       font-family: inherit;
       font-size: 18px;
       line-height: 1.2;
