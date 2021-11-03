@@ -1,7 +1,7 @@
 import { createContext, useCallback, useState, useReducer } from 'react';
 
-import { useToast } from 'hooks/toast';
-import { useAuth } from 'hooks/auth';
+import useToast from 'hooks/toast';
+import useAuth from 'hooks/auth';
 
 import api from 'services/api';
 

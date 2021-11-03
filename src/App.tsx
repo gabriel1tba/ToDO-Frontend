@@ -1,6 +1,6 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import AppProvider from './hooks';
+import AppProvider from './context';
 import Routes from './routes';
 
 import { GlobalStyles } from './styles/global';

@@ -8,7 +8,7 @@ import Input from 'components/Input';
 import TextArea from 'components/TextArea';
 import Button from 'components/Button';
 
-import { useToast } from 'hooks/toast';
+import useToast from 'hooks/toast';
 import useTodos from 'hooks/todos';
 
 import api from 'services/api';

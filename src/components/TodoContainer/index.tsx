@@ -5,7 +5,7 @@ import * as S from './styles';
 
 import useTodos from 'hooks/todos';
 import useToggle from 'hooks/toggle';
-import { useAuth } from 'hooks/auth';
+import useAuth from 'hooks/auth';
 
 import Badge from '../Badge';
 import Modal from '../Modal';

@@ -2,7 +2,7 @@ import { useTransition } from 'react-spring';
 
 import * as S from './styles';
 
-import { IToastMessage } from 'hooks/toast/interfaces';
+import { IToastMessage } from 'context/toast/interfaces';
 
 import Toast from './components/Toast';
 

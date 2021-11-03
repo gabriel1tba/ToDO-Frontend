@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 
-import { useAuth } from 'hooks/auth';
-import { useToast } from 'hooks/toast';
+import useAuth from 'hooks/auth';
+import useToast from 'hooks/toast';
 
 import * as S from './styles';
 
