@@ -24,9 +24,12 @@ const TodoProvider = ({ children }: ITodoProvider) => {
   const getTodosFromDB = useCallback(async () => {
     if (user) {
       try {
-        const { data } = await api.get(`todos/${user.id}`);
+        const { data } = await api.get<ITodo[]>(`todos/${user.id}`);
 
-        todoDispatch({ type: ActionType.GetTodos, payload: data });
+        todoDispatch({
+          type: ActionType.GetTodos,
+          payload: data,
+        });
       } catch {
         addToast({
           type: 'error',

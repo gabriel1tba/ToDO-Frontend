@@ -10,7 +10,7 @@ export const Overlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(242, 243, 245, 0.7);
+  background: rgba(0, 0, 0, 0.6);
 `;
 
 export const Wrapper = styled.div`

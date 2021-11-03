@@ -80,10 +80,8 @@ const TodoContainer = () => {
         <S.TodoWrapper hastodos={!!todos.length}>
           {todos.length
             ? filteredTodos
-                .sort(
-                  (a: ITodo, b: ITodo) =>
-                    new Date(a.created_at).getTime() -
-                    new Date(b.created_at).getTime(),
+                .sort((a: ITodo, b: ITodo) =>
+                  a.created_at.localeCompare(b.created_at),
                 )
                 .map((todo) => <Todo key={todo.id} todo={todo} />)
             : null}

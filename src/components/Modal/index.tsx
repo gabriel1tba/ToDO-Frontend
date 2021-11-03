@@ -18,9 +18,7 @@ const Modal = ({ children, title, handleCloseModal, openModal }: IModal) => {
           <MdClose
             size={20}
             color="#666360"
-            onClick={() => {
-              handleCloseModal();
-            }}
+            onClick={handleCloseModal}
           />
         </header>
 

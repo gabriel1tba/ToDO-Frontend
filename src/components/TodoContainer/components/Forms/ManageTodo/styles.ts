@@ -79,6 +79,14 @@ export const TimeWrapper = styled.div`
   justify-content: space-between;
   padding: 0 !important;
 
+  strong{
+    font-size: 15px;
+  }
+
+  small{
+    font-size: 12px;
+  }
+
   div {
     margin-bottom: -20px;
     padding: 0 !important;

@@ -21,6 +21,8 @@ import { schema } from './schema';
 import { IFormData, IManageTodo } from '../../../interfaces';
 import { ActionType } from 'context/todos/actions';
 
+import formattedTimestamp from 'utils/formattedTimestamp';
+
 const ManageTodo = ({
   showTodo,
   editTodo,
@@ -106,13 +108,13 @@ const ManageTodo = ({
 
         <S.TimeWrapper style={{ marginTop: '30px' }}>
           <div>
-            <strong>Criado em </strong>
-            <small>{todo.created_at}</small>
+            <strong>Criado em: </strong>
+            <small>{formattedTimestamp(todo.created_at)}</small>
           </div>
 
           <div>
-            <strong>Atualizado em </strong>
-            <small>{todo.updated_at}</small>
+            <strong>Atualizado em: </strong>
+            <small>{formattedTimestamp(todo.updated_at)}</small>
           </div>
         </S.TimeWrapper>
         <S.Footer>
