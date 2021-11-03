@@ -34,12 +34,6 @@ const ManageTodo = ({
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();
 
-  const formattedTimestamp = (timeStamp: string) => {
-    return new Date(timeStamp).toLocaleString('pt-BR', {
-      timeZone: 'America/Sao_Paulo',
-    });
-  };
-
   // State to useEffect cleanup function
   const [, setDidMount] = useState(false);
 
@@ -113,12 +107,12 @@ const ManageTodo = ({
         <S.TimeWrapper style={{ marginTop: '30px' }}>
           <div>
             <strong>Criado em </strong>
-            <small>{formattedTimestamp(todo.created_at)}</small>
+            <small>{todo.created_at}</small>
           </div>
 
           <div>
             <strong>Atualizado em </strong>
-            <small>{formattedTimestamp(todo.updated_at)}</small>
+            <small>{todo.updated_at}</small>
           </div>
         </S.TimeWrapper>
         <S.Footer>

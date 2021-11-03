@@ -39,29 +39,44 @@ const Todo = ({ todo }: ITodo) => {
     return () => setDidMount(false);
   }, []);
 
-  const handleCompletedTodo = useCallback(
-    async (checked: boolean) => {
-      try {
-        const { data } = await api.patch('/todos', {
-          id: todo.id,
+  const handleCompletedTodo = async (checked: boolean) => {
+    try {
+      const { data } = await api.patch('/todos', {
+        id: todo.id,
 
-          completed: checked,
-          title: todo.title,
-          description: todo.description,
-        });
+        completed: checked,
+        title: todo.title,
+        description: todo.description,
+      });
 
-        todoDispatch({ type: ActionType.UpdateTodo, payload: data });
-      } catch {
-        addToast({
-          type: 'error',
-          title: 'Erro ao fazer alteração.',
-          description: 'Um erro ocorreu ao marcar tarefa como completa.',
-          secondsDuration: 8,
-        });
-      }
-    },
-    [todo.id, todo.title, todo.description, todoDispatch, addToast],
-  );
+      todoDispatch({ type: ActionType.UpdateTodo, payload: data });
+    } catch {
+      addToast({
+        type: 'error',
+        title: 'Erro ao fazer alteração.',
+        description: 'Um erro ocorreu ao marcar tarefa como completa.',
+        secondsDuration: 8,
+      });
+    }
+  };
+
+  const handleViewTodo = () => {
+    setShowTodo(true);
+    setEditTodo(false);
+    hadleToggleModal();
+  };
+
+  const handleEditTodo = () => {
+    setShowTodo(false);
+    setEditTodo(true);
+    hadleToggleModal();
+  };
+
+  const handleDeleteTodo = () => {
+    setShowTodo(false);
+    setEditTodo(false);
+    hadleToggleModal();
+  };
 
   return (
     <>
@@ -97,34 +112,14 @@ const Todo = ({ todo }: ITodo) => {
 
         <a
           style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-          onClick={() => {
-            setShowTodo(true);
-            setEditTodo(false);
-            hadleToggleModal();
-          }}
+          onClick={handleViewTodo}
         >
           {todo.title}
         </a>
 
         <div>
-          <FaEdit
-            onClick={() => {
-              setShowTodo(false);
-              setEditTodo(true);
-              hadleToggleModal();
-            }}
-            size={20}
-            color="#ffc107"
-          />
-          <BsTrash
-            onClick={() => {
-              setShowTodo(false);
-              setEditTodo(false);
-              hadleToggleModal();
-            }}
-            size={20}
-            color="#dc3545"
-          />
+          <FaEdit onClick={handleEditTodo} size={20} color="#ffc107" />
+          <BsTrash onClick={handleDeleteTodo} size={20} color="#dc3545" />
         </div>
       </S.Wrapper>
     </>

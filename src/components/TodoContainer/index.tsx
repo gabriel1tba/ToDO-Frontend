@@ -88,11 +88,7 @@ const TodoContainer = () => {
                 .map((todo) => <Todo key={todo.id} todo={todo} />)
             : null}
 
-          <button
-            onClick={() => {
-              hadleToggleModal();
-            }}
-          >
+          <button onClick={hadleToggleModal}>
             <FiPlus size={25} color="#3498db" />
             {todos.length ? 'Adicionar tarefa' : 'Adicione sua primeira tarefa'}
           </button>
