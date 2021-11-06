@@ -1,16 +1,21 @@
-import { forwardRef, ForwardRefRenderFunction, useRef, useState } from 'react';
+import {
+  forwardRef,
+  ForwardRefRenderFunction,
+  useRef,
+  useState,
+  TextareaHTMLAttributes,
+} from 'react';
 import { FiAlertCircle } from 'react-icons/fi';
 
 import * as S from './styles';
 
-interface ITextArea extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+interface ITextArea extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;
   error: string | undefined;
-  ref: React.LegacyRef<HTMLTextAreaElement> | undefined;
 }
 
-const TextArea: ForwardRefRenderFunction<S.IWrapper, ITextArea> = (
-  { name, error, defaultValue = '', ...rest }: ITextArea,
+const TextArea: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
+  { name, error, defaultValue = '', ...rest },
   ref,
 ) => {
   const [isFocused, setIsFocued] = useState(false);

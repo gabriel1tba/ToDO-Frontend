@@ -1,17 +1,23 @@
-import { useRef, useState, forwardRef, ForwardRefRenderFunction } from 'react';
+import {
+  useRef,
+  useState,
+  forwardRef,
+  ForwardRefRenderFunction,
+  InputHTMLAttributes,
+  ComponentType,
+} from 'react';
 import { IconBaseProps } from 'react-icons';
 import { FiAlertCircle } from 'react-icons/fi';
 
 import * as S from './styles';
 
-interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
+interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
-  icon?: React.ComponentType<IconBaseProps>;
+  icon?: ComponentType<IconBaseProps>;
   error: string | undefined;
-  ref: React.LegacyRef<HTMLInputElement> | undefined;
 }
 
-const Input: ForwardRefRenderFunction<S.IWrapper, IInput> = (
+const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
   { name, icon: Icon, error, ...rest },
   ref,
 ) => {
