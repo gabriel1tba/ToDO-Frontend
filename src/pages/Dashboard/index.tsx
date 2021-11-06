@@ -3,7 +3,8 @@ import * as S from './styles';
 import Header from 'components/Header';
 import TodoContainer from 'components/TodoContainer';
 
-import useAuth from 'hooks/auth';
+import { useAuth } from 'hooks';
+
 import { TodoProvider } from 'context/todos';
 
 const Dashboard = () => {

@@ -5,7 +5,7 @@ import { FiArrowLeft, FiMail, FiUser, FiLock } from 'react-icons/fi';
 
 import * as S from './styles';
 
-import useToast from 'hooks/toast';
+import { useToast } from 'hooks';
 
 import logoImg from 'assets/logo.png';
 

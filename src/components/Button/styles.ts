@@ -9,7 +9,7 @@ const wrapperModifiers = {
   normal: () => css`
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 38px;
     margin-top: 30px;
     padding: 0.375rem 0.7rem;
     color: #fff;

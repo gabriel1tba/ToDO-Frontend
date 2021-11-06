@@ -11,8 +11,7 @@ import Input from 'components/Input';
 import TextArea from 'components/TextArea';
 import Button from 'components/Button';
 
-import useToast from 'hooks/toast';
-import useTodos from 'hooks/todos';
+import { useToast, useTodos } from 'hooks';
 
 import api from 'services/api';
 

@@ -7,11 +7,11 @@ import {
   FiXCircle,
 } from 'react-icons/fi';
 
-import useToast from 'hooks/toast';
-import { IToastMessage } from 'context/toast/interfaces';
+import { useToast } from 'hooks';
 
 import * as S from './styles';
 
+import { IToastMessage } from 'context/toast/interfaces';
 interface IToast {
   toastMessage: IToastMessage;
   style: AnimatedValue<ForwardedProps<ForwardedProps<CSSProperties>>>;

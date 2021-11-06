@@ -1,12 +1,10 @@
-import { useEffect, useState,  } from 'react';
+import { useEffect, useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { BsTrash } from 'react-icons/bs';
 
 import * as S from './styles';
 
-import useTodos from 'hooks/todos';
-import useToggle from 'hooks/toggle';
-import useToast from 'hooks/toast';
+import { useToast, useTodos, useToggle } from 'hooks';
 
 import Modal from 'components/Modal';
 

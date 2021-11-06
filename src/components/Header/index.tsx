@@ -3,7 +3,8 @@ import { VscSignOut } from 'react-icons/vsc';
 import * as S from './styles';
 
 import logoImg from 'assets/logo.png';
-import useTodos from 'hooks/todos';
+
+import { useTodos } from 'hooks';
 
 interface IHeader {
   userName?: string;
