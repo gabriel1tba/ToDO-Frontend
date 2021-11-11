@@ -7,12 +7,12 @@ import { useAuth, useTodos, useToggle } from 'hooks';
 
 import Badge from '../Badge';
 import Modal from '../Modal';
-import Todo from './components/Todo';
+import TodoItem from './components/TodoItem';
 import NewTodo from './components/Forms/NewTodo';
 
 import { ITodo } from 'context/todos/interfaces';
 
-const TodoContainer = () => {
+const TodoList = () => {
   const { todos, getTodosFromDB, filteredTodos } = useTodos();
   const { user } = useAuth();
 
@@ -81,7 +81,7 @@ const TodoContainer = () => {
                 .sort((a: ITodo, b: ITodo) =>
                   a.created_at.localeCompare(b.created_at),
                 )
-                .map((todo) => <Todo key={todo.id} todo={todo} />)
+                .map((todo) => <TodoItem key={todo.id} todo={todo} />)
             : null}
 
           <button onClick={hadleToggleModal}>
@@ -94,4 +94,4 @@ const TodoContainer = () => {
   );
 };
 
-export default TodoContainer;
+export default TodoList;

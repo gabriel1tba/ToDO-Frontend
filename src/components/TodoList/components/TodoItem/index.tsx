@@ -15,11 +15,11 @@ import { Item } from '../../interfaces';
 
 import { ActionType } from 'context/todos/actions';
 
-interface ITodo {
+interface ITodoItem {
   todo: Item;
 }
 
-const Todo = ({ todo }: ITodo) => {
+const TodoItem = ({ todo }: ITodoItem) => {
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();
 
@@ -124,4 +124,4 @@ const Todo = ({ todo }: ITodo) => {
   );
 };
 
-export default Todo;
+export default TodoItem;

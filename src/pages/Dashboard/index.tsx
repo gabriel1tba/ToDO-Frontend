@@ -1,7 +1,7 @@
 import * as S from './styles';
 
 import Header from 'components/Header';
-import TodoContainer from 'components/TodoContainer';
+import TodoList from 'components/TodoList';
 
 import { useAuth } from 'hooks';
 
@@ -15,9 +15,9 @@ const Dashboard = () => {
       <S.Wrapper>
         <Header userName={user.name} handleSignOut={signOut} />
 
-        <div>
-          <TodoContainer />
-        </div>
+        <S.Content>
+          <TodoList />
+        </S.Content>
       </S.Wrapper>
     </TodoProvider>
   );
