@@ -38,7 +38,7 @@ const NewTodo = ({ userId, onCloseModal }: INewTodo) => {
       });
 
       const { data } = await api.post('/todos', {
-        userId,
+        user_id: userId,
         title: formData.title,
         description: formData.description,
       });
