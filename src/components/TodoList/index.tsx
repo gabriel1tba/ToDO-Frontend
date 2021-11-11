@@ -48,10 +48,10 @@ const TodoList = () => {
     <>
       <Modal
         title="Nova tarefa"
-        handleCloseModal={hadleToggleModal}
-        openModal={openModal}
+        onCloseModal={hadleToggleModal}
+        open={openModal}
       >
-        <NewTodo user_id={user.id} handleCloseModal={hadleToggleModal} />
+        <NewTodo userId={user.id} onCloseModal={hadleToggleModal} />
       </Modal>
 
       <S.Wrapper hastodos={!!todos.length}>

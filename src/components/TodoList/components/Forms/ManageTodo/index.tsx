@@ -26,7 +26,7 @@ const ManageTodo = ({
   showTodo,
   editTodo,
   todo,
-  handleCloseModal,
+  onCloseModal,
 }: IManageTodo) => {
   const { register, handleSubmit, errors, formState } = useForm<IFormData>({
     resolver: yupResolver(schema),
@@ -77,7 +77,7 @@ const ManageTodo = ({
       });
     }
 
-    handleCloseModal();
+    onCloseModal();
   };
 
   return (
@@ -121,7 +121,7 @@ const ManageTodo = ({
             <Button
               background="#007bff"
               icon={<IoCloseSharp size={20} />}
-              onClick={handleCloseModal}
+              onClick={onCloseModal}
             >
               Fechar
             </Button>

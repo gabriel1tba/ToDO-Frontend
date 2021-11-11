@@ -19,11 +19,11 @@ import { IFormData } from '../../../interfaces';
 import { ActionType } from 'context/todos/actions';
 
 interface INewTodo {
-  user_id: string;
-  handleCloseModal: () => void;
+  userId: string;
+  onCloseModal: () => void;
 }
 
-const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
+const NewTodo = ({ userId, onCloseModal }: INewTodo) => {
   const { register, handleSubmit, errors, formState } = useForm<IFormData>({
     resolver: yupResolver(schema),
   });
@@ -38,7 +38,7 @@ const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
       });
 
       const { data } = await api.post('/todos', {
-        user_id,
+        userId,
         title: formData.title,
         description: formData.description,
       });
@@ -60,7 +60,7 @@ const NewTodo = ({ user_id, handleCloseModal }: INewTodo) => {
       });
     }
 
-    handleCloseModal();
+    onCloseModal();
   };
 
   return (

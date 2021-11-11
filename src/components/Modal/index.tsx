@@ -6,21 +6,21 @@ import * as S from './styles';
 interface IModal {
   title: string;
   children: React.ReactNode;
-  openModal: boolean;
-  handleCloseModal: () => void;
+  open: boolean;
+  onCloseModal: () => void;
 }
 
-const Modal = ({ title, children, openModal, handleCloseModal }: IModal) => {
+const Modal = ({ title, children, open, onCloseModal }: IModal) => {
   const portalRoot = document.querySelector('#portal-modal-root') as Element;
 
-  if (!openModal) return null;
+  if (!open) return null;
 
   return ReactDOM.createPortal(
     <S.Overlay>
       <S.Wrapper>
         <header>
           <p>{title}</p>
-          <MdClose size={20} color="#666360" onClick={handleCloseModal} />
+          <MdClose size={20} color="#666360" onClick={onCloseModal} />
         </header>
 
         <S.ModalWrapper>{children}</S.ModalWrapper>

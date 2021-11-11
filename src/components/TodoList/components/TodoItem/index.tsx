@@ -86,14 +86,14 @@ const TodoItem = ({ todo }: ITodoItem) => {
             ? 'Editar tarefa'
             : 'Excluir tarefa'
         }
-        openModal={openModal}
-        handleCloseModal={hadleToggleModal}
+        onCloseModal={hadleToggleModal}
+        open={openModal}
       >
         <ManageTodo
           todo={todo}
           editTodo={editTodo}
           showTodo={showTodo}
-          handleCloseModal={hadleToggleModal}
+          onCloseModal={hadleToggleModal}
         />
       </Modal>
 

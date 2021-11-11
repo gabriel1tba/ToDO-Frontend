@@ -15,7 +15,7 @@ export interface IFormData {
 
 export interface IManageTodo {
   todo: Item;
-  handleCloseModal: () => void;
+  onCloseModal: () => void;
   editTodo: boolean;
   showTodo: boolean;
 }
