@@ -6,9 +6,9 @@
 
 Front end da aplicação To DO, que é uma single-page application, feita em React, onde usuários podem se cadastrar, e criar sua lista de tarefas totalmente gerenciável.
 
-PS: Clique [aqui](https://github.com/gabrielitba/ToDO-API) para acessar o repositório com a API do projeto
-
 ![alt text](https://i.imgur.com/GuA1eHl.gif)
+
+PS: Clique [aqui](https://github.com/gabrielitba/ToDO-API) para acessar o repositório com a API do projeto
 
 ## 💻 Tecnologias utilizadas
 
