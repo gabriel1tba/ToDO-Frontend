@@ -90,6 +90,7 @@ const ManageTodo = ({
         <label htmlFor="title">Título</label>
         <Input
           name="title"
+          id="title"
           type="text"
           readOnly={showTodo || !editTodo}
           style={{ pointerEvents: showTodo || !editTodo ? 'none' : 'all' }}
@@ -101,6 +102,7 @@ const ManageTodo = ({
         <label htmlFor="description">Descrição</label>
         <TextArea
           rows={4}
+          id="description"
           name="description"
           readOnly={showTodo || !editTodo}
           style={{ pointerEvents: showTodo || !editTodo ? 'none' : 'all' }}

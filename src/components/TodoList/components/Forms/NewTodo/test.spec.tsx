@@ -22,7 +22,7 @@ describe('<NewTodo />', () => {
     });
   });
 
-  it('You must send data to the backend and close the formrm', async () => {
+  it('You must send data to the backend and close the form', async () => {
     const onCloseModal = jest.fn();
     render(<NewTodo userId="idtest" onCloseModal={onCloseModal} />);
 

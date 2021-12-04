@@ -4,7 +4,7 @@
 
 ## 🙋‍♂ Apresentação:
 
-Front end da aplicação To DO, que é uma single-page application, feita em React, onde usuários podem se cadastrar, e criar sua lista de tarefas totalmente gerenciável.
+Front end da aplicação To DO, que é uma single-page application, feita em React, onde usuários podem se cadastrar, e criar sua lista de tarefas totalmente gerenciável. O projeto também conta com testes para garantir o funcionamento de suas funcionalidades.
 
 ![alt text](https://i.imgur.com/GuA1eHl.gif)
 
