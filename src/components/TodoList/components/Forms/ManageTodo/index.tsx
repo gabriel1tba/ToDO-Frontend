@@ -20,8 +20,6 @@ import { schema } from './schema';
 import { IFormData, IManageTodo } from '../../../interfaces';
 import { ActionType } from 'context/todos/actions';
 
-import formattedTimestamp from 'utils/formattedTimestamp';
-
 const ManageTodo = ({
   showTodo,
   editTodo,
@@ -37,6 +35,12 @@ const ManageTodo = ({
 
   // State to useEffect cleanup function
   const [, setDidMount] = useState(false);
+
+  const formattedTimestamp = (timeStamp: string) => {
+    return new Date(timeStamp).toLocaleString('pt-BR', {
+      timeZone: 'America/Sao_Paulo',
+    });
+  };
 
   // useEffect cleanup function
   useEffect(() => {

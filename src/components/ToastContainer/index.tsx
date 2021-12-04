@@ -1,4 +1,5 @@
 import { useTransition } from 'react-spring';
+import ReactDOM from 'react-dom';
 
 import * as S from './styles';
 
@@ -24,12 +25,16 @@ const ToastContainer = ({ messages }: IToastContainer) => {
       opacity: 0,
     },
   });
-  return (
+
+  const portalRoot = document.querySelector('#portal-toast-root') as Element;
+
+  return ReactDOM.createPortal(
     <S.Wrapper>
       {toastTransition.map(({ item, key, props }) => (
         <Toast key={key} style={props} toastMessage={item} />
       ))}
-    </S.Wrapper>
+    </S.Wrapper>,
+    portalRoot,
   );
 };
 
