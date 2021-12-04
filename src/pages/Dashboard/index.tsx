@@ -5,21 +5,17 @@ import TodoList from 'components/TodoList';
 
 import { useAuth } from 'hooks';
 
-import { TodoProvider } from 'context/todos';
-
 const Dashboard = () => {
   const { user, signOut } = useAuth();
 
   return (
-    <TodoProvider>
-      <S.Wrapper>
-        <Header userName={user.name} onSignOut={signOut} />
+    <S.Wrapper>
+      <Header userName={user.name} onSignOut={signOut} />
 
-        <S.Content>
-          <TodoList />
-        </S.Content>
-      </S.Wrapper>
-    </TodoProvider>
+      <S.Content>
+        <TodoList />
+      </S.Content>
+    </S.Wrapper>
   );
 };
 

@@ -1,5 +1,6 @@
 import { AuthProvider } from './auth';
 import { ToastProvider } from './toast';
+import { TodoProvider } from './todos';
 
 interface IAppProvider {
   children: React.ReactNode;
@@ -7,7 +8,9 @@ interface IAppProvider {
 
 const AppProvider = ({ children }: IAppProvider) => (
   <AuthProvider>
-    <ToastProvider>{children}</ToastProvider>
+    <ToastProvider>
+      <TodoProvider>{children}</TodoProvider>
+    </ToastProvider>
   </AuthProvider>
 );
 

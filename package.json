@@ -29,10 +29,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage ",
     "eject": "react-scripts eject",
-    "lint": "eslint src --max-warnings=0",
-    "test:watch": "react-scripts test --watch --maxWorkers=25%"
+    "lint": "eslint src",
+    "test:watch": "react-scripts test --coverage  --watch --maxWorkers=25%"
   },
   "husky": {
     "hooks": {

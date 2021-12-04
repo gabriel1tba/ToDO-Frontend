@@ -1,12 +1,14 @@
 import { render, RenderOptions } from '@testing-library/react';
-import { TodoProvider } from 'context/todos';
+
+import AppProvider from 'context';
 
 interface IWrapperProvider {
   children: React.ReactNode;
 }
 
+// Adiciona os Providers ao método de render
 const WrapperProvider = ({ children }: IWrapperProvider) => (
-  <TodoProvider>{children}</TodoProvider>
+  <AppProvider>{children}</AppProvider>
 );
 
 const customRender = (ui: React.ReactElement, options?: RenderOptions) =>
