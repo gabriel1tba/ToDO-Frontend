@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Badge /> should render the Badge correctly 1`] = `
+.c0 {
+  cursor: default;
+  display: inline-block;
+  margin-right: 15px;
+  border-radius: 3rem;
+  text-align: start;
+  height: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0.3rem 0.6rem 0.1rem;
+}
+
+<span
+  class="c0"
+  style="color: rgb(52, 152, 219); background-color: rgba(52, 152, 219, 0.2);"
+>
+  Tarefas atuais
+</span>
+`;

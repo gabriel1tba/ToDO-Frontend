@@ -1,5 +1,5 @@
-import { useTransition } from 'react-spring';
 import ReactDOM from 'react-dom';
+import { useTransition } from 'react-spring';
 
 import * as S from './styles';
 
