@@ -35,17 +35,21 @@ export const Wrapper = styled.div`
       cursor: default;
     }
 
-    > svg {
-      cursor: pointer;
-
+    button {
       position: absolute;
       top: 15px;
       right: 20px;
+      background: transparent;
+      border: none;
 
-      transition: transform 0.3s;
+      > svg {
+        cursor: pointer;
 
-      &:hover {
-        transform: scale(1.2);
+        transition: transform 0.3s;
+
+        &:hover {
+          transform: scale(1.2);
+        }
       }
     }
   }
