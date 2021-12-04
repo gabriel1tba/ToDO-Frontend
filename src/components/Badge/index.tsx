@@ -20,4 +20,4 @@ const Badge = ({ title, fontColor, backgroundColor }: IBadge) => {
   );
 };
 
-export default dmemo(Badge);
+export default memo(Badge);
