@@ -13,7 +13,7 @@ const Forgot = () => {
 
   return (
     <>
-      <Header handleSignOut={handleSignOut} />
+      <Header onSignOut={handleSignOut} />
       <div
         style={{
           display: 'flex',

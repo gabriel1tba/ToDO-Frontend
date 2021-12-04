@@ -5,19 +5,21 @@ import * as S from './styles';
 import logoImg from 'assets/logo.png';
 
 import { useTodos } from 'hooks';
+import { useHistory } from 'react-router';
 
 interface IHeader {
   userName?: string;
-  handleSignOut: () => void;
+  onSignOut: () => void;
 }
 
-const Header = ({ userName, handleSignOut }: IHeader) => {
+const Header = ({ userName, onSignOut }: IHeader) => {
   const { getSearchedWord } = useTodos();
+  const history = useHistory();
 
   return (
     <S.Wrapper>
       <div>
-        <img src={logoImg} alt="Imagem com as letras da logo" />
+        <img src={logoImg} alt="logo image" />
 
         <div>
           {userName ? (
@@ -28,16 +30,24 @@ const Header = ({ userName, handleSignOut }: IHeader) => {
           ) : null}
         </div>
       </div>
-      <div>
-        <S.InputSearch
-          onChange={(event) => getSearchedWord(event.target.value)}
-          placeholder="Pesquisar tarefas..."
-        />
+      {userName ? (
+        <div>
+          <S.InputSearch
+            onChange={(event) => getSearchedWord(event.target.value)}
+            placeholder="Pesquisar tarefas..."
+          />
 
-        <button onClick={handleSignOut}>
-          <VscSignOut size={35} color="#666360" />
-        </button>
-      </div>
+          <button onClick={onSignOut}>
+            <VscSignOut size={35} color="#666360" />
+          </button>
+        </div>
+      ) : (
+        <div>
+          <button onClick={() => history.push('/')}>
+            <VscSignOut size={35} color="#666360" />
+          </button>
+        </div>
+      )}
     </S.Wrapper>
   );
 };

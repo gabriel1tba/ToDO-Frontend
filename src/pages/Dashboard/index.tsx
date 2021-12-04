@@ -13,7 +13,7 @@ const Dashboard = () => {
   return (
     <TodoProvider>
       <S.Wrapper>
-        <Header userName={user.name} handleSignOut={signOut} />
+        <Header userName={user.name} onSignOut={signOut} />
 
         <S.Content>
           <TodoList />
