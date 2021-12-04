@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextArea /> should render the TextArea correctly with Label 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #666360;
+  padding: 16px;
+  width: 100%;
+  color: #666360;
+}
+
+.c0 + div {
+  margin-top: 8px;
+}
+
+.c0 textarea {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border: 0;
+  background: transparent;
+  resize: none;
+  color: #202124;
+  box-shadow: 0 0 0 30px #ffffff inset;
+}
+
+.c0 textarea:-webkit-autofill {
+  -webkit-text-fill-color: #ff9000;
+}
+
+.c0 textarea::-webkit-input-placeholder {
+  color: #202124;
+}
+
+.c0 textarea::-moz-placeholder {
+  color: #202124;
+}
+
+.c0 textarea:-ms-input-placeholder {
+  color: #202124;
+}
+
+.c0 textarea::placeholder {
+  color: #202124;
+}
+
+<div
+  class="c0"
+>
+  <textarea
+    name="descrição"
+    placeholder="Digite uma descrição"
+  />
+  
+</div>
+`;

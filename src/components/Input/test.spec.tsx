@@ -29,7 +29,7 @@ describe('<Input />', () => {
     );
   });
 
-  it('should render erros', async () => {
+  it('should render erros', () => {
     render(<Input name="email" error="Digite o e-mail corretamente" />);
 
     expect(
