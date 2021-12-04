@@ -11,7 +11,7 @@ const Dashboard = lazy(() => import('pages/Dashboard'));
 
 const Routes = () => {
   return (
-    <Suspense fallback={<Loading typeLoading="spinner" />}>
+    <Suspense fallback={<Loading />}>
       <Switch>
         <Route path="/" exact component={SignIn} />
         <Route path="/register" component={SignUp} />

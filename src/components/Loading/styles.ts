@@ -1,138 +1,93 @@
 import styled from 'styled-components';
 
-export const LoadingRoller = styled.div`
-  margin-top: -1%;
+export const LoadingRing = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  .lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+  }
+  .lds-roller div:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ff9000;
+    margin: -4px 0 0 -4px;
+  }
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+  }
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+  }
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+  }
+  .lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+  }
+  .lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+  }
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+  }
+  .lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+  }
+  .lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+  }
   @keyframes lds-roller {
     0% {
       transform: rotate(0deg);
     }
-
     100% {
       transform: rotate(360deg);
-    }
-  }
-
-  .lds-roller {
-    position: relative;
-    display: inline-block;
-    height: 50px;
-    width: 50px;
-
-    transform: scale(0.7);
-
-    > div {
-      animation: lds-roller 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-      transform-origin: 32px 32px;
-
-      &:after {
-        position: absolute;
-
-        display: block;
-        background: #fff;
-        content: ' ';
-
-        border-radius: 50%;
-        margin: -3px 0 0 -3px;
-        height: 6px;
-        width: 6px;
-      }
-
-      &:nth-child(1) {
-        animation-delay: -0.036s;
-
-        &:after {
-          top: 50px;
-          left: 50px;
-        }
-      }
-
-      &:nth-child(2) {
-        animation-delay: -0.072s;
-
-        &:after {
-          top: 54px;
-          left: 45px;
-        }
-      }
-
-      &:nth-child(3) {
-        animation-delay: -0.108s;
-
-        &:after {
-          top: 57px;
-          left: 39px;
-        }
-      }
-
-      &:nth-child(4) {
-        animation-delay: -0.144s;
-
-        &:after {
-          top: 58px;
-          left: 32px;
-        }
-      }
-
-      &:nth-child(5) {
-        animation-delay: -0.18s;
-
-        &:after {
-          top: 57px;
-          left: 25px;
-        }
-      }
-
-      &:nth-child(6) {
-        animation-delay: -0.216s;
-
-        &:after {
-          top: 54px;
-          left: 19px;
-        }
-      }
-
-      &:nth-child(7) {
-        animation-delay: -0.252s;
-
-        &:after {
-          top: 50px;
-          left: 14px;
-        }
-      }
-
-      &:nth-child(8) {
-        animation-delay: -0.288s;
-
-        &:after {
-          top: 45px;
-          left: 10px;
-        }
-      }
-    }
-  }
-`;
-
-export const LoadingRing = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  transform: scale(2);
-
-  .spinner {
-    display: inline-block;
-
-    width: 50px;
-    height: 50px;
-    border: 3px solid #fff;
-    border-radius: 50%;
-
-    animation: spin 1s ease-in-out infinite;
-  }
-
-  @keyframes spin {
-    to {
-      -webkit-transform: rotate(360deg);
     }
   }
 `;
