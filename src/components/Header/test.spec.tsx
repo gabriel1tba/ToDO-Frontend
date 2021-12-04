@@ -25,7 +25,7 @@ describe('<Header />', () => {
 
     expect(screen.getByRole('button')).toBeInTheDocument();
 
-    // expect(container.firstChild).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should check if the onSignOut was called when click button', async () => {
@@ -57,11 +57,11 @@ describe('<Header />', () => {
 
     userEvent.type(
       screen.getByPlaceholderText(/pesquisar tarefas.../i),
-      'React',
+      'Testes finalizados',
     );
 
     expect(screen.getByPlaceholderText(/pesquisar tarefas.../i)).toHaveValue(
-      'React',
+      'Testes finalizados',
     );
   });
 });

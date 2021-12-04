@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render the Header correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100vw;
+  height: 90px;
+  padding: 0 10rem;
+  box-shadow: 0px 0px 2px rgba(0,0,0,0.4);
+}
+
+.c0 div:first-child {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 div:first-child > img {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin-left: -40px;
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.c0 div:first-child > div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0 div:first-child > div > h3 {
+  color: #ff9000;
+}
+
+.c0 div:last-child {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 div:last-child > button {
+  background: none;
+  border: none;
+  -webkit-transition: -webkit-transform 0.4s;
+  -webkit-transition: transform 0.4s;
+  transition: transform 0.4s;
+}
+
+.c0 div:last-child > button:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.c1 {
+  width: 180px;
+  height: 35px;
+  color: #666360;
+  margin-right: 30px;
+  border-radius: 5px;
+  background: transparent;
+  border: solid 1px rgba(0,0,0,0.2);
+  color: rgba(0,0,0,0.5);
+  font-size: 15px;
+  padding: 8px;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.c1:focus {
+  width: 280px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+}
+
+.c1:focus::-webkit-input-placeholder {
+  color: rgba(0,0,0,0.3);
+}
+
+.c1:focus::-moz-placeholder {
+  color: rgba(0,0,0,0.3);
+}
+
+.c1:focus:-ms-input-placeholder {
+  color: rgba(0,0,0,0.3);
+}
+
+.c1:focus::placeholder {
+  color: rgba(0,0,0,0.3);
+}
+
+.c1::-webkit-input-placeholder {
+  color: rgba(0,0,0,0.5);
+  font-size: 15px;
+}
+
+.c1::-moz-placeholder {
+  color: rgba(0,0,0,0.5);
+  font-size: 15px;
+}
+
+.c1:-ms-input-placeholder {
+  color: rgba(0,0,0,0.5);
+  font-size: 15px;
+}
+
+.c1::placeholder {
+  color: rgba(0,0,0,0.5);
+  font-size: 15px;
+}
+
+@media (max-width:1024px) {
+  .c0 {
+    padding: 0 8rem;
+  }
+}
+
+@media (max-width:768px) {
+  .c0 {
+    padding: 0 4rem;
+  }
+}
+
+@media (max-width:540px) {
+  .c0 {
+    padding: 0 1rem;
+    height: 70px;
+  }
+}
+
+@media (max-width:360px) {
+  .c0 {
+    padding: 0 10px;
+    height: 60px;
+  }
+}
+
+@media (max-width:768px) {
+  .c0 div:first-child h3 {
+    font-size: 15px;
+  }
+
+  .c0 div:first-child h4 {
+    font-size: 13px;
+  }
+
+  .c0 div:first-child img {
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    margin-left: -50px;
+  }
+}
+
+@media (max-width:540px) {
+  .c0 div:first-child h3 {
+    display: none;
+  }
+
+  .c0 div:first-child h4 {
+    display: none;
+  }
+
+  .c0 div:first-child img {
+    -webkit-transform: scale(0.4);
+    -ms-transform: scale(0.4);
+    transform: scale(0.4);
+  }
+}
+
+@media (max-width:540px) {
+  .c0 div:last-child > button {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width:360px) {
+  .c0 div:last-child > button {
+    padding: 0 10px;
+    margin-left: 0;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width:1024px) {
+  .c1 {
+    margin-right: 30px;
+  }
+}
+
+@media (max-width:768px) {
+  .c1 {
+    margin-right: 30px;
+  }
+}
+
+@media (max-width:441px) {
+  .c1 {
+    width: 120px;
+    margin-right: 20px;
+  }
+
+  .c1:focus {
+    width: 150px;
+  }
+}
+
+@media (max-width:360px) {
+  .c1 {
+    width: 100px;
+    margin-right: 5px;
+  }
+
+  .c1:focus {
+    width: 120px;
+  }
+}
+
+<header
+  class="c0"
+>
+  <div>
+    <img
+      alt="logo image"
+      src="logo.png"
+    />
+    <div>
+      <h4>
+        Seja bem-vindo,
+      </h4>
+      <h3>
+        Gabriel Ferreira
+      </h3>
+    </div>
+  </div>
+  <div>
+    <input
+      class="c1"
+      placeholder="Pesquisar tarefas..."
+    />
+    <button>
+      <svg
+        color="#666360"
+        fill="currentColor"
+        height="35"
+        stroke="currentColor"
+        stroke-width="0"
+        style="color: rgb(102, 99, 96);"
+        viewBox="0 0 16 16"
+        width="35"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M11.02 3.77v1.56l1-.99V2.5l-.5-.5h-9l-.5.5v.486L2 3v10.29l.36.46 5 1.72L8 15v-1h3.52l.5-.5v-1.81l-1-1V13H8V4.71l-.33-.46L4.036 3h6.984v.77zM7 14.28l-4-1.34V3.72l4 1.34v9.22zm6.52-5.8H8.55v-1h4.93l-1.6-1.6.71-.7 2.47 2.46v.71l-2.49 2.48-.7-.7 1.65-1.65z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </button>
+  </div>
+</header>
+`;

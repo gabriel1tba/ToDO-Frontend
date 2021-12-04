@@ -13,8 +13,8 @@ interface IHeader {
 }
 
 const Header = ({ userName, onSignOut }: IHeader) => {
-  const { getSearchedWord } = useTodos();
   const history = useHistory();
+  const { getSearchedWord } = useTodos();
 
   return (
     <S.Wrapper>

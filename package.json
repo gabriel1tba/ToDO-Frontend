@@ -32,7 +32,7 @@
     "test": "react-scripts test --coverage ",
     "eject": "react-scripts eject",
     "lint": "eslint src",
-    "test:watch": "react-scripts test --coverage  --watch --maxWorkers=25%"
+    "test:watch": "react-scripts test --coverage --watch --maxWorkers=25%"
   },
   "husky": {
     "hooks": {
