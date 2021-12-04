@@ -68,6 +68,7 @@ const NewTodo = ({ userId, onCloseModal }: INewTodo) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="title">Título</label>
         <Input
+          id="title"
           name="title"
           type="text"
           error={errors.title?.message}
@@ -77,6 +78,7 @@ const NewTodo = ({ userId, onCloseModal }: INewTodo) => {
         <label htmlFor="description">Descrição</label>
         <TextArea
           rows={4}
+          id="description"
           name="description"
           error={errors.description?.message}
           ref={register}

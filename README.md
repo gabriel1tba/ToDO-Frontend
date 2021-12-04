@@ -12,8 +12,9 @@ PS: Clique [aqui](https://github.com/gabrielitba/ToDO-API) para acessar o reposi
 
 ## 💻 Tecnologias utilizadas
 
-- **react**
 - **typescript**
+- **react**
+- **react testing-library**
 - **husky + lint-staged**
 - **context API**
 - **custom hooks**
