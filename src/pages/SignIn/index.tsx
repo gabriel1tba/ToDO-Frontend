@@ -88,7 +88,7 @@ const SignIn = () => {
 
             <Button
               loading={formState.isSubmitting}
-              size="fullWidth"
+              size="large"
               background="#ff9000"
               type="submit"
             >

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 interface WrapperButton {
-  size: 'fullWidth' | 'normal';
+  size: 'large' | 'normal';
   background: string;
 }
 
@@ -25,7 +25,7 @@ const wrapperModifiers = {
     }
   `,
 
-  fullWidth: () => css`
+  large: () => css`
     color: #fff;
     height: 52px;
     border-radius: 10px;
