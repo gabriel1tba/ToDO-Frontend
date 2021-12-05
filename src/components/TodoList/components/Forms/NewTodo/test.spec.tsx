@@ -37,8 +37,6 @@ describe('<NewTodo />', () => {
       200,
       {
         user_id: 'idtest',
-        title: 'criar novo item',
-        description: 'item de teste',
       },
     ]);
 
