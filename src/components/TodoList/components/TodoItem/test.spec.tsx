@@ -54,16 +54,16 @@ describe('<TodoItem />', () => {
 
     userEvent.click(screen.getByRole('checkbox'));
 
-    const responseCompleted = apiMock
+    const successCompleted = apiMock
       .onPatch('todos')
       .reply(() => [200, { ...todoItemResponse, completed: true }]);
 
     await waitFor(() => {
-      expect(responseCompleted.history.patch.length).toBe(1);
+      expect(successCompleted.history.patch.length).toBe(1);
     });
 
     await waitFor(() => {
-      expect(responseCompleted.history.patch[0].data).toStrictEqual(
+      expect(successCompleted.history.patch[0].data).toStrictEqual(
         JSON.stringify({
           id: 'todoId',
           completed: true,
@@ -78,11 +78,23 @@ describe('<TodoItem />', () => {
     });
   });
 
+  it('should receive an error status when changing Completed status', async () => {
+    render(<TodoItem todo={todoItemResponse} />);
+
+    userEvent.click(screen.getByRole('checkbox'));
+
+    const errorCompleted = apiMock.onPatch('todos').reply(() => [500]);
+
+    await waitFor(() => {
+      expect(errorCompleted.history.patch.length).toBe(1);
+    });
+  });
+
   it('should open the details modal by clicking on some item', async () => {
     render(
       <>
         <div id="portal-modal-root" />
-        <TodoItem todo={{ ...todoItemResponse, completed: true }} />
+        <TodoItem todo={todoItemResponse} />
       </>,
     );
 
@@ -97,7 +109,7 @@ describe('<TodoItem />', () => {
     render(
       <>
         <div id="portal-modal-root" />
-        <TodoItem todo={{ ...todoItemResponse, completed: true }} />
+        <TodoItem todo={todoItemResponse} />
       </>,
     );
 
@@ -112,7 +124,7 @@ describe('<TodoItem />', () => {
     render(
       <>
         <div id="portal-modal-root" />
-        <TodoItem todo={{ ...todoItemResponse, completed: true }} />
+        <TodoItem todo={todoItemResponse} />
       </>,
     );
 
