@@ -56,7 +56,15 @@ describe('<TodoItem />', () => {
 
     const successCompleted = apiMock
       .onPatch('todos')
-      .reply(() => [200, { ...todoItemResponse, completed: true }]);
+      .reply(() => [
+        200,
+        {
+          id: 'todoId',
+          completed: true,
+          title: 'Testar componente TodoItem',
+          description: 'Testar em Todos os modos',
+        },
+      ]);
 
     await waitFor(() => {
       expect(successCompleted.history.patch.length).toBe(1);

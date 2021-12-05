@@ -1,7 +1,11 @@
 import userEvent from '@testing-library/user-event';
 import { render, screen, waitFor } from 'utils/test-utils';
+import MockAdapter from 'axios-mock-adapter';
 
 import ManageTodo from '.';
+
+import api from 'services/api';
+const apiMock = new MockAdapter(api);
 
 const todoItem = {
   id: 'todoId',
@@ -14,6 +18,9 @@ const todoItem = {
 };
 
 describe('<ManageTodo />', () => {
+  beforeEach(() => {
+    apiMock.reset();
+  });
   // VIEW FORM TEST
   it('should render ManageTodocorrectly', () => {
     render(
@@ -103,7 +110,7 @@ describe('<ManageTodo />', () => {
   it('should render ManageTodo correctly with message erros on textbox', async () => {
     render(
       <ManageTodo
-        todo={{ ...todoItem, title: '' }}
+        todo={{ ...todoItem, title: '', description: '' }}
         editTodo
         showTodo={false}
         onCloseModal={() => ({})}
@@ -117,12 +124,51 @@ describe('<ManageTodo />', () => {
     });
   });
 
-  // EDIT FORM TEST
-  it('You must send data to the backend and close the form', async () => {
+  it('should send data to the backend and close the form', async () => {
     const onCloseModal = jest.fn();
     render(
       <ManageTodo
-        todo={todoItem}
+        todo={{ ...todoItem, title: '', description: '' }}
+        editTodo
+        showTodo={false}
+        onCloseModal={onCloseModal}
+      />,
+    );
+
+    userEvent.type(screen.getByLabelText(/título/i), 'alterar item');
+    userEvent.type(
+      screen.getByLabelText(/descrição/i),
+      'item de teste alterado',
+    );
+
+    const successEdit = apiMock.onPatch('todos').reply(() => [200]);
+
+    userEvent.click(screen.getByRole('button', { name: /salvar alterações/i }));
+
+    await waitFor(() => {
+      expect(successEdit.history.patch.length).toBe(1);
+    });
+
+    await waitFor(() => {
+      expect(successEdit.history.patch[0].data).toStrictEqual(
+        JSON.stringify({
+          id: 'todoId',
+          title: 'alterar item',
+          description: 'item de teste alterado',
+        }),
+      );
+    });
+
+    await waitFor(() => {
+      expect(onCloseModal).toHaveBeenCalled();
+    });
+  });
+
+  it('should receive an error status when send data', async () => {
+    const onCloseModal = jest.fn();
+    render(
+      <ManageTodo
+        todo={{ ...todoItem, title: '', description: '' }}
         editTodo
         showTodo={false}
         onCloseModal={onCloseModal}
@@ -132,10 +178,16 @@ describe('<ManageTodo />', () => {
     userEvent.type(screen.getByLabelText(/título/i), 'criar novo item');
     userEvent.type(screen.getByLabelText(/descrição/i), 'item de teste');
 
+    const errorEdit = apiMock.onPatch('todos').reply(() => [500]);
+
     userEvent.click(screen.getByRole('button', { name: /salvar alterações/i }));
 
     await waitFor(() => {
-      expect(onCloseModal).toHaveBeenCalled();
+      expect(errorEdit.history.patch.length).toBe(1);
+    });
+
+    await waitFor(() => {
+      expect(onCloseModal).not.toHaveBeenCalled();
     });
   });
 
@@ -176,7 +228,7 @@ describe('<ManageTodo />', () => {
   });
 
   // REMOVE FORM TEST
-  it('You must send data to the backend and close the form', async () => {
+  it('should send data to the backend and close the form', async () => {
     const onCloseModal = jest.fn();
     render(
       <ManageTodo
@@ -187,15 +239,59 @@ describe('<ManageTodo />', () => {
       />,
     );
 
-    userEvent.type(screen.getByLabelText(/título/i), 'criar novo item');
-    userEvent.type(screen.getByLabelText(/descrição/i), 'item de teste');
+    expect(screen.getByLabelText(/título/i)).toHaveValue(
+      'Testar form ManageTodo',
+    );
+    expect(screen.getByLabelText(/descrição/i)).toHaveValue(
+      'Testar em todos os modos',
+    );
+
+    const successDelete = apiMock.onDelete('todos').reply(() => [200]);
 
     userEvent.click(
       screen.getByRole('button', { name: /confirmar exclusão/i }),
     );
 
     await waitFor(() => {
+      expect(successDelete.history.delete.length).toBe(1);
+    });
+
+    await waitFor(() => {
+      expect(successDelete.history.delete[0].data).toStrictEqual(
+        JSON.stringify({
+          id: 'todoId',
+        }),
+      );
+    });
+
+    await waitFor(() => {
       expect(onCloseModal).toHaveBeenCalled();
+    });
+  });
+
+  it('should receive an error status when send data', async () => {
+    const onCloseModal = jest.fn();
+    render(
+      <ManageTodo
+        todo={todoItem}
+        editTodo={false}
+        showTodo={false}
+        onCloseModal={onCloseModal}
+      />,
+    );
+
+    const errorDelete = apiMock.onDelete('todos').reply(() => [500]);
+
+    userEvent.click(
+      screen.getByRole('button', { name: /confirmar exclusão/i }),
+    );
+
+    await waitFor(() => {
+      expect(errorDelete.history.delete.length).toBe(1);
+    });
+
+    await waitFor(() => {
+      expect(onCloseModal).not.toHaveBeenCalled();
     });
   });
 });

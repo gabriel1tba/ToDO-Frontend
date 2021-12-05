@@ -71,6 +71,8 @@ const ManageTodo = ({
         title: editTodo ? 'Atualizado com sucesso!' : 'Removido com sucesso!',
         secondsDuration: 3,
       });
+
+      onCloseModal();
     } catch {
       addToast({
         type: 'error',
@@ -80,8 +82,6 @@ const ManageTodo = ({
         secondsDuration: 5,
       });
     }
-
-    onCloseModal();
   };
 
   return (
