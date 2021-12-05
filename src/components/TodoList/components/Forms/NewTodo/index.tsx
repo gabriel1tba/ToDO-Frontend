@@ -50,6 +50,8 @@ const NewTodo = ({ userId, onCloseModal }: INewTodo) => {
         title: 'Tarefa criada com sucesso!',
         secondsDuration: 3,
       });
+
+      onCloseModal();
     } catch {
       addToast({
         type: 'error',
@@ -59,8 +61,6 @@ const NewTodo = ({ userId, onCloseModal }: INewTodo) => {
         secondsDuration: 5,
       });
     }
-
-    onCloseModal();
   };
 
   return (
