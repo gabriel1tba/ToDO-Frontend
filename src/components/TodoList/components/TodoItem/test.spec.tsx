@@ -18,6 +18,15 @@ const todoItemResponse = {
   updated_at: '2021-10-10T07:32:52.716Z',
 };
 
+jest.mock('../Forms/ManageTodo', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock Toast"></div>;
+    },
+  };
+});
+
 describe('<TodoItem />', () => {
   it('should render the TodoItem correctly', () => {
     const { container } = render(<TodoItem todo={todoItemResponse} />);
@@ -66,6 +75,51 @@ describe('<TodoItem />', () => {
 
     await waitFor(() => {
       expect(screen.getByRole('checkbox')).toBeChecked();
+    });
+  });
+
+  it('should open the details modal by clicking on some item', async () => {
+    render(
+      <>
+        <div id="portal-modal-root" />
+        <TodoItem todo={{ ...todoItemResponse, completed: true }} />
+      </>,
+    );
+
+    userEvent.click(screen.getByText(/testar componente todoitem/i));
+
+    await waitFor(() => {
+      expect(screen.getByTestId('Mock Toast')).toBeInTheDocument();
+    });
+  });
+
+  it('should open the edit modal by clicking on some item', async () => {
+    render(
+      <>
+        <div id="portal-modal-root" />
+        <TodoItem todo={{ ...todoItemResponse, completed: true }} />
+      </>,
+    );
+
+    userEvent.click(screen.getAllByRole('button')[0]);
+
+    await waitFor(() => {
+      expect(screen.getByTestId('Mock Toast')).toBeInTheDocument();
+    });
+  });
+
+  it('should open the delete modal by clicking on some item', async () => {
+    render(
+      <>
+        <div id="portal-modal-root" />
+        <TodoItem todo={{ ...todoItemResponse, completed: true }} />
+      </>,
+    );
+
+    userEvent.click(screen.getAllByRole('button')[1]);
+
+    await waitFor(() => {
+      expect(screen.getByTestId('Mock Toast')).toBeInTheDocument();
     });
   });
 });
