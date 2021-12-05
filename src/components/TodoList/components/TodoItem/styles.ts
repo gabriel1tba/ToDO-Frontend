@@ -15,7 +15,7 @@ export const Wrapper = styled.li`
     content: '';
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 5px;
     width: calc(100vw - 765px);
     border: 0.5px solid rgba(0, 0, 0, 0.125);
   }
@@ -59,14 +59,18 @@ export const Wrapper = styled.li`
   > div {
     margin-right: 350px;
 
-    svg {
-      cursor: pointer;
-      margin-left: 5px;
+    button {
+      background: transparent;
+      border: none;
+      svg {
+        cursor: pointer;
+        margin-left: 5px;
 
-      transition: transform 0.3s;
+        transition: transform 0.3s;
 
-      &:hover {
-        transform: scale(1.2);
+        &:hover {
+          transform: scale(1.2);
+        }
       }
     }
   }

@@ -41,7 +41,6 @@ const TodoItem = ({ todo }: ITodoItem) => {
     try {
       const { data } = await api.patch('/todos', {
         id: todo.id,
-
         completed: checked,
         title: todo.title,
         description: todo.description,
@@ -102,7 +101,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
           type="checkbox"
           name="completed"
           id="completed"
-          checked={todo.completed}
+          defaultChecked={todo.completed}
           onChange={(event) => {
             handleCompletedTodo(event.target.checked);
           }}
@@ -116,8 +115,12 @@ const TodoItem = ({ todo }: ITodoItem) => {
         </a>
 
         <div>
-          <FaEdit onClick={handleEditTodo} size={20} color="#ffc107" />
-          <BsTrash onClick={handleDeleteTodo} size={20} color="#dc3545" />
+          <button onClick={handleEditTodo}>
+            <FaEdit size={20} color="#ffc107" />
+          </button>
+          <button onClick={handleDeleteTodo}>
+            <BsTrash size={20} color="#dc3545" />
+          </button>
         </div>
       </S.Wrapper>
     </>

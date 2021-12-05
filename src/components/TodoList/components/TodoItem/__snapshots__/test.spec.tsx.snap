@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoItem /> should render the TodoItem correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 15px 5px -5px;
+  padding-bottom: 14px;
+  position: relative;
+}
+
+.c0:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: calc(100vw - 765px);
+  border: 0.5px solid rgba(0,0,0,0.125);
+}
+
+.c0 > input[type='checkbox'] {
+  width: 17px !important;
+  height: 17px !important;
+  margin: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  font-size: 2em;
+  border: solid 2px #2ecc71;
+}
+
+.c0 > input[type='checkbox']:checked {
+  background-color: #2ecc71;
+  display: inline-block;
+  padding-top: -2px;
+  padding-left: 3px;
+}
+
+.c0 > input[type='checkbox']:checked:after {
+  content: '';
+  display: block;
+  width: 4.5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.c0 > a {
+  cursor: pointer;
+  width: calc(100vw - 860px);
+}
+
+.c0 > div {
+  margin-right: 350px;
+}
+
+.c0 > div button {
+  background: transparent;
+  border: none;
+}
+
+.c0 > div button svg {
+  cursor: pointer;
+  margin-left: 5px;
+  -webkit-transition: -webkit-transform 0.3s;
+  -webkit-transition: transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.c0 > div button svg:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+<li
+  class="c0"
+>
+  <input
+    id="completed"
+    name="completed"
+    type="checkbox"
+  />
+  <a
+    style="text-decoration: none;"
+  >
+    Testar componente TodoItem
+  </a>
+  <div>
+    <button>
+      <svg
+        color="#ffc107"
+        fill="currentColor"
+        height="20"
+        stroke="currentColor"
+        stroke-width="0"
+        style="color: rgb(255, 193, 7);"
+        viewBox="0 0 576 512"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z"
+        />
+      </svg>
+    </button>
+    <button>
+      <svg
+        color="#dc3545"
+        fill="currentColor"
+        height="20"
+        stroke="currentColor"
+        stroke-width="0"
+        style="color: rgb(220, 53, 69);"
+        viewBox="0 0 16 16"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </button>
+  </div>
+</li>
+`;
