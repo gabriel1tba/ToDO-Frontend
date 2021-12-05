@@ -33,10 +33,10 @@ describe('<Button />', () => {
     expect(screen.getByTestId('add-icon')).toBeInTheDocument();
   });
 
-  it('should render the Button correctly with icon icon', () => {
+  it('should render the Button correctly with loading true', () => {
     render(
       <Button background="#007bff" loading>
-        Com ícone
+        Com loading
       </Button>,
     );
 

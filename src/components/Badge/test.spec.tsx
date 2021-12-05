@@ -13,6 +13,7 @@ describe('<Badge />', () => {
     );
 
     expect(screen.getByText(/tarefas atuais/i)).toBeInTheDocument();
+    
     expect(container.firstChild).toHaveStyle({
       color: '#3498db',
       backgroundColor: 'rgba(52, 152, 219, 0.2)',
