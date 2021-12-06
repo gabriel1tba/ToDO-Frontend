@@ -141,16 +141,16 @@ describe('<ManageTodo />', () => {
       'item de teste alterado',
     );
 
-    const successEdit = apiMock.onPatch('todos').reply(() => [200]);
+    const requestSuccessEdit = apiMock.onPatch('todos').reply(() => [200]);
 
     userEvent.click(screen.getByRole('button', { name: /salvar alterações/i }));
 
     await waitFor(() => {
-      expect(successEdit.history.patch.length).toBe(1);
+      expect(requestSuccessEdit.history.patch.length).toBe(1);
     });
 
     await waitFor(() => {
-      expect(successEdit.history.patch[0].data).toStrictEqual(
+      expect(requestSuccessEdit.history.patch[0].data).toStrictEqual(
         JSON.stringify({
           id: 'todoId',
           title: 'alterar item',
@@ -178,12 +178,12 @@ describe('<ManageTodo />', () => {
     userEvent.type(screen.getByLabelText(/título/i), 'criar novo item');
     userEvent.type(screen.getByLabelText(/descrição/i), 'item de teste');
 
-    const errorEdit = apiMock.onPatch('todos').reply(() => [500]);
+    const requestErrorEdit = apiMock.onPatch('todos').reply(() => [500]);
 
     userEvent.click(screen.getByRole('button', { name: /salvar alterações/i }));
 
     await waitFor(() => {
-      expect(errorEdit.history.patch.length).toBe(1);
+      expect(requestErrorEdit.history.patch.length).toBe(1);
     });
 
     await waitFor(() => {
@@ -246,18 +246,18 @@ describe('<ManageTodo />', () => {
       'Testar em todos os modos',
     );
 
-    const successDelete = apiMock.onDelete('todos').reply(() => [200]);
+    const requestSuccessDelete = apiMock.onDelete('todos').reply(() => [200]);
 
     userEvent.click(
       screen.getByRole('button', { name: /confirmar exclusão/i }),
     );
 
     await waitFor(() => {
-      expect(successDelete.history.delete.length).toBe(1);
+      expect(requestSuccessDelete.history.delete.length).toBe(1);
     });
 
     await waitFor(() => {
-      expect(successDelete.history.delete[0].data).toStrictEqual(
+      expect(requestSuccessDelete.history.delete[0].data).toStrictEqual(
         JSON.stringify({
           id: 'todoId',
         }),
@@ -280,14 +280,14 @@ describe('<ManageTodo />', () => {
       />,
     );
 
-    const errorDelete = apiMock.onDelete('todos').reply(() => [500]);
+    const requestErrorDelete = apiMock.onDelete('todos').reply(() => [500]);
 
     userEvent.click(
       screen.getByRole('button', { name: /confirmar exclusão/i }),
     );
 
     await waitFor(() => {
-      expect(errorDelete.history.delete.length).toBe(1);
+      expect(requestErrorDelete.history.delete.length).toBe(1);
     });
 
     await waitFor(() => {

@@ -33,7 +33,7 @@ describe('<NewTodo />', () => {
     userEvent.type(screen.getByLabelText(/título/i), 'criar novo item');
     userEvent.type(screen.getByLabelText(/descrição/i), 'item de teste');
 
-    const successCompleted = apiMock.onPost('todos').reply(() => [
+    const requestSuccessCompleted = apiMock.onPost('todos').reply(() => [
       200,
       {
         user_id: 'idtest',
@@ -43,11 +43,11 @@ describe('<NewTodo />', () => {
     userEvent.click(screen.getByRole('button', { name: /salvar/i }));
 
     await waitFor(() => {
-      expect(successCompleted.history.post.length).toBe(1);
+      expect(requestSuccessCompleted.history.post.length).toBe(1);
     });
 
     await waitFor(() => {
-      expect(successCompleted.history.post[0].data).toStrictEqual(
+      expect(requestSuccessCompleted.history.post[0].data).toStrictEqual(
         JSON.stringify({
           user_id: 'idtest',
           title: 'criar novo item',
@@ -68,12 +68,12 @@ describe('<NewTodo />', () => {
     userEvent.type(screen.getByLabelText(/título/i), 'criar novo item');
     userEvent.type(screen.getByLabelText(/descrição/i), 'item de teste');
 
-    const successCompleted = apiMock.onPost('todos').reply(() => [500]);
+    const requestErrorCompleted = apiMock.onPost('todos').reply(() => [500]);
 
     userEvent.click(screen.getByRole('button', { name: /salvar/i }));
 
     await waitFor(() => {
-      expect(successCompleted.history.post.length).toBe(1);
+      expect(requestErrorCompleted.history.post.length).toBe(1);
     });
 
     await waitFor(() => {
