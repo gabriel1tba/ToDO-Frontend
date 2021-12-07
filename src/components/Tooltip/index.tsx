@@ -3,13 +3,13 @@ import * as S from './styles';
 interface ITooltip {
   title: string;
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const Tooltip = ({ title, className, children }: ITooltip) => {
   return (
     <S.Wrapper className={className}>
-      {children}
+      {!!children && children}
       <span>{title}</span>
     </S.Wrapper>
   );
