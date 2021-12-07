@@ -10,13 +10,13 @@ describe('<Tooltip />', () => {
       position: 'relative',
     });
 
-    expect(screen.getByText(/item obrigatório/i)).toBeInTheDocument();
-
     expect(screen.getByText(/item obrigatório/i)).toHaveStyle({
       position: 'absolute',
       width: '160px',
       background: '#ff9000',
     });
+
+    expect(screen.getByText(/item obrigatório/i)).toBeInTheDocument();
 
     expect(container.firstChild).toMatchSnapshot();
   });

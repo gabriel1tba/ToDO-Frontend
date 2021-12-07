@@ -54,9 +54,9 @@ const TodoList = () => {
         <NewTodo userId={user.id} onCloseModal={hadleToggleModal} />
       </Modal>
 
-      <S.Wrapper hastodos={!!todos.length}>
+      <S.Wrapper hastodos={!!filteredTodos.length}>
         <div>
-          <p>{todos.length ? 'Suas tarefas' : 'Sem tarefas'}</p>
+          <p>{filteredTodos.length ? 'Suas tarefas' : 'Sem tarefas'}</p>
           <div>
             <Badge
               title={`Totais ${totals}`}
@@ -75,8 +75,8 @@ const TodoList = () => {
             />
           </div>
         </div>
-        <S.TodoWrapper hastodos={!!todos.length}>
-          {todos.length
+        <S.TodoWrapper hastodos={!!filteredTodos.length}>
+          {filteredTodos.length
             ? filteredTodos
                 .sort((a: ITodo, b: ITodo) =>
                   a.created_at.localeCompare(b.created_at),
