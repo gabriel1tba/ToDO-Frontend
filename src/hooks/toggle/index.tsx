@@ -4,7 +4,7 @@ const useToggle = (initialState = false): [boolean, () => void] => {
   const [state, setState] = useState(initialState);
 
   const handleToggle = useCallback(() => {
-    setState((state) => !state);
+    setState((prevState) => !prevState);
   }, []);
 
   return [state, handleToggle];
