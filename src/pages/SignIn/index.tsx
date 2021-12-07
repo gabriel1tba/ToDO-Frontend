@@ -14,6 +14,7 @@ import Input from 'components/Input';
 import Button from 'components/Button';
 
 import { schema } from './schema';
+import { AxiosError } from 'axios';
 
 interface ISignInFormData {
   email: string;
@@ -39,7 +40,19 @@ const SignIn = () => {
   const onSubmit = async (data: ISignInFormData) => {
     try {
       await signIn({ email: data.email, password: data.password });
-    } catch {
+    } catch (err) {
+      const error = err as AxiosError;
+
+      if (error.response?.status === 401) {
+        addToast({
+          type: 'error',
+          title: 'Erro ao tentar logar!',
+          description: 'E-mail e/ou senha inválidos.',
+          secondsDuration: 5,
+        });
+        return;
+      }
+
       addToast({
         type: 'error',
         title: 'Erro ao tentar logar!',

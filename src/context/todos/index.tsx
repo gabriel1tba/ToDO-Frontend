@@ -13,7 +13,7 @@ import todoReducer from './reducer';
 const TodoContext = createContext({} as ITodoContext);
 
 const TodoProvider = ({ children }: ITodoProvider) => {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
   const { addToast } = useToast();
 
   const [searchedWord, setSearchedWord] = useState<string>('');
@@ -32,14 +32,14 @@ const TodoProvider = ({ children }: ITodoProvider) => {
       } catch {
         addToast({
           type: 'error',
-          title: 'Erro ao obter lista de tarefas.',
-          description:
-            'Relogue para resolver o problema, caso não funcione, tente novamente mais tarde.',
-          secondsDuration: 10,
+          title: 'Erro inesperado do servidor.',
+          secondsDuration: 5,
         });
+
+        signOut();
       }
     }
-  }, [addToast, user]);
+  }, [addToast, signOut, user]);
 
   const getSearchedWord = useCallback((word: string) => {
     setSearchedWord(word);
