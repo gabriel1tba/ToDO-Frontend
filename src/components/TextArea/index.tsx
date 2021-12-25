@@ -1,18 +1,9 @@
-import {
-  forwardRef,
-  ForwardRefRenderFunction,
-  useRef,
-  useState,
-  TextareaHTMLAttributes,
-} from 'react';
+import { forwardRef, ForwardRefRenderFunction, useRef, useState } from 'react';
 import { FiAlertCircle } from 'react-icons/fi';
 
 import * as S from './styles';
 
-interface ITextArea extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  name: string;
-  error: string | undefined;
-}
+import { ITextArea } from './interfaces';
 
 const TextArea: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
   { name, error, defaultValue = '', ...rest },

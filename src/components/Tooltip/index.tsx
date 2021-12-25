@@ -1,10 +1,5 @@
+import { ITooltip } from './interfaces';
 import * as S from './styles';
-
-interface ITooltip {
-  title: string;
-  className?: string;
-  children?: React.ReactNode;
-}
 
 const Tooltip = ({ title, className, children }: ITooltip) => {
   return (

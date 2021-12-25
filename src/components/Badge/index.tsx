@@ -1,11 +1,6 @@
-import { memo } from 'react';
 import * as S from './styles';
 
-interface IBadge {
-  title: string;
-  fontColor: string;
-  backgroundColor: string;
-}
+import { IBadge } from './interfaces';
 
 const Badge = ({ title, fontColor, backgroundColor }: IBadge) => {
   return (
@@ -20,4 +15,4 @@ const Badge = ({ title, fontColor, backgroundColor }: IBadge) => {
   );
 };
 
-export default memo(Badge);
+export default Badge;

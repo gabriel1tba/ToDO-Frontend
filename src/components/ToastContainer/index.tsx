@@ -2,13 +2,10 @@ import { useTransition } from 'react-spring';
 
 import * as S from './styles';
 
-import { IToastMessage } from 'context/toast/interfaces';
-
 import Toast from './components/Toast';
 
-interface IToastContainer {
-  messages: IToastMessage[];
-}
+import { IToastContainer } from './interfaces';
+
 const ToastContainer = ({ messages }: IToastContainer) => {
   const toastTransition = useTransition(messages, (message) => message.id, {
     from: {

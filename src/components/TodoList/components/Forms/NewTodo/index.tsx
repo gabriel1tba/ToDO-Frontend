@@ -14,14 +14,9 @@ import api from 'services/api';
 
 import { schema } from './schema';
 
-import { IFormData } from '../../../interfaces';
+import { IFormData, INewTodo } from '../../../interfaces';
 
 import { ActionType } from 'context/todos/actions';
-
-interface INewTodo {
-  userId: string;
-  onCloseModal: () => void;
-}
 
 const NewTodo = ({ userId, onCloseModal }: INewTodo) => {
   const { register, handleSubmit, errors, formState } = useForm<IFormData>({

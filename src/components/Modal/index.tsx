@@ -3,12 +3,7 @@ import { MdClose } from 'react-icons/md';
 
 import * as S from './styles';
 
-interface IModal {
-  title: string;
-  children: React.ReactNode;
-  open: boolean;
-  onCloseModal: () => void;
-}
+import { IModal } from './interfaces';
 
 const Modal = ({ title, children, open, onCloseModal }: IModal) => {
   const portalRoot = document.querySelector('#portal-modal-root') as Element;

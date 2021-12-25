@@ -1,8 +1,16 @@
 import { ITodo } from 'interfaces';
 
+export interface ITodoItem {
+  todo: ITodo;
+}
 export interface IFormData {
   title: string;
   description: string;
+}
+
+export interface INewTodo {
+  userId: string;
+  onCloseModal: () => void;
 }
 
 export interface IManageTodo {

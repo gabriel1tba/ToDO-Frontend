@@ -2,9 +2,7 @@ import ReactDOM from 'react-dom';
 
 import * as S from './styles';
 
-interface ILoading {
-  isLoading?: boolean;
-}
+import { ILoading } from './interfaces';
 
 const Loading = ({ isLoading = true }: ILoading) => {
   const portalRoot = document.querySelector('#portal-loader-root') as Element;

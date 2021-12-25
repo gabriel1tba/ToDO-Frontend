@@ -1,16 +1,13 @@
+import { useHistory } from 'react-router';
 import { VscSignOut } from 'react-icons/vsc';
 
 import * as S from './styles';
 
+import { useTodos } from 'hooks';
+
 import logoImg from 'assets/logo.png';
 
-import { useTodos } from 'hooks';
-import { useHistory } from 'react-router';
-
-interface IHeader {
-  userName?: string;
-  onSignOut: () => void;
-}
+import { IHeader } from './interfaces';
 
 const Header = ({ userName, onSignOut }: IHeader) => {
   const history = useHistory();

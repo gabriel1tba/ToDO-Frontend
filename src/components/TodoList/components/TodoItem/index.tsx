@@ -13,11 +13,7 @@ import ManageTodo from '../Forms/ManageTodo';
 
 import { ActionType } from 'context/todos/actions';
 
-import { ITodo } from 'interfaces';
-
-interface ITodoItem {
-  todo: ITodo;
-}
+import { ITodoItem } from 'components/TodoList/interfaces';
 
 const TodoItem = ({ todo }: ITodoItem) => {
   const { addToast } = useToast();

@@ -1,5 +1,4 @@
-import { useEffect, CSSProperties } from 'react';
-import { AnimatedValue, ForwardedProps } from 'react-spring';
+import { useEffect } from 'react';
 import {
   FiAlertCircle,
   FiCheckCircle,
@@ -11,11 +10,7 @@ import { useToast } from 'hooks';
 
 import * as S from './styles';
 
-import { IToastMessage } from 'context/toast/interfaces';
-interface IToast {
-  toastMessage: IToastMessage;
-  style: AnimatedValue<ForwardedProps<ForwardedProps<CSSProperties>>>;
-}
+import { IToast } from 'components/ToastContainer/interfaces';
 
 const icons = {
   info: <FiInfo size={24} />,

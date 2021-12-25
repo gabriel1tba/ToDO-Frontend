@@ -17,8 +17,9 @@ import api from 'services/api';
 
 import { schema } from './schema';
 
-import { IFormData, IManageTodo } from '../../../interfaces';
 import { ActionType } from 'context/todos/actions';
+
+import { IFormData, IManageTodo } from '../../../interfaces';
 
 const ManageTodo = ({
   showTodo,
