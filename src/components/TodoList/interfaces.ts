@@ -9,7 +9,6 @@ export interface IFormData {
 }
 
 export interface INewTodo {
-  userId: string;
   onCloseModal: () => void;
 }
 

@@ -7,14 +7,31 @@ import NewTodo from '.';
 import HttpClient from 'services/utils/HttpClient';
 const apiMock = new MockAdapter(HttpClient);
 
+const storedUser = {
+  user: {
+    id: '8841a292-315f-4fa8-b791-d20c1e2c6a7c',
+    name: 'Gabriel Ferreira',
+    email: 'email@example.com',
+    created_at: '2021-12-06T13:09:13.732Z',
+    updated_at: '2021-12-06T13:09:13.732Z',
+  },
+  token: 'eyJhbGCIpXVCJ9.eU3NywicDQyZTk5In0.S_IaG-UxiO08M',
+};
+
 describe('<NewTodo />', () => {
-  it('should render NewTodo correctly', () => {
-    render(
-      <NewTodo
-        userId="8841a292-315f-4fa8-b791-d20c1e2c6a7c"
-        onCloseModal={() => ({})}
-      />,
+  beforeAll(() => {
+    window.localStorage.setItem(
+      '@TodoApp:user',
+      JSON.stringify(storedUser.user),
     );
+    window.localStorage.setItem(
+      '@TodoApp:token',
+      JSON.stringify(storedUser.token),
+    );
+  });
+
+  it('should render NewTodo correctly', async () => {
+    render(<NewTodo onCloseModal={() => ({})} />);
 
     expect(screen.getByLabelText(/título/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/descrição/i)).toBeInTheDocument();
@@ -22,12 +39,7 @@ describe('<NewTodo />', () => {
   });
 
   it('should render NewTodo correctly with message erros on textbox', async () => {
-    render(
-      <NewTodo
-        userId="8841a292-315f-4fa8-b791-d20c1e2c6a7c"
-        onCloseModal={() => ({})}
-      />,
-    );
+    render(<NewTodo onCloseModal={() => ({})} />);
 
     userEvent.click(screen.getByRole('button', { name: /salvar/i }));
 
@@ -38,12 +50,7 @@ describe('<NewTodo />', () => {
 
   it('should send data to the backend and close the form', async () => {
     const onCloseModal = jest.fn();
-    render(
-      <NewTodo
-        userId="8841a292-315f-4fa8-b791-d20c1e2c6a7c"
-        onCloseModal={onCloseModal}
-      />,
-    );
+    render(<NewTodo onCloseModal={onCloseModal} />);
 
     userEvent.type(screen.getByLabelText(/título/i), 'criar novo item');
     userEvent.type(screen.getByLabelText(/descrição/i), 'item de teste');
@@ -84,12 +91,7 @@ describe('<NewTodo />', () => {
 
   it('should receive an error status when send data', async () => {
     const onCloseModal = jest.fn();
-    render(
-      <NewTodo
-        userId="8841a292-315f-4fa8-b791-d20c1e2c6a7c"
-        onCloseModal={onCloseModal}
-      />,
-    );
+    render(<NewTodo onCloseModal={onCloseModal} />);
 
     userEvent.type(screen.getByLabelText(/título/i), 'criar novo item');
     userEvent.type(screen.getByLabelText(/descrição/i), 'item de teste');

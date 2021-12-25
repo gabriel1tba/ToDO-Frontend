@@ -3,7 +3,7 @@ import { FiPlus } from 'react-icons/fi';
 
 import * as S from './styles';
 
-import { useAuth, useTodos, useToggle } from 'hooks';
+import { useTodos, useToggle } from 'hooks';
 
 import Badge from '../Badge';
 import Modal from '../Modal';
@@ -16,7 +16,6 @@ import { ITodo } from 'interfaces';
 
 const TodoList = () => {
   const { todos, filteredTodos, searchTerm } = useTodos();
-  const { user } = useAuth();
 
   const [openModal, hadleToggleModal] = useToggle();
 
@@ -49,7 +48,7 @@ const TodoList = () => {
         onCloseModal={hadleToggleModal}
         open={openModal}
       >
-        <NewTodo userId={user.id} onCloseModal={hadleToggleModal} />
+        <NewTodo onCloseModal={hadleToggleModal} />
       </Modal>
 
       <S.Wrapper hastodos={!!filteredTodos.length}>
@@ -81,7 +80,7 @@ const TodoList = () => {
               )
               .map((todo) => <TodoItem key={todo.id} todo={todo} />)}
 
-          {!!filteredTodos.length && (
+          {filteredTodos.length < 1 && searchTerm.length > 0 ? null : (
             <button onClick={hadleToggleModal}>
               <FiPlus size={25} color="#3498db" />
               {todos.length

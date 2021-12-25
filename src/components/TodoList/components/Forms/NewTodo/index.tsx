@@ -8,7 +8,7 @@ import Input from 'components/Input';
 import TextArea from 'components/TextArea';
 import Button from 'components/Button';
 
-import { useToast, useTodos } from 'hooks';
+import { useToast, useTodos, useAuth } from 'hooks';
 
 import TodoService from 'services/TodoService';
 
@@ -18,18 +18,19 @@ import { IFormData, INewTodo } from '../../../interfaces';
 
 import { ActionType } from 'context/todos/actions';
 
-const NewTodo = ({ userId, onCloseModal }: INewTodo) => {
+const NewTodo = ({ onCloseModal }: INewTodo) => {
   const { register, handleSubmit, errors, formState } = useForm<IFormData>({
     resolver: yupResolver(schema),
   });
 
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();
+  const { user } = useAuth();
 
   const onSubmit = async (formData: IFormData) => {
     try {
       const { data } = await TodoService.createTodo({
-        user_id: userId,
+        user_id: user.id,
         title: formData.title,
         description: formData.description,
       });

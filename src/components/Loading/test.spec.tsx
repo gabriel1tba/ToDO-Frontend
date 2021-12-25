@@ -3,7 +3,7 @@ import { render } from 'utils/test-utils';
 import Loading from '.';
 
 describe('<Loading />', () => {
-  beforeEach(() => {
+  beforeAll(() => {
     render(<div id="portal-loader-root" />);
   });
 
