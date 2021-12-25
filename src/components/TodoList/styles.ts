@@ -132,19 +132,15 @@ export const TodoWrapper = styled.ul<IStyled>`
 
 export const SearchNotFoundContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   margin: 40px 350px 0 0;
 
   animation: ${animationFromAbove} 0.7s;
 
-  svg {
-    margin-bottom: 16px;
-  }
-
   span {
     color: #bcbcbc;
-    margin-left: 24px;
+    margin-left: 16px;
     word-break: break-word;
   }
 `;

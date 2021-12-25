@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { FiPlus } from 'react-icons/fi';
-import { RiEmotionSadLine } from 'react-icons/ri';
 
 import * as S from './styles';
 
@@ -10,6 +9,8 @@ import Badge from '../Badge';
 import Modal from '../Modal';
 import TodoItem from './components/TodoItem';
 import NewTodo from './components/Forms/NewTodo';
+
+import magnifierQuestion from 'assets/icons/magnifier-question.svg';
 
 import { ITodo } from 'interfaces';
 
@@ -93,7 +94,7 @@ const TodoList = () => {
 
       {filteredTodos.length < 1 && searchTerm.length > 0 && (
         <S.SearchNotFoundContainer>
-          <RiEmotionSadLine size={80} color="#FC5050" />
+          <img src={magnifierQuestion} alt="Lente de aumento de cor vermelha" />
 
           <span>Nenhum resultado foi encontrado para ”{searchTerm}”.</span>
         </S.SearchNotFoundContainer>
