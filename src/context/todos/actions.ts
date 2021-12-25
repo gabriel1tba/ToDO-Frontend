@@ -1,4 +1,4 @@
-import { ITodo } from '../../context/todos/interfaces';
+import { ITodo } from 'interfaces';
 
 export enum ActionType {
   GetTodos,
