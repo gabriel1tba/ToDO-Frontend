@@ -50,6 +50,7 @@ export const AnimationContainer = styled.div`
     h1 {
       margin-bottom: 24px;
       color: #666360;
+      font-size: 24px;
     }
 
     a {
