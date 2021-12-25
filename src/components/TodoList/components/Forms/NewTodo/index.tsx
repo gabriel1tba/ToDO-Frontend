@@ -10,7 +10,7 @@ import Button from 'components/Button';
 
 import { useToast, useTodos } from 'hooks';
 
-import api from 'services/api';
+import TodoService from 'services/TodoService';
 
 import { schema } from './schema';
 
@@ -28,7 +28,7 @@ const NewTodo = ({ userId, onCloseModal }: INewTodo) => {
 
   const onSubmit = async (formData: IFormData) => {
     try {
-      const { data } = await api.post('/todos', {
+      const { data } = await TodoService.createTodo({
         user_id: userId,
         title: formData.title,
         description: formData.description,

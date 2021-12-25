@@ -1,6 +1,8 @@
 import { useState, createContext, useCallback } from 'react';
 
-import api from 'services/api';
+import HttpClient from 'services/utils/HttpClient';
+
+import UserService from 'services/UserService';
 
 import { IAuthContext, IAuthProvider, IAuthState } from './interfaces';
 
@@ -12,7 +14,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     const user = localStorage.getItem('@TodoApp:user');
 
     if (token && user) {
-      api.defaults.headers.authorization = `Bearer ${token}`;
+      HttpClient.defaults.headers.authorization = `Bearer ${token}`;
 
       return { token, user: JSON.parse(user) };
     }
@@ -23,15 +25,12 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const signIn = useCallback(async ({ email, password }) => {
     const {
       data: { token, user },
-    } = await api.post('auth', {
-      email,
-      password,
-    });
+    } = await UserService.createUserSession({ email, password });
 
     localStorage.setItem('@TodoApp:token', token);
     localStorage.setItem('@TodoApp:user', JSON.stringify(user));
 
-    api.defaults.headers.authorization = `Bearer ${token}`;
+    HttpClient.defaults.headers.authorization = `Bearer ${token}`;
 
     setUserData({ token, user });
   }, []);

@@ -12,11 +12,10 @@ import logoImg from 'assets/logo.png';
 import Input from 'components/Input';
 import Button from 'components/Button';
 
-import api from 'services/api';
-
 import { schema } from './schema';
 
 import { ICredentialsRegister } from 'interfaces';
+import UserService from 'services/UserService';
 
 const SignUp = () => {
   const {
@@ -33,7 +32,7 @@ const SignUp = () => {
 
   const onSubmit = async (data: ICredentialsRegister) => {
     try {
-      await api.post('user', data);
+      await UserService.createUser(data);
 
       addToast({
         type: 'success',

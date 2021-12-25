@@ -13,7 +13,7 @@ import Button from 'components/Button';
 
 import { useToast, useTodos } from 'hooks';
 
-import api from 'services/api';
+import TodoService from 'services/TodoService';
 
 import { schema } from './schema';
 
@@ -52,15 +52,13 @@ const ManageTodo = ({
   const onSubmit = async (formData: IFormData) => {
     try {
       const { data } = editTodo
-        ? await api.patch('/todos', {
+        ? await TodoService.updateTodo({
             id: todo.id,
             title: formData.title,
             description: formData.description,
           })
-        : await api.delete('/todos', {
-            data: {
-              id: todo.id,
-            },
+        : await TodoService.deleteTodo({
+            id: todo.id,
           });
 
       editTodo

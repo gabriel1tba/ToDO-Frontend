@@ -4,16 +4,13 @@ import * as S from './styles';
 
 import { useAuth, useToast, useTodos } from 'hooks';
 
+import TodoService from 'services/TodoService';
+
 import Header from 'components/Header';
 import TodoList from 'components/TodoList';
 
-import api from 'services/api';
-
-import { ITodo } from 'interfaces';
-
 import { ActionType } from 'context/todos/actions';
 
-import delay from 'utils/delay';
 import Loading from 'components/Loading';
 
 const Dashboard = () => {
@@ -26,9 +23,7 @@ const Dashboard = () => {
   const getTodosFromDB = useCallback(async () => {
     if (user) {
       try {
-        await delay(2000);
-
-        const { data } = await api.get<ITodo[]>(`todos/${user.id}`);
+        const { data } = await TodoService.getTodos({ id: user.id });
 
         todoDispatch({
           type: ActionType.GetTodos,

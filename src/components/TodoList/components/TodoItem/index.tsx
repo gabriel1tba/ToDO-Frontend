@@ -6,9 +6,10 @@ import * as S from './styles';
 
 import { useToast, useTodos, useToggle } from 'hooks';
 
+import TodoService from 'services/TodoService';
+
 import Modal from 'components/Modal';
 
-import api from 'services/api';
 import ManageTodo from '../Forms/ManageTodo';
 
 import { ActionType } from 'context/todos/actions';
@@ -35,7 +36,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
 
   const handleCompletedTodo = async (checked: boolean) => {
     try {
-      const { data } = await api.patch('/todos', {
+      const { data } = await TodoService.updateTodo({
         id: todo.id,
         completed: checked,
         title: todo.title,
