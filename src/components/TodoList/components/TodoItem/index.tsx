@@ -40,7 +40,6 @@ const TodoItem = ({ todo }: ITodoItem) => {
         id: todo.id,
         completed: checked,
         title: todo.title,
-        description: todo.description,
       });
 
       todoDispatch({ type: ActionType.UpdateTodo, payload: data });

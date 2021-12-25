@@ -11,7 +11,13 @@ import { IHeader } from './interfaces';
 
 const Header = ({ userName, onSignOut }: IHeader) => {
   const history = useHistory();
+
   const { getSearchTerm } = useTodos();
+
+  const handleSignOut = () => {
+    getSearchTerm('');
+    onSignOut();
+  };
 
   return (
     <S.Wrapper>
@@ -34,7 +40,7 @@ const Header = ({ userName, onSignOut }: IHeader) => {
             placeholder="Pesquisar tarefas..."
           />
 
-          <button onClick={onSignOut}>
+          <button onClick={handleSignOut}>
             <VscSignOut size={35} color="#666360" />
           </button>
         </div>

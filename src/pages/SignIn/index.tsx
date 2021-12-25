@@ -38,7 +38,7 @@ const SignIn = () => {
       if (error.response?.status === 401) {
         addToast({
           type: 'error',
-          title: 'Erro ao tentar logar!',
+          title: 'Dados não cadastrados!',
           description: 'E-mail e/ou senha inválidos.',
           secondsDuration: 5,
         });

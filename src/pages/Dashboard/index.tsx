@@ -32,7 +32,8 @@ const Dashboard = () => {
       } catch {
         addToast({
           type: 'error',
-          title: 'Erro inesperado do servidor.',
+          title: 'Erro ao obter dados.',
+          description: 'Por favor, tente novamente mais tarde!',
           secondsDuration: 5,
         });
       } finally {

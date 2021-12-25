@@ -1,4 +1,5 @@
 import { AxiosInstance } from 'axios';
+
 import HttpClient from './utils/HttpClient';
 
 export interface ITodoService {
@@ -16,16 +17,16 @@ class TodoService {
     this._httpClient = HttpClient;
   }
 
+  async getTodos({ id }: Pick<ITodoService, 'id'>) {
+    return await this._httpClient.get(`todos/${id}`);
+  }
+
   async createTodo({ user_id, title, description }: ITodoService) {
     return await this._httpClient.post('todos', {
       user_id,
       title,
       description,
     });
-  }
-
-  async getTodos({ id }: Pick<ITodoService, 'id'>) {
-    return await this._httpClient.get(`todos/${id}`);
   }
 
   async updateTodo({ id, title, completed, description }: ITodoService) {

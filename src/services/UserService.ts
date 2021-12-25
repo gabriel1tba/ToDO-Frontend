@@ -1,4 +1,5 @@
 import { AxiosInstance } from 'axios';
+
 import HttpClient from './utils/HttpClient';
 
 import { ICredentials, ICredentialsRegister } from 'interfaces';

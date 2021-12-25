@@ -7,15 +7,17 @@ import * as S from './styles';
 
 import { useToast } from 'hooks';
 
+import UserService from 'services/UserService';
+
 import logoImg from 'assets/logo.png';
 
 import Input from 'components/Input';
 import Button from 'components/Button';
 
 import { schema } from './schema';
+import delay from 'utils/delay';
 
 import { ICredentialsRegister } from 'interfaces';
-import UserService from 'services/UserService';
 
 const SignUp = () => {
   const {
@@ -41,9 +43,8 @@ const SignUp = () => {
         secondsDuration: 3,
       });
 
-      setTimeout(() => {
-        history.push('/');
-      }, 3000);
+      await delay(3000);
+      history.push('/');
     } catch {
       addToast({
         type: 'error',
