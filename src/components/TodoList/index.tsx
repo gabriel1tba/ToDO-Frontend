@@ -1,5 +1,6 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { FiPlus } from 'react-icons/fi';
+import { RiEmotionSadLine } from 'react-icons/ri';
 
 import * as S from './styles';
 
@@ -13,7 +14,7 @@ import NewTodo from './components/Forms/NewTodo';
 import { ITodo } from 'interfaces';
 
 const TodoList = () => {
-  const { todos, getTodosFromDB, filteredTodos } = useTodos();
+  const { todos, filteredTodos, searchTerm } = useTodos();
   const { user } = useAuth();
 
   const [openModal, hadleToggleModal] = useToggle();
@@ -40,12 +41,8 @@ const TodoList = () => {
     return calcResult;
   }, [filteredTodos]);
 
-  useEffect(() => {
-    getTodosFromDB();
-  }, [getTodosFromDB]);
-
   return (
-    <>
+    <S.Container>
       <Modal
         title="Nova tarefa"
         onCloseModal={hadleToggleModal}
@@ -76,21 +73,32 @@ const TodoList = () => {
           </div>
         </div>
         <S.TodoWrapper hastodos={!!filteredTodos.length}>
-          {filteredTodos.length
-            ? filteredTodos
-                .sort((a: ITodo, b: ITodo) =>
-                  a.created_at.localeCompare(b.created_at),
-                )
-                .map((todo) => <TodoItem key={todo.id} todo={todo} />)
-            : null}
+          {!!filteredTodos.length &&
+            filteredTodos
+              .sort((a: ITodo, b: ITodo) =>
+                a.created_at.localeCompare(b.created_at),
+              )
+              .map((todo) => <TodoItem key={todo.id} todo={todo} />)}
 
-          <button onClick={hadleToggleModal}>
-            <FiPlus size={25} color="#3498db" />
-            {todos.length ? 'Adicionar tarefa' : 'Adicione sua primeira tarefa'}
-          </button>
+          {!!filteredTodos.length && (
+            <button onClick={hadleToggleModal}>
+              <FiPlus size={25} color="#3498db" />
+              {todos.length
+                ? 'Adicionar tarefa'
+                : 'Adicione sua primeira tarefa'}
+            </button>
+          )}
         </S.TodoWrapper>
       </S.Wrapper>
-    </>
+
+      {filteredTodos.length < 1 && searchTerm.length > 0 && (
+        <S.SearchNotFoundContainer>
+          <RiEmotionSadLine size={80} color="#FC5050" />
+
+          <span>Nenhum resultado foi encontrado para ”{searchTerm}”.</span>
+        </S.SearchNotFoundContainer>
+      )}
+    </S.Container>
   );
 };
 

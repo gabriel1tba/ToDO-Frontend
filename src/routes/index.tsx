@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { Switch } from 'react-router-dom';
+
 import Loading from 'components/Loading';
 
 import Route from './Route';

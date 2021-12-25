@@ -28,6 +28,23 @@ const animationFromLeft = keyframes`
   }
 `;
 
+export const animationFromAbove = keyframes`
+  from{
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Wrapper = styled.div<IStyled>`
   width: calc(100vw - 390px);
 
@@ -110,5 +127,24 @@ export const TodoWrapper = styled.ul<IStyled>`
 
     margin: 15px 0 0;
     margin-left: 50px;
+  }
+`;
+
+export const SearchNotFoundContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 350px 0 0;
+
+  animation: ${animationFromAbove} 0.7s;
+
+  svg {
+    margin-bottom: 16px;
+  }
+
+  span {
+    color: #bcbcbc;
+    margin-left: 24px;
+    word-break: break-word;
   }
 `;

@@ -161,7 +161,7 @@ describe('<TodoProvider />', () => {
     });
 
     await waitFor(() => {
-      result.current.getSearchedWord('teste');
+      result.current.getSearchTerm('teste');
     });
 
     await waitFor(() => {
