@@ -8,8 +8,8 @@ import api from 'services/api';
 const apiMock = new MockAdapter(api);
 
 const todoItem = {
-  id: 'todoId',
-  user_id: 'userId',
+  id: '8841a292-315f-4fa8-b791-d20c1e2c6a7c',
+  user_id: 'b6e24b25-af86-4137-a94b-92a5cdda920f',
   completed: false,
   title: 'Testar form ManageTodo',
   description: 'Testar em todos os modos',
@@ -152,7 +152,7 @@ describe('<ManageTodo />', () => {
     await waitFor(() => {
       expect(requestSuccessEdit.history.patch[0].data).toStrictEqual(
         JSON.stringify({
-          id: 'todoId',
+          id: '8841a292-315f-4fa8-b791-d20c1e2c6a7c',
           title: 'alterar item',
           description: 'item de teste alterado',
         }),
@@ -259,7 +259,7 @@ describe('<ManageTodo />', () => {
     await waitFor(() => {
       expect(requestSuccessDelete.history.delete[0].data).toStrictEqual(
         JSON.stringify({
-          id: 'todoId',
+          id: '8841a292-315f-4fa8-b791-d20c1e2c6a7c',
         }),
       );
     });

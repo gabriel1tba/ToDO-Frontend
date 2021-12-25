@@ -33,10 +33,6 @@ const NewTodo = ({ userId, onCloseModal }: INewTodo) => {
 
   const onSubmit = async (formData: IFormData) => {
     try {
-      await schema.validate(formData, {
-        abortEarly: false,
-      });
-
       const { data } = await api.post('/todos', {
         user_id: userId,
         title: formData.title,

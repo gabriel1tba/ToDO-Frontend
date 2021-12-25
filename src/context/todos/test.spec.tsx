@@ -1,7 +1,6 @@
 import React from 'react';
 import { waitFor } from 'utils/test-utils';
 import { renderHook } from '@testing-library/react-hooks';
-import MockAdapter from 'axios-mock-adapter';
 
 import { useTodos } from 'hooks';
 import { TodoProvider } from '.';
@@ -27,32 +26,9 @@ const todoMock = [
   },
 ];
 
-import api from 'services/api';
 import { ActionType } from './actions';
 
-const apiMock = new MockAdapter(api);
-
 describe('<TodoProvider />', () => {
-  apiMock.onGet('todos').reply(200);
-
-  it('should run a function that gets todos from the user', async () => {
-    const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <TodoProvider>{children}</TodoProvider>
-    );
-
-    const { result } = renderHook(() => useTodos(), {
-      wrapper,
-    });
-
-    await waitFor(() => {
-      result.current.getTodosFromDB();
-    });
-
-    await waitFor(() => {
-      expect(result.current.todos).toStrictEqual([]);
-    });
-  });
-
   it('should create two Todos and add a whole to the state', async () => {
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <TodoProvider>{children}</TodoProvider>
@@ -149,8 +125,8 @@ describe('<TodoProvider />', () => {
     });
   });
 
-  it('should run the GetsearchedWord function correctly', async () => {
-    const setSearchedWord = jest.spyOn(React, 'useState');
+  it('should run the getSearchTerm function correctly', async () => {
+    const setSearchTerm = jest.spyOn(React, 'useState');
 
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <TodoProvider>{children}</TodoProvider>
@@ -160,12 +136,25 @@ describe('<TodoProvider />', () => {
       wrapper,
     });
 
+    // Create todos
+    await waitFor(() => {
+      result.current.todoDispatch({
+        type: ActionType.CreateTodo,
+        payload: todoMock[0],
+      });
+
+      result.current.todoDispatch({
+        type: ActionType.CreateTodo,
+        payload: todoMock[1],
+      });
+    });
+
     await waitFor(() => {
       result.current.getSearchTerm('teste');
     });
 
     await waitFor(() => {
-      expect(setSearchedWord).toBeCalled();
+      expect(setSearchTerm).toBeCalled();
     });
   });
 });
