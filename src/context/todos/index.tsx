@@ -6,7 +6,8 @@ import api from 'services/api';
 
 import { ActionType } from './actions';
 
-import { ITodoContext, ITodoProvider, ITodo } from './interfaces';
+import { ITodo } from 'interfaces';
+import { ITodoContext, ITodoProvider } from './interfaces';
 
 import todoReducer from './reducer';
 

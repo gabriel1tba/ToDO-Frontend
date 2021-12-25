@@ -11,12 +11,12 @@ import Modal from 'components/Modal';
 import api from 'services/api';
 import ManageTodo from '../Forms/ManageTodo';
 
-import { Item } from '../../interfaces';
-
 import { ActionType } from 'context/todos/actions';
 
+import { ITodo } from 'interfaces';
+
 interface ITodoItem {
-  todo: Item;
+  todo: ITodo;
 }
 
 const TodoItem = ({ todo }: ITodoItem) => {

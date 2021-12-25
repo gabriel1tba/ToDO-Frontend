@@ -1,12 +1,4 @@
-export interface Item {
-  id: string;
-  user_id: string;
-  completed: boolean;
-  title: string;
-  description: string | null;
-  created_at: string;
-  updated_at: string;
-}
+import { ITodo } from 'interfaces';
 
 export interface IFormData {
   title: string;
@@ -14,7 +6,7 @@ export interface IFormData {
 }
 
 export interface IManageTodo {
-  todo: Item;
+  todo: ITodo;
   onCloseModal: () => void;
   editTodo: boolean;
   showTodo: boolean;

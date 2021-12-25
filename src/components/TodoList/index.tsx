@@ -10,7 +10,7 @@ import Modal from '../Modal';
 import TodoItem from './components/TodoItem';
 import NewTodo from './components/Forms/NewTodo';
 
-import { ITodo } from 'context/todos/interfaces';
+import { ITodo } from 'interfaces';
 
 const TodoList = () => {
   const { todos, getTodosFromDB, filteredTodos } = useTodos();

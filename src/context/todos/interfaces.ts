@@ -1,14 +1,6 @@
-import { TodoActions } from './actions';
+import { ITodo } from 'interfaces';
 
-export interface ITodo {
-  id: string;
-  user_id: string;
-  completed: boolean;
-  title: string;
-  description: string | null;
-  created_at: string;
-  updated_at: string;
-}
+import { TodoActions } from './actions';
 
 export interface ITodoContext {
   todos: ITodo[];
