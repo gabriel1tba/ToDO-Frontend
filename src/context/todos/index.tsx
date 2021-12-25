@@ -1,4 +1,10 @@
-import { createContext, useCallback, useState, useReducer } from 'react';
+import {
+  useState,
+  useReducer,
+  useCallback,
+  useMemo,
+  createContext,
+} from 'react';
 
 import { useAuth, useToast } from 'hooks';
 
@@ -14,7 +20,7 @@ import todoReducer from './reducer';
 const TodoContext = createContext({} as ITodoContext);
 
 const TodoProvider = ({ children }: ITodoProvider) => {
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
   const { addToast } = useToast();
 
   const [searchedWord, setSearchedWord] = useState<string>('');
@@ -36,47 +42,21 @@ const TodoProvider = ({ children }: ITodoProvider) => {
           title: 'Erro inesperado do servidor.',
           secondsDuration: 5,
         });
-
-        signOut();
       }
     }
-  }, [addToast, signOut, user]);
+  }, [addToast, user]);
 
   const getSearchedWord = useCallback((word: string) => {
     setSearchedWord(word);
   }, []);
 
-  const findInObj = useCallback(
-    (objectToFilter: ITodo, wordToFilter: string): boolean => {
-      return Object.values(objectToFilter).some((object) =>
-        typeof object === 'object'
-          ? findInObj(object, wordToFilter)
-          : typeof object === 'string'
-          ? object.toLowerCase().includes(wordToFilter.toLowerCase()) &&
-            object === objectToFilter['title']
-          : typeof object === 'number'
-          ? String(object).includes(wordToFilter) || isNaN(object)
-          : object === wordToFilter && object === objectToFilter['title'],
-      );
-    },
-    [],
+  const filteredTodos = useMemo(
+    () =>
+      todos.filter((todo) =>
+        todo.title.toLowerCase().includes(searchedWord.toLowerCase()),
+      ),
+    [todos, searchedWord],
   );
-
-  const filterTodos = useCallback(
-    (value: string): ITodo[] => {
-      const todosFound: ITodo[] = [];
-
-      todos.forEach((object: ITodo) => {
-        if (findInObj(object, value)) {
-          todosFound.push(object);
-        }
-      });
-      return todosFound;
-    },
-    [findInObj, todos],
-  );
-
-  const filteredTodos = filterTodos(searchedWord);
 
   return (
     <TodoContext.Provider
