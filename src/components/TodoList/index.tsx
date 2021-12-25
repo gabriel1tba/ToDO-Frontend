@@ -96,7 +96,10 @@ const TodoList = () => {
         <S.SearchNotFoundContainer>
           <img src={magnifierQuestion} alt="Lente de aumento de cor vermelha" />
 
-          <span>Nenhum resultado foi encontrado para ”{searchTerm}”.</span>
+          <span>
+            Nenhum resultado foi encontrado para <strong>”{searchTerm}”</strong>
+            .
+          </span>
         </S.SearchNotFoundContainer>
       )}
     </S.Container>

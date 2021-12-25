@@ -5,9 +5,8 @@ import MockAdapter from 'axios-mock-adapter';
 import { useAuth } from 'hooks';
 import { AuthProvider } from '.';
 
-import api from 'services/api';
-
-const apiMock = new MockAdapter(api);
+import HttpClient from 'services/utils/HttpClient';
+const apiMock = new MockAdapter(HttpClient);
 
 const authResponse = {
   user: {

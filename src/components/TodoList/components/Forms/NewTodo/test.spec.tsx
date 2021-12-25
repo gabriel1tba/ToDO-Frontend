@@ -4,9 +4,8 @@ import MockAdapter from 'axios-mock-adapter';
 
 import NewTodo from '.';
 
-import api from 'services/api';
-
-const apiMock = new MockAdapter(api);
+import HttpClient from 'services/utils/HttpClient';
+const apiMock = new MockAdapter(HttpClient);
 
 describe('<NewTodo />', () => {
   it('should render NewTodo correctly', () => {

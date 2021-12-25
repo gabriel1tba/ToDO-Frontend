@@ -2,10 +2,9 @@ import userEvent from '@testing-library/user-event';
 import { render, screen, waitFor } from 'utils/test-utils';
 import MockAdapter from 'axios-mock-adapter';
 
-import api from 'services/api';
+import HttpClient from 'services/utils/HttpClient';
 
-const apiMock = new MockAdapter(api);
-
+const apiMock = new MockAdapter(HttpClient);
 import TodoItem from '.';
 
 const todoItemResponse = {
@@ -22,7 +21,7 @@ jest.mock('../Forms/ManageTodo', () => {
   return {
     __esModule: true,
     default: function Mock() {
-      return <div data-testid="Mock Toast"></div>;
+      return <div data-testid="Mock ManageTodo"></div>;
     },
   };
 });
@@ -54,17 +53,7 @@ describe('<TodoItem />', () => {
 
     userEvent.click(screen.getByRole('checkbox'));
 
-    const successCompleted = apiMock
-      .onPatch('todos')
-      .reply(() => [
-        200,
-        {
-          id: 'todoId',
-          completed: true,
-          title: 'Testar componente TodoItem',
-          description: 'Testar em Todos os modos',
-        },
-      ]);
+    const successCompleted = apiMock.onPatch('todos').reply(() => [200]);
 
     await waitFor(() => {
       expect(successCompleted.history.patch.length).toBe(1);
@@ -74,9 +63,8 @@ describe('<TodoItem />', () => {
       expect(successCompleted.history.patch[0].data).toStrictEqual(
         JSON.stringify({
           id: 'todoId',
-          completed: true,
           title: 'Testar componente TodoItem',
-          description: 'Testar em Todos os modos',
+          completed: true,
         }),
       );
     });
@@ -109,7 +97,7 @@ describe('<TodoItem />', () => {
     userEvent.click(screen.getByText(/testar componente todoitem/i));
 
     await waitFor(() => {
-      expect(screen.getByTestId('Mock Toast')).toBeInTheDocument();
+      expect(screen.getByTestId('Mock ManageTodo')).toBeInTheDocument();
     });
   });
 
@@ -124,7 +112,7 @@ describe('<TodoItem />', () => {
     userEvent.click(screen.getAllByRole('button')[0]);
 
     await waitFor(() => {
-      expect(screen.getByTestId('Mock Toast')).toBeInTheDocument();
+      expect(screen.getByTestId('Mock ManageTodo')).toBeInTheDocument();
     });
   });
 
@@ -139,7 +127,7 @@ describe('<TodoItem />', () => {
     userEvent.click(screen.getAllByRole('button')[1]);
 
     await waitFor(() => {
-      expect(screen.getByTestId('Mock Toast')).toBeInTheDocument();
+      expect(screen.getByTestId('Mock ManageTodo')).toBeInTheDocument();
     });
   });
 });

@@ -4,8 +4,8 @@ import MockAdapter from 'axios-mock-adapter';
 
 import ManageTodo from '.';
 
-import api from 'services/api';
-const apiMock = new MockAdapter(api);
+import HttpClient from 'services/utils/HttpClient';
+const apiMock = new MockAdapter(HttpClient);
 
 const todoItem = {
   id: '8841a292-315f-4fa8-b791-d20c1e2c6a7c',
