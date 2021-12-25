@@ -1,9 +1,4 @@
-import { IUser } from 'interfaces';
-
-export interface ISignInCrendentials {
-  email: string;
-  password: string;
-}
+import { ICredentials, IUser } from 'interfaces';
 
 export interface IAuthState {
   token: string;
@@ -12,7 +7,7 @@ export interface IAuthState {
 
 export interface IAuthContext {
   user: IUser;
-  signIn: (crendentials: ISignInCrendentials) => Promise<void>;
+  signIn: (crendentials: ICredentials) => Promise<void>;
   signOut: () => void;
 }
 

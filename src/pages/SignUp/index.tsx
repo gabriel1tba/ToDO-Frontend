@@ -16,12 +16,7 @@ import api from 'services/api';
 
 import { schema } from './schema';
 
-interface ISignUpFormData {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
+import { ICredentialsRegister } from 'interfaces';
 
 const SignUp = () => {
   const {
@@ -29,14 +24,14 @@ const SignUp = () => {
     handleSubmit,
     errors,
     formState,
-  } = useForm<ISignUpFormData>({
+  } = useForm<ICredentialsRegister>({
     resolver: yupResolver(schema),
   });
 
   const { addToast } = useToast();
   const history = useHistory();
 
-  const onSubmit = async (data: ISignUpFormData) => {
+  const onSubmit = async (data: ICredentialsRegister) => {
     try {
       await api.post('user', data);
 

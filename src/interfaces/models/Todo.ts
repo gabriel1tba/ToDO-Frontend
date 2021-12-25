@@ -1,6 +1,6 @@
-import ModelCreation from './ModelCreation';
+import IModelCreation from './ModelCreation';
 
-export interface ITodo extends ModelCreation {
+export interface ITodo extends IModelCreation {
   id: string;
   user_id: string;
   completed: boolean;

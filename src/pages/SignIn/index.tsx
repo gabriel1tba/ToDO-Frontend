@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
+import { AxiosError } from 'axios';
 
 import { useAuth, useToast } from 'hooks';
 
@@ -13,21 +14,12 @@ import logoImg from 'assets/logo.png';
 import Input from 'components/Input';
 import Button from 'components/Button';
 
-import { schema } from './schema';
-import { AxiosError } from 'axios';
+import { ICredentials } from 'interfaces';
 
-interface ISignInFormData {
-  email: string;
-  password: string;
-}
+import { schema } from './schema';
 
 const SignIn = () => {
-  const {
-    register,
-    handleSubmit,
-    errors,
-    formState,
-  } = useForm<ISignInFormData>({
+  const { register, handleSubmit, errors, formState } = useForm<ICredentials>({
     resolver: yupResolver(schema),
   });
 
@@ -37,7 +29,7 @@ const SignIn = () => {
   // State to useEffect cleanup function
   const [, setDidMount] = useState(false);
 
-  const onSubmit = async (data: ISignInFormData) => {
+  const onSubmit = async (data: ICredentials) => {
     try {
       await signIn({ email: data.email, password: data.password });
     } catch (err) {
