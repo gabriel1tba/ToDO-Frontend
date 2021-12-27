@@ -38,8 +38,8 @@ const TodoItem = ({ todo }: ITodoItem) => {
     try {
       const { data } = await TodoService.updateTodo({
         id: todo.id,
-        completed: checked,
         title: todo.title,
+        completed: checked,
       });
 
       todoDispatch({ type: ActionType.UpdateTodo, payload: data });
