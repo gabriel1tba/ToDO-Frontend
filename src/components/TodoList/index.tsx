@@ -52,9 +52,9 @@ const TodoList = () => {
       </Modal>
 
       <S.TodoWrapper hastodos={!!filteredTodos.length}>
-        <div>
+        <div id="header">
           <p>{todos.length ? 'Suas tarefas' : 'Sem tarefas'}</p>
-          <div>
+          <div id="badges">
             <Badge
               title={`Totais ${totals}`}
               fontColor="#3498db"

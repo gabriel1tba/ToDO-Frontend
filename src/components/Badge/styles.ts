@@ -5,8 +5,6 @@ export const Badge = styled.span`
 
   display: inline-block;
 
-  margin-right: 15px;
-
   border-radius: 3rem;
   text-align: start;
 

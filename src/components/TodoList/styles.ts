@@ -46,19 +46,19 @@ export const Wrapper = styled.div`
 `;
 
 export const TodoWrapper = styled.div<IStyled>`
-  width: calc(100vw - 390px);
-
   display: flex;
   flex-direction: column;
+  align-items: center;
 
-  > div {
+  #header {
     animation: ${animationFromLeft} 1s;
 
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    width: ${({ hastodos }) => (hastodos ? '100%' : '788px')};
 
-    > p {
+    p {
       display: block;
       margin: 5px 45px
         ${({ hastodos }) => (hastodos ? '20px 8px' : '25px 45px')};
@@ -68,8 +68,15 @@ export const TodoWrapper = styled.div<IStyled>`
       color: #666360;
     }
 
-    > div {
-      margin-right: 345px;
+    @media (max-width: 1200px) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  #badges {
+    span {
+      margin-left: 10px;
     }
   }
 `;
@@ -77,15 +84,12 @@ export const TodoWrapper = styled.div<IStyled>`
 export const TodosList = styled.ul<IStyled>`
   animation: ${animationFromRight} 1s;
 
-  height: calc(100vh -80px);
-  overflow: scroll;
-
-  overflow-x: hidden;
+  width: ${({ hastodos }) => (hastodos ? '100%' : '710px')};
 
   > button {
     display: flex;
     align-items: center;
-    justify-content: center;
+    align-self: flex-start;
 
     width: 260px;
     height: 38px;
@@ -93,14 +97,12 @@ export const TodosList = styled.ul<IStyled>`
     font-weight: 500;
     font-size: 17px;
 
-    margin: 10px 0 0 ${({ hastodos }) => (hastodos ? '-45px' : '37px')};
+    margin-top: 10px;
 
     color: #3498db;
     background-color: transparent;
 
     border: 0;
-    border-radius: 50px;
-
     transition: filter 0.3s;
 
     &:hover {
@@ -111,30 +113,13 @@ export const TodosList = styled.ul<IStyled>`
       margin-right: 10px;
     }
   }
-
-  &::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #b8b1b1;
-    border-radius: 10px;
-  }
-  &::-webkit-scrollbar-track {
-    background: #ffffff;
-    border-radius: 10px;
-
-    margin: 15px 0 0;
-    margin-left: 50px;
-  }
 `;
 
 export const SearchNotFoundContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 40px 350px 0 0;
+  margin-top: 40px;
 
   animation: ${animationFromAbove} 0.7s;
 

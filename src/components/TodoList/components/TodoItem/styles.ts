@@ -5,18 +5,17 @@ export const Wrapper = styled.li`
   justify-content: space-between;
   align-items: center;
 
+  width: fit-content;
   margin: 15px 5px -5px;
-
   padding-bottom: 14px;
-
   position: relative;
 
   &:before {
     content: '';
     position: absolute;
-    left: 0;
+    left: 1px;
     bottom: 5px;
-    width: calc(100vw - 765px);
+    width: 100%;
     border: 0.5px solid rgba(0, 0, 0, 0.125);
   }
 
@@ -57,8 +56,7 @@ export const Wrapper = styled.li`
   }
 
   > div {
-    margin-right: 350px;
-
+    margin-left: 35px;
     button {
       background: transparent;
       border: none;
