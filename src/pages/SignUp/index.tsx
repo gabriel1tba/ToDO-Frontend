@@ -32,9 +32,9 @@ const SignUp = () => {
   const { addToast } = useToast();
   const history = useHistory();
 
-  const onSubmit = async (data: ICredentialsRegister) => {
+  const onSubmit = async (dataForm: ICredentialsRegister) => {
     try {
-      await UserService.createUser(data);
+      await UserService.createUser(dataForm);
 
       addToast({
         type: 'success',
