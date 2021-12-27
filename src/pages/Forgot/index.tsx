@@ -2,7 +2,7 @@ import { useHistory } from 'react-router';
 
 import Header from 'components/Header';
 
-import forgotImg from 'assets/underConstruction.jpg';
+import constructionImage from 'assets/underConstruction.jpg';
 
 const Forgot = () => {
   const history = useHistory();
@@ -21,7 +21,10 @@ const Forgot = () => {
           marginTop: '100px',
         }}
       >
-        <img src={forgotImg} alt="Aviso de que a pagina esta em construção" />
+        <img
+          src={constructionImage}
+          alt="Exibe um rato com equipamento de proteção e ferramentas de construção"
+        />
       </div>
     </>
   );
