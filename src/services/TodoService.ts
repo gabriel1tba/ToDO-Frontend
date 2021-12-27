@@ -1,14 +1,8 @@
 import { AxiosInstance } from 'axios';
 
-import HttpClient from './utils/HttpClient';
+import { ITodo } from 'interfaces';
 
-export interface ITodoService {
-  id?: string;
-  user_id?: string;
-  title: string;
-  description?: string | null;
-  completed?: boolean;
-}
+import HttpClient from './utils/HttpClient';
 
 class TodoService {
   private _httpClient: AxiosInstance;
@@ -17,11 +11,11 @@ class TodoService {
     this._httpClient = HttpClient;
   }
 
-  async getTodos({ id }: Pick<ITodoService, 'id'>) {
+  async getTodos({ id }: Pick<Partial<ITodo>, 'id'>) {
     return await this._httpClient.get(`todos/${id}`);
   }
 
-  async createTodo({ user_id, title, description }: ITodoService) {
+  async createTodo({ user_id, title, description }: Partial<ITodo>) {
     return await this._httpClient.post('todos', {
       user_id,
       title,
@@ -29,7 +23,7 @@ class TodoService {
     });
   }
 
-  async updateTodo({ id, title, completed, description }: ITodoService) {
+  async updateTodo({ id, title, completed, description }: Partial<ITodo>) {
     return await this._httpClient.patch('todos', {
       id,
       title,
@@ -38,7 +32,7 @@ class TodoService {
     });
   }
 
-  async deleteTodo({ id }: Pick<ITodoService, 'id'>) {
+  async deleteTodo({ id }: Pick<Partial<ITodo>, 'id'>) {
     return await this._httpClient.delete('todos', {
       data: {
         id,
