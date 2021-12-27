@@ -42,7 +42,7 @@ const TodoList = () => {
   }, [filteredTodos]);
 
   return (
-    <S.Container>
+    <S.Wrapper>
       <Modal
         title="Nova tarefa"
         onCloseModal={hadleToggleModal}
@@ -51,7 +51,7 @@ const TodoList = () => {
         <NewTodo onCloseModal={hadleToggleModal} />
       </Modal>
 
-      <S.Wrapper hastodos={!!filteredTodos.length}>
+      <S.TodoWrapper hastodos={!!filteredTodos.length}>
         <div>
           <p>{todos.length ? 'Suas tarefas' : 'Sem tarefas'}</p>
           <div>
@@ -72,7 +72,7 @@ const TodoList = () => {
             />
           </div>
         </div>
-        <S.TodoWrapper hastodos={!!filteredTodos.length}>
+        <S.TodosList hastodos={!!filteredTodos.length}>
           {!!filteredTodos.length &&
             filteredTodos
               .sort((a: ITodo, b: ITodo) =>
@@ -88,8 +88,8 @@ const TodoList = () => {
                 : 'Adicione sua primeira tarefa'}
             </button>
           )}
-        </S.TodoWrapper>
-      </S.Wrapper>
+        </S.TodosList>
+      </S.TodoWrapper>
 
       {filteredTodos.length < 1 && searchTerm.length > 0 && (
         <S.SearchNotFoundContainer>
@@ -101,7 +101,7 @@ const TodoList = () => {
           </span>
         </S.SearchNotFoundContainer>
       )}
-    </S.Container>
+    </S.Wrapper>
   );
 };
 

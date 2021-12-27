@@ -51,19 +51,21 @@ const ManageTodo = ({
 
   const onSubmit = async (formData: IFormData) => {
     try {
-      const { data } = editTodo
-        ? await TodoService.updateTodo({
-            id: todo.id,
-            title: formData.title,
-            description: formData.description,
-          })
-        : await TodoService.deleteTodo({
-            id: todo.id,
-          });
+      if (editTodo) {
+        const { data } = await TodoService.updateTodo({
+          id: todo.id,
+          title: formData.title,
+          description: formData.description,
+        });
 
-      editTodo
-        ? todoDispatch({ type: ActionType.UpdateTodo, payload: data })
-        : todoDispatch({ type: ActionType.DeleteTodo, payload: todo });
+        todoDispatch({ type: ActionType.UpdateTodo, payload: data });
+      } else if (!editTodo) {
+        await TodoService.deleteTodo({
+          id: todo.id,
+        });
+
+        todoDispatch({ type: ActionType.DeleteTodo, payload: todo });
+      }
 
       addToast({
         type: 'success',

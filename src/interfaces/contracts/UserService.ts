@@ -1,4 +1,4 @@
-import { ICredentials, ICredentialsRegister, IUser } from 'interfaces';
+import { ICredentialsRegister, ICredentials, IUser } from 'interfaces';
 
 export interface ICreateUserResponse {
   data: IUser;

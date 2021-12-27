@@ -40,12 +40,12 @@ export const animationFromAbove = keyframes`
   }
 `;
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const Wrapper = styled.div<IStyled>`
+export const TodoWrapper = styled.div<IStyled>`
   width: calc(100vw - 390px);
 
   display: flex;
@@ -74,7 +74,7 @@ export const Wrapper = styled.div<IStyled>`
   }
 `;
 
-export const TodoWrapper = styled.ul<IStyled>`
+export const TodosList = styled.ul<IStyled>`
   animation: ${animationFromRight} 1s;
 
   height: calc(100vh -80px);

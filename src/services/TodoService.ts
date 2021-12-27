@@ -1,19 +1,22 @@
 import { AxiosInstance } from 'axios';
-
-import { ITodo } from 'interfaces';
+import {
+  ICreateOrUpdateTodoResponse,
+  IDeleteTodo,
+  IGetTodoResponse,
+  ITodoService,
+  TTodoService,
+} from 'interfaces';
 
 import HttpClient from './utils/HttpClient';
 
-type ITodoService = Partial<Omit<ITodo, 'created_at' | 'updated_at'>>;
-
-class TodoService {
+class TodoService implements ITodoService {
   private _httpClient: AxiosInstance;
 
   constructor() {
     this._httpClient = HttpClient;
   }
 
-  async getTodos({ id }: Pick<ITodoService, 'id'>) {
+  async getTodos({ id }: Pick<TTodoService, 'id'>): Promise<IGetTodoResponse> {
     return await this._httpClient.get(`todos/${id}`);
   }
 
@@ -21,7 +24,10 @@ class TodoService {
     user_id,
     title,
     description,
-  }: Omit<ITodoService, 'id' | 'completed'>) {
+  }: Omit<
+    TTodoService,
+    'id' | 'completed'
+  >): Promise<ICreateOrUpdateTodoResponse> {
     return await this._httpClient.post('todos', {
       user_id,
       title,
@@ -34,7 +40,7 @@ class TodoService {
     title,
     completed,
     description,
-  }: Omit<ITodoService, 'user_id'>) {
+  }: Omit<TTodoService, 'user_id'>): Promise<ICreateOrUpdateTodoResponse> {
     return await this._httpClient.patch('todos', {
       id,
       title,
@@ -43,7 +49,7 @@ class TodoService {
     });
   }
 
-  async deleteTodo({ id }: Pick<ITodoService, 'id'>) {
+  async deleteTodo({ id }: Pick<TTodoService, 'id'>): Promise<IDeleteTodo> {
     return await this._httpClient.delete('todos', {
       data: {
         id,
