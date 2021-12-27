@@ -141,7 +141,7 @@ describe('<ManageTodo />', () => {
       'item de teste alterado',
     );
 
-    const requestSuccessEdit = apiMock.onPatch('todos').reply(() => [200]);
+    const requestSuccessEdit = apiMock.onPatch('todos').reply(200);
 
     userEvent.click(screen.getByRole('button', { name: /salvar alterações/i }));
 
@@ -178,7 +178,7 @@ describe('<ManageTodo />', () => {
     userEvent.type(screen.getByLabelText(/título/i), 'criar novo item');
     userEvent.type(screen.getByLabelText(/descrição/i), 'item de teste');
 
-    const requestErrorEdit = apiMock.onPatch('todos').reply(() => [500]);
+    const requestErrorEdit = apiMock.onPatch('todos').reply(500);
 
     userEvent.click(screen.getByRole('button', { name: /salvar alterações/i }));
 
@@ -246,7 +246,7 @@ describe('<ManageTodo />', () => {
       'Testar em todos os modos',
     );
 
-    const requestSuccessDelete = apiMock.onDelete('todos').reply(() => [200]);
+    const requestSuccessDelete = apiMock.onDelete('todos').reply(200);
 
     userEvent.click(
       screen.getByRole('button', { name: /confirmar exclusão/i }),
@@ -280,7 +280,7 @@ describe('<ManageTodo />', () => {
       />,
     );
 
-    const requestErrorDelete = apiMock.onDelete('todos').reply(() => [500]);
+    const requestErrorDelete = apiMock.onDelete('todos').reply(500);
 
     userEvent.click(
       screen.getByRole('button', { name: /confirmar exclusão/i }),

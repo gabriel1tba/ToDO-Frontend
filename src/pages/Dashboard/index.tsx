@@ -8,10 +8,9 @@ import TodoService from 'services/TodoService';
 
 import Header from 'components/Header';
 import TodoList from 'components/TodoList';
+import Loading from 'components/Loading';
 
 import { ActionType } from 'context/todos/actions';
-
-import Loading from 'components/Loading';
 
 const Dashboard = () => {
   const { user, signOut } = useAuth();

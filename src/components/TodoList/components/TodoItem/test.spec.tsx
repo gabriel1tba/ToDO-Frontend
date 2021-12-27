@@ -53,7 +53,7 @@ describe('<TodoItem />', () => {
 
     userEvent.click(screen.getByRole('checkbox'));
 
-    const successCompleted = apiMock.onPatch('todos').reply(() => [200]);
+    const successCompleted = apiMock.onPatch('todos').reply(200);
 
     await waitFor(() => {
       expect(successCompleted.history.patch.length).toBe(1);
@@ -79,7 +79,7 @@ describe('<TodoItem />', () => {
 
     userEvent.click(screen.getByRole('checkbox'));
 
-    const errorCompleted = apiMock.onPatch('todos').reply(() => [500]);
+    const errorCompleted = apiMock.onPatch('todos').reply(500);
 
     await waitFor(() => {
       expect(errorCompleted.history.patch.length).toBe(1);

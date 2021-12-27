@@ -53,7 +53,7 @@ const TodoList = () => {
 
       <S.Wrapper hastodos={!!filteredTodos.length}>
         <div>
-          <p>{filteredTodos.length ? 'Suas tarefas' : 'Sem tarefas'}</p>
+          <p>{todos.length ? 'Suas tarefas' : 'Sem tarefas'}</p>
           <div>
             <Badge
               title={`Totais ${totals}`}
