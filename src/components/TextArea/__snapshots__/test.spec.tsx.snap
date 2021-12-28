@@ -10,7 +10,7 @@ exports[`<TextArea /> should render the TextArea correctly with Label 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: #ffffff;
+  background: #FFFFFF;
   border-radius: 10px;
   border: 1px solid #666360;
   padding: 16px;
@@ -30,7 +30,7 @@ exports[`<TextArea /> should render the TextArea correctly with Label 1`] = `
   background: transparent;
   resize: none;
   color: #202124;
-  box-shadow: 0 0 0 30px #ffffff inset;
+  box-shadow: 0 0 0 30px #FFFFFF inset;
 }
 
 .c0 textarea:-webkit-autofill {

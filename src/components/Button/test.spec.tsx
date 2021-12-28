@@ -4,13 +4,13 @@ import { FiPlus } from 'react-icons/fi';
 import Button from '.';
 
 describe('<Button />', () => {
-  it('should render the Button correctly without icon', () => {
-    const { container } = render(<Button background="#007bff">Salvar</Button>);
+  it('should render the Button correctly', () => {
+    const { container } = render(<Button>Salvar</Button>);
 
     expect(screen.getByRole('button', { name: /salvar/i })).toBeInTheDocument();
 
     expect(container.firstChild).toHaveStyle({
-      backgroundColor: '#007bff',
+      backgroundColor: '#5061FC',
     });
 
     expect(container.firstChild).toMatchSnapshot();
@@ -18,10 +18,7 @@ describe('<Button />', () => {
 
   it('should render the Button correctly with icon icon', () => {
     render(
-      <Button
-        background="#007bff"
-        icon={<FiPlus data-testid="add-icon" size={18} />}
-      >
+      <Button icon={<FiPlus data-testid="add-icon" size={18} />}>
         Com ícone
       </Button>,
     );
@@ -34,21 +31,13 @@ describe('<Button />', () => {
   });
 
   it('should render the Button correctly with loading true', () => {
-    render(
-      <Button background="#007bff" loading>
-        Com loading
-      </Button>,
-    );
+    render(<Button loading>Com loading</Button>);
 
     expect(screen.getByText(/carregando.../i)).toBeInTheDocument();
   });
 
   it('should render the Button correctly with large size', () => {
-    const { container } = render(
-      <Button background="#007bff" size="large">
-        Com ícone
-      </Button>,
-    );
+    const { container } = render(<Button size="large">Com ícone</Button>);
 
     expect(container.firstChild).toHaveStyle({
       height: '52px',

@@ -78,6 +78,10 @@ exports[`<Header /> should render the Header correctly 1`] = `
   transition: transform 0.4s;
 }
 
+.c0 div:last-child > button svg {
+  fill: #666360;
+}
+
 .c0 div:last-child > button:hover {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
@@ -272,12 +276,10 @@ exports[`<Header /> should render the Header correctly 1`] = `
     />
     <button>
       <svg
-        color="#666360"
         fill="currentColor"
         height="35"
         stroke="currentColor"
         stroke-width="0"
-        style="color: rgb(102, 99, 96);"
         viewBox="0 0 16 16"
         width="35"
         xmlns="http://www.w3.org/2000/svg"

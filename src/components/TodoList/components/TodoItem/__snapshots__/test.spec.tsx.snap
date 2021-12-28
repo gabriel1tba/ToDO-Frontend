@@ -14,6 +14,9 @@ exports[`<TodoItem /> should render the TodoItem correctly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   margin: 15px 5px -5px;
   padding-bottom: 14px;
   position: relative;
@@ -22,15 +25,15 @@ exports[`<TodoItem /> should render the TodoItem correctly 1`] = `
 .c0:before {
   content: '';
   position: absolute;
-  left: 0;
+  left: 1px;
   bottom: 5px;
-  width: calc(100vw - 765px);
+  width: 100%;
   border: 0.5px solid rgba(0,0,0,0.125);
 }
 
 .c0 > input[type='checkbox'] {
-  width: 17px !important;
-  height: 17px !important;
+  width: 17px;
+  height: 17px;
   margin: 5px;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -52,7 +55,7 @@ exports[`<TodoItem /> should render the TodoItem correctly 1`] = `
   display: block;
   width: 4.5px;
   height: 9px;
-  border: solid #fff;
+  border: solid #FFFFFF;
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -65,7 +68,7 @@ exports[`<TodoItem /> should render the TodoItem correctly 1`] = `
 }
 
 .c0 > div {
-  margin-right: 350px;
+  margin-left: 35px;
 }
 
 .c0 > div button {
@@ -120,12 +123,12 @@ exports[`<TodoItem /> should render the TodoItem correctly 1`] = `
     </button>
     <button>
       <svg
-        color="#dc3545"
+        color="#FC5050"
         fill="currentColor"
         height="20"
         stroke="currentColor"
         stroke-width="0"
-        style="color: rgb(220, 53, 69);"
+        style="color: rgb(252, 80, 80);"
         viewBox="0 0 16 16"
         width="20"
         xmlns="http://www.w3.org/2000/svg"

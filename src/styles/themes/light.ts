@@ -11,7 +11,7 @@ const light = {
     },
     success: {
       main: '#2ecc71',
-      dark: '#2abb68',
+      dark: '#1e9250',
       light: '#44d581',
       lighter: '#e0fded',
     },

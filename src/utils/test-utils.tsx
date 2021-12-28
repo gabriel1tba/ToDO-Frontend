@@ -1,6 +1,9 @@
 import { render, RenderOptions } from '@testing-library/react';
 
 import AppProvider from 'context';
+import { ThemeProvider } from 'styled-components';
+
+import theme from 'styles/themes/light';
 
 interface IWrapperProvider {
   children: React.ReactNode;
@@ -8,7 +11,9 @@ interface IWrapperProvider {
 
 // Adiciona os Providers ao método de render
 const WrapperProvider = ({ children }: IWrapperProvider) => (
-  <AppProvider>{children}</AppProvider>
+  <AppProvider>
+    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  </AppProvider>
 );
 
 const customRender = (ui: React.ReactElement, options?: RenderOptions) =>

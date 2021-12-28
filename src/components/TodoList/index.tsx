@@ -64,7 +64,7 @@ const TodoList = () => {
             />
             <Badge
               title={`Concluídas ${completeds}`}
-              fontColor={theme.colors.success.main}
+              fontColor={theme.colors.success.dark}
               backgroundColor={theme.colors.success.lighter}
             />
             <Badge

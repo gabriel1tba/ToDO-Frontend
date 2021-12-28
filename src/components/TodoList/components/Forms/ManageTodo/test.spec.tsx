@@ -14,7 +14,7 @@ const todoItem = {
   title: 'Testar form ManageTodo',
   description: 'Testar em todos os modos',
   created_at: '2021-10-10T07:12:55.137Z',
-  updated_at: '2021-10-10T07:32:52.716Z',
+  updated_at: '2021-11-10T07:32:52.716Z',
 };
 
 describe('<ManageTodo />', () => {
@@ -47,10 +47,10 @@ describe('<ManageTodo />', () => {
     });
 
     expect(screen.getByText(/criado em:/i)).toBeInTheDocument();
-    expect(screen.getByText('10/10/2021 04:12:55')).toBeInTheDocument();
+    expect(screen.getByText('10/10/2021')).toBeInTheDocument();
 
     expect(screen.getByText(/atualizado em:/i)).toBeInTheDocument();
-    expect(screen.getByText('10/10/2021 04:32:52')).toBeInTheDocument();
+    expect(screen.getByText('10/11/2021')).toBeInTheDocument();
 
     expect(screen.getByRole('button', { name: /fechar/i })).toBeInTheDocument();
   });
@@ -96,10 +96,10 @@ describe('<ManageTodo />', () => {
     });
 
     expect(screen.getByText(/criado em:/i)).toBeInTheDocument();
-    expect(screen.getByText('10/10/2021 04:12:55')).toBeInTheDocument();
+    expect(screen.getByText('10/10/2021')).toBeInTheDocument();
 
     expect(screen.getByText(/atualizado em:/i)).toBeInTheDocument();
-    expect(screen.getByText('10/10/2021 04:32:52')).toBeInTheDocument();
+    expect(screen.getByText('10/11/2021')).toBeInTheDocument();
 
     expect(
       screen.getByRole('button', { name: /salvar alterações/i }),
@@ -217,10 +217,10 @@ describe('<ManageTodo />', () => {
     });
 
     expect(screen.getByText(/criado em:/i)).toBeInTheDocument();
-    expect(screen.getByText('10/10/2021 04:12:55')).toBeInTheDocument();
+    expect(screen.getByText('10/10/2021')).toBeInTheDocument();
 
     expect(screen.getByText(/atualizado em:/i)).toBeInTheDocument();
-    expect(screen.getByText('10/10/2021 04:32:52')).toBeInTheDocument();
+    expect(screen.getByText('10/11/2021')).toBeInTheDocument();
 
     expect(
       screen.getByRole('button', { name: /confirmar exclusão/i }),

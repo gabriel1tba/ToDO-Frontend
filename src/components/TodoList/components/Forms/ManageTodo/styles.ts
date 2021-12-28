@@ -80,11 +80,11 @@ export const TimeWrapper = styled.div`
   padding: 0 !important;
 
   strong {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   small {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   div {

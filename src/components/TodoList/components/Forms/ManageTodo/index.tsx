@@ -38,7 +38,7 @@ const ManageTodo = ({
   const [, setDidMount] = useState(false);
 
   const formattedTimestamp = (timeStamp: string) => {
-    return new Date(timeStamp).toLocaleString('pt-BR', {
+    return new Date(timeStamp).toLocaleDateString('pt-BR', {
       timeZone: 'America/Sao_Paulo',
     });
   };
