@@ -46,7 +46,7 @@ export const Overlay = styled.div`
   align-items: center;
   justify-content: center;
   #loader {
-    color: #5061fc;
+    color: ${({ theme }) => theme.colors.primary.main};
     font-size: 90px;
     text-indent: -9999em;
     overflow: hidden;

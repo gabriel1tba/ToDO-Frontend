@@ -12,12 +12,12 @@ export const Wrapper = styled.div<IWrapper>`
   display: flex;
   align-items: center;
 
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.background};
   border-radius: 10px;
-  border: 1px solid #666360;
+  border: 1px solid ${({ theme }) => theme.colors.gray.main};
   padding: 16px;
   width: 100%;
-  color: #666360;
+  color: ${({ theme }) => theme.colors.gray.main};
 
   & + div {
     margin-top: 8px;
@@ -26,21 +26,21 @@ export const Wrapper = styled.div<IWrapper>`
   ${({ hasError }) =>
     hasError &&
     css`
-      border-color: #c53030;
+      border-color: ${({ theme }) => theme.colors.danger.main};
     `}
 
   ${({ isFocused }) =>
     isFocused &&
     css`
-      color: #ff9000;
-      border-color: #ff9000;
+      color: ${({ theme }) => theme.colors.orange.main};
+      border-color: ${({ theme }) => theme.colors.orange.main};
     `}
 
   ${({ isFilled }) =>
     isFilled &&
     css`
-      color: #ff9000;
-      border-color: #ff9000;
+      color: ${({ theme }) => theme.colors.orange.main};
+      border-color: ${({ theme }) => theme.colors.orange.main};
     `}
 
   textarea {
@@ -51,10 +51,10 @@ export const Wrapper = styled.div<IWrapper>`
     resize: none;
 
     color: #202124;
-    box-shadow: 0 0 0 30px #ffffff inset;
+    box-shadow: 0 0 0 30px ${({ theme }) => theme.colors.background} inset;
 
     &:-webkit-autofill {
-      -webkit-text-fill-color: #ff9000;
+      -webkit-text-fill-color: ${({ theme }) => theme.colors.orange.main};
     }
 
     &::placeholder {
@@ -68,12 +68,12 @@ export const Error = styled(Tooltip)`
   margin-left: 16px;
 
   span {
-    background: #c53030;
-    color: #fff;
+    background: ${({ theme }) => theme.colors.danger.main};
+    color: ${({ theme }) => theme.colors.background};
     font-size: 16px;
 
     &::before {
-      border-color: #c53030 transparent;
+      border-color: ${({ theme }) => theme.colors.danger.main} transparent;
     }
   }
 `;

@@ -2,10 +2,54 @@ import styled, { css } from 'styled-components';
 
 interface WrapperButton {
   size: 'large' | 'normal';
-  background: string;
+  color: 'primary' | 'warning' | 'danger' | 'orange';
 }
 
-const wrapperModifiers = {
+const colorModifiers = {
+  primary: () => css`
+    background: ${({ theme }) => theme.colors.primary.main};
+
+    :hover {
+      background: ${({ theme }) => theme.colors.primary.light};
+    }
+    :active {
+      background: ${({ theme }) => theme.colors.primary.dark};
+    }
+  `,
+  warning: () => css`
+    background: ${({ theme }) => theme.colors.warning.main};
+
+    :hover {
+      background: ${({ theme }) => theme.colors.warning.light};
+    }
+    :active {
+      background: ${({ theme }) => theme.colors.warning.dark};
+    }
+  `,
+  danger: () => css`
+    background: ${({ theme }) => theme.colors.danger.main};
+
+    :hover {
+      background: ${({ theme }) => theme.colors.danger.light};
+    }
+    :active {
+      background: ${({ theme }) => theme.colors.danger.dark};
+    }
+  `,
+
+  orange: () => css`
+    background: ${({ theme }) => theme.colors.orange.main};
+
+    :hover {
+      background: ${({ theme }) => theme.colors.orange.light};
+    }
+    :active {
+      background: ${({ theme }) => theme.colors.orange.dark};
+    }
+  `,
+};
+
+const sizeModifiers = {
   normal: () => css`
     display: flex;
     align-items: center;
@@ -40,18 +84,19 @@ const wrapperModifiers = {
 };
 
 export const Wrapper = styled.button<WrapperButton>`
-  transition: filter 0.3s;
+  transition: background 0.2s ease-in;
 
-  ${({ size }) => wrapperModifiers[size]()};
+  ${({ size }) => sizeModifiers[size]()};
 
-  background: ${({ background }) => background};
+  ${({ color }) => colorModifiers[color]()};
 
-  &:hover {
-    filter: brightness(0.8);
+  :disabled {
+    background: #cccccc;
+    cursor: default;
   }
 `;
 
-export const WrapperLoading = styled.div<Omit<WrapperButton, 'background'>>`
+export const WrapperLoading = styled.div<Omit<WrapperButton, 'color'>>`
   display: flex;
   align-items: center;
   justify-content: center;

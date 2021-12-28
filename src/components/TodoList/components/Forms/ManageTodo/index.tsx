@@ -125,16 +125,11 @@ const ManageTodo = ({
         </S.TimeWrapper>
         <S.Footer>
           {showTodo ? (
-            <Button
-              background="#007bff"
-              icon={<IoCloseSharp size={20} />}
-              onClick={onCloseModal}
-            >
+            <Button icon={<IoCloseSharp size={20} />} onClick={onCloseModal}>
               Fechar
             </Button>
           ) : editTodo ? (
             <Button
-              background="#007bff"
               type="submit"
               icon={<FaEdit size={15} />}
               loading={formState.isSubmitting}
@@ -143,7 +138,7 @@ const ManageTodo = ({
             </Button>
           ) : (
             <Button
-              background="#dc3545"
+              color="danger"
               type="submit"
               icon={<BsTrash size={15} />}
               loading={formState.isSubmitting}

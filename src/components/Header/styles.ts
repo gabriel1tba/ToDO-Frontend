@@ -42,7 +42,7 @@ export const Wrapper = styled.header`
       align-items: flex-start;
       justify-content: center;
       > h3 {
-        color: #ff9000;
+        color: ${({ theme }) => theme.colors.orange.main};
       }
     }
 
@@ -79,6 +79,10 @@ export const Wrapper = styled.header`
       background: none;
       border: none;
 
+      svg {
+        fill: ${({ theme }) => theme.colors.gray.main};
+      }
+
       transition: transform 0.4s;
 
       &:hover {
@@ -104,7 +108,7 @@ export const InputSearch = styled.input`
   width: 180px;
   height: 35px;
 
-  color: #666360;
+  color: ${({ theme }) => theme.colors.gray.main};
 
   margin-right: 30px;
 

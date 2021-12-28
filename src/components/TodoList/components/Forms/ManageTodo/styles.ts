@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
     font-size: inherit;
     line-height: 1.5;
 
-    color: #343a40;
+    color: ${({ theme }) => theme.colors.gray.main};
   }
 
   div {
@@ -70,7 +70,7 @@ export const Footer = styled.footer`
     right: -22px;
     bottom: 55px;
     width: 550px;
-    border-top: 1px solid #ced4da;
+    border-top: 1px solid ${({ theme }) => theme.colors.gray.light};
   }
 `;
 
@@ -79,11 +79,11 @@ export const TimeWrapper = styled.div`
   justify-content: space-between;
   padding: 0 !important;
 
-  strong{
+  strong {
     font-size: 15px;
   }
 
-  small{
+  small {
     font-size: 12px;
   }
 

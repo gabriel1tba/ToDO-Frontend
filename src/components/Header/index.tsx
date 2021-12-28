@@ -41,13 +41,13 @@ const Header = ({ userName, onSignOut }: IHeader) => {
           />
 
           <button onClick={handleSignOut}>
-            <VscSignOut size={35} color="#666360" />
+            <VscSignOut size={35} />
           </button>
         </div>
       ) : (
         <div>
           <button onClick={() => history.push('/')}>
-            <VscSignOut size={35} color="#666360" />
+            <VscSignOut size={35} />
           </button>
         </div>
       )}

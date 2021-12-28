@@ -78,7 +78,6 @@ const NewTodo = ({ onCloseModal }: INewTodo) => {
 
         <S.Footer>
           <Button
-            background="#007bff"
             type="submit"
             icon={<FiPlus size={18} />}
             loading={formState.isSubmitting}

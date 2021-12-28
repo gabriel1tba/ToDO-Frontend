@@ -49,12 +49,12 @@ export const AnimationContainer = styled.div`
 
     h1 {
       margin-bottom: 24px;
-      color: #666360;
+      color: ${({ theme }) => theme.colors.gray.main};
       font-size: 24px;
     }
 
     a {
-      color: #666360;
+      color: ${({ theme }) => theme.colors.gray.main};
       display: block;
       margin-top: 24px;
       text-decoration: none;
@@ -79,7 +79,7 @@ export const AnimationContainer = styled.div`
   }
 
   > a {
-    color: #ff9000;
+    color: ${({ theme }) => theme.colors.orange.main};
     margin-top: -20px;
     text-decoration: none;
     transition: filter 0.3s;

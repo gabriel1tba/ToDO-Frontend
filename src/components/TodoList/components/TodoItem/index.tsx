@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { BsTrash } from 'react-icons/bs';
+import { useTheme } from 'styled-components';
 
 import * as S from './styles';
 
@@ -19,6 +20,7 @@ import { ITodoItem } from 'components/TodoList/interfaces';
 const TodoItem = ({ todo }: ITodoItem) => {
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();
+  const theme = useTheme();
 
   const [openModal, hadleToggleModal] = useToggle();
 
@@ -112,10 +114,10 @@ const TodoItem = ({ todo }: ITodoItem) => {
 
         <div>
           <button onClick={handleEditTodo}>
-            <FaEdit size={20} color="#ffc107" />
+            <FaEdit size={20} color={theme.colors.warning.main} />
           </button>
           <button onClick={handleDeleteTodo}>
-            <BsTrash size={20} color="#dc3545" />
+            <BsTrash size={20} color={theme.colors.danger.main} />
           </button>
         </div>
       </S.Wrapper>

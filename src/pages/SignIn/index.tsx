@@ -94,7 +94,7 @@ const SignIn = () => {
             <Button
               loading={formState.isSubmitting}
               size="large"
-              background="#ff9000"
+              color="orange"
               type="submit"
             >
               Entrar

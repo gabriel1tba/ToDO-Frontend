@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { FiPlus } from 'react-icons/fi';
+import { useTheme } from 'styled-components';
 
 import * as S from './styles';
 
@@ -16,6 +17,7 @@ import { ITodo } from 'interfaces';
 
 const TodoList = () => {
   const { todos, filteredTodos, searchTerm } = useTodos();
+  const theme = useTheme();
 
   const [openModal, hadleToggleModal] = useToggle();
 
@@ -57,18 +59,18 @@ const TodoList = () => {
           <div id="badges">
             <Badge
               title={`Totais ${totals}`}
-              fontColor="#3498db"
-              backgroundColor="rgba(52, 152, 219, 0.2)"
+              fontColor={theme.colors.primary.main}
+              backgroundColor={theme.colors.primary.lighter}
             />
             <Badge
               title={`Concluídas ${completeds}`}
-              fontColor="#2ecc71"
-              backgroundColor="rgba(46, 204, 113, 0.2)"
+              fontColor={theme.colors.success.main}
+              backgroundColor={theme.colors.success.lighter}
             />
             <Badge
               title={`Pendentes ${pendings}`}
-              fontColor="#e74c3c"
-              backgroundColor="rgba(231, 76, 60,0.2)"
+              fontColor={theme.colors.danger.main}
+              backgroundColor={theme.colors.danger.lighter}
             />
           </div>
         </div>
@@ -82,7 +84,7 @@ const TodoList = () => {
 
           {filteredTodos.length < 1 && searchTerm.length > 0 ? null : (
             <button onClick={hadleToggleModal}>
-              <FiPlus size={25} color="#3498db" />
+              <FiPlus size={25} />
               {todos.length
                 ? 'Adicionar tarefa'
                 : 'Adicione sua primeira tarefa'}

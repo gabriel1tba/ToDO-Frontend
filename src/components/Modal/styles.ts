@@ -20,16 +20,15 @@ export const Wrapper = styled.div`
   position: relative;
   text-align: flex;
   width: 550px;
-  background: #fff;
+  background: ${({ theme }) => theme.colors.background};
   border-radius: 5px;
-  border: 1px solid #ced4da;
+  border: 1px solid ${({ theme }) => theme.colors.gray.light};
   header {
     margin: 15px 0;
-    border-bottom: 1px solid #ced4da;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.gray.light};
 
     > p {
       font-size: 20px;
-      color: #343a40;
 
       margin: 0 0 15px 21px;
 

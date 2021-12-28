@@ -7,14 +7,14 @@ import { IButton } from './interfaces';
 const Button = ({
   children,
   loading,
+  color = 'primary',
   size = 'normal',
   type = 'button',
-  background,
   icon,
   ...rest
 }: IButton) => {
   return (
-    <S.Wrapper type={type} size={size} background={background} {...rest}>
+    <S.Wrapper type={type} size={size} color={color} {...rest}>
       {loading ? (
         <S.WrapperLoading size={size}>
           <FaHourglass size={15} /> Carregando...

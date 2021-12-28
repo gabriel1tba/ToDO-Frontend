@@ -49,20 +49,8 @@ export const AnimationContainer = styled.div`
 
     h1 {
       margin-bottom: 24px;
-      color: #666360;
+      color: ${({ theme }) => theme.colors.gray.main};
       font-size: 24px;
-    }
-
-    a {
-      color: #f4ede8;
-      display: block;
-      margin-top: 24px;
-      text-decoration: none;
-      transition: filter 0.3s;
-
-      &:hover {
-        filter: brightness(0.9);
-      }
     }
 
     @media (max-width: 1024px) {
@@ -79,7 +67,7 @@ export const AnimationContainer = styled.div`
   }
 
   > a {
-    color: #ff9000;
+    color: ${({ theme }) => theme.colors.orange.main};
     margin-top: -20px;
     text-decoration: none;
     transition: filter 0.3s;

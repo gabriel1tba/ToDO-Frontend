@@ -65,7 +65,7 @@ export const TodoWrapper = styled.div<IStyled>`
       font-family: inherit;
       font-size: 18px;
       line-height: 1.2;
-      color: #666360;
+      color: ${({ theme }) => theme.colors.gray.main};
     }
 
     @media (max-width: 1200px) {
@@ -93,20 +93,22 @@ export const TodosList = styled.ul<IStyled>`
 
     width: 260px;
     height: 38px;
-
     font-weight: 500;
     font-size: 17px;
-
     margin-top: 10px;
-
-    color: #3498db;
     background-color: transparent;
-
     border: 0;
-    transition: filter 0.3s;
+    margin-left: 5px;
 
-    &:hover {
-      filter: brightness(0.8);
+    transition: color 0.2s ease-in;
+
+    color: ${({ theme }) => theme.colors.primary.main};
+
+    :hover {
+      color: ${({ theme }) => theme.colors.primary.light};
+    }
+    :active {
+      color: ${({ theme }) => theme.colors.primary.dark};
     }
 
     > svg {
@@ -124,7 +126,7 @@ export const SearchNotFoundContainer = styled.div`
   animation: ${animationFromAbove} 0.7s;
 
   span {
-    color: #bcbcbc;
+    color: ${({ theme }) => theme.colors.gray.light};
     margin-left: 16px;
     word-break: break-word;
   }
