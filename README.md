@@ -1,10 +1,10 @@
-# To DO Frontend
+\*\*# To DO Frontend
 
 &nbsp;
 
 ## 🙋‍♂ Apresentação:
 
-Front end da aplicação To DO, que é uma single-page application, feita em React, onde usuários podem se cadastrar, e criar sua lista de tarefas totalmente gerenciável. O projeto também conta com testes para garantir o funcionamento de suas funcionalidades.
+Front end da aplicação To DO, que é uma single-page application, feita em React, onde usuários podem se cadastrar, e criar sua lista de tarefas totalmente gerenciável.
 
 ![alt text](https://i.imgur.com/GuA1eHl.gif)
 
@@ -39,6 +39,8 @@ Validação de formulário;
 
 Rotas privadas;
 
+Testes unitários e de integração;
+
 Toasts de notificação.
 
 &nbsp;
@@ -62,3 +64,5 @@ Para iniciar digite no terminal:
 ```bash
 yarn start
 ```
+
+\*\*
