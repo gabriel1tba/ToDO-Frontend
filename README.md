@@ -1,4 +1,4 @@
-\*\*# To DO Frontend
+# To DO Frontend
 
 &nbsp;
 
@@ -64,5 +64,3 @@ Para iniciar digite no terminal:
 ```bash
 yarn start
 ```
-
-\*\*
