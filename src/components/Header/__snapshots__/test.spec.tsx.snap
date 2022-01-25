@@ -273,6 +273,7 @@ exports[`<Header /> should render the Header correctly 1`] = `
     <input
       class="c1"
       placeholder="Pesquisar tarefas..."
+      type="search"
     />
     <button>
       <svg

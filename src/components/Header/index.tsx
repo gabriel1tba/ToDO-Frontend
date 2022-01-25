@@ -36,8 +36,9 @@ const Header = ({ userName, onSignOut }: IHeader) => {
       {userName ? (
         <div>
           <S.InputSearch
-            onChange={(event) => getSearchTerm(event.target.value)}
+            type="search"
             placeholder="Pesquisar tarefas..."
+            onChange={(event) => getSearchTerm(event.target.value)}
           />
 
           <button onClick={handleSignOut}>

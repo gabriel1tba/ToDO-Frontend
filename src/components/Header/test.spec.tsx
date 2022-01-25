@@ -19,6 +19,8 @@ describe('<Header />', () => {
       screen.getByRole('heading', { name: /gabriel ferreira/i }),
     ).toBeInTheDocument();
 
+    expect(screen.getByRole('searchbox')).toHaveProperty('type', 'search');
+
     expect(
       screen.getByPlaceholderText(/pesquisar tarefas.../i),
     ).toBeInTheDocument();
