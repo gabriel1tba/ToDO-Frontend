@@ -82,7 +82,7 @@ describe('<TodoItem />', () => {
     const errorCompleted = apiMock.onPatch('todos').reply(500);
 
     await waitFor(() => {
-      expect(errorCompleted.history.patch.length).toBe(1);
+      expect(errorCompleted.history.patch.length).toBe(2);
     });
   });
 

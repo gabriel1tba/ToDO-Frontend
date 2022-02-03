@@ -29,7 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage ",
+    "test": "react-scripts test --maxWorkers=50%",
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "test:watch": "react-scripts test --coverage --watch --maxWorkers=25%"
