@@ -73,16 +73,18 @@ const TodoItem = ({ todo }: ITodoItem) => {
     hadleToggleModal();
   };
 
+  const setModalTitle = () => {
+    return showTodo
+      ? 'Detalhes da tarefa'
+      : editTodo
+      ? 'Editar tarefa'
+      : 'Excluir tarefa';
+  };
+
   return (
     <>
       <Modal
-        title={
-          showTodo
-            ? 'Detalhes da tarefa'
-            : editTodo
-            ? 'Editar tarefa'
-            : 'Excluir tarefa'
-        }
+        title={setModalTitle()}
         onCloseModal={hadleToggleModal}
         open={openModal}
       >

@@ -21,7 +21,7 @@ const Header = ({ userName, onSignOut }: IHeader) => {
 
   return (
     <S.Wrapper>
-      <div>
+      <div className="logo-name-container">
         <img src={logoImg} alt="logo image" />
 
         <div>
@@ -34,7 +34,7 @@ const Header = ({ userName, onSignOut }: IHeader) => {
         </div>
       </div>
       {userName ? (
-        <div>
+        <div className="input-logout-container">
           <S.InputSearch
             type="search"
             placeholder="Pesquisar tarefas..."

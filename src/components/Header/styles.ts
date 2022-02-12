@@ -28,7 +28,7 @@ export const Wrapper = styled.header`
     height: 60px;
   }
 
-  div:first-child {
+  .logo-name-container {
     display: flex;
     > img {
       align-self: center;
@@ -72,7 +72,7 @@ export const Wrapper = styled.header`
     }
   }
 
-  div:last-child {
+  .input-logout-container {
     display: flex;
     align-items: center;
     > button {
