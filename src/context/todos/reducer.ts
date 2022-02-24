@@ -14,8 +14,7 @@ const todoReducer = (state: ITodo[], action: TodoActions): ITodo[] => {
     case ActionType.UpdateTodo: {
       return state.map((todo) => {
         if (action.payload.id === todo.id) {
-          const { created_at } = todo;
-          todo = { ...action.payload, created_at: created_at };
+          todo = { ...action.payload, created_at: todo.created_at };
         }
         return todo;
       });
