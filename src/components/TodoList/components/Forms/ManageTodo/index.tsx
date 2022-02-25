@@ -27,9 +27,11 @@ const ManageTodo = ({
   todo,
   onCloseModal,
 }: IManageTodo) => {
-  const { register, handleSubmit, errors, formState } = useForm<IFormData>({
+  const { register, handleSubmit, formState } = useForm<IFormData>({
     resolver: yupResolver(schema),
   });
+
+  const { errors, isSubmitting } = formState;
 
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();
@@ -90,13 +92,12 @@ const ManageTodo = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="title">Título</label>
         <Input
-          name="title"
           id="title"
           type="text"
           readOnly={showTodo || !editTodo}
           style={{ pointerEvents: showTodo || !editTodo ? 'none' : 'all' }}
           error={errors.title?.message}
-          ref={register}
+          {...register('title')}
           defaultValue={todo.title}
         />
 
@@ -104,11 +105,10 @@ const ManageTodo = ({
         <TextArea
           rows={4}
           id="description"
-          name="description"
           readOnly={showTodo || !editTodo}
           style={{ pointerEvents: showTodo || !editTodo ? 'none' : 'all' }}
           error={errors.description?.message}
-          ref={register}
+          {...register('description')}
           defaultValue={todo.description ?? ''}
         />
 
@@ -132,7 +132,7 @@ const ManageTodo = ({
             <Button
               type="submit"
               icon={<FaEdit size={15} />}
-              loading={formState.isSubmitting}
+              loading={isSubmitting}
             >
               Salvar alterações
             </Button>
@@ -141,7 +141,7 @@ const ManageTodo = ({
               color="danger"
               type="submit"
               icon={<BsTrash size={15} />}
-              loading={formState.isSubmitting}
+              loading={isSubmitting}
             >
               Confirmar exclusão
             </Button>

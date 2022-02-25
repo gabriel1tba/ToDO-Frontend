@@ -20,14 +20,11 @@ import delay from 'utils/delay';
 import { ICredentialsRegister } from 'interfaces';
 
 const SignUp = () => {
-  const {
-    register,
-    handleSubmit,
-    errors,
-    formState,
-  } = useForm<ICredentialsRegister>({
+  const { register, handleSubmit, formState } = useForm<ICredentialsRegister>({
     resolver: yupResolver(schema),
   });
+
+  const { errors, isSubmitting } = formState;
 
   const { addToast } = useToast();
   const history = useHistory();
@@ -73,39 +70,35 @@ const SignUp = () => {
 
             <Input
               icon={FiUser}
-              name="name"
               type="text"
               placeholder="Nome"
               error={errors.name?.message}
-              ref={register}
+              {...register('name')}
             />
             <Input
               icon={FiMail}
-              name="email"
               type="text"
               placeholder="E-mail"
               error={errors.email?.message}
-              ref={register}
+              {...register('email')}
             />
             <Input
               icon={FiLock}
-              name="password"
               type="password"
               placeholder="Senha"
               error={errors.password?.message}
-              ref={register}
+              {...register('password')}
             />
             <Input
               icon={FiLock}
-              name="confirmPassword"
               type="password"
               placeholder="Confirme a senha"
               error={errors.confirmPassword?.message}
-              ref={register}
+              {...register('confirmPassword')}
             />
 
             <Button
-              loading={formState.isSubmitting}
+              loading={isSubmitting}
               size="large"
               color="orange"
               type="submit"

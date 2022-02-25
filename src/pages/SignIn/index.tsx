@@ -19,9 +19,11 @@ import { ICredentials } from 'interfaces';
 import { schema } from './schema';
 
 const SignIn = () => {
-  const { register, handleSubmit, errors, formState } = useForm<ICredentials>({
+  const { register, handleSubmit, formState } = useForm<ICredentials>({
     resolver: yupResolver(schema),
   });
+
+  const { errors, isSubmitting } = formState;
 
   const { signIn } = useAuth();
   const { addToast } = useToast();
@@ -76,23 +78,21 @@ const SignIn = () => {
 
             <Input
               icon={FiMail}
-              name="email"
               type="text"
               placeholder="E-mail"
               error={errors.email?.message}
-              ref={register}
+              {...register('email')}
             />
             <Input
               icon={FiLock}
-              name="password"
               type="password"
               placeholder="Senha"
               error={errors.password?.message}
-              ref={register}
+              {...register('password')}
             />
 
             <Button
-              loading={formState.isSubmitting}
+              loading={isSubmitting}
               size="large"
               color="orange"
               type="submit"

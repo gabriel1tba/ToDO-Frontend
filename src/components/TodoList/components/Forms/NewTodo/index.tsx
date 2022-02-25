@@ -19,9 +19,11 @@ import { IFormData, INewTodo } from '../../../interfaces';
 import { ActionType } from 'context/todos/actions';
 
 const NewTodo = ({ onCloseModal }: INewTodo) => {
-  const { register, handleSubmit, errors, formState } = useForm<IFormData>({
+  const { register, handleSubmit, formState } = useForm<IFormData>({
     resolver: yupResolver(schema),
   });
+
+  const { errors, isSubmitting } = formState;
 
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();
@@ -61,26 +63,24 @@ const NewTodo = ({ onCloseModal }: INewTodo) => {
         <label htmlFor="title">Título</label>
         <Input
           id="title"
-          name="title"
           type="text"
           error={errors.title?.message}
-          ref={register}
+          {...register('title')}
         />
 
         <label htmlFor="description">Descrição</label>
         <TextArea
           rows={4}
           id="description"
-          name="description"
           error={errors.description?.message}
-          ref={register}
+          {...register('description')}
         />
 
         <S.Footer>
           <Button
             type="submit"
             icon={<FiPlus size={18} />}
-            loading={formState.isSubmitting}
+            loading={isSubmitting}
           >
             Salvar
           </Button>
