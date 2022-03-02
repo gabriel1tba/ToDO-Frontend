@@ -17,8 +17,6 @@ const Dashboard = () => {
   const { todoDispatch } = useTodos();
   const { addToast } = useToast();
 
-  console.log(user);
-
   const [isLoading, setIsLoading] = useState(true);
 
   const getTodosFromApi = useCallback(async () => {
