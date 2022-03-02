@@ -46,7 +46,7 @@ describe('<Header />', () => {
     render(<Header onSignOut={() => ({})} />);
 
     expect(
-      screen.queryByRole('heading', { name: /gabriel ferreira/i })
+      screen.queryByRole('heading', { name: /gadbriel ferreira/i })
     ).not.toBeInTheDocument();
 
     expect(
