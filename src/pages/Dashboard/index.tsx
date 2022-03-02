@@ -17,7 +17,7 @@ const Dashboard = () => {
   const { todoDispatch } = useTodos();
   const { addToast } = useToast();
 
-  const b;
+  console.log(user);
 
   const [isLoading, setIsLoading] = useState(true);
 
