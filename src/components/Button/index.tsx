@@ -12,20 +12,18 @@ const Button = ({
   type = 'button',
   icon,
   ...rest
-}: IButton) => {
-  return (
-    <S.Wrapper type={type} size={size} color={color} {...rest}>
-      {loading ? (
-        <S.WrapperLoading size={size}>
-          <FaHourglass size={15} /> Carregando...
-        </S.WrapperLoading>
-      ) : (
-        <>
-          {icon} {children}
-        </>
-      )}
-    </S.Wrapper>
-  );
-};
+}: IButton) => (
+  <S.Wrapper type={type} size={size} color={color} {...rest}>
+    {loading ? (
+      <S.WrapperLoading size={size}>
+        <FaHourglass size={15} /> Carregando...
+      </S.WrapperLoading>
+    ) : (
+      <>
+        {icon} {children}
+      </>
+    )}
+  </S.Wrapper>
+);
 
 export default Button;

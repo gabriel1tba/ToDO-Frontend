@@ -5,10 +5,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint src",
-    "test:watch": "react-scripts test --coverage --watch --maxWorkers=25%"
+    "test:watch": "react-scripts test --coverage --watch --maxWorkers=25%",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "src/**/*": [

@@ -20,14 +20,14 @@ exports[`<Header /> should render the Header correctly 1`] = `
   box-shadow: 0px 0px 2px rgba(0,0,0,0.4);
 }
 
-.c0 div:first-child {
+.c0 .logo-name-container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c0 div:first-child > img {
+.c0 .logo-name-container > img {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
@@ -37,7 +37,7 @@ exports[`<Header /> should render the Header correctly 1`] = `
   transform: scale(0.8);
 }
 
-.c0 div:first-child > div {
+.c0 .logo-name-container > div {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -55,11 +55,11 @@ exports[`<Header /> should render the Header correctly 1`] = `
   justify-content: center;
 }
 
-.c0 div:first-child > div > h3 {
+.c0 .logo-name-container > div > h3 {
   color: #ff9000;
 }
 
-.c0 div:last-child {
+.c0 .input-logout-container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -70,7 +70,7 @@ exports[`<Header /> should render the Header correctly 1`] = `
   align-items: center;
 }
 
-.c0 div:last-child > button {
+.c0 .input-logout-container > button {
   background: none;
   border: none;
   -webkit-transition: -webkit-transform 0.4s;
@@ -78,11 +78,11 @@ exports[`<Header /> should render the Header correctly 1`] = `
   transition: transform 0.4s;
 }
 
-.c0 div:last-child > button svg {
+.c0 .input-logout-container > button svg {
   fill: #666360;
 }
 
-.c0 div:last-child > button:hover {
+.c0 .input-logout-container > button:hover {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
@@ -171,15 +171,15 @@ exports[`<Header /> should render the Header correctly 1`] = `
 }
 
 @media (max-width:768px) {
-  .c0 div:first-child h3 {
+  .c0 .logo-name-container h3 {
     font-size: 15px;
   }
 
-  .c0 div:first-child h4 {
+  .c0 .logo-name-container h4 {
     font-size: 13px;
   }
 
-  .c0 div:first-child img {
+  .c0 .logo-name-container img {
     -webkit-transform: scale(0.5);
     -ms-transform: scale(0.5);
     transform: scale(0.5);
@@ -188,15 +188,15 @@ exports[`<Header /> should render the Header correctly 1`] = `
 }
 
 @media (max-width:540px) {
-  .c0 div:first-child h3 {
+  .c0 .logo-name-container h3 {
     display: none;
   }
 
-  .c0 div:first-child h4 {
+  .c0 .logo-name-container h4 {
     display: none;
   }
 
-  .c0 div:first-child img {
+  .c0 .logo-name-container img {
     -webkit-transform: scale(0.4);
     -ms-transform: scale(0.4);
     transform: scale(0.4);
@@ -204,14 +204,14 @@ exports[`<Header /> should render the Header correctly 1`] = `
 }
 
 @media (max-width:540px) {
-  .c0 div:last-child > button {
+  .c0 .input-logout-container > button {
     margin-left: 10px;
     margin-right: 10px;
   }
 }
 
 @media (max-width:360px) {
-  .c0 div:last-child > button {
+  .c0 .input-logout-container > button {
     padding: 0 10px;
     margin-left: 0;
     margin-right: 10px;
@@ -255,7 +255,9 @@ exports[`<Header /> should render the Header correctly 1`] = `
 <header
   class="c0"
 >
-  <div>
+  <div
+    class="logo-name-container"
+  >
     <img
       alt="logo image"
       src="logo.png"
@@ -269,7 +271,9 @@ exports[`<Header /> should render the Header correctly 1`] = `
       </h3>
     </div>
   </div>
-  <div>
+  <div
+    class="input-logout-container"
+  >
     <input
       class="c1"
       placeholder="Pesquisar tarefas..."
