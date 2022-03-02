@@ -19,38 +19,39 @@ const TodoList = () => {
   const { todos, filteredTodos, searchTerm } = useTodos();
   const theme = useTheme();
 
-  const [openModal, hadleToggleModal] = useToggle();
+  const [openModal, handleToggleModal] = useToggle();
 
-  const totals = useMemo(() => {
-    const calcResult = filteredTodos.length;
+  const quantities = useMemo(
+    () =>
+      filteredTodos.reduce(
+        (acc, todo) => {
+          if (todo.completed) {
+            acc.completeds += Number(todo.completed);
+            acc.total += Number(todo.completed);
+          } else if (!todo.completed) {
+            acc.pendings += Number(!todo.completed);
+            acc.total += Number(!todo.completed);
+          }
 
-    return calcResult;
-  }, [filteredTodos.length]);
-
-  const completeds = useMemo(() => {
-    const calcResult = filteredTodos
-      .map((todo) => Number(todo.completed), 0)
-      .reduce((count, currentPrice) => count + currentPrice, 0);
-
-    return calcResult;
-  }, [filteredTodos]);
-
-  const pendings = useMemo(() => {
-    const calcResult = filteredTodos
-      .map((todo) => Number(!todo.completed), 0)
-      .reduce((count, currentPrice) => count + currentPrice, 0);
-
-    return calcResult;
-  }, [filteredTodos]);
+          return acc;
+        },
+        {
+          completeds: 0,
+          pendings: 0,
+          total: 0,
+        }
+      ),
+    [filteredTodos]
+  );
 
   return (
     <S.Wrapper>
       <Modal
         title="Nova tarefa"
-        onCloseModal={hadleToggleModal}
+        onCloseModal={handleToggleModal}
         open={openModal}
       >
-        <NewTodo onCloseModal={hadleToggleModal} />
+        <NewTodo onCloseModal={handleToggleModal} />
       </Modal>
 
       <S.TodoWrapper hastodos={!!filteredTodos.length}>
@@ -58,17 +59,17 @@ const TodoList = () => {
           <p>{todos.length ? 'Suas tarefas' : 'Sem tarefas'}</p>
           <div id="badges">
             <Badge
-              title={`Totais ${totals}`}
+              title={`Totais ${quantities.total}`}
               fontColor={theme.colors.primary.main}
               backgroundColor={theme.colors.primary.lighter}
             />
             <Badge
-              title={`Concluídas ${completeds}`}
+              title={`Concluídas ${quantities.completeds}`}
               fontColor={theme.colors.success.dark}
               backgroundColor={theme.colors.success.lighter}
             />
             <Badge
-              title={`Pendentes ${pendings}`}
+              title={`Pendentes ${quantities.pendings}`}
               fontColor={theme.colors.danger.main}
               backgroundColor={theme.colors.danger.lighter}
             />
@@ -78,12 +79,12 @@ const TodoList = () => {
           {!!filteredTodos.length &&
             filteredTodos
               .sort((a: ITodo, b: ITodo) =>
-                a.created_at.localeCompare(b.created_at),
+                a.created_at.localeCompare(b.created_at)
               )
               .map((todo) => <TodoItem key={todo.id} todo={todo} />)}
 
           {filteredTodos.length < 1 && searchTerm.length > 0 ? null : (
-            <button onClick={hadleToggleModal}>
+            <button onClick={handleToggleModal}>
               <FiPlus size={25} />
               {todos.length
                 ? 'Adicionar tarefa'

@@ -68,7 +68,7 @@ export const AnimationContainer = styled.div`
 
   > a {
     color: ${({ theme }) => theme.colors.orange.main};
-    margin-top: -20px;
+    margin-top: -30px;
     text-decoration: none;
     transition: filter 0.3s;
 
