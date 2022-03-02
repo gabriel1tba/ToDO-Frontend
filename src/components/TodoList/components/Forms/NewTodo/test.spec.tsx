@@ -22,11 +22,11 @@ describe('<NewTodo />', () => {
   beforeAll(() => {
     window.localStorage.setItem(
       '@TodoApp:user',
-      JSON.stringify(storedUser.user),
+      JSON.stringify(storedUser.user)
     );
     window.localStorage.setItem(
       '@TodoApp:token',
-      JSON.stringify(storedUser.token),
+      JSON.stringify(storedUser.token)
     );
   });
 
@@ -77,7 +77,7 @@ describe('<NewTodo />', () => {
           user_id: '8841a292-315f-4fa8-b791-d20c1e2c6a7c',
           title: 'criar novo item',
           description: 'item de teste',
-        }),
+        })
       );
     });
 

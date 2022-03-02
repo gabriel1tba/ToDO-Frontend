@@ -8,7 +8,7 @@ import { ITextArea } from './interfaces';
 
 const TextArea: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
   { name, error, defaultValue = '', ...rest },
-  ref,
+  ref
 ) => {
   const theme = useTheme();
 

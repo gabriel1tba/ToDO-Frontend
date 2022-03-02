@@ -6,23 +6,23 @@ import Header from '.';
 describe('<Header />', () => {
   it('should render the Header correctly', () => {
     const { container } = render(
-      <Header userName="Gabriel Ferreira" onSignOut={() => ({})} />,
+      <Header userName="Gabriel Ferreira" onSignOut={() => ({})} />
     );
 
     expect(
-      screen.getByRole('img', { name: /logo image/i }),
+      screen.getByRole('img', { name: /logo image/i })
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('heading', { name: /seja bem-vindo/i }),
+      screen.getByRole('heading', { name: /seja bem-vindo/i })
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('heading', { name: /gabriel ferreira/i }),
+      screen.getByRole('heading', { name: /gabriel ferreira/i })
     ).toBeInTheDocument();
 
     expect(screen.getByRole('searchbox')).toHaveProperty('type', 'search');
 
     expect(
-      screen.getByPlaceholderText(/pesquisar tarefas.../i),
+      screen.getByPlaceholderText(/pesquisar tarefas.../i)
     ).toBeInTheDocument();
 
     expect(screen.getByRole('button')).toBeInTheDocument();
@@ -46,11 +46,11 @@ describe('<Header />', () => {
     render(<Header onSignOut={() => ({})} />);
 
     expect(
-      screen.queryByRole('heading', { name: /gabriel ferreira/i }),
+      screen.queryByRole('heading', { name: /gabriel ferreira/i })
     ).not.toBeInTheDocument();
 
     expect(
-      screen.queryByPlaceholderText(/pesquisar tarefas.../i),
+      screen.queryByPlaceholderText(/pesquisar tarefas.../i)
     ).not.toBeInTheDocument();
   });
 
@@ -59,11 +59,11 @@ describe('<Header />', () => {
 
     userEvent.type(
       screen.getByPlaceholderText(/pesquisar tarefas.../i),
-      'Testes finalizados',
+      'Testes finalizados'
     );
 
     expect(screen.getByPlaceholderText(/pesquisar tarefas.../i)).toHaveValue(
-      'Testes finalizados',
+      'Testes finalizados'
     );
   });
 });

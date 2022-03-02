@@ -17,8 +17,8 @@ describe('<Toast />', () => {
     expect(screen.getByText(/erro ao tentar logar!/i)).toBeInTheDocument();
     expect(
       screen.getByText(
-        /um erro inesperado aconteceu... Tente novamente mais tarde./i,
-      ),
+        /um erro inesperado aconteceu... Tente novamente mais tarde./i
+      )
     ).toBeInTheDocument();
 
     expect(screen.getByRole('button')).toBeInTheDocument();
@@ -28,7 +28,7 @@ describe('<Toast />', () => {
 
   it('should close toast', () => {
     render(
-      <Toast style={{}} toastMessage={{ ...message, secondsDuration: 0 }} />,
+      <Toast style={{}} toastMessage={{ ...message, secondsDuration: 0 }} />
     );
 
     userEvent.click(screen.getByRole('button'));

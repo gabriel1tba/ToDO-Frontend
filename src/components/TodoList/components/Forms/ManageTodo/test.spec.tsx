@@ -29,18 +29,18 @@ describe('<ManageTodo />', () => {
         editTodo={false}
         showTodo
         onCloseModal={() => ({})}
-      />,
+      />
     );
 
     expect(screen.getByLabelText(/título/i)).toHaveValue(
-      'Testar form ManageTodo',
+      'Testar form ManageTodo'
     );
     expect(screen.getByLabelText(/título/i)).toHaveStyle({
       pointerEvents: 'none',
     });
 
     expect(screen.getByLabelText(/descrição/i)).toHaveValue(
-      'Testar em todos os modos',
+      'Testar em todos os modos'
     );
     expect(screen.getByLabelText(/descrição/i)).toHaveStyle({
       pointerEvents: 'none',
@@ -64,7 +64,7 @@ describe('<ManageTodo />', () => {
         editTodo={false}
         showTodo
         onCloseModal={onCloseModal}
-      />,
+      />
     );
 
     userEvent.click(screen.getByRole('button', { name: /fechar/i }));
@@ -78,18 +78,18 @@ describe('<ManageTodo />', () => {
         editTodo
         showTodo={false}
         onCloseModal={() => ({})}
-      />,
+      />
     );
 
     expect(screen.getByLabelText(/título/i)).toHaveValue(
-      'Testar form ManageTodo',
+      'Testar form ManageTodo'
     );
     expect(screen.getByLabelText(/título/i)).toHaveStyle({
       pointerEvents: 'all',
     });
 
     expect(screen.getByLabelText(/descrição/i)).toHaveValue(
-      'Testar em todos os modos',
+      'Testar em todos os modos'
     );
     expect(screen.getByLabelText(/descrição/i)).toHaveStyle({
       pointerEvents: 'all',
@@ -102,7 +102,7 @@ describe('<ManageTodo />', () => {
     expect(screen.getByText('10/11/2021')).toBeInTheDocument();
 
     expect(
-      screen.getByRole('button', { name: /salvar alterações/i }),
+      screen.getByRole('button', { name: /salvar alterações/i })
     ).toBeInTheDocument();
   });
 
@@ -114,7 +114,7 @@ describe('<ManageTodo />', () => {
         editTodo
         showTodo={false}
         onCloseModal={() => ({})}
-      />,
+      />
     );
 
     userEvent.click(screen.getByRole('button', { name: /salvar alterações/i }));
@@ -132,13 +132,13 @@ describe('<ManageTodo />', () => {
         editTodo
         showTodo={false}
         onCloseModal={onCloseModal}
-      />,
+      />
     );
 
     userEvent.type(screen.getByLabelText(/título/i), 'alterar item');
     userEvent.type(
       screen.getByLabelText(/descrição/i),
-      'item de teste alterado',
+      'item de teste alterado'
     );
 
     const requestSuccessEdit = apiMock.onPatch('todos').reply(200);
@@ -155,7 +155,7 @@ describe('<ManageTodo />', () => {
           id: '8841a292-315f-4fa8-b791-d20c1e2c6a7c',
           title: 'alterar item',
           description: 'item de teste alterado',
-        }),
+        })
       );
     });
 
@@ -172,7 +172,7 @@ describe('<ManageTodo />', () => {
         editTodo
         showTodo={false}
         onCloseModal={onCloseModal}
-      />,
+      />
     );
 
     userEvent.type(screen.getByLabelText(/título/i), 'criar novo item');
@@ -199,18 +199,18 @@ describe('<ManageTodo />', () => {
         editTodo={false}
         showTodo={false}
         onCloseModal={() => ({})}
-      />,
+      />
     );
 
     expect(screen.getByLabelText(/título/i)).toHaveValue(
-      'Testar form ManageTodo',
+      'Testar form ManageTodo'
     );
     expect(screen.getByLabelText(/título/i)).toHaveStyle({
       pointerEvents: 'none',
     });
 
     expect(screen.getByLabelText(/descrição/i)).toHaveValue(
-      'Testar em todos os modos',
+      'Testar em todos os modos'
     );
     expect(screen.getByLabelText(/descrição/i)).toHaveStyle({
       pointerEvents: 'none',
@@ -223,7 +223,7 @@ describe('<ManageTodo />', () => {
     expect(screen.getByText('10/11/2021')).toBeInTheDocument();
 
     expect(
-      screen.getByRole('button', { name: /confirmar exclusão/i }),
+      screen.getByRole('button', { name: /confirmar exclusão/i })
     ).toBeInTheDocument();
   });
 
@@ -236,20 +236,20 @@ describe('<ManageTodo />', () => {
         editTodo={false}
         showTodo={false}
         onCloseModal={onCloseModal}
-      />,
+      />
     );
 
     expect(screen.getByLabelText(/título/i)).toHaveValue(
-      'Testar form ManageTodo',
+      'Testar form ManageTodo'
     );
     expect(screen.getByLabelText(/descrição/i)).toHaveValue(
-      'Testar em todos os modos',
+      'Testar em todos os modos'
     );
 
     const requestSuccessDelete = apiMock.onDelete('todos').reply(200);
 
     userEvent.click(
-      screen.getByRole('button', { name: /confirmar exclusão/i }),
+      screen.getByRole('button', { name: /confirmar exclusão/i })
     );
 
     await waitFor(() => {
@@ -260,7 +260,7 @@ describe('<ManageTodo />', () => {
       expect(requestSuccessDelete.history.delete[0].data).toStrictEqual(
         JSON.stringify({
           id: '8841a292-315f-4fa8-b791-d20c1e2c6a7c',
-        }),
+        })
       );
     });
 
@@ -277,13 +277,13 @@ describe('<ManageTodo />', () => {
         editTodo={false}
         showTodo={false}
         onCloseModal={onCloseModal}
-      />,
+      />
     );
 
     const requestErrorDelete = apiMock.onDelete('todos').reply(500);
 
     userEvent.click(
-      screen.getByRole('button', { name: /confirmar exclusão/i }),
+      screen.getByRole('button', { name: /confirmar exclusão/i })
     );
 
     await waitFor(() => {

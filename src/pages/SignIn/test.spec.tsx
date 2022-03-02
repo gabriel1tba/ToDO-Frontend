@@ -9,15 +9,15 @@ describe('<SignIn />', () => {
     render(
       <BrowserRouter>
         <SignIn />
-      </BrowserRouter>,
+      </BrowserRouter>
     );
 
     expect(
-      screen.getByRole('img', { name: /logo com nome da pagina/i }),
+      screen.getByRole('img', { name: /logo com nome da pagina/i })
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole('heading', { name: /faça seu login/i }),
+      screen.getByRole('heading', { name: /faça seu login/i })
     ).toBeInTheDocument();
 
     expect(screen.getByPlaceholderText(/e-mail/i)).toBeInTheDocument();
@@ -26,11 +26,11 @@ describe('<SignIn />', () => {
     expect(screen.getByRole('button', { name: /entrar/i })).toBeInTheDocument();
 
     expect(
-      screen.getByRole('link', { name: /esqueci minha senha/i }),
+      screen.getByRole('link', { name: /esqueci minha senha/i })
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole('link', { name: /criar conta/i }),
+      screen.getByRole('link', { name: /criar conta/i })
     ).toBeInTheDocument();
   });
 
@@ -38,7 +38,7 @@ describe('<SignIn />', () => {
     render(
       <BrowserRouter>
         <SignIn />
-      </BrowserRouter>,
+      </BrowserRouter>
     );
 
     userEvent.click(screen.getByRole('button', { name: /entrar/i }));
@@ -53,7 +53,7 @@ describe('<SignIn />', () => {
     render(
       <BrowserRouter>
         <SignIn />
-      </BrowserRouter>,
+      </BrowserRouter>
     );
 
     userEvent.type(screen.getByPlaceholderText(/e-mail/i), 'test@test.com');

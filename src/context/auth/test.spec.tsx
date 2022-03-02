@@ -45,12 +45,12 @@ describe('<AuthProvider />', () => {
 
     expect(setItemSpy).toHaveBeenCalledWith(
       '@TodoApp:token',
-      authResponse.token,
+      authResponse.token
     );
 
     expect(setItemSpy).toHaveBeenCalledWith(
       '@TodoApp:user',
-      JSON.stringify(authResponse.user),
+      JSON.stringify(authResponse.user)
     );
 
     expect(result.current.user.name).toStrictEqual('Gabriel Ferreira');

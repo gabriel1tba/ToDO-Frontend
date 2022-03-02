@@ -18,13 +18,13 @@ class UserService implements IUserService {
   }
 
   async createUser(
-    credentialsRegister: ICredentialsRegister,
+    credentialsRegister: ICredentialsRegister
   ): Promise<ICreateUserResponse> {
     return await this._httpClient.post('user', credentialsRegister);
   }
 
   async createUserSession(
-    credentials: ICredentials,
+    credentials: ICredentials
   ): Promise<ICreateUserSessionResponse> {
     return await this._httpClient.post('auth', credentials);
   }

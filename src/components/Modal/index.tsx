@@ -23,7 +23,7 @@ const Modal = ({ title, children, open, onCloseModal }: IModal) => {
         <S.ModalWrapper>{children}</S.ModalWrapper>
       </S.Wrapper>
     </S.Overlay>,
-    portalRoot,
+    portalRoot
   );
 };
 

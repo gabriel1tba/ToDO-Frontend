@@ -20,7 +20,7 @@ const messages = [
     title: 'Erro ao tentar logar3!',
     description: 'Um erro inesperado aconteceu... Tente novamente mais tarde.',
     secondsDuration: 5,
-  }
+  },
 ];
 
 jest.mock('./components/Toast', () => {

@@ -61,11 +61,11 @@ describe('<Dashboard />', () => {
   beforeAll(() => {
     window.localStorage.setItem(
       '@TodoApp:user',
-      JSON.stringify(storedUser.user),
+      JSON.stringify(storedUser.user)
     );
     window.localStorage.setItem(
       '@TodoApp:token',
-      JSON.stringify(storedUser.token),
+      JSON.stringify(storedUser.token)
     );
   });
 
@@ -78,7 +78,7 @@ describe('<Dashboard />', () => {
       <>
         <div id="portal-loader-root" />
         <Dashboard />
-      </>,
+      </>
     );
 
     await waitFor(() => {

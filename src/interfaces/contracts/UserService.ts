@@ -13,10 +13,10 @@ export interface ICreateUserSessionResponse {
 
 export interface IUserService {
   createUser(
-    credentialsRegister: ICredentialsRegister,
+    credentialsRegister: ICredentialsRegister
   ): Promise<ICreateUserResponse>;
 
   createUserSession(
-    credentials: ICredentials,
+    credentials: ICredentials
   ): Promise<ICreateUserSessionResponse>;
 }

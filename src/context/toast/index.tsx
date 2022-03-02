@@ -29,7 +29,7 @@ const ToastProvider = ({ children }: IToastProvider) => {
 
       setToastMessage((prevState) => [...prevState, toast]);
     },
-    [],
+    []
   );
 
   const removeToast = useCallback((id: string) => {

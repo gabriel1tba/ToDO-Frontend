@@ -13,7 +13,7 @@ const Loading = ({ isLoading = true }: ILoading) => {
     <S.Overlay>
       <div id="loader" />
     </S.Overlay>,
-    portalRoot,
+    portalRoot
   );
 };
 

@@ -9,30 +9,30 @@ describe('<SignUp />', () => {
     render(
       <BrowserRouter>
         <SignUp />
-      </BrowserRouter>,
+      </BrowserRouter>
     );
 
     expect(
-      screen.getByRole('img', { name: /logo com nome da pagina/i }),
+      screen.getByRole('img', { name: /logo com nome da pagina/i })
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole('heading', { name: /faça seu cadastro/i }),
+      screen.getByRole('heading', { name: /faça seu cadastro/i })
     ).toBeInTheDocument();
 
     expect(screen.getByPlaceholderText(/nome/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/e-mail/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Senha')).toBeInTheDocument();
     expect(
-      screen.getByPlaceholderText(/confirme a senha/i),
+      screen.getByPlaceholderText(/confirme a senha/i)
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole('button', { name: /cadastrar/i }),
+      screen.getByRole('button', { name: /cadastrar/i })
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole('link', { name: /fazer login/i }),
+      screen.getByRole('link', { name: /fazer login/i })
     ).toBeInTheDocument();
   });
 
@@ -40,7 +40,7 @@ describe('<SignUp />', () => {
     render(
       <BrowserRouter>
         <SignUp />
-      </BrowserRouter>,
+      </BrowserRouter>
     );
 
     userEvent.click(screen.getByRole('button', { name: /cadastrar/i }));
@@ -50,7 +50,7 @@ describe('<SignUp />', () => {
       expect(screen.getByText(/e-mail obrigatório!/i)).toBeInTheDocument();
       expect(screen.getByText(/senha obrigatória!/i)).toBeInTheDocument();
       expect(
-        screen.getByText(/confirmação de senha é obrigatória/i),
+        screen.getByText(/confirmação de senha é obrigatória/i)
       ).toBeInTheDocument();
     });
   });
@@ -59,7 +59,7 @@ describe('<SignUp />', () => {
     render(
       <BrowserRouter>
         <SignUp />
-      </BrowserRouter>,
+      </BrowserRouter>
     );
 
     userEvent.type(screen.getByPlaceholderText(/nome/i), 'Teste');
@@ -67,7 +67,7 @@ describe('<SignUp />', () => {
     userEvent.type(screen.getByPlaceholderText('Senha'), 'testpass');
     userEvent.type(
       screen.getByPlaceholderText(/confirme a senha/i),
-      'testpass',
+      'testpass'
     );
 
     await waitFor(() => {

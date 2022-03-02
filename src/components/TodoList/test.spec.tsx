@@ -28,7 +28,7 @@ describe('<TodoList />', () => {
     expect(screen.getAllByTestId('Mock Badge')).toHaveLength(3);
     expect(screen.getByText(/sem tarefas/i)).toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: /adicione sua primeira tarefa/i }),
+      screen.getByRole('button', { name: /adicione sua primeira tarefa/i })
     ).toBeInTheDocument();
   });
 
@@ -37,11 +37,11 @@ describe('<TodoList />', () => {
       <>
         <div id="portal-modal-root" />
         <TodoList />
-      </>,
+      </>
     );
 
     userEvent.click(
-      screen.getByRole('button', { name: /adicione sua primeira tarefa/i }),
+      screen.getByRole('button', { name: /adicione sua primeira tarefa/i })
     );
 
     expect(screen.getByTestId('Mock Modal')).toBeInTheDocument();

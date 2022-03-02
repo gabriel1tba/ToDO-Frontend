@@ -24,9 +24,9 @@ const TodoProvider = ({ children }: ITodoProvider) => {
   const filteredTodos = useMemo(
     () =>
       todos.filter((todo) =>
-        todo.title.toLowerCase().includes(searchTerm.toLowerCase()),
+        todo.title.toLowerCase().includes(searchTerm.toLowerCase())
       ),
-    [todos, searchTerm],
+    [todos, searchTerm]
   );
 
   return (

@@ -8,7 +8,7 @@ import { IInput } from './interfaces';
 
 const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
   { name, icon: Icon, error, ...rest },
-  ref,
+  ref
 ) => {
   const theme = useTheme();
 

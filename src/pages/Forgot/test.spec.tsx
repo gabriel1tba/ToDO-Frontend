@@ -20,7 +20,7 @@ describe('<Forgot />', () => {
     expect(
       screen.getByRole('img', {
         name: /exibe um rato com equipamento de proteção e ferramentas de construção/i,
-      }),
+      })
     ).toBeInTheDocument();
   });
 });

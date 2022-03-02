@@ -65,7 +65,7 @@ describe('<TodoItem />', () => {
           id: 'todoId',
           title: 'Testar componente TodoItem',
           completed: true,
-        }),
+        })
       );
     });
 
@@ -91,7 +91,7 @@ describe('<TodoItem />', () => {
       <>
         <div id="portal-modal-root" />
         <TodoItem todo={todoItemResponse} />
-      </>,
+      </>
     );
 
     userEvent.click(screen.getByText(/testar componente todoitem/i));
@@ -106,7 +106,7 @@ describe('<TodoItem />', () => {
       <>
         <div id="portal-modal-root" />
         <TodoItem todo={todoItemResponse} />
-      </>,
+      </>
     );
 
     userEvent.click(screen.getAllByRole('button')[0]);
@@ -121,7 +121,7 @@ describe('<TodoItem />', () => {
       <>
         <div id="portal-modal-root" />
         <TodoItem todo={todoItemResponse} />
-      </>,
+      </>
     );
 
     userEvent.click(screen.getAllByRole('button')[1]);

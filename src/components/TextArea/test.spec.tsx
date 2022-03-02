@@ -6,11 +6,11 @@ import TextArea from '.';
 describe('<TextArea />', () => {
   it('should render the TextArea correctly with Label', () => {
     const { container } = render(
-      <TextArea name="descrição" placeholder="Digite uma descrição" error="" />,
+      <TextArea name="descrição" placeholder="Digite uma descrição" error="" />
     );
 
     expect(
-      screen.getByPlaceholderText(/digite uma descrição/i),
+      screen.getByPlaceholderText(/digite uma descrição/i)
     ).toBeInTheDocument();
 
     expect(container.firstChild).toMatchSnapshot();
@@ -18,16 +18,16 @@ describe('<TextArea />', () => {
 
   it('should write in the TextArea', async () => {
     render(
-      <TextArea name="descrição" error="" placeholder="Digite uma descrição" />,
+      <TextArea name="descrição" error="" placeholder="Digite uma descrição" />
     );
 
     userEvent.type(
       screen.getByPlaceholderText(/digite uma descrição/i),
-      'Testes finalizados',
+      'Testes finalizados'
     );
 
     expect(screen.getByPlaceholderText(/digite uma descrição/i)).toHaveValue(
-      'Testes finalizados',
+      'Testes finalizados'
     );
   });
 

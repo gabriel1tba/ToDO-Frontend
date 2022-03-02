@@ -20,11 +20,11 @@ describe('<Button />', () => {
     render(
       <Button icon={<FiPlus data-testid="add-icon" size={18} />}>
         Com ícone
-      </Button>,
+      </Button>
     );
 
     expect(
-      screen.getByRole('button', { name: /com ícone/i }),
+      screen.getByRole('button', { name: /com ícone/i })
     ).toBeInTheDocument();
 
     expect(screen.getByTestId('add-icon')).toBeInTheDocument();

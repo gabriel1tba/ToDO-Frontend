@@ -6,11 +6,11 @@ import Input from '.';
 describe('<Input />', () => {
   it('should render the Input correctly', () => {
     const { container } = render(
-      <Input name="email" error="" placeholder="Digite seu e-mail" />,
+      <Input name="email" error="" placeholder="Digite seu e-mail" />
     );
 
     expect(
-      screen.getByPlaceholderText(/digite seu e-mail/i),
+      screen.getByPlaceholderText(/digite seu e-mail/i)
     ).toBeInTheDocument();
 
     expect(container.firstChild).toMatchSnapshot();
@@ -21,11 +21,11 @@ describe('<Input />', () => {
 
     userEvent.type(
       screen.getByPlaceholderText(/digite seu e-mail/i),
-      'Testes finalizados',
+      'Testes finalizados'
     );
 
     expect(screen.getByPlaceholderText(/digite seu e-mail/i)).toHaveValue(
-      'Testes finalizados',
+      'Testes finalizados'
     );
   });
 
@@ -33,7 +33,7 @@ describe('<Input />', () => {
     render(<Input name="email" error="Digite o e-mail corretamente" />);
 
     expect(
-      screen.getByText(/digite o e-mail corretamente/i),
+      screen.getByText(/digite o e-mail corretamente/i)
     ).toBeInTheDocument();
   });
 });
