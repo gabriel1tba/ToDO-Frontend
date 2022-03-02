@@ -46,7 +46,7 @@ const Header = ({ userName, onSignOut }: IHeader) => {
           </button>
         </div>
       ) : (
-        <div>
+        <div className="input-logout-container">
           <button onClick={() => history.push('/')}>
             <VscSignOut size={35} />
           </button>
