@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const getTodosFromDB = useCallback(async () => {
+  const getTodosFromApi = useCallback(async () => {
     if (user) {
       try {
         const { data } = await TodoService.getTodos({ id: user.id });
@@ -42,8 +42,8 @@ const Dashboard = () => {
   }, [addToast, todoDispatch, user]);
 
   useEffect(() => {
-    getTodosFromDB();
-  }, [getTodosFromDB]);
+    getTodosFromApi();
+  }, [getTodosFromApi]);
 
   return (
     <S.Wrapper>
