@@ -5,7 +5,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false --env=jsdom --onlyChanged",
+    "test": "react-scripts test --watchAll=false --env=jsdom --onlyChanged --bail",
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "test:watch": "react-scripts test --coverage --watch --maxWorkers=25%",
@@ -52,7 +52,6 @@
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
     "axios-mock-adapter": "^1.20.0",
-    "cross-env": "^7.0.3",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
