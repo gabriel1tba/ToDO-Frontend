@@ -20,13 +20,16 @@ import delay from 'utils/delay';
 import { ICredentialsRegister } from 'interfaces';
 
 const SignUp = () => {
-  const { register, handleSubmit, formState } = useForm<ICredentialsRegister>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<ICredentialsRegister>({
     resolver: yupResolver(schema),
   });
 
-  const { errors, isSubmitting } = formState;
-
   const { addToast } = useToast();
+
   const history = useHistory();
 
   const onSubmit = async (dataForm: ICredentialsRegister) => {

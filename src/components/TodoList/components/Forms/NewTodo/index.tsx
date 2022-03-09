@@ -19,11 +19,13 @@ import { IFormData, INewTodo } from '../../../interfaces';
 import { ActionType } from 'context/todos/actions';
 
 const NewTodo = ({ onCloseModal }: INewTodo) => {
-  const { register, handleSubmit, formState } = useForm<IFormData>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<IFormData>({
     resolver: yupResolver(schema),
   });
-
-  const { errors, isSubmitting } = formState;
 
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();

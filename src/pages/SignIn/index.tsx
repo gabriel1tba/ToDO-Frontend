@@ -19,11 +19,13 @@ import { ICredentials } from 'interfaces';
 import { schema } from './schema';
 
 const SignIn = () => {
-  const { register, handleSubmit, formState } = useForm<ICredentials>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<ICredentials>({
     resolver: yupResolver(schema),
   });
-
-  const { errors, isSubmitting } = formState;
 
   const { signIn } = useAuth();
   const { addToast } = useToast();

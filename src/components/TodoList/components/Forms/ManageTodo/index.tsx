@@ -27,11 +27,13 @@ const ManageTodo = ({
   todo,
   onCloseModal,
 }: IManageTodo) => {
-  const { register, handleSubmit, formState } = useForm<IFormData>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<IFormData>({
     resolver: yupResolver(schema),
   });
-
-  const { errors, isSubmitting } = formState;
 
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();
