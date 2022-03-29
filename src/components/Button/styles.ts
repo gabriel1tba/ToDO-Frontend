@@ -15,6 +15,11 @@ const colorModifiers = {
     :active {
       background: ${({ theme }) => theme.colors.primary.dark};
     }
+    :disabled {
+      background: ${({ theme }) => theme.colors.primary.dark};
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
   `,
 
   warning: () => css`
@@ -25,6 +30,11 @@ const colorModifiers = {
     }
     :active {
       background: ${({ theme }) => theme.colors.warning.dark};
+    }
+    :disabled {
+      background: ${({ theme }) => theme.colors.warning.dark};
+      opacity: 0.6;
+      cursor: not-allowed;
     }
   `,
 
@@ -37,6 +47,11 @@ const colorModifiers = {
     :active {
       background: ${({ theme }) => theme.colors.success.dark};
     }
+    :disabled {
+      background: ${({ theme }) => theme.colors.success.dark};
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
   `,
 
   danger: () => css`
@@ -48,6 +63,11 @@ const colorModifiers = {
     :active {
       background: ${({ theme }) => theme.colors.danger.dark};
     }
+    :disabled {
+      background: ${({ theme }) => theme.colors.danger.dark};
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
   `,
 
   orange: () => css`
@@ -58,6 +78,11 @@ const colorModifiers = {
     }
     :active {
       background: ${({ theme }) => theme.colors.orange.dark};
+    }
+    :disabled {
+      background: ${({ theme }) => theme.colors.orange.dark};
+      opacity: 0.6;
+      cursor: not-allowed;
     }
   `,
 };
@@ -102,11 +127,6 @@ export const Wrapper = styled.button<WrapperButton>`
   ${({ size }) => sizeModifiers[size]()};
 
   ${({ color }) => colorModifiers[color]()};
-
-  :disabled {
-    background: #cccccc;
-    cursor: default;
-  }
 `;
 
 export const WrapperLoading = styled.div<Omit<WrapperButton, 'color'>>`

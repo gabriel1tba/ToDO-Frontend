@@ -13,7 +13,7 @@ const Button = ({
   icon,
   ...rest
 }: IButton) => (
-  <S.Wrapper type={type} size={size} color={color} {...rest}>
+  <S.Wrapper type={type} size={size} color={color} disabled={loading} {...rest}>
     {loading ? (
       <S.WrapperLoading size={size}>
         <FaHourglass size={15} /> Carregando...

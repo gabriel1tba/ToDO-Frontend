@@ -38,8 +38,9 @@ exports[`<Button /> should render the Button correctly 1`] = `
 }
 
 .c0:disabled {
-  background: #cccccc;
-  cursor: default;
+  background: #3346F0;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 <button
