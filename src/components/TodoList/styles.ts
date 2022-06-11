@@ -65,7 +65,7 @@ export const TodoWrapper = styled.div<IStyled>`
       font-family: inherit;
       font-size: 18px;
       line-height: 1.2;
-      color: ${({ theme }) => theme.colors.gray.main};
+      color: ${({ theme }) => theme.colors.gray[500]};
     }
 
     @media (max-width: 1200px) {
@@ -126,7 +126,7 @@ export const SearchNotFoundContainer = styled.div`
   animation: ${animationFromAbove} 0.7s;
 
   span {
-    color: ${({ theme }) => theme.colors.gray.light};
+    color: ${({ theme }) => theme.colors.gray[200]};
     margin-left: 16px;
     word-break: break-word;
   }

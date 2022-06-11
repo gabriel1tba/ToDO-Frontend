@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
     font-size: inherit;
     line-height: 1.5;
 
-    color: ${({ theme }) => theme.colors.gray.main};
+    color: ${({ theme }) => theme.colors.gray[500]};
   }
 
   div {
@@ -70,7 +70,7 @@ export const Footer = styled.footer`
     right: -22px;
     bottom: 55px;
     width: 550px;
-    border-top: 1px solid ${({ theme }) => theme.colors.gray.light};
+    border-top: 1px solid ${({ theme }) => theme.colors.gray[200]};
   }
 `;
 

@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
     bottom: calc(100% + 6px);
     left: 50%;
     transform: translateX(-50%);
-    color: ${({ theme }) => theme.colors.gray.main};
+    color: ${({ theme }) => theme.colors.gray[500]};
 
     &::before {
       content: '';

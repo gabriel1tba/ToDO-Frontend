@@ -14,10 +14,10 @@ export const Wrapper = styled.div<IWrapper>`
 
   background: ${({ theme }) => theme.colors.background};
   border-radius: 10px;
-  border: 1px solid ${({ theme }) => theme.colors.gray.main};
+  border: 1px solid ${({ theme }) => theme.colors.gray[500]};
   padding: 16px;
   width: 100%;
-  color: ${({ theme }) => theme.colors.gray.main};
+  color: ${({ theme }) => theme.colors.gray[500]};
 
   & + div {
     margin-top: 8px;

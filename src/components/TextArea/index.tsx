@@ -41,7 +41,7 @@ const TextArea: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
         <S.Error title={error}>
           <FiAlertCircle
             color={
-              isFocused ? theme.colors.gray.main : theme.colors.orange.main
+              isFocused ? theme.colors.gray[500] : theme.colors.orange.main
             }
             size={20}
           />

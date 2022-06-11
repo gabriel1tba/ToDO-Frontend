@@ -49,12 +49,12 @@ export const AnimationContainer = styled.div`
 
     h1 {
       margin-bottom: 24px;
-      color: ${({ theme }) => theme.colors.gray.main};
+      color: ${({ theme }) => theme.colors.gray[500]};
       font-size: 24px;
     }
 
     a {
-      color: ${({ theme }) => theme.colors.gray.main};
+      color: ${({ theme }) => theme.colors.gray[500]};
       display: block;
       margin-top: 24px;
       text-decoration: none;

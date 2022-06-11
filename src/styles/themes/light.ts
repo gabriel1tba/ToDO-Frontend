@@ -9,6 +9,12 @@ const light = {
       light: '#6674F4',
       lighter: '#E0E3FF',
     },
+    gray: {
+      900: '#222222',
+      500: '#666360',
+      200: '#BCBCBC',
+      100: '#E5E5E5',
+    },
     success: {
       main: '#2ecc71',
       dark: '#1e9250',
@@ -30,12 +36,6 @@ const light = {
       main: '#ff9000',
       dark: '#e68200',
       light: '#ff9b1a',
-    },
-    gray: {
-      main: '#666360',
-      dark: '#222222',
-      light: '#BCBCBC',
-      lighter: '#E5E5E5',
     },
   },
 };

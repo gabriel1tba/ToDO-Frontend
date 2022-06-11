@@ -80,7 +80,7 @@ export const Wrapper = styled.header`
       border: none;
 
       svg {
-        fill: ${({ theme }) => theme.colors.gray.main};
+        fill: ${({ theme }) => theme.colors.gray[500]};
       }
 
       transition: transform 0.4s;
@@ -108,7 +108,7 @@ export const InputSearch = styled.input`
   width: 180px;
   height: 35px;
 
-  color: ${({ theme }) => theme.colors.gray.main};
+  color: ${({ theme }) => theme.colors.gray[500]};
 
   margin-right: 30px;
 

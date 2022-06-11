@@ -22,10 +22,10 @@ export const Wrapper = styled.div`
   width: 550px;
   background: ${({ theme }) => theme.colors.background};
   border-radius: 5px;
-  border: 1px solid ${({ theme }) => theme.colors.gray.light};
+  border: 1px solid ${({ theme }) => theme.colors.gray[200]};
   header {
     margin: 15px 0;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.gray.light};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.gray[200]};
 
     > p {
       font-size: 20px;
