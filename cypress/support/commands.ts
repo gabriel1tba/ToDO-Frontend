@@ -27,4 +27,16 @@
 // Import Testing Library Commands
 import '@testing-library/cypress/add-commands';
 
-Cypress.Commands.add('google', () => cy.visit('https://www.google.com/'));
+import { User } from './generate';
+
+Cypress.Commands.add('signUp', (user: User) => {
+  cy.findByPlaceholderText(/nome/i).type(user.username);
+  cy.findByPlaceholderText(/e-mail/i).type(user.email);
+  cy.findByPlaceholderText(/^senha/i).type(user.password);
+  cy.findByPlaceholderText(/confirme a senha/i).type(user.password);
+
+  cy.findByRole('button', { name: /cadastrar/i }).click();
+
+  cy.findByText('Cadastrado com sucesso!').should('exist');
+  cy.findByText('Você será redirecionado em instantes...').should('exist');
+});

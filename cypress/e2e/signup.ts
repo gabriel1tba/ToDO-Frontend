@@ -3,23 +3,28 @@
 import { createUser } from '../support/generate';
 
 describe('SignUp', () => {
-  it('shold sign up', () => {
+  it('should sign up correctly', () => {
     const user = createUser();
 
     cy.visit('/register');
 
-    cy.findByPlaceholderText(/nome/i).type(user.username);
-    cy.findByPlaceholderText(/e-mail/i).type(user.email);
-    cy.findByPlaceholderText(/^senha/i).type(user.password);
-    cy.findByPlaceholderText(/confirme a senha/i).type(user.password);
-
-    cy.findByRole('button', { name: /cadastrar/i }).click();
-
-    cy.findByText('Cadastrado com sucesso!').should('exist');
-    cy.findByText('Você será redirecionado em instantes...').should('exist');
+    cy.signUp(user);
 
     cy.wait(3000);
 
     cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+  });
+
+  it('should sign up incorrectly', () => {
+    const user = createUser();
+
+    cy.visit('/register');
+
+    cy.findByRole('button', { name: /cadastrar/i }).click();
+
+    cy.findByText('Nome obrigatório!').should('exist');
+    cy.findByText('E-mail obrigatório!').should('exist');
+    cy.findByText('Senha obrigatória!').should('exist');
+    cy.findByText('Confirmação de senha é obrigatória').should('exist');
   });
 });
