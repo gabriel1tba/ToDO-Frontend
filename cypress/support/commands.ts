@@ -36,9 +36,6 @@ Cypress.Commands.add('signUp', (user: User) => {
   cy.findByPlaceholderText(/confirme a senha/i).type(user.password);
 
   cy.findByRole('button', { name: /cadastrar/i }).click();
-
-  cy.findByText('Cadastrado com sucesso!').should('exist');
-  cy.findByText('Você será redirecionado em instantes...').should('exist');
 });
 
 Cypress.Commands.add(
