@@ -38,6 +38,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@jackfranklin/test-data-bot": "^1.4.0",
     "@testing-library/cypress": "^8.0.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
