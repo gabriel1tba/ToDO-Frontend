@@ -41,7 +41,7 @@ const Header = ({ userName, onSignOut }: IHeader) => {
             onChange={(event) => getSearchTerm(event.target.value)}
           />
 
-          <button onClick={handleSignOut}>
+          <button data-testid="sign-out" onClick={handleSignOut}>
             <VscSignOut size={35} />
           </button>
         </div>

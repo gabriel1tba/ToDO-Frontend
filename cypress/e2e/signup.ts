@@ -16,8 +16,6 @@ describe('SignUp', () => {
   });
 
   it('should sign up incorrectly', () => {
-    const user = createUser();
-
     cy.visit('/register');
 
     cy.findByRole('button', { name: /cadastrar/i }).click();

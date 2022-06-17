@@ -40,3 +40,13 @@ Cypress.Commands.add('signUp', (user: User) => {
   cy.findByText('Cadastrado com sucesso!').should('exist');
   cy.findByText('Você será redirecionado em instantes...').should('exist');
 });
+
+Cypress.Commands.add(
+  'signIn',
+  (email = 'e2e@cypress.com', password = '123456789') => {
+    cy.findByPlaceholderText(/e-mail/i).type(email);
+    cy.findByPlaceholderText(/^senha/i).type(password);
+
+    cy.findByRole('button', { name: /entrar/i }).click();
+  }
+);

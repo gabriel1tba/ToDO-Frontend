@@ -279,7 +279,9 @@ exports[`<Header /> should render the Header correctly 1`] = `
       placeholder="Pesquisar tarefas..."
       type="search"
     />
-    <button>
+    <button
+      data-testid="sign-out"
+    >
       <svg
         fill="currentColor"
         height="35"
