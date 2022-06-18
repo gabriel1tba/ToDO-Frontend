@@ -44,3 +44,12 @@ Cypress.Commands.add('signIn', () => {
 
   cy.findByRole('button', { name: /entrar/i }).click();
 });
+
+Cypress.Commands.add('insertTodos', (todoList) => {
+  todoList.todos.forEach((todo) => {
+    cy.findByPlaceholderText(/nome da tarefa/i).type(todo.title);
+    cy.findByPlaceholderText(/descrição/i).type(todo?.description);
+
+    cy.findByRole('button', { name: todoList.btnTitle }).click();
+  });
+});

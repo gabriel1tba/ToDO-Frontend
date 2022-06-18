@@ -7,6 +7,16 @@ type User = {
   password: string;
 };
 
+type Todo = {
+  title: string;
+  description?: string;
+};
+
+type TodoList = {
+  btnTitle: string | RegExp;
+  todos: Todo[];
+};
+
 declare namespace Cypress {
   interface Chainable {
     /**
@@ -20,5 +30,11 @@ declare namespace Cypress {
      * @example cy.signIn()
      */
     signIn(email?: string, password?: string): Chainable<Element>;
+
+    /**
+     * Custom command to sign up
+     * @example cy.createOrEditItems(todoList)
+     */
+    insertTodos(todoList: TodoList): Chainable<Element>;
   }
 }
