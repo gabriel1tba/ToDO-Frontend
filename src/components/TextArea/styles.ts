@@ -29,15 +29,15 @@ export const Wrapper = styled.div<IWrapper>`
       border-color: ${({ theme }) => theme.colors.danger.main};
     `}
 
-  ${({ isFocused }) =>
-    isFocused &&
+  ${({ isFilled }) =>
+    isFilled &&
     css`
       color: ${({ theme }) => theme.colors.orange.main};
       border-color: ${({ theme }) => theme.colors.orange.main};
     `}
 
-  ${({ isFilled }) =>
-    isFilled &&
+    ${({ isFocused }) =>
+    isFocused &&
     css`
       color: ${({ theme }) => theme.colors.orange.main};
       border-color: ${({ theme }) => theme.colors.orange.main};

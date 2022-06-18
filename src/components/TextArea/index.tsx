@@ -28,15 +28,14 @@ const TextArea: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
   };
 
   return (
-    <S.Wrapper hasError={!!error} isFocused={isFocused} isFilled={isFilled}>
-      <textarea
-        defaultValue={defaultValue}
-        onFocus={handleInputFocus}
-        onBlur={handleInputBlur}
-        ref={ref}
-        name={name}
-        {...rest}
-      />
+    <S.Wrapper
+      hasError={!!error}
+      isFocused={isFocused}
+      isFilled={isFilled}
+      onFocus={handleInputFocus}
+      onBlur={handleInputBlur}
+    >
+      <textarea defaultValue={defaultValue} ref={ref} name={name} {...rest} />
       {error && (
         <S.Error title={error}>
           <FiAlertCircle

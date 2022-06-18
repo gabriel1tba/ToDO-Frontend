@@ -32,7 +32,14 @@ export const Wrapper = styled.div<IWrapper>`
       }
     `}
 
-  ${({ isFocused }) =>
+  ${({ isFilled }) =>
+    isFilled &&
+    css`
+      color: ${({ theme }) => theme.colors.orange.main};
+      border-color: ${({ theme }) => theme.colors.orange.main};
+    `}
+
+    ${({ isFocused }) =>
     isFocused &&
     css`
       color: ${({ theme }) => theme.colors.orange.main};
@@ -40,13 +47,6 @@ export const Wrapper = styled.div<IWrapper>`
       > svg {
         stroke: ${({ theme }) => theme.colors.orange.main};
       }
-    `}
-
-  ${({ isFilled }) =>
-    isFilled &&
-    css`
-      color: ${({ theme }) => theme.colors.orange.main};
-      border-color: ${({ theme }) => theme.colors.orange.main};
     `}
 
   input {

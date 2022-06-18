@@ -32,16 +32,12 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
       hasError={!!error}
       isFocused={isFocused}
       isFilled={isFilled}
+      onFocus={handleInputFocus}
+      onBlur={handleInputBlur}
       ref={inputRef}
     >
       {Icon && <Icon size={20} />}
-      <input
-        onFocus={handleInputFocus}
-        onBlur={handleInputBlur}
-        ref={ref}
-        name={name}
-        {...rest}
-      />
+      <input ref={ref} name={name} {...rest} />
       {error && (
         <S.Error title={error}>
           <FiAlertCircle
