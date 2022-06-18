@@ -38,12 +38,9 @@ Cypress.Commands.add('signUp', (user: User) => {
   cy.findByRole('button', { name: /cadastrar/i }).click();
 });
 
-Cypress.Commands.add(
-  'signIn',
-  (email = 'e2e@cypress.com', password = '123456789') => {
-    cy.findByPlaceholderText(/e-mail/i).type(email);
-    cy.findByPlaceholderText(/^senha/i).type(password);
+Cypress.Commands.add('signIn', () => {
+  cy.findByPlaceholderText(/e-mail/i).type(Cypress.env('cyEmail'));
+  cy.findByPlaceholderText(/^senha/i).type(Cypress.env('cyPassword'));
 
-    cy.findByRole('button', { name: /entrar/i }).click();
-  }
-);
+  cy.findByRole('button', { name: /entrar/i }).click();
+});
