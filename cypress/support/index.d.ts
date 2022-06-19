@@ -33,8 +33,8 @@ declare namespace Cypress {
 
     /**
      * Custom command to sign up
-     * @example cy.createOrEditItems(todoList)
+     * @example cy.createTodos(todoList)
      */
-    insertTodos(todoList: TodoList): Chainable<Element>;
+    createTodos(todoList: TodoList): Chainable<Element>;
   }
 }

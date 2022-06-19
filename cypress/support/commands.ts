@@ -28,6 +28,12 @@
 import '@testing-library/cypress/add-commands';
 
 import { User } from './generate';
+import { Todo } from './generate';
+
+type TodoList = {
+  btnTitle: string | RegExp;
+  todos: Todo[];
+};
 
 Cypress.Commands.add('signUp', (user: User) => {
   cy.findByPlaceholderText(/nome/i).type(user.username);
@@ -45,10 +51,25 @@ Cypress.Commands.add('signIn', () => {
   cy.findByRole('button', { name: /entrar/i }).click();
 });
 
-Cypress.Commands.add('insertTodos', (todoList) => {
-  todoList.todos.forEach((todo) => {
-    cy.findByPlaceholderText(/nome da tarefa/i).type(todo.title);
-    cy.findByPlaceholderText(/descrição/i).type(todo?.description);
+Cypress.Commands.add('createTodos', (todoList: TodoList) => {
+  todoList.todos.forEach((todo, index) => {
+    if (index === 0) {
+      cy.findByRole('button', {
+        name: /adicione sua primeira tarefa/i,
+      }).click();
+
+      cy.findByLabelText(/título/i).type(todo.title);
+      cy.findByLabelText(/descrição/i).type(todo?.description);
+
+      cy.findByRole('button', { name: todoList.btnTitle }).click();
+
+      return;
+    }
+
+    cy.findByRole('button', { name: /adicionar tarefa/i }).click();
+
+    cy.findByLabelText(/título/i).type(todo.title);
+    cy.findByLabelText(/descrição/i).type(todo?.description);
 
     cy.findByRole('button', { name: todoList.btnTitle }).click();
   });
