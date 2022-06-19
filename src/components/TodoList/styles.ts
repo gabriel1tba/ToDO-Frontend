@@ -76,7 +76,7 @@ export const TodoWrapper = styled.div<IStyled>`
 
   #badges {
     span {
-      margin-left: 10px;
+      margin-left: ${({ hastodos }) => (hastodos ? '10px' : '45px')};
     }
   }
 `;

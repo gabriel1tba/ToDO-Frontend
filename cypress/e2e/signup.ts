@@ -10,8 +10,6 @@ describe('SignUp', () => {
   });
 
   it('should sign up correctly', () => {
-    const user = createUser();
-
     cy.visit('/register');
 
     cy.signUp(user);

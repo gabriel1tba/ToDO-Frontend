@@ -116,10 +116,18 @@ const TodoItem = ({ todo }: ITodoItem) => {
 
         <div>
           <button onClick={handleEditTodo}>
-            <FaEdit size={20} color={theme.colors.warning.main} />
+            <FaEdit
+              size={20}
+              color={theme.colors.warning.main}
+              data-testid="edit-todo"
+            />
           </button>
           <button onClick={handleDeleteTodo}>
-            <BsTrash size={20} color={theme.colors.danger.main} />
+            <BsTrash
+              size={20}
+              color={theme.colors.danger.main}
+              data-testid="delete-todo"
+            />
           </button>
         </div>
       </S.Wrapper>

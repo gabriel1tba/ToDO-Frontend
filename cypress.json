@@ -4,6 +4,6 @@
   "baseUrl": "http://localhost:3000",
   "chromeWebSecurity": false,
   "defaultCommandTimeout": 6000,
-  "viewportWidth": 1024,
+  "viewportWidth": 1366,
   "viewportHeight": 768
 }

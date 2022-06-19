@@ -27,8 +27,7 @@
 // Import Testing Library Commands
 import '@testing-library/cypress/add-commands';
 
-import { User } from './generate';
-import { Todo } from './generate';
+import { User, Todo } from './generate';
 
 type TodoList = {
   btnTitle: string | RegExp;

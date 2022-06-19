@@ -107,6 +107,7 @@ exports[`<TodoItem /> should render the TodoItem correctly 1`] = `
     <button>
       <svg
         color="#ffc107"
+        data-testid="edit-todo"
         fill="currentColor"
         height="20"
         stroke="currentColor"
@@ -124,6 +125,7 @@ exports[`<TodoItem /> should render the TodoItem correctly 1`] = `
     <button>
       <svg
         color="#FC5050"
+        data-testid="delete-todo"
         fill="currentColor"
         height="20"
         stroke="currentColor"

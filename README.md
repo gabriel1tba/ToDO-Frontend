@@ -15,6 +15,7 @@ PS: Clique [aqui](https://github.com/gabrielitba/ToDO-API) para acessar o reposi
 - **typescript**
 - **react**
 - **react testing-library**
+- **cypress**
 - **husky + lint-staged**
 - **context API**
 - **custom hooks**
@@ -39,7 +40,7 @@ Validação de formulário;
 
 Rotas privadas;
 
-Testes unitários e de integração;
+Testes unitários, de integração e e2e;
 
 Toasts de notificação.
 
