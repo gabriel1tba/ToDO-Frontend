@@ -7,7 +7,7 @@ import * as S from './styles';
 import { ITextArea } from './interfaces';
 
 const TextArea: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
-  { name, error, defaultValue = '', ...rest },
+  { name, error, ...rest },
   ref
 ) => {
   const theme = useTheme();
@@ -35,7 +35,7 @@ const TextArea: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
       onFocus={handleInputFocus}
       onBlur={handleInputBlur}
     >
-      <textarea defaultValue={defaultValue} ref={ref} name={name} {...rest} />
+      <textarea ref={ref} name={name} {...rest} />
       {error && (
         <S.Error title={error}>
           <FiAlertCircle
