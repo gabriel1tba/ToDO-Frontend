@@ -51,6 +51,10 @@ export const Wrapper = styled.div`
         font-size: 15px;
       }
     }
+
+    svg {
+      margin-top: -10px;
+    }
   }
 `;
 

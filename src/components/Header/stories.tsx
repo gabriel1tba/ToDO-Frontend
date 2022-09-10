@@ -10,9 +10,6 @@ export default {
     userName: {
       type: 'string',
     },
-    onSignOut: {
-      type: 'function',
-    },
   },
 } as Meta;
 
@@ -20,5 +17,4 @@ export const Default: Story<IHeader> = (args) => <Header {...args} />;
 
 Default.args = {
   userName: 'Gabriel Ferreira',
-  onSignOut: () => null,
 };
