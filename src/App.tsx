@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import AppProvider from './context';
 import Routes from './routes';
 
-import { GlobalStyles } from './styles/global';
+import GlobalStyles from './styles/global';
 
 import theme from 'styles/themes/light';
 
