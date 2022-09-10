@@ -76,7 +76,7 @@ export const Error = styled(Tooltip)`
   margin-left: 16px;
 
   > svg {
-    margin: 0;
+    margin: -6px 0 0 0;
   }
 
   span {
