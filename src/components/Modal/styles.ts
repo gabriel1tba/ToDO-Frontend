@@ -56,5 +56,5 @@ export const Wrapper = styled.div`
 `;
 
 export const ModalWrapper = styled.div`
-  margin: 40px 20px;
+  margin: 20px;
 `;

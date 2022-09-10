@@ -13,8 +13,6 @@ export const animationFromAbove = keyframes`
 `;
 
 export const Wrapper = styled.div`
-  margin: -25px 1px;
-
   animation: ${animationFromAbove} 0.7s;
 
   label {
@@ -67,7 +65,7 @@ export const Footer = styled.footer`
   &:before {
     content: '';
     position: absolute;
-    right: -22px;
+    right: -21px;
     bottom: 55px;
     width: 550px;
     border-top: 1px solid ${({ theme }) => theme.colors.gray[200]};

@@ -68,10 +68,6 @@ describe('<TodoItem />', () => {
         })
       );
     });
-
-    await waitFor(() => {
-      expect(screen.getByRole('checkbox')).toBeChecked();
-    });
   });
 
   it('should receive an error status when changing Completed status', async () => {

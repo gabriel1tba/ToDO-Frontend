@@ -23,6 +23,9 @@ export default {
     icon: {
       type: 'function',
     },
+    onClick: {
+      action: 'clicked',
+    },
   },
 } as Meta;
 

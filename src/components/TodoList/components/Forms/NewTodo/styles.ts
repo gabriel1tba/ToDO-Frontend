@@ -13,8 +13,6 @@ export const animationFromAbove = keyframes`
 `;
 
 export const Wrapper = styled.div`
-  margin: -25px 1px;
-
   animation: ${animationFromAbove} 0.7s;
 
   label {
@@ -28,7 +26,7 @@ export const Wrapper = styled.div`
     color: ${({ theme }) => theme.colors.gray[500]};
   }
 
-  div {
+  > div {
     border-radius: 0.25rem;
     padding: 6px;
 
@@ -58,29 +56,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Footer = styled.footer`
-  position: relative;
-  margin-top: 10px;
-
+export const Footer = styled.div`
   display: flex;
   justify-content: flex-end;
-  &:before {
-    content: '';
-    position: absolute;
-    right: -22px;
-    bottom: 55px;
-    width: 550px;
-    border-top: 1px solid ${({ theme }) => theme.colors.gray[200]};
-  }
-`;
-
-export const TimeWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 0 !important;
-
-  div {
-    margin-bottom: -20px;
-    padding: 0 !important;
-  }
 `;

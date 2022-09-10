@@ -23,6 +23,9 @@ export default {
     error: {
       type: 'string',
     },
+    onChange: {
+      action: 'change',
+    },
   },
 } as Meta;
 
