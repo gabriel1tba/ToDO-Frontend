@@ -1,5 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 
+import { TodoProvider } from '../src/context/todos';
+
 import theme from '../src/styles/themes/light';
 import GlobalStyles from '../src/styles/global';
 
@@ -16,8 +18,10 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Story />
+      <TodoProvider>
+        <GlobalStyles />
+        <Story />
+      </TodoProvider>
     </ThemeProvider>
   ),
 ];
