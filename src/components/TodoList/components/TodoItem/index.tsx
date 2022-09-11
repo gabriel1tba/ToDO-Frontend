@@ -101,7 +101,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
           type="checkbox"
           name="completed"
           id="completed"
-          defaultChecked={todo.completed}
+          checked={todo.completed}
           onChange={(event) => {
             handleCompletedTodo(event.target.checked);
           }}

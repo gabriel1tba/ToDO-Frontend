@@ -13,8 +13,8 @@ export interface INewTodo {
 }
 
 export interface IManageTodo {
-  todo: ITodo;
   onCloseModal: () => void;
+  todo: ITodo;
   editTodo: boolean;
   showTodo: boolean;
 }

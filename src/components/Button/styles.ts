@@ -134,8 +134,7 @@ export const WrapperLoading = styled.div<Omit<WrapperButton, 'color'>>`
   align-items: center;
   justify-content: center;
 
-  > svg {
-    margin-bottom: ${({ size }) => (size === 'normal' ? '-6px' : '0px')};
+  svg {
     margin-right: 5px;
   }
 `;

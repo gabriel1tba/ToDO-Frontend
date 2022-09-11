@@ -13,8 +13,6 @@ export const animationFromAbove = keyframes`
 `;
 
 export const Wrapper = styled.div`
-  margin: -25px 1px;
-
   animation: ${animationFromAbove} 0.7s;
 
   label {
@@ -31,10 +29,6 @@ export const Wrapper = styled.div`
   div {
     border-radius: 0.25rem;
     padding: 6px;
-
-    svg {
-      margin-top: -6px;
-    }
 
     input {
       height: 28px;
@@ -55,6 +49,10 @@ export const Wrapper = styled.div`
         font-size: 15px;
       }
     }
+
+    svg {
+      margin-top: -10px;
+    }
   }
 `;
 
@@ -67,7 +65,7 @@ export const Footer = styled.footer`
   &:before {
     content: '';
     position: absolute;
-    right: -22px;
+    right: -21px;
     bottom: 55px;
     width: 550px;
     border-top: 1px solid ${({ theme }) => theme.colors.gray[200]};
