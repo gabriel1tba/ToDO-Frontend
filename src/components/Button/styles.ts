@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 interface WrapperButton {
   size: 'large' | 'normal';
-  color: 'primary' | 'warning' | 'danger' | 'orange' | 'success';
+  color: 'primary' | 'warning' | 'danger' | 'success';
 }
 
 const colorModifiers = {
@@ -69,22 +69,6 @@ const colorModifiers = {
       cursor: not-allowed;
     }
   `,
-
-  orange: () => css`
-    background: ${({ theme }) => theme.colors.orange.main};
-
-    :hover {
-      background: ${({ theme }) => theme.colors.orange.light};
-    }
-    :active {
-      background: ${({ theme }) => theme.colors.orange.dark};
-    }
-    :disabled {
-      background: ${({ theme }) => theme.colors.orange.dark};
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-  `,
 };
 
 const sizeModifiers = {
@@ -93,7 +77,7 @@ const sizeModifiers = {
     align-items: center;
     height: 38px;
     margin-top: 30px;
-    padding: 0.375rem 0.7rem;
+    padding: 0.375rem 1rem;
     color: #fff;
     font-size: 1rem;
     line-height: 18px;
@@ -134,7 +118,7 @@ export const WrapperLoading = styled.div<Omit<WrapperButton, 'color'>>`
   align-items: center;
   justify-content: center;
 
-  svg {
-    margin-right: 5px;
+  > div {
+    margin-right: ${({ size }) => (size === 'large' ? '24px' : '12px')};
   }
 `;

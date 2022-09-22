@@ -22,7 +22,7 @@ exports[`<Tooltip /> should render the Tooltip correctly 1`] = `
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  color: #666360;
+  color: #424242;
 }
 
 .c0 span::before {

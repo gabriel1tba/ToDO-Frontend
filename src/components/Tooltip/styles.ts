@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
 
   span {
     width: 160px;
-    background: ${({ theme }) => theme.colors.orange.main};
+    background: ${({ theme }) => theme.colors.primary.main};
     padding: 8px;
     border-radius: 4px;
     font-size: 14px;
@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
     &::before {
       content: '';
       border-style: solid;
-      border-color: ${({ theme }) => theme.colors.orange.main};
+      border-color: ${({ theme }) => theme.colors.primary.main};
       border-width: 6px 6px 0 6px;
       top: 100%;
       position: absolute;

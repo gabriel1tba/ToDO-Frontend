@@ -60,8 +60,8 @@ const TodoList = () => {
           <div id="badges">
             <Badge
               title={`Totais ${quantities.total}`}
-              fontColor={theme.colors.primary.main}
-              backgroundColor={theme.colors.primary.lighter}
+              fontColor={theme.colors.blue.main}
+              backgroundColor={theme.colors.blue.lighter}
             />
             <Badge
               title={`Concluídas ${quantities.completeds}`}

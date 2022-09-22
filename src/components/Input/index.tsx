@@ -41,7 +41,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
       {error && (
         <S.Error title={error}>
           <FiAlertCircle
-            color={error ? theme.colors.danger.main : theme.colors.orange.main}
+            color={error ? theme.colors.danger.main : theme.colors.primary.main}
             size={20}
           />
         </S.Error>

@@ -14,14 +14,14 @@ exports[`<Button /> should render the Button correctly 1`] = `
   align-items: center;
   height: 38px;
   margin-top: 30px;
-  padding: 0.375rem 0.7rem;
+  padding: 0.375rem 1rem;
   color: #fff;
   font-size: 1rem;
   line-height: 18px;
   font-weight: 400;
   border: 1px solid transparent;
   border-radius: 0.25rem;
-  background: #5061FC;
+  background: #ff9000;
 }
 
 .c0 svg {
@@ -30,15 +30,15 @@ exports[`<Button /> should render the Button correctly 1`] = `
 }
 
 .c0:hover {
-  background: #6674F4;
+  background: #FFA726;
 }
 
 .c0:active {
-  background: #3346F0;
+  background: #FF6D00;
 }
 
 .c0:disabled {
-  background: #3346F0;
+  background: #FF6D00;
   opacity: 0.6;
   cursor: not-allowed;
 }

@@ -100,12 +100,7 @@ const SignUp = () => {
               {...register('confirmPassword')}
             />
 
-            <Button
-              loading={isSubmitting}
-              size="large"
-              color="orange"
-              type="submit"
-            >
+            <Button loading={isSubmitting} size="large" type="submit">
               Cadastrar
             </Button>
           </form>

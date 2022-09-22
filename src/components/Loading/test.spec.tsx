@@ -8,7 +8,7 @@ describe('<Loading />', () => {
   });
 
   it('should render the Loading correctly', () => {
-    const { container } = render(<Loading />);
+    const { container } = render(<Loading size={32} onTop />);
 
     expect(container.firstChild).toMatchSnapshot();
   });

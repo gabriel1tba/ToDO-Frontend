@@ -50,7 +50,7 @@ const Dashboard = () => {
       <Header userName={user.name} onSignOut={signOut} />
 
       {isLoading ? (
-        <Loading isLoading={isLoading} />
+        <Loading isLoading={isLoading} size={90} />
       ) : (
         <S.Content>
           <TodoList />

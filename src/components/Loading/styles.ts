@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 const load = keyframes`
   0% {
@@ -34,6 +34,16 @@ const round = keyframes`
   }
 `;
 
+const colorModifiers = {
+  white: () => css`
+    color: ${({ theme }) => theme.colors.background};
+  `,
+
+  main: () => css`
+    color: ${({ theme }) => theme.colors.primary.main};
+  `,
+};
+
 export const Overlay = styled.div`
   position: fixed;
   top: 0;
@@ -45,20 +55,26 @@ export const Overlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  #loader {
-    color: ${({ theme }) => theme.colors.primary.main};
-    font-size: 90px;
-    text-indent: -9999em;
-    overflow: hidden;
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    margin: 72px auto;
-    position: relative;
-    -webkit-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-animation: ${load} 1.5s infinite ease, ${round} 1.5s infinite ease;
-    animation: ${load} 1.5s infinite ease, ${round} 1.5s infinite ease;
-  }
+`;
+
+interface ILoadingProps {
+  size: number;
+  color: 'white' | 'main';
+}
+
+export const Loading = styled.div<ILoadingProps>`
+  font-size: ${({ size }) => size}px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: ${load} 1.5s infinite ease, ${round} 1.5s infinite ease;
+  animation: ${load} 1.5s infinite ease, ${round} 1.5s infinite ease;
+
+  ${({ color }) => colorModifiers[color]()};
 `;

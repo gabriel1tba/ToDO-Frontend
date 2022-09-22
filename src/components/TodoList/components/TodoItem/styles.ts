@@ -63,12 +63,6 @@ export const Wrapper = styled.li`
       svg {
         cursor: pointer;
         margin-left: 5px;
-
-        transition: transform 0.3s;
-
-        &:hover {
-          transform: scale(1.2);
-        }
       }
     }
   }

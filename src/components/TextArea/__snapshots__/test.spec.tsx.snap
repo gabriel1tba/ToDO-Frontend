@@ -12,10 +12,10 @@ exports[`<TextArea /> should render the TextArea correctly with Label 1`] = `
   align-items: center;
   background: #FFFFFF;
   border-radius: 10px;
-  border: 1px solid #666360;
+  border: 1px solid #424242;
   padding: 16px;
   width: 100%;
-  color: #666360;
+  color: #424242;
 }
 
 .c0 + div {

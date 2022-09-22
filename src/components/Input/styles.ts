@@ -35,17 +35,17 @@ export const Wrapper = styled.div<IWrapper>`
   ${({ isFilled }) =>
     isFilled &&
     css`
-      color: ${({ theme }) => theme.colors.orange.main};
-      border-color: ${({ theme }) => theme.colors.orange.main};
+      color: ${({ theme }) => theme.colors.primary.main};
+      border-color: ${({ theme }) => theme.colors.primary.main};
     `}
 
     ${({ isFocused }) =>
     isFocused &&
     css`
-      color: ${({ theme }) => theme.colors.orange.main};
-      border-color: ${({ theme }) => theme.colors.orange.main};
+      color: ${({ theme }) => theme.colors.primary.main};
+      border-color: ${({ theme }) => theme.colors.primary.main};
       > svg {
-        stroke: ${({ theme }) => theme.colors.orange.main};
+        stroke: ${({ theme }) => theme.colors.primary.main};
       }
     `}
 
@@ -58,7 +58,7 @@ export const Wrapper = styled.div<IWrapper>`
     box-shadow: 0 0 0 30px ${({ theme }) => theme.colors.background} inset;
 
     &:-webkit-autofill {
-      -webkit-text-fill-color: ${({ theme }) => theme.colors.orange.main};
+      -webkit-text-fill-color: ${({ theme }) => theme.colors.primary.main};
     }
 
     &::placeholder {

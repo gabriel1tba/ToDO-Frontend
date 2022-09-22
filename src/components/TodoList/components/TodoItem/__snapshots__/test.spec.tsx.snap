@@ -40,11 +40,11 @@ exports[`<TodoItem /> should render the TodoItem correctly 1`] = `
   appearance: none;
   box-shadow: none;
   font-size: 2em;
-  border: solid 2px #2ecc71;
+  border: solid 2px #00E676;
 }
 
 .c0 > input[type='checkbox']:checked {
-  background-color: #2ecc71;
+  background-color: #00E676;
   display: inline-block;
   padding-top: -2px;
   padding-left: 3px;
@@ -79,15 +79,6 @@ exports[`<TodoItem /> should render the TodoItem correctly 1`] = `
 .c0 > div button svg {
   cursor: pointer;
   margin-left: 5px;
-  -webkit-transition: -webkit-transform 0.3s;
-  -webkit-transition: transform 0.3s;
-  transition: transform 0.3s;
-}
-
-.c0 > div button svg:hover {
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
 }
 
 <li
@@ -106,13 +97,13 @@ exports[`<TodoItem /> should render the TodoItem correctly 1`] = `
   <div>
     <button>
       <svg
-        color="#ffc107"
+        color="#FFEB3B"
         data-testid="edit-todo"
         fill="currentColor"
         height="20"
         stroke="currentColor"
         stroke-width="0"
-        style="color: rgb(255, 193, 7);"
+        style="color: rgb(255, 235, 59);"
         viewBox="0 0 576 512"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
@@ -124,13 +115,13 @@ exports[`<TodoItem /> should render the TodoItem correctly 1`] = `
     </button>
     <button>
       <svg
-        color="#FC5050"
+        color="#FF1744"
         data-testid="delete-todo"
         fill="currentColor"
         height="20"
         stroke="currentColor"
         stroke-width="0"
-        style="color: rgb(252, 80, 80);"
+        style="color: rgb(255, 23, 68);"
         viewBox="0 0 16 16"
         width="20"
         xmlns="http://www.w3.org/2000/svg"

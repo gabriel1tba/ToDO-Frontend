@@ -1,5 +1,5 @@
+import { RiShutDownLine } from 'react-icons/ri';
 import { useHistory } from 'react-router';
-import { VscSignOut } from 'react-icons/vsc';
 
 import * as S from './styles';
 
@@ -42,13 +42,13 @@ const Header = ({ userName, onSignOut }: IHeader) => {
           />
 
           <button data-testid="sign-out" onClick={handleSignOut}>
-            <VscSignOut size={35} />
+            <RiShutDownLine size={32} />
           </button>
         </div>
       ) : (
         <div className="input-logout-container">
           <button onClick={() => history.push('/')}>
-            <VscSignOut size={35} />
+            <RiShutDownLine size={32} />
           </button>
         </div>
       )}

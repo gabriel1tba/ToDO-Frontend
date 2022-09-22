@@ -10,7 +10,7 @@ describe('<Button />', () => {
     expect(screen.getByRole('button', { name: /salvar/i })).toBeInTheDocument();
 
     expect(container.firstChild).toHaveStyle({
-      backgroundColor: '#5061FC',
+      backgroundColor: '#ff9000',
     });
 
     expect(container.firstChild).toMatchSnapshot();

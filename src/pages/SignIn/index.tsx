@@ -93,12 +93,7 @@ const SignIn = () => {
               {...register('password')}
             />
 
-            <Button
-              loading={isSubmitting}
-              size="large"
-              color="orange"
-              type="submit"
-            >
+            <Button loading={isSubmitting} size="large" type="submit">
               Entrar
             </Button>
 

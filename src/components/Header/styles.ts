@@ -8,7 +8,7 @@ export const Wrapper = styled.header`
   height: 90px;
   padding: 0 10rem;
 
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
   @media (max-width: 1024px) {
     padding: 0 8rem;
@@ -42,7 +42,7 @@ export const Wrapper = styled.header`
       align-items: flex-start;
       justify-content: center;
       > h3 {
-        color: ${({ theme }) => theme.colors.orange.main};
+        color: ${({ theme }) => theme.colors.primary.main};
       }
     }
 
@@ -80,13 +80,7 @@ export const Wrapper = styled.header`
       border: none;
 
       svg {
-        fill: ${({ theme }) => theme.colors.gray[500]};
-      }
-
-      transition: transform 0.4s;
-
-      &:hover {
-        transform: scale(1.2);
+        color: ${({ theme }) => theme.colors.primary.main};
       }
 
       @media (max-width: 540px) {

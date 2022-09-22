@@ -1,6 +1,6 @@
-import { FaHourglass } from 'react-icons/fa';
-
 import * as S from './styles';
+
+import Loading from 'components/Loading';
 
 import { IButton } from './interfaces';
 
@@ -23,7 +23,7 @@ const Button = ({
   >
     {loading ? (
       <S.WrapperLoading size={size}>
-        <FaHourglass size={14} /> Carregando...
+        <Loading size={12} color="white" /> Carregando...
       </S.WrapperLoading>
     ) : (
       <>
