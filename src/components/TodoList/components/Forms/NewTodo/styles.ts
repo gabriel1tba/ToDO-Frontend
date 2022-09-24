@@ -3,12 +3,10 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   label {
     display: block;
-    padding-top: calc(0.375rem + 1px);
-    padding-bottom: calc(0.375rem + 1px);
     margin-top: 20px;
-    font-size: inherit;
-    line-height: 1.5;
-
+    margin-bottom: 0.5rem;
+    font-size: 15px;
+    font-weight: bold;
     color: ${({ theme }) => theme.colors.gray[500]};
   }
 
@@ -47,6 +45,7 @@ export const Footer = styled.div`
   justify-content: flex-end;
 
   button {
+    font-weight: 700;
     margin-top: 1.5rem;
   }
 `;

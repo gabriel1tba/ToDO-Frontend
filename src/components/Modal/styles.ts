@@ -26,8 +26,9 @@ export const Wrapper = styled.div`
     margin: 15px 0;
     border-bottom: 1px solid ${({ theme }) => theme.colors.gray[200]};
 
-    > p {
-      font-size: 20px;
+    > h1 {
+      color: ${({ theme }) => theme.colors.gray[700]};
+      font-size: 1.5rem;
 
       margin: 0 0 15px 21px;
 
@@ -43,6 +44,7 @@ export const Wrapper = styled.div`
 
       > svg {
         cursor: pointer;
+        fill: ${({ theme }) => theme.colors.gray[700]};
       }
     }
   }

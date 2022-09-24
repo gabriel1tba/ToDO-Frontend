@@ -63,6 +63,33 @@ export const ListInfos = styled.div`
   }
 
   div:last-child p {
-    color: ${({ theme }) => theme.colors.info.dark};
+    color: #3172b7;
+  }
+`;
+
+export const NoTaskWarning = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 1rem 0;
+  border: 1px solid ${({ theme }) => theme.colors.gray[200]};
+  border-radius: 8px;
+  padding: 5rem 3rem;
+
+  svg {
+    font-size: 4rem;
+    fill: ${({ theme }) => theme.colors.gray[300]};
+    margin-bottom: 1rem;
+  }
+
+  strong {
+    margin-bottom: 0.5rem;
+    color: ${({ theme }) => theme.colors.gray[300]};
+  }
+
+  p {
+    color: ${({ theme }) => theme.colors.gray[300]};
   }
 `;

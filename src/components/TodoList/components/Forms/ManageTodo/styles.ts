@@ -17,12 +17,10 @@ export const Wrapper = styled.div`
 
   label {
     display: block;
-    padding-top: calc(0.375rem + 1px);
-    padding-bottom: calc(0.375rem + 1px);
     margin-top: 20px;
-    font-size: inherit;
-    line-height: 1.5;
-
+    margin-bottom: 0.5rem;
+    font-size: 15px;
+    font-weight: 700;
     color: ${({ theme }) => theme.colors.gray[500]};
   }
 
@@ -59,6 +57,10 @@ export const Wrapper = styled.div`
 export const Footer = styled.footer`
   position: relative;
   margin-top: 10px;
+
+  button {
+    font-weight: 700;
+  }
 
   display: flex;
   justify-content: flex-end;

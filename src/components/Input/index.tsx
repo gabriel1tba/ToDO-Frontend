@@ -7,7 +7,7 @@ import * as S from './styles';
 import { IInput } from './interfaces';
 
 const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
-  { name, icon: Icon, error, ...rest },
+  { icon: Icon, error, ...rest },
   ref
 ) => {
   const theme = useTheme();
@@ -37,7 +37,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
       ref={inputRef}
     >
       {Icon && <Icon size={20} />}
-      <input ref={ref} name={name} {...rest} />
+      <input ref={ref} {...rest} />
       {error && (
         <S.Error title={error}>
           <FiAlertCircle

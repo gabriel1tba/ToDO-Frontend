@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FiPlus } from 'react-icons/fi';
 
 import * as S from './styles';
 
@@ -79,11 +78,7 @@ const NewTodo = ({ onCloseModal }: INewTodo) => {
         />
 
         <S.Footer>
-          <Button
-            type="submit"
-            icon={<FiPlus size={18} />}
-            loading={isSubmitting}
-          >
+          <Button type="submit" loading={isSubmitting}>
             Salvar
           </Button>
         </S.Footer>

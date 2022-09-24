@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { BiPlusCircle } from 'react-icons/bi';
+import { CgNotes } from 'react-icons/cg';
 import { useTheme } from 'styled-components';
 
 import * as S from './styles';
@@ -11,8 +12,6 @@ import Modal from '../Modal';
 import TodoItem from './components/TodoItem';
 import NewTodo from './components/Forms/NewTodo';
 import Button from 'components/Button';
-
-import magnifierQuestion from 'assets/icons/magnifier-question.svg';
 
 import { ITodo } from 'interfaces';
 
@@ -33,7 +32,7 @@ const TodoList = () => {
 
   const quantities = useMemo(
     () =>
-      filteredTodos.reduce(
+      todos.reduce(
         (acc, todo) => {
           if (todo.completed) {
             acc.completeds += Number(todo.completed);
@@ -49,7 +48,7 @@ const TodoList = () => {
           total: 0,
         }
       ),
-    [filteredTodos]
+    [todos]
   );
 
   return (
@@ -74,8 +73,8 @@ const TodoList = () => {
           <p>Tarefas criadas</p>
           <Badge
             title={quantities.total}
-            fontColor="#D9D9D9"
-            backgroundColor="#333333"
+            fontColor={theme.colors.gray[100]}
+            backgroundColor={theme.colors.gray[700]}
           />
         </div>
 
@@ -83,11 +82,21 @@ const TodoList = () => {
           <p>Concluídas</p>
           <Badge
             title={`${quantities.completeds} de ${quantities.total} `}
-            fontColor="#D9D9D9"
-            backgroundColor="#333333"
+            fontColor={theme.colors.gray[100]}
+            backgroundColor={theme.colors.gray[700]}
           />
         </div>
       </S.ListInfos>
+
+      {todos.length === 0 && (
+        <S.NoTaskWarning>
+          <CgNotes color={theme.colors.gray[300]} />
+          <strong>Você ainda não tem tarefas cadastradas</strong>
+          <p>
+            Crie tarefas clicando no botão <strong>Nova Tarefa</strong>
+          </p>
+        </S.NoTaskWarning>
+      )}
 
       <Modal
         title="Nova tarefa"

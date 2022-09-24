@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FaEdit } from 'react-icons/fa';
-import { BsTrash } from 'react-icons/bs';
-import { IoCloseSharp } from 'react-icons/io5';
 
 import * as S from './styles';
 
@@ -127,24 +124,13 @@ const ManageTodo = ({
         </S.TimeWrapper>
         <S.Footer>
           {showTodo ? (
-            <Button icon={<IoCloseSharp size={20} />} onClick={onCloseModal}>
-              Fechar
-            </Button>
+            <Button onClick={onCloseModal}>Fechar</Button>
           ) : editTodo ? (
-            <Button
-              type="submit"
-              icon={<FaEdit size={15} />}
-              loading={isSubmitting}
-            >
+            <Button type="submit" loading={isSubmitting}>
               Salvar alterações
             </Button>
           ) : (
-            <Button
-              color="danger"
-              type="submit"
-              icon={<BsTrash size={15} />}
-              loading={isSubmitting}
-            >
+            <Button color="danger" type="submit" loading={isSubmitting}>
               Confirmar exclusão
             </Button>
           )}
