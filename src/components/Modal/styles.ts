@@ -19,10 +19,9 @@ export const Wrapper = styled.div`
 
   position: relative;
   text-align: flex;
-  width: 550px;
+  width: 600px;
   background: ${({ theme }) => theme.colors.background};
   border-radius: 5px;
-  border: 1px solid ${({ theme }) => theme.colors.gray[200]};
   header {
     margin: 15px 0;
     border-bottom: 1px solid ${({ theme }) => theme.colors.gray[200]};
@@ -44,12 +43,6 @@ export const Wrapper = styled.div`
 
       > svg {
         cursor: pointer;
-
-        transition: transform 0.3s;
-
-        &:hover {
-          transform: scale(1.2);
-        }
       }
     }
   }

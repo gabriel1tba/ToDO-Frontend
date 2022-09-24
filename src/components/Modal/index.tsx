@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { MdClose } from 'react-icons/md';
 
@@ -7,6 +8,18 @@ import { IModal } from './interfaces';
 
 const Modal = ({ title, children, open, onCloseModal }: IModal) => {
   const portalRoot = document.querySelector('#portal-modal-root') as Element;
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onCloseModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onCloseModal]);
 
   if (!open) return null;
 

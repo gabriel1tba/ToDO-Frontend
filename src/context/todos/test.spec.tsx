@@ -124,37 +124,4 @@ describe('<TodoProvider />', () => {
       expect(result.current.todos).toStrictEqual([todoMock[0]]);
     });
   });
-
-  it('should run the getSearchTerm function correctly', async () => {
-    const setSearchTerm = jest.spyOn(React, 'useState');
-
-    const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <TodoProvider>{children}</TodoProvider>
-    );
-
-    const { result } = renderHook(() => useTodos(), {
-      wrapper,
-    });
-
-    // Create todos
-    await waitFor(() => {
-      result.current.todoDispatch({
-        type: ActionType.CreateTodo,
-        payload: todoMock[0],
-      });
-
-      result.current.todoDispatch({
-        type: ActionType.CreateTodo,
-        payload: todoMock[1],
-      });
-    });
-
-    await waitFor(() => {
-      result.current.getSearchTerm('teste');
-    });
-
-    await waitFor(() => {
-      expect(setSearchTerm).toBeCalled();
-    });
-  });
 });
