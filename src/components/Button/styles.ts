@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 interface WrapperButton {
   size: 'large' | 'normal';
-  color: 'primary' | 'warning' | 'danger' | 'success';
+  color: 'primary' | 'blue' | 'warning' | 'danger' | 'success';
 }
 
 const colorModifiers = {
@@ -17,6 +17,22 @@ const colorModifiers = {
     }
     :disabled {
       background: ${({ theme }) => theme.colors.primary.dark};
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  `,
+
+  blue: () => css`
+    background: ${({ theme }) => theme.colors.blue.main};
+
+    :hover {
+      background: ${({ theme }) => theme.colors.blue.light};
+    }
+    :active {
+      background: ${({ theme }) => theme.colors.blue.dark};
+    }
+    :disabled {
+      background: ${({ theme }) => theme.colors.blue.dark};
       opacity: 0.6;
       cursor: not-allowed;
     }

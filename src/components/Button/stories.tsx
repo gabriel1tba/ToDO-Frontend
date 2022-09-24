@@ -15,7 +15,10 @@ export default {
       type: 'string',
     },
     color: {
-      type: 'string',
+      control: {
+        type: 'select',
+        options: ['primary', 'blue', 'warning', 'danger', 'success'],
+      },
     },
     loading: {
       type: 'boolean',
