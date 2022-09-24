@@ -16,6 +16,7 @@ import ManageTodo from '../Forms/ManageTodo';
 import { ActionType } from 'context/todos/actions';
 
 import { ITodoItem } from 'components/TodoList/interfaces';
+import CheckBox from 'components/CheckBox';
 
 const TodoItem = ({ todo }: ITodoItem) => {
   const { addToast } = useToast();
@@ -97,10 +98,9 @@ const TodoItem = ({ todo }: ITodoItem) => {
       </Modal>
 
       <S.Wrapper>
-        <input
-          type="checkbox"
-          name="completed"
+        <CheckBox
           id="completed"
+          name="completed"
           checked={todo.completed}
           onChange={(event) => {
             handleCompletedTodo(event.target.checked);

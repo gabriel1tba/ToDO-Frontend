@@ -39,7 +39,7 @@ const colorModifiers = {
     color: ${({ theme }) => theme.colors.background};
   `,
 
-  main: () => css`
+  primary: () => css`
     color: ${({ theme }) => theme.colors.primary.main};
   `,
 };
@@ -59,7 +59,7 @@ export const Overlay = styled.div`
 
 interface ILoaderProps {
   size: number;
-  color: 'white' | 'main';
+  color: 'white' | 'primary';
 }
 
 export const Loader = styled.div<ILoaderProps>`

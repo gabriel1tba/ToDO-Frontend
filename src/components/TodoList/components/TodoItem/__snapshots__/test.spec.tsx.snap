@@ -31,37 +31,6 @@ exports[`<TodoItem /> should render the TodoItem correctly 1`] = `
   border: 0.5px solid rgba(0,0,0,0.125);
 }
 
-.c0 > input[type='checkbox'] {
-  width: 17px;
-  height: 17px;
-  margin: 5px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  box-shadow: none;
-  font-size: 2em;
-  border: solid 2px #00E676;
-}
-
-.c0 > input[type='checkbox']:checked {
-  background-color: #00E676;
-  display: inline-block;
-  padding-top: -2px;
-  padding-left: 3px;
-}
-
-.c0 > input[type='checkbox']:checked:after {
-  content: '';
-  display: block;
-  width: 4.5px;
-  height: 9px;
-  border: solid #FFFFFF;
-  border-width: 0 2px 2px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
 .c0 > a {
   cursor: pointer;
   width: calc(100vw - 860px);
@@ -81,10 +50,39 @@ exports[`<TodoItem /> should render the TodoItem correctly 1`] = `
   margin-left: 5px;
 }
 
+.c1 {
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: solid 2px #2979FF;
+}
+
+.c1:checked {
+  background-color: #2979FF;
+  padding-top: 1px;
+  padding-left: 4px;
+}
+
+.c1:checked:after {
+  content: '';
+  display: block;
+  height: 9px;
+  width: 4.5px;
+  border: solid #FFFFFF;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 <li
   class="c0"
 >
   <input
+    class="c1"
     id="completed"
     name="completed"
     type="checkbox"

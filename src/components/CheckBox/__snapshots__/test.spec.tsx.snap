@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Checkbox /> should render the Checkbox square border correctly 1`] = `
+.c0 {
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: solid 2px #2979FF;
+}
+
+.c0:checked {
+  background-color: #2979FF;
+  padding-top: 1px;
+  padding-left: 4px;
+}
+
+.c0:checked:after {
+  content: '';
+  display: block;
+  height: 9px;
+  width: 4.5px;
+  border: solid #FFFFFF;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<input
+  class="c0"
+  type="checkbox"
+/>
+`;

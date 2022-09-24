@@ -2,5 +2,5 @@ export interface ILoader {
   isLoading?: boolean;
   alwaysOnTop?: boolean;
   size: number;
-  color?: 'white' | 'main';
+  color?: 'white' | 'primary';
 }

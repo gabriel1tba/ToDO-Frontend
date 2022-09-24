@@ -7,7 +7,7 @@ import { ILoader } from './interfaces';
 const Loader = ({
   isLoading = true,
   alwaysOnTop = false,
-  color = 'main',
+  color = 'primary',
   size,
 }: ILoader) => {
   const portalRoot = document.querySelector('#portal-loader-root') as Element;
