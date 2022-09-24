@@ -119,6 +119,6 @@ export const WrapperLoading = styled.div<Omit<WrapperButton, 'color'>>`
   justify-content: center;
 
   > div {
-    margin-right: ${({ size }) => (size === 'large' ? '24px' : '12px')};
+    margin-left: ${({ size }) => (size === 'large' ? '24px' : '12px')};
   }
 `;

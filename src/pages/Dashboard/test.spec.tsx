@@ -30,11 +30,11 @@ const storedUser = {
   token: 'eyJhbGCIpXVCJ9.eU3NywicDQyZTk5In0.S_IaG-UxiO08M',
 };
 
-jest.mock('components/Loading', () => {
+jest.mock('components/Loader', () => {
   return {
     __esModule: true,
     default: function Mock() {
-      return <div data-testid="Mock Loading"></div>;
+      return <div data-testid="Mock Loader"></div>;
     },
   };
 });
@@ -82,7 +82,7 @@ describe('<Dashboard />', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId('Mock Loading')).toBeInTheDocument();
+      expect(screen.getByTestId('Mock Loader')).toBeInTheDocument();
       expect(screen.getByTestId('Mock Header')).toBeInTheDocument();
     });
   });

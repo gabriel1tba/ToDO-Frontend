@@ -3,6 +3,15 @@ import { FiPlus } from 'react-icons/fi';
 
 import Button from '.';
 
+jest.mock('components/Loader', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock Loader"></div>;
+    },
+  };
+});
+
 describe('<Button />', () => {
   it('should render the Button correctly', () => {
     const { container } = render(<Button>Salvar</Button>);
@@ -33,7 +42,9 @@ describe('<Button />', () => {
   it('should render the Button correctly with loading true', () => {
     render(<Button loading>Com loading</Button>);
 
-    expect(screen.getByText(/carregando.../i)).toBeInTheDocument();
+    expect(screen.getByText(/Com loading/i)).toBeInTheDocument();
+
+    expect(screen.getByTestId('Mock Loader')).toBeInTheDocument();
   });
 
   it('should render the Button correctly with large size', () => {

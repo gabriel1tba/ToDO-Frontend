@@ -57,12 +57,12 @@ export const Overlay = styled.div`
   justify-content: center;
 `;
 
-interface ILoadingProps {
+interface ILoaderProps {
   size: number;
   color: 'white' | 'main';
 }
 
-export const Loading = styled.div<ILoadingProps>`
+export const Loader = styled.div<ILoaderProps>`
   font-size: ${({ size }) => size}px;
   text-indent: -9999em;
   overflow: hidden;

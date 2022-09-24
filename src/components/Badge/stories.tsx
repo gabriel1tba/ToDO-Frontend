@@ -22,9 +22,9 @@ export default {
 export const Default: Story<IBadge> = (args) => <Badge {...args} />;
 
 Default.args = {
-  title: 'Info',
-  fontColor: '#5061FC',
-  backgroundColor: '#E0E3FF',
+  title: '1 de 5',
+  fontColor: '#D9D9D9',
+  backgroundColor: '#333333',
 };
 
 export const Success: Story<IBadge> = (args) => <Badge {...args} />;

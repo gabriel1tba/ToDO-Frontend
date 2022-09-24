@@ -4,11 +4,12 @@ exports[`<Badge /> should render the Badge correctly 1`] = `
 .c0 {
   cursor: default;
   display: inline-block;
-  border-radius: 3rem;
+  border-radius: 10px;
   text-align: start;
-  height: 25px;
+  font-weight: 700;
   font-size: 14px;
-  font-weight: 500;
+  line-height: 15px;
+  height: 25px;
   padding: 0.3rem 0.6rem 0.1rem;
 }
 

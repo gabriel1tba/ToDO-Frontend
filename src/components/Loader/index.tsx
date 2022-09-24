@@ -2,28 +2,28 @@ import ReactDOM from 'react-dom';
 
 import * as S from './styles';
 
-import { ILoading } from './interfaces';
+import { ILoader } from './interfaces';
 
-const Loading = ({
+const Loader = ({
   isLoading = true,
-  onTop = false,
+  alwaysOnTop = false,
   color = 'main',
   size,
-}: ILoading) => {
+}: ILoader) => {
   const portalRoot = document.querySelector('#portal-loader-root') as Element;
 
   if (!isLoading) return null;
 
-  return onTop ? (
+  return alwaysOnTop ? (
     ReactDOM.createPortal(
       <S.Overlay>
-        <S.Loading size={size} color={color} />
+        <S.Loader size={size} color={color} data-testid="loader" />
       </S.Overlay>,
       portalRoot
     )
   ) : (
-    <S.Loading size={size} color={color} />
+    <S.Loader size={size} color={color} />
   );
 };
 
-export default Loading;
+export default Loader;

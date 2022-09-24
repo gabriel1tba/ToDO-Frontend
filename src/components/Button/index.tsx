@@ -1,6 +1,6 @@
 import * as S from './styles';
 
-import Loading from 'components/Loading';
+import Loader from 'components/Loader';
 
 import { IButton } from './interfaces';
 
@@ -23,7 +23,7 @@ const Button = ({
   >
     {loading ? (
       <S.WrapperLoading size={size}>
-        <Loading size={12} color="white" /> Carregando...
+        {children} <Loader size={12} color="white" />
       </S.WrapperLoading>
     ) : (
       <>

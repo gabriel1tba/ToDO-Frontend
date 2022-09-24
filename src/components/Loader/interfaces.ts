@@ -1,6 +1,6 @@
-export interface ILoading {
+export interface ILoader {
   isLoading?: boolean;
-  onTop?: boolean;
+  alwaysOnTop?: boolean;
   size: number;
   color?: 'white' | 'main';
 }

@@ -1,7 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { Switch } from 'react-router-dom';
 
-import Loading from 'components/Loading';
+import Loader from 'components/Loader';
 
 import Route from './Route';
 
@@ -12,7 +12,7 @@ const Dashboard = lazy(() => import('pages/Dashboard'));
 
 const Routes = () => {
   return (
-    <Suspense fallback={<Loading size={90} onTop />}>
+    <Suspense fallback={<Loader size={90} alwaysOnTop />}>
       <Switch>
         <Route path="/" exact component={SignIn} />
         <Route path="/register" component={SignUp} />

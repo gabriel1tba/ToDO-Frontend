@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Loading /> should render the Loading correctly 1`] = `
+exports[`<Loader /> should render the Loader correctly 1`] = `
 .c0 {
   position: absolute;
   right: 0;

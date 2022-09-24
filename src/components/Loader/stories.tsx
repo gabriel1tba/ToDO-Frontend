@@ -1,11 +1,11 @@
 import { Story, Meta } from '@storybook/react';
 
-import Loading from '.';
-import { ILoading } from './interfaces';
+import Loader from '.';
+import { ILoader } from './interfaces';
 
 export default {
-  title: 'Loading',
-  component: Loading,
+  title: 'Loader',
+  component: Loader,
   argTypes: {
     isLoading: {
       type: 'boolean',
@@ -13,7 +13,7 @@ export default {
   },
 } as Meta;
 
-export const Default: Story<ILoading> = (args) => <Loading {...args} />;
+export const Default: Story<ILoader> = (args) => <Loader {...args} />;
 
 Default.args = {
   isLoading: true,

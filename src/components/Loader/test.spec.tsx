@@ -1,14 +1,14 @@
 import { render } from 'utils/test-utils';
 
-import Loading from '.';
+import Loader from '.';
 
-describe('<Loading />', () => {
+describe('<Loader />', () => {
   beforeAll(() => {
     render(<div id="portal-loader-root" />);
   });
 
-  it('should render the Loading correctly', () => {
-    const { container } = render(<Loading size={32} onTop />);
+  it('should render the Loader correctly', () => {
+    const { container } = render(<Loader alwaysOnTop size={32} />);
 
     expect(container.firstChild).toMatchSnapshot();
   });

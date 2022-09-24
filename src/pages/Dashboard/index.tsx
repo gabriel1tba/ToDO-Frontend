@@ -8,7 +8,7 @@ import TodoService from 'services/TodoService';
 
 import Header from 'components/Header';
 import TodoList from 'components/TodoList';
-import Loading from 'components/Loading';
+import Loader from 'components/Loader';
 
 import { ActionType } from 'context/todos/actions';
 
@@ -50,7 +50,7 @@ const Dashboard = () => {
       <Header userName={user.name} onSignOut={signOut} />
 
       {isLoading ? (
-        <Loading isLoading={isLoading} size={90} />
+        <Loader isLoading={isLoading} size={90} />
       ) : (
         <S.Content>
           <TodoList />
