@@ -1,7 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 
-import * as S from './styles';
-
 import { useAuth, useToast, useTodos } from 'hooks';
 
 import TodoService from 'services/TodoService';
@@ -46,17 +44,11 @@ const Dashboard = () => {
   }, [getTodosFromApi]);
 
   return (
-    <S.Wrapper>
+    <>
       <Header userName={user.name} onSignOut={signOut} />
 
-      {isLoading ? (
-        <Loader isLoading={isLoading} size={90} />
-      ) : (
-        <S.Content>
-          <TodoList />
-        </S.Content>
-      )}
-    </S.Wrapper>
+      {isLoading ? <Loader isLoading={isLoading} size={90} /> : <TodoList />}
+    </>
   );
 };
 

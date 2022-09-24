@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 interface WrapperButton {
   size: 'large' | 'normal';
-  color: 'primary' | 'blue' | 'warning' | 'danger' | 'success';
+  color: 'primary' | 'info' | 'warning' | 'danger' | 'success';
 }
 
 const colorModifiers = {
@@ -22,17 +22,17 @@ const colorModifiers = {
     }
   `,
 
-  blue: () => css`
-    background: ${({ theme }) => theme.colors.blue.main};
+  info: () => css`
+    background: ${({ theme }) => theme.colors.info.main};
 
     :hover {
-      background: ${({ theme }) => theme.colors.blue.light};
+      background: ${({ theme }) => theme.colors.info.light};
     }
     :active {
-      background: ${({ theme }) => theme.colors.blue.dark};
+      background: ${({ theme }) => theme.colors.info.dark};
     }
     :disabled {
-      background: ${({ theme }) => theme.colors.blue.dark};
+      background: ${({ theme }) => theme.colors.info.dark};
       opacity: 0.6;
       cursor: not-allowed;
     }
@@ -89,10 +89,7 @@ const colorModifiers = {
 
 const sizeModifiers = {
   normal: () => css`
-    display: flex;
-    align-items: center;
     height: 38px;
-    margin-top: 30px;
     padding: 0.375rem 1rem;
     color: #fff;
     font-size: 1rem;
@@ -100,11 +97,6 @@ const sizeModifiers = {
     font-weight: 400;
     border: 1px solid transparent;
     border-radius: 0.25rem;
-
-    svg {
-      margin-left: -4px;
-      margin-right: 4px;
-    }
   `,
 
   large: () => css`
@@ -115,14 +107,21 @@ const sizeModifiers = {
     padding: 0 16px;
     width: 100%;
     font-weight: 500;
-    margin-top: 16px;
 
     font-size: 18px;
   `,
 };
 
 export const Wrapper = styled.button<WrapperButton>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   transition: background 0.2s ease-in;
+
+  svg {
+    margin-left: 0.25rem;
+  }
 
   ${({ size }) => sizeModifiers[size]()};
 

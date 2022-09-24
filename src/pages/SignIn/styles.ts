@@ -65,6 +65,10 @@ export const AnimationContainer = styled.div`
       }
     }
 
+    button {
+      margin-top: 16px;
+    }
+
     @media (max-width: 1024px) {
       width: 400px;
     }

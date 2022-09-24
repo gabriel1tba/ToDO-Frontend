@@ -66,6 +66,10 @@ export const AnimationContainer = styled.div`
     }
   }
 
+  button {
+    margin-top: 16px;
+  }
+
   > a {
     color: ${({ theme }) => theme.colors.primary.main};
     margin-top: -30px;

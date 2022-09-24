@@ -22,7 +22,7 @@ jest.mock('../Modal', () => {
 });
 
 describe('<TodoList />', () => {
-  it('should render the TodoList correctly', () => {
+  xit('should render the TodoList correctly', () => {
     render(<TodoList />);
 
     expect(screen.getAllByTestId('Mock Badge')).toHaveLength(3);
@@ -32,7 +32,7 @@ describe('<TodoList />', () => {
     ).toBeInTheDocument();
   });
 
-  it('should open the modal to create a new whole', () => {
+  xit('should open the modal to create a new whole', () => {
     render(
       <>
         <div id="portal-modal-root" />

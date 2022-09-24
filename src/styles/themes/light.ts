@@ -9,7 +9,7 @@ const light = {
       light: '#FFA726',
       lighter: '#FFF3E0',
     },
-    blue: {
+    info: {
       main: '#2979FF',
       dark: '#2962FF',
       light: '#448AFF',

@@ -1,20 +1,6 @@
-import styled, { keyframes } from 'styled-components';
-
-export const animationFromAbove = keyframes`
-  from{
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to{
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  animation: ${animationFromAbove} 0.7s;
-
   label {
     display: block;
     padding-top: calc(0.375rem + 1px);
@@ -59,4 +45,8 @@ export const Wrapper = styled.div`
 export const Footer = styled.div`
   display: flex;
   justify-content: flex-end;
+
+  button {
+    margin-top: 1.5rem;
+  }
 `;

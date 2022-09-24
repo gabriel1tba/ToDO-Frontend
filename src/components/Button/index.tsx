@@ -27,7 +27,7 @@ const Button = ({
       </S.WrapperLoading>
     ) : (
       <>
-        {icon} {children}
+        {children} {icon}
       </>
     )}
   </S.Wrapper>

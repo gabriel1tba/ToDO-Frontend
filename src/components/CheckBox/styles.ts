@@ -9,10 +9,10 @@ export const Wrapper = styled.input<WrapperProps>`
   height: 20px;
   border-radius: ${({ border }) => (border === 'round' ? '50%' : '0')};
   appearance: none;
-  border: solid 2px ${({ theme }) => theme.colors.blue.main};
+  border: solid 2px ${({ theme }) => theme.colors.info.main};
 
   &:checked {
-    background-color: ${({ theme }) => theme.colors.blue.main};
+    background-color: ${({ theme }) => theme.colors.info.main};
     padding-top: 1px;
     padding-left: 4px;
 

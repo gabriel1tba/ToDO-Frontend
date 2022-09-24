@@ -2,6 +2,12 @@
 
 exports[`<Header /> should render the Header correctly 1`] = `
 .c0 {
+  width: 100vw;
+  height: 90px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -14,30 +20,27 @@ exports[`<Header /> should render the Header correctly 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  width: 100vw;
-  height: 90px;
-  padding: 0 10rem;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  margin: 0 auto;
+  max-width: 1232px;
+  padding: 0 2rem;
 }
 
-.c0 .logo-name-container {
+.c1 div:first-child {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
-.c0 .logo-name-container > img {
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-  margin-left: -40px;
-  -webkit-transform: scale(0.8);
-  -ms-transform: scale(0.8);
-  transform: scale(0.8);
+.c1 div:first-child img {
+  margin-top: 0.25rem;
 }
 
-.c0 .logo-name-container > div {
+.c1 div:first-child div {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -55,11 +58,11 @@ exports[`<Header /> should render the Header correctly 1`] = `
   justify-content: center;
 }
 
-.c0 .logo-name-container > div > h3 {
+.c1 div:first-child div h3 {
   color: #ff9000;
 }
 
-.c0 .input-logout-container {
+.c1 div:last-child {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -70,176 +73,44 @@ exports[`<Header /> should render the Header correctly 1`] = `
   align-items: center;
 }
 
-.c0 .input-logout-container > button {
+.c1 div:last-child > button {
   background: none;
   border: none;
 }
 
-.c0 .input-logout-container > button svg {
+.c1 div:last-child > button svg {
   color: #ff9000;
 }
 
-.c1 {
-  width: 180px;
-  height: 35px;
-  color: #424242;
-  margin-right: 30px;
-  border-radius: 5px;
-  background: transparent;
-  border: solid 1px rgba(0,0,0,0.2);
-  color: rgba(0,0,0,0.5);
-  font-size: 15px;
-  padding: 8px;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-}
-
-.c1:focus {
-  width: 280px;
-  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
-}
-
-.c1:focus::-webkit-input-placeholder {
-  color: rgba(0,0,0,0.3);
-}
-
-.c1:focus::-moz-placeholder {
-  color: rgba(0,0,0,0.3);
-}
-
-.c1:focus:-ms-input-placeholder {
-  color: rgba(0,0,0,0.3);
-}
-
-.c1:focus::placeholder {
-  color: rgba(0,0,0,0.3);
-}
-
-.c1::-webkit-input-placeholder {
-  color: rgba(0,0,0,0.5);
-  font-size: 15px;
-}
-
-.c1::-moz-placeholder {
-  color: rgba(0,0,0,0.5);
-  font-size: 15px;
-}
-
-.c1:-ms-input-placeholder {
-  color: rgba(0,0,0,0.5);
-  font-size: 15px;
-}
-
-.c1::placeholder {
-  color: rgba(0,0,0,0.5);
-  font-size: 15px;
-}
-
-@media (max-width:1024px) {
-  .c0 {
-    padding: 0 8rem;
-  }
-}
-
-@media (max-width:768px) {
-  .c0 {
-    padding: 0 4rem;
-  }
-}
-
-@media (max-width:540px) {
-  .c0 {
-    padding: 0 1rem;
-    height: 70px;
-  }
-}
-
 @media (max-width:360px) {
-  .c0 {
-    padding: 0 10px;
+  .c1 {
     height: 60px;
   }
 }
 
+@media (max-width:540px) {
+  .c1 div:first-child div h3 {
+    font-size: 16px;
+  }
+
+  .c1 div:first-child div h4 {
+    font-size: 14px;
+  }
+}
+
 @media (max-width:768px) {
-  .c0 .logo-name-container h3 {
-    font-size: 15px;
-  }
-
-  .c0 .logo-name-container h4 {
-    font-size: 13px;
-  }
-
-  .c0 .logo-name-container img {
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    margin-left: -50px;
+  .c1 div:first-child img {
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
   }
 }
 
 @media (max-width:540px) {
-  .c0 .logo-name-container h3 {
-    display: none;
-  }
-
-  .c0 .logo-name-container h4 {
-    display: none;
-  }
-
-  .c0 .logo-name-container img {
+  .c1 div:first-child img {
     -webkit-transform: scale(0.4);
     -ms-transform: scale(0.4);
     transform: scale(0.4);
-  }
-}
-
-@media (max-width:540px) {
-  .c0 .input-logout-container > button {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-}
-
-@media (max-width:360px) {
-  .c0 .input-logout-container > button {
-    padding: 0 10px;
-    margin-left: 0;
-    margin-right: 10px;
-  }
-}
-
-@media (max-width:1024px) {
-  .c1 {
-    margin-right: 30px;
-  }
-}
-
-@media (max-width:768px) {
-  .c1 {
-    margin-right: 30px;
-  }
-}
-
-@media (max-width:441px) {
-  .c1 {
-    width: 120px;
-    margin-right: 20px;
-  }
-
-  .c1:focus {
-    width: 150px;
-  }
-}
-
-@media (max-width:360px) {
-  .c1 {
-    width: 100px;
-    margin-right: 5px;
-  }
-
-  .c1:focus {
-    width: 120px;
   }
 }
 
@@ -247,52 +118,45 @@ exports[`<Header /> should render the Header correctly 1`] = `
   class="c0"
 >
   <div
-    class="logo-name-container"
+    class="c1"
   >
-    <img
-      alt="logo image"
-      src="logo.png"
-    />
     <div>
-      <h4>
-        Seja bem-vindo,
-      </h4>
-      <h3>
-        Gabriel Ferreira
-      </h3>
+      <img
+        alt="logo image"
+        src="logo.png"
+      />
+      <div>
+        <h4>
+          Seja bem-vindo,
+        </h4>
+        <h3>
+          Gabriel Ferreira
+        </h3>
+      </div>
     </div>
-  </div>
-  <div
-    class="input-logout-container"
-  >
-    <input
-      class="c1"
-      placeholder="Pesquisar tarefas..."
-      type="search"
-    />
-    <button
-      data-testid="sign-out"
-    >
-      <svg
-        fill="currentColor"
-        height="32"
-        stroke="currentColor"
-        stroke-width="0"
-        viewBox="0 0 24 24"
-        width="32"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g>
-          <path
-            d="M0 0h24v24H0z"
-            fill="none"
-          />
-          <path
-            d="M6.265 3.807l1.147 1.639a8 8 0 1 0 9.176 0l1.147-1.639A9.988 9.988 0 0 1 22 12c0 5.523-4.477 10-10 10S2 17.523 2 12a9.988 9.988 0 0 1 4.265-8.193zM11 12V2h2v10h-2z"
-          />
-        </g>
-      </svg>
-    </button>
+    <div>
+      <button>
+        <svg
+          fill="currentColor"
+          height="32"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M6.265 3.807l1.147 1.639a8 8 0 1 0 9.176 0l1.147-1.639A9.988 9.988 0 0 1 22 12c0 5.523-4.477 10-10 10S2 17.523 2 12a9.988 9.988 0 0 1 4.265-8.193zM11 12V2h2v10h-2z"
+            />
+          </g>
+        </svg>
+      </button>
+    </div>
   </div>
 </header>
 `;

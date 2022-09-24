@@ -19,12 +19,6 @@ describe('<Header />', () => {
       screen.getByRole('heading', { name: /gabriel ferreira/i })
     ).toBeInTheDocument();
 
-    expect(screen.getByRole('searchbox')).toHaveProperty('type', 'search');
-
-    expect(
-      screen.getByPlaceholderText(/pesquisar tarefas.../i)
-    ).toBeInTheDocument();
-
     expect(screen.getByRole('button')).toBeInTheDocument();
 
     expect(container.firstChild).toMatchSnapshot();
@@ -52,18 +46,5 @@ describe('<Header />', () => {
     expect(
       screen.queryByPlaceholderText(/pesquisar tarefas.../i)
     ).not.toBeInTheDocument();
-  });
-
-  it('should write in the input', () => {
-    render(<Header userName="Gabriel Ferreira" onSignOut={() => ({})} />);
-
-    userEvent.type(
-      screen.getByPlaceholderText(/pesquisar tarefas.../i),
-      'Testes finalizados'
-    );
-
-    expect(screen.getByPlaceholderText(/pesquisar tarefas.../i)).toHaveValue(
-      'Testes finalizados'
-    );
   });
 });

@@ -16,7 +16,7 @@ export default {
     color: {
       control: {
         type: 'select',
-        options: ['main', 'white'],
+        options: ['primary', 'white'],
       },
     },
     size: {
@@ -42,7 +42,7 @@ export const Default: Story<ILoader> = (args) => (
 Default.args = {
   isLoading: true,
   alwaysOnTop: false,
-  color: 'main',
+  color: 'primary',
   size: 32,
 };
 

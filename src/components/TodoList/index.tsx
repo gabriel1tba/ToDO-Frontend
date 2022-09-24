@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { FiPlus } from 'react-icons/fi';
+import { useState, useMemo } from 'react';
+import { BiPlusCircle } from 'react-icons/bi';
 import { useTheme } from 'styled-components';
 
 import * as S from './styles';
@@ -10,16 +10,26 @@ import Badge from '../Badge';
 import Modal from '../Modal';
 import TodoItem from './components/TodoItem';
 import NewTodo from './components/Forms/NewTodo';
+import Button from 'components/Button';
 
 import magnifierQuestion from 'assets/icons/magnifier-question.svg';
 
 import { ITodo } from 'interfaces';
 
 const TodoList = () => {
-  const { todos, filteredTodos, searchTerm } = useTodos();
   const theme = useTheme();
-
+  const { todos } = useTodos();
   const [openModal, handleToggleModal] = useToggle();
+
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredTodos = useMemo(
+    () =>
+      todos.filter((todo) =>
+        todo.title.toLowerCase().includes(searchTerm.toLowerCase())
+      ),
+    [todos, searchTerm]
+  );
 
   const quantities = useMemo(
     () =>
@@ -29,7 +39,6 @@ const TodoList = () => {
             acc.completeds += Number(todo.completed);
             acc.total += Number(todo.completed);
           } else if (!todo.completed) {
-            acc.pendings += Number(!todo.completed);
             acc.total += Number(!todo.completed);
           }
 
@@ -37,7 +46,6 @@ const TodoList = () => {
         },
         {
           completeds: 0,
-          pendings: 0,
           total: 0,
         }
       ),
@@ -46,64 +54,48 @@ const TodoList = () => {
 
   return (
     <S.Wrapper>
+      <S.ListHeader>
+        <input
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+
+        <Button
+          color="primary"
+          icon={<BiPlusCircle />}
+          onClick={handleToggleModal}
+        >
+          Nova tarefa
+        </Button>
+      </S.ListHeader>
+
+      <S.ListInfos>
+        <div>
+          <p>Tarefas criadas</p>
+          <Badge
+            title={quantities.total}
+            fontColor="#D9D9D9"
+            backgroundColor="#333333"
+          />
+        </div>
+
+        <div>
+          <p>Concluídas</p>
+          <Badge
+            title={`${quantities.completeds} de ${quantities.total} `}
+            fontColor="#D9D9D9"
+            backgroundColor="#333333"
+          />
+        </div>
+      </S.ListInfos>
+
       <Modal
         title="Nova tarefa"
-        onCloseModal={handleToggleModal}
         open={openModal}
+        onCloseModal={handleToggleModal}
       >
         <NewTodo onCloseModal={handleToggleModal} />
       </Modal>
-
-      <S.TodoWrapper hastodos={!!filteredTodos.length}>
-        <div id="header">
-          <p>{todos.length ? 'Suas tarefas' : 'Sem tarefas'}</p>
-          <div id="badges">
-            <Badge
-              title={`Totais ${quantities.total}`}
-              fontColor={theme.colors.blue.main}
-              backgroundColor={theme.colors.blue.lighter}
-            />
-            <Badge
-              title={`Concluídas ${quantities.completeds}`}
-              fontColor={theme.colors.success.dark}
-              backgroundColor={theme.colors.success.lighter}
-            />
-            <Badge
-              title={`Pendentes ${quantities.pendings}`}
-              fontColor={theme.colors.danger.main}
-              backgroundColor={theme.colors.danger.lighter}
-            />
-          </div>
-        </div>
-        <S.TodosList hastodos={!!filteredTodos.length}>
-          {!!filteredTodos.length &&
-            filteredTodos
-              .sort((a: ITodo, b: ITodo) =>
-                a.created_at.localeCompare(b.created_at)
-              )
-              .map((todo) => <TodoItem key={todo.id} todo={todo} />)}
-
-          {filteredTodos.length < 1 && searchTerm.length > 0 ? null : (
-            <button onClick={handleToggleModal}>
-              <FiPlus size={25} />
-              {todos.length
-                ? 'Adicionar tarefa'
-                : 'Adicione sua primeira tarefa'}
-            </button>
-          )}
-        </S.TodosList>
-      </S.TodoWrapper>
-
-      {filteredTodos.length < 1 && searchTerm.length > 0 && (
-        <S.SearchNotFoundContainer>
-          <img src={magnifierQuestion} alt="Lente de aumento de cor vermelha" />
-
-          <span>
-            Nenhum resultado foi encontrado para <strong>”{searchTerm}”</strong>
-            .
-          </span>
-        </S.SearchNotFoundContainer>
-      )}
     </S.Wrapper>
   );
 };

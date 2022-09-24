@@ -1,133 +1,68 @@
-import styled, { keyframes } from 'styled-components';
-
-interface IStyled {
-  hastodos: boolean;
-}
-
-const animationFromRight = keyframes`
-  from{
-    opacity: 0;
-    transform: translateX(20px);
-  }
-
-  to{
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
-
-const animationFromLeft = keyframes`
-  from{
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-
-  to{
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
-
-export const animationFromAbove = keyframes`
-  from{
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to{
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 1032px;
+  padding: 0 2rem;
+  margin: 4rem auto;
 `;
 
-export const TodoWrapper = styled.div<IStyled>`
+export const ListHeader = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
 
-  #header {
-    animation: ${animationFromLeft} 1s;
+  gap: 0.5rem;
 
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    width: ${({ hastodos }) => (hastodos ? '100%' : '788px')};
+  @media (max-width: 360px) {
+    flex-direction: column;
 
-    p {
-      display: block;
-      margin: 5px 45px
-        ${({ hastodos }) => (hastodos ? '20px 8px' : '25px 45px')};
-      font-family: inherit;
+    button {
+      min-width: 100%;
+    }
+  }
+
+  input {
+    height: 54px;
+    width: 100%;
+    padding: 16px;
+
+    border: 1px solid #0d0d0d;
+    border-radius: 8px;
+
+    font-size: 24px;
+  }
+
+  button {
+    height: 54px;
+    width: 160px;
+    font-weight: 700;
+
+    svg {
       font-size: 18px;
-      line-height: 1.2;
-      color: ${({ theme }) => theme.colors.gray[500]};
-    }
-
-    @media (max-width: 1200px) {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-
-  #badges {
-    span {
-      margin-left: ${({ hastodos }) => (hastodos ? '10px' : '45px')};
     }
   }
 `;
 
-export const TodosList = styled.ul<IStyled>`
-  animation: ${animationFromRight} 1s;
-
-  width: ${({ hastodos }) => (hastodos ? '100%' : '710px')};
-
-  > button {
-    display: flex;
-    align-items: center;
-    align-self: flex-start;
-
-    width: 260px;
-    height: 38px;
-    font-weight: 500;
-    font-size: 17px;
-    margin-top: 10px;
-    background-color: transparent;
-    border: 0;
-    margin-left: 5px;
-
-    transition: color 0.2s ease-in;
-
-    color: ${({ theme }) => theme.colors.primary.main};
-
-    :hover {
-      color: ${({ theme }) => theme.colors.primary.light};
-    }
-    :active {
-      color: ${({ theme }) => theme.colors.primary.dark};
-    }
-
-    > svg {
-      margin-right: 10px;
-    }
-  }
-`;
-
-export const SearchNotFoundContainer = styled.div`
+export const ListInfos = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 40px;
 
-  animation: ${animationFromAbove} 0.7s;
+  margin-top: 3rem;
 
-  span {
-    color: ${({ theme }) => theme.colors.gray[200]};
-    margin-left: 16px;
-    word-break: break-word;
+  p {
+    display: inline-block;
+    margin-right: 0.5rem;
+    font-weight: 700;
+    line-height: 17px;
+  }
+
+  div:first-child p {
+    color: ${({ theme }) => theme.colors.primary.main};
+  }
+
+  div:last-child p {
+    color: ${({ theme }) => theme.colors.info.dark};
   }
 `;

@@ -17,7 +17,7 @@ export default {
     color: {
       control: {
         type: 'select',
-        options: ['primary', 'blue', 'warning', 'danger', 'success'],
+        options: ['primary', 'info', 'warning', 'danger', 'success'],
       },
     },
     loading: {
