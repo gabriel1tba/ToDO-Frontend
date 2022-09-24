@@ -10,11 +10,60 @@ export default {
     isLoading: {
       type: 'boolean',
     },
+    alwaysOnTop: {
+      type: 'boolean',
+    },
+    color: {
+      control: {
+        type: 'select',
+        options: ['main', 'white'],
+      },
+    },
+    size: {
+      type: 'number',
+    },
   },
 } as Meta;
 
-export const Default: Story<ILoader> = (args) => <Loader {...args} />;
+export const Default: Story<ILoader> = (args) => (
+  <div
+    style={{
+      height: '90vh',
+      width: '90vw',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+  >
+    <Loader {...args} />
+  </div>
+);
 
 Default.args = {
   isLoading: true,
+  alwaysOnTop: false,
+  color: 'main',
+  size: 32,
+};
+
+export const White: Story<ILoader> = (args) => (
+  <div
+    style={{
+      backgroundColor: '#000',
+      height: '90vh',
+      width: '90vw',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+  >
+    <Loader {...args} />
+  </div>
+);
+
+White.args = {
+  isLoading: true,
+  alwaysOnTop: false,
+  color: 'white',
+  size: 32,
 };
