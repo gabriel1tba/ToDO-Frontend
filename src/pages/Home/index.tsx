@@ -10,7 +10,7 @@ import Loader from 'components/Loader';
 
 import { ActionType } from 'context/todos/actions';
 
-const Dashboard = () => {
+const Home = () => {
   const { user, signOut } = useAuth();
   const { todoDispatch } = useTodos();
   const { addToast } = useToast();
@@ -52,4 +52,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Home;
