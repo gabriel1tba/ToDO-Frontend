@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { TbTrash, TbEdit } from 'react-icons/tb';
 
 import * as S from './styles';
@@ -22,6 +22,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
 
   const [openModal, handleToggleModal] = useToggle();
   const [openAlert, handleToggleAlert] = useToggle();
+  const [loadingAlert, toggleLoadingAlert] = useToggle();
 
   const [, setDidMount] = useState(false);
 
@@ -48,6 +49,33 @@ const TodoItem = ({ todo }: ITodoItem) => {
       });
     }
   };
+
+  const handleDeleteTodo = useCallback(async () => {
+    toggleLoadingAlert();
+
+    try {
+      await TodoService.deleteTodo({
+        id: todo.id,
+      });
+
+      todoDispatch({ type: ActionType.DeleteTodo, payload: todo });
+
+      addToast({
+        type: 'success',
+        title: 'Tarefa foi removida com sucesso.',
+        secondsDuration: 8,
+      });
+    } catch {
+      addToast({
+        type: 'error',
+        title: 'Erro ao remover tarefa!',
+        secondsDuration: 8,
+      });
+    } finally {
+      handleToggleAlert();
+      toggleLoadingAlert();
+    }
+  }, [toggleLoadingAlert, todo, todoDispatch, addToast, handleToggleAlert]);
 
   return (
     <>
@@ -80,10 +108,11 @@ const TodoItem = ({ todo }: ITodoItem) => {
 
       <Alert
         isOpen={openAlert}
+        isLoading={loadingAlert}
         title="Excluir tarefa"
         description="Tem certeza que deseja excluir essa tarefa?"
         onClose={handleToggleAlert}
-        onConfirm={handleToggleAlert}
+        onConfirm={handleDeleteTodo}
       />
     </>
   );

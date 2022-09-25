@@ -90,6 +90,11 @@ const colorModifiers = {
     background: transparent;
     border: 1px solid ${({ theme }) => theme.colors.gray[200]};
     color: ${({ theme }) => theme.colors.gray[500]};
+
+    :disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
   `,
 };
 
