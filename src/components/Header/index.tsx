@@ -1,14 +1,14 @@
 import { RiShutDownLine } from 'react-icons/ri';
-import { useHistory } from 'react-router';
 
 import * as S from './styles';
 
 import logoImg from 'assets/logo.png';
 
 import { IHeader } from './interfaces';
+import { useAuth } from 'hooks';
 
-const Header = ({ userName, onSignOut }: IHeader) => {
-  const history = useHistory();
+const Header = ({ userName }: IHeader) => {
+  const { signOut } = useAuth();
 
   return (
     <S.Wrapper>
@@ -26,7 +26,7 @@ const Header = ({ userName, onSignOut }: IHeader) => {
           </div>
         </div>
         <div>
-          <button onClick={() => (userName ? onSignOut() : history.push('/'))}>
+          <button onClick={signOut}>
             <RiShutDownLine size={40} />
           </button>
         </div>
