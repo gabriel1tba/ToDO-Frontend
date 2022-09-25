@@ -25,9 +25,11 @@ const TodoList = () => {
 
   const filteredTodos = useMemo(
     () =>
-      todos.filter((todo) =>
-        todo.title.toLowerCase().includes(searchTerm.toLowerCase())
-      ),
+      todos
+        .filter((todo) =>
+          todo.title.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        .sort((a: ITodo, b: ITodo) => a.created_at.localeCompare(b.created_at)),
     [todos, searchTerm]
   );
 
@@ -92,11 +94,7 @@ const TodoList = () => {
 
       <S.TodosWrapper>
         {Boolean(filteredTodos.length) &&
-          filteredTodos
-            .sort((a: ITodo, b: ITodo) =>
-              a.created_at.localeCompare(b.created_at)
-            )
-            .map((todo) => <TodoItem key={todo.id} todo={todo} />)}
+          filteredTodos.map((todo) => <TodoItem key={todo.id} todo={todo} />)}
       </S.TodosWrapper>
 
       {todos.length === 0 && (

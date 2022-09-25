@@ -1,6 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.div`
+interface WrapperProps {
+  isCompleted: boolean;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -31,4 +35,11 @@ export const Wrapper = styled.div`
       cursor: pointer;
     }
   }
+
+  ${({ isCompleted }) =>
+    isCompleted &&
+    css`
+      text-decoration: line-through;
+      color: #ccc;
+    `}
 `;

@@ -25,10 +25,8 @@ const TodoItem = ({ todo }: ITodoItem) => {
   const [showTodo, setShowTodo] = useState(false);
   const [editTodo, setEditTodo] = useState(false);
 
-  // State to useEffect cleanup function
   const [, setDidMount] = useState(false);
 
-  // useEffect cleanup function
   useEffect(() => {
     setDidMount(true);
     return () => setDidMount(false);
@@ -51,12 +49,6 @@ const TodoItem = ({ todo }: ITodoItem) => {
         secondsDuration: 8,
       });
     }
-  };
-
-  const handleViewTodo = () => {
-    setShowTodo(true);
-    setEditTodo(false);
-    hadleToggleModal();
   };
 
   const handleEditTodo = () => {
@@ -94,7 +86,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
         />
       </Modal>
 
-      <S.Wrapper>
+      <S.Wrapper isCompleted={todo.completed}>
         <CheckBox
           id="completed"
           border="round"
