@@ -4,23 +4,24 @@ import { TbTrash, TbEdit } from 'react-icons/tb';
 import * as S from './styles';
 
 import { useToast, useTodos, useToggle } from 'hooks';
+import { ActionType } from 'context/todos/actions';
 
 import TodoService from 'services/TodoService';
 
+import Alert from 'components/Alert';
 import Modal from 'components/Modal';
-
-import EditTodo from '../Forms/EditTodo';
-
-import { ActionType } from 'context/todos/actions';
+import CheckBox from 'components/CheckBox';
 
 import { ITodoItem } from 'components/TodoList/interfaces';
-import CheckBox from 'components/CheckBox';
+
+import EditTodo from '../Forms/EditTodo';
 
 const TodoItem = ({ todo }: ITodoItem) => {
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();
 
-  const [openModal, hadleToggleModal] = useToggle();
+  const [openModal, handleToggleModal] = useToggle();
+  const [openAlert, handleToggleAlert] = useToggle();
 
   const [, setDidMount] = useState(false);
 
@@ -50,14 +51,6 @@ const TodoItem = ({ todo }: ITodoItem) => {
 
   return (
     <>
-      <Modal
-        title="Editar tarefa"
-        onCloseModal={hadleToggleModal}
-        open={openModal}
-      >
-        <EditTodo todo={todo} onCloseModal={hadleToggleModal} />
-      </Modal>
-
       <S.Wrapper isCompleted={todo.completed}>
         <CheckBox
           id="completed"
@@ -72,10 +65,26 @@ const TodoItem = ({ todo }: ITodoItem) => {
         <p>{todo.title}</p>
 
         <div>
-          <TbEdit onClick={hadleToggleModal} />
-          <TbTrash />
+          <TbEdit onClick={handleToggleModal} />
+          <TbTrash onClick={handleToggleAlert} />
         </div>
       </S.Wrapper>
+
+      <Modal
+        title="Editar tarefa"
+        onCloseModal={handleToggleModal}
+        open={openModal}
+      >
+        <EditTodo todo={todo} onCloseModal={handleToggleModal} />
+      </Modal>
+
+      <Alert
+        isOpen={openAlert}
+        title="Excluir tarefa"
+        description="Tem certeza que deseja excluir essa tarefa?"
+        onClose={handleToggleAlert}
+        onConfirm={handleToggleAlert}
+      />
     </>
   );
 };

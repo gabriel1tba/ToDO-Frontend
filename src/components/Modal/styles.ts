@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
   text-align: flex;
   width: 600px;
   background: ${({ theme }) => theme.colors.background};
-  border-radius: 5px;
+  border-radius: 8px;
   header {
     margin: 15px 0;
     border-bottom: 1px solid ${({ theme }) => theme.colors.gray[200]};

@@ -16,7 +16,7 @@ import { schema } from './schema';
 
 import { ActionType } from 'context/todos/actions';
 
-import { IFormData, IEditTodo } from '../../../interfaces';
+import { IFormData, IEditTodo } from '../../interfaces';
 
 const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
   const {

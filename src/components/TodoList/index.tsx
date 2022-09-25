@@ -9,10 +9,10 @@ import { useTodos, useToggle } from 'hooks';
 
 import Badge from 'components/Badge';
 import Modal from 'components/Modal';
-import TodoItem from './components/TodoItem';
-import CreateTodo from './components/Forms/CreateTodo';
 import Button from 'components/Button';
 import Card from 'components/Card';
+import TodoItem from './TodoItem';
+import CreateTodo from './Forms/CreateTodo';
 
 import { ITodo } from 'interfaces';
 

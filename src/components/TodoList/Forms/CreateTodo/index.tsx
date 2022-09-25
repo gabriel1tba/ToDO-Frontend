@@ -13,7 +13,7 @@ import TodoService from 'services/TodoService';
 
 import { schema } from './schema';
 
-import { IFormData, ICreateTodo } from '../../../interfaces';
+import { IFormData, ICreateTodo } from '../../interfaces';
 
 import { ActionType } from 'context/todos/actions';
 

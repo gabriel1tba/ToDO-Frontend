@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react';
 
 import EditTodo from '.';
 
-import { IEditTodo } from '../../../interfaces';
+import { IEditTodo } from '../../interfaces';
 
 const todoMock = {
   id: '7b403461-2579-4635-af53-9c07f644f2ec',
