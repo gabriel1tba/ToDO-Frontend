@@ -2,7 +2,7 @@ import userEvent from '@testing-library/user-event';
 import { render, screen, waitFor } from 'utils/test-utils';
 import MockAdapter from 'axios-mock-adapter';
 
-import NewTodo from '.';
+import CreateTodo from '.';
 
 import HttpClient from 'services/utils/HttpClient';
 const apiMock = new MockAdapter(HttpClient);
@@ -18,7 +18,7 @@ const storedUser = {
   token: 'eyJhbGCIpXVCJ9.eU3NywicDQyZTk5In0.S_IaG-UxiO08M',
 };
 
-describe('<NewTodo />', () => {
+describe('<CreateTodo />', () => {
   beforeAll(() => {
     window.localStorage.setItem(
       '@TodoApp:user',
@@ -30,16 +30,16 @@ describe('<NewTodo />', () => {
     );
   });
 
-  it('should render NewTodo correctly', async () => {
-    render(<NewTodo onCloseModal={() => ({})} />);
+  it('should render CreateTodo correctly', async () => {
+    render(<CreateTodo onCloseModal={() => ({})} />);
 
     expect(screen.getByLabelText(/título/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/descrição/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /salvar/i })).toBeInTheDocument();
   });
 
-  it('should render NewTodo correctly with message erros on textbox', async () => {
-    render(<NewTodo onCloseModal={() => ({})} />);
+  it('should render CreateTodo correctly with message erros on textbox', async () => {
+    render(<CreateTodo onCloseModal={() => ({})} />);
 
     userEvent.click(screen.getByRole('button', { name: /salvar/i }));
 
@@ -50,7 +50,7 @@ describe('<NewTodo />', () => {
 
   it('should send data to the backend and close the form', async () => {
     const onCloseModal = jest.fn();
-    render(<NewTodo onCloseModal={onCloseModal} />);
+    render(<CreateTodo onCloseModal={onCloseModal} />);
 
     userEvent.type(screen.getByLabelText(/título/i), 'criar novo item');
     userEvent.type(screen.getByLabelText(/descrição/i), 'item de teste');
@@ -88,7 +88,7 @@ describe('<NewTodo />', () => {
 
   it('should receive an error status when send data', async () => {
     const onCloseModal = jest.fn();
-    render(<NewTodo onCloseModal={onCloseModal} />);
+    render(<CreateTodo onCloseModal={onCloseModal} />);
 
     userEvent.type(screen.getByLabelText(/título/i), 'criar novo item');
     userEvent.type(screen.getByLabelText(/descrição/i), 'item de teste');

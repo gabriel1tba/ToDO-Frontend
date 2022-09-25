@@ -10,7 +10,7 @@ import { useTodos, useToggle } from 'hooks';
 import Badge from 'components/Badge';
 import Modal from 'components/Modal';
 import TodoItem from './components/TodoItem';
-import NewTodo from './components/Forms/NewTodo';
+import CreateTodo from './components/Forms/CreateTodo';
 import Button from 'components/Button';
 import Card from 'components/Card';
 
@@ -110,7 +110,7 @@ const TodoList = () => {
         open={openModal}
         onCloseModal={handleToggleModal}
       >
-        <NewTodo onCloseModal={handleToggleModal} />
+        <CreateTodo onCloseModal={handleToggleModal} />
       </Modal>
     </S.Wrapper>
   );

@@ -47,7 +47,7 @@ export const Wrapper = styled.div<IWrapper>`
     flex: 1;
     border: 0;
     background: transparent;
-    font-size: 16px;
+    font-size: 1rem;
 
     resize: none;
 
@@ -66,12 +66,12 @@ export const Wrapper = styled.div<IWrapper>`
 
 export const Error = styled(Tooltip)`
   height: 20px;
-  margin-left: 16px;
+  margin-left: 1rem;
 
   span {
     background: ${({ theme }) => theme.colors.danger.main};
     color: ${({ theme }) => theme.colors.background};
-    font-size: 16px;
+    font-size: 1rem;
 
     &::before {
       border-color: ${({ theme }) => theme.colors.danger.main} transparent;

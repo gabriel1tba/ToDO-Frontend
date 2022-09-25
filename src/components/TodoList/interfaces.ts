@@ -8,13 +8,11 @@ export interface IFormData {
   description: string;
 }
 
-export interface INewTodo {
+export interface ICreateTodo {
   onCloseModal: () => void;
 }
 
-export interface IManageTodo {
+export interface IEditTodo {
   onCloseModal: () => void;
   todo: ITodo;
-  editTodo: boolean;
-  showTodo: boolean;
 }

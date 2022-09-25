@@ -9,7 +9,7 @@ import TodoService from 'services/TodoService';
 
 import Modal from 'components/Modal';
 
-import ManageTodo from '../Forms/ManageTodo';
+import EditTodo from '../Forms/EditTodo';
 
 import { ActionType } from 'context/todos/actions';
 
@@ -21,9 +21,6 @@ const TodoItem = ({ todo }: ITodoItem) => {
   const { todoDispatch } = useTodos();
 
   const [openModal, hadleToggleModal] = useToggle();
-
-  const [showTodo, setShowTodo] = useState(false);
-  const [editTodo, setEditTodo] = useState(false);
 
   const [, setDidMount] = useState(false);
 
@@ -51,39 +48,14 @@ const TodoItem = ({ todo }: ITodoItem) => {
     }
   };
 
-  const handleEditTodo = () => {
-    setShowTodo(false);
-    setEditTodo(true);
-    hadleToggleModal();
-  };
-
-  const handleDeleteTodo = () => {
-    setShowTodo(false);
-    setEditTodo(false);
-    hadleToggleModal();
-  };
-
-  const setModalTitle = () => {
-    return showTodo
-      ? 'Detalhes da tarefa'
-      : editTodo
-      ? 'Editar tarefa'
-      : 'Excluir tarefa';
-  };
-
   return (
     <>
       <Modal
-        title={setModalTitle()}
+        title="Editar tarefa"
         onCloseModal={hadleToggleModal}
         open={openModal}
       >
-        <ManageTodo
-          todo={todo}
-          editTodo={editTodo}
-          showTodo={showTodo}
-          onCloseModal={hadleToggleModal}
-        />
+        <EditTodo todo={todo} onCloseModal={hadleToggleModal} />
       </Modal>
 
       <S.Wrapper isCompleted={todo.completed}>
@@ -100,8 +72,8 @@ const TodoItem = ({ todo }: ITodoItem) => {
         <p>{todo.title}</p>
 
         <div>
-          <TbEdit onClick={handleEditTodo} />
-          <TbTrash onClick={handleDeleteTodo} />
+          <TbEdit onClick={hadleToggleModal} />
+          <TbTrash />
         </div>
       </S.Wrapper>
     </>

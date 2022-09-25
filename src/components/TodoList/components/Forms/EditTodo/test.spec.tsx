@@ -2,7 +2,7 @@ import userEvent from '@testing-library/user-event';
 import { render, screen, waitFor } from 'utils/test-utils';
 import MockAdapter from 'axios-mock-adapter';
 
-import ManageTodo from '.';
+import EditTodo from '.';
 
 import HttpClient from 'services/utils/HttpClient';
 const apiMock = new MockAdapter(HttpClient);
@@ -11,29 +11,23 @@ const todoItem = {
   id: '8841a292-315f-4fa8-b791-d20c1e2c6a7c',
   user_id: 'b6e24b25-af86-4137-a94b-92a5cdda920f',
   completed: false,
-  title: 'Testar form ManageTodo',
+  title: 'Testar form EditTodo',
   description: 'Testar em todos os modos',
   created_at: '2021-10-10T07:12:55.137Z',
   updated_at: '2021-11-10T07:32:52.716Z',
 };
 
-describe('<ManageTodo />', () => {
+describe('<EditTodo />', () => {
   beforeEach(() => {
     apiMock.reset();
   });
+
   // VIEW FORM TEST
-  it('should render ManageTodocorrectly', () => {
-    render(
-      <ManageTodo
-        todo={todoItem}
-        editTodo={false}
-        showTodo
-        onCloseModal={() => ({})}
-      />
-    );
+  it('should render EditTodocorrectly', () => {
+    render(<EditTodo todo={todoItem} onCloseModal={() => ({})} />);
 
     expect(screen.getByLabelText(/título/i)).toHaveValue(
-      'Testar form ManageTodo'
+      'Testar form EditTodo'
     );
     expect(screen.getByLabelText(/título/i)).toHaveStyle({
       pointerEvents: 'none',
@@ -58,31 +52,17 @@ describe('<ManageTodo />', () => {
   // VIEW FORM TEST
   it('should the method onCloseModal must be called correctly', () => {
     const onCloseModal = jest.fn();
-    render(
-      <ManageTodo
-        todo={todoItem}
-        editTodo={false}
-        showTodo
-        onCloseModal={onCloseModal}
-      />
-    );
+    render(<EditTodo todo={todoItem} onCloseModal={onCloseModal} />);
 
     userEvent.click(screen.getByRole('button', { name: /fechar/i }));
   });
 
   // EDIT FORM TEST
-  it('should render ManageTodo Edit Mode correctly', () => {
-    render(
-      <ManageTodo
-        todo={todoItem}
-        editTodo
-        showTodo={false}
-        onCloseModal={() => ({})}
-      />
-    );
+  it('should render EditTodo Edit Mode correctly', () => {
+    render(<EditTodo todo={todoItem} onCloseModal={() => ({})} />);
 
     expect(screen.getByLabelText(/título/i)).toHaveValue(
-      'Testar form ManageTodo'
+      'Testar form EditTodo'
     );
     expect(screen.getByLabelText(/título/i)).toHaveStyle({
       pointerEvents: 'all',
@@ -107,12 +87,10 @@ describe('<ManageTodo />', () => {
   });
 
   // EDIT FORM TEST
-  it('should render ManageTodo correctly with message erros on textbox', async () => {
+  it('should render EditTodo correctly with message erros on textbox', async () => {
     render(
-      <ManageTodo
+      <EditTodo
         todo={{ ...todoItem, title: '', description: '' }}
-        editTodo
-        showTodo={false}
         onCloseModal={() => ({})}
       />
     );
@@ -127,10 +105,8 @@ describe('<ManageTodo />', () => {
   it('should send data to the backend and close the form', async () => {
     const onCloseModal = jest.fn();
     render(
-      <ManageTodo
+      <EditTodo
         todo={{ ...todoItem, title: '', description: '' }}
-        editTodo
-        showTodo={false}
         onCloseModal={onCloseModal}
       />
     );
@@ -167,10 +143,8 @@ describe('<ManageTodo />', () => {
   it('should receive an error status when send data', async () => {
     const onCloseModal = jest.fn();
     render(
-      <ManageTodo
+      <EditTodo
         todo={{ ...todoItem, title: '', description: '' }}
-        editTodo
-        showTodo={false}
         onCloseModal={onCloseModal}
       />
     );
@@ -192,18 +166,11 @@ describe('<ManageTodo />', () => {
   });
 
   // REMOVE FORM TEST
-  it('should render ManageTodo Edit Mode correctly', () => {
-    render(
-      <ManageTodo
-        todo={todoItem}
-        editTodo={false}
-        showTodo={false}
-        onCloseModal={() => ({})}
-      />
-    );
+  it('should render EditTodo Edit Mode correctly', () => {
+    render(<EditTodo todo={todoItem} onCloseModal={() => ({})} />);
 
     expect(screen.getByLabelText(/título/i)).toHaveValue(
-      'Testar form ManageTodo'
+      'Testar form EditTodo'
     );
     expect(screen.getByLabelText(/título/i)).toHaveStyle({
       pointerEvents: 'none',
@@ -230,17 +197,10 @@ describe('<ManageTodo />', () => {
   // REMOVE FORM TEST
   it('should send data to the backend and close the form', async () => {
     const onCloseModal = jest.fn();
-    render(
-      <ManageTodo
-        todo={todoItem}
-        editTodo={false}
-        showTodo={false}
-        onCloseModal={onCloseModal}
-      />
-    );
+    render(<EditTodo todo={todoItem} onCloseModal={onCloseModal} />);
 
     expect(screen.getByLabelText(/título/i)).toHaveValue(
-      'Testar form ManageTodo'
+      'Testar form EditTodo'
     );
     expect(screen.getByLabelText(/descrição/i)).toHaveValue(
       'Testar em todos os modos'
@@ -271,14 +231,7 @@ describe('<ManageTodo />', () => {
 
   it('should receive an error status when send data', async () => {
     const onCloseModal = jest.fn();
-    render(
-      <ManageTodo
-        todo={todoItem}
-        editTodo={false}
-        showTodo={false}
-        onCloseModal={onCloseModal}
-      />
-    );
+    render(<EditTodo todo={todoItem} onCloseModal={onCloseModal} />);
 
     const requestErrorDelete = apiMock.onDelete('todos').reply(500);
 

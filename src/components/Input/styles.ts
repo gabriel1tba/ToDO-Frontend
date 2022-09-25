@@ -15,7 +15,7 @@ export const Wrapper = styled.div<IWrapper>`
   background: ${({ theme }) => theme.colors.background};
   border-radius: 10px;
   border: 1px solid ${({ theme }) => theme.colors.gray[500]};
-  padding: 14px;
+  padding: 12px;
   width: 100%;
   color: ${({ theme }) => theme.colors.gray[500]};
 
@@ -53,6 +53,7 @@ export const Wrapper = styled.div<IWrapper>`
     flex: 1;
     border: 0;
     background: transparent;
+    font-size: 1rem;
 
     color: #202124;
     box-shadow: 0 0 0 30px ${({ theme }) => theme.colors.background} inset;
@@ -67,7 +68,7 @@ export const Wrapper = styled.div<IWrapper>`
   }
 
   svg {
-    margin-right: 16px;
+    margin-right: 1rem;
   }
 `;
 

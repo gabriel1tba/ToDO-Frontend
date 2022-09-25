@@ -1,12 +1,12 @@
 import { Story, Meta } from '@storybook/react';
 
-import NewTodo from '.';
+import CreateTodo from '.';
 
-import { INewTodo } from '../../../interfaces';
+import { ICreateTodo } from '../../../interfaces';
 
 export default {
-  title: 'Todo/NewTodo',
-  component: NewTodo,
+  title: 'Todo/CreateTodo',
+  component: CreateTodo,
   argTypes: {
     onCloseModal: {
       type: 'function',
@@ -17,7 +17,7 @@ export default {
   },
 } as Meta;
 
-export const Default: Story<INewTodo> = (args) => (
+export const Default: Story<ICreateTodo> = (args) => (
   <div
     style={{
       width: '540px',
@@ -27,6 +27,6 @@ export const Default: Story<INewTodo> = (args) => (
       borderRadius: '5px',
     }}
   >
-    <NewTodo {...args} />
+    <CreateTodo {...args} />
   </div>
 );

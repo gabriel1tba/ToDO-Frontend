@@ -82,21 +82,6 @@ describe('<TodoItem />', () => {
     });
   });
 
-  it('should open the details modal by clicking on some item', async () => {
-    render(
-      <>
-        <div id="portal-modal-root" />
-        <TodoItem todo={todoItemResponse} />
-      </>
-    );
-
-    userEvent.click(screen.getByText(/testar componente todoitem/i));
-
-    await waitFor(() => {
-      expect(screen.getByTestId('Mock ManageTodo')).toBeInTheDocument();
-    });
-  });
-
   it('should open the edit modal by clicking on some item', async () => {
     render(
       <>
@@ -106,21 +91,6 @@ describe('<TodoItem />', () => {
     );
 
     userEvent.click(screen.getAllByRole('button')[0]);
-
-    await waitFor(() => {
-      expect(screen.getByTestId('Mock ManageTodo')).toBeInTheDocument();
-    });
-  });
-
-  it('should open the delete modal by clicking on some item', async () => {
-    render(
-      <>
-        <div id="portal-modal-root" />
-        <TodoItem todo={todoItemResponse} />
-      </>
-    );
-
-    userEvent.click(screen.getAllByRole('button')[1]);
 
     await waitFor(() => {
       expect(screen.getByTestId('Mock ManageTodo')).toBeInTheDocument();
