@@ -7,11 +7,12 @@ import * as S from './styles';
 
 import { useTodos, useToggle } from 'hooks';
 
-import Badge from '../Badge';
-import Modal from '../Modal';
+import Badge from 'components/Badge';
+import Modal from 'components/Modal';
 import TodoItem from './components/TodoItem';
 import NewTodo from './components/Forms/NewTodo';
 import Button from 'components/Button';
+import Card from 'components/Card';
 
 import { ITodo } from 'interfaces';
 
@@ -89,13 +90,11 @@ const TodoList = () => {
       </S.ListInfos>
 
       {todos.length === 0 && (
-        <S.NoTaskWarning>
-          <CgNotes color={theme.colors.gray[300]} />
-          <strong>Você ainda não tem tarefas cadastradas</strong>
-          <p>
-            Crie tarefas clicando no botão <strong>Nova Tarefa</strong>
-          </p>
-        </S.NoTaskWarning>
+        <Card
+          title="Você ainda não tem tarefas cadastradas"
+          description="Crie tarefas clicando no botão Nova Tarefa"
+          icon={CgNotes}
+        />
       )}
 
       <Modal
