@@ -7,7 +7,7 @@ const Card = ({ title, description, icon: Icon, color = 'info' }: ICard) => {
     <Container color={color}>
       <Icon />
       <strong>{title}</strong>
-      <p>{description && description}</p>
+      <p dangerouslySetInnerHTML={{ __html: description }} />
     </Container>
   );
 };

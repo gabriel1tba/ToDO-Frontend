@@ -15,7 +15,7 @@ export const Wrapper = styled.div<IWrapper>`
   background: ${({ theme }) => theme.colors.background};
   border-radius: 10px;
   border: 1px solid ${({ theme }) => theme.colors.gray[500]};
-  padding: 16px;
+  padding: 8px;
   width: 100%;
   color: ${({ theme }) => theme.colors.gray[500]};
 
@@ -47,6 +47,7 @@ export const Wrapper = styled.div<IWrapper>`
     flex: 1;
     border: 0;
     background: transparent;
+    font-size: 16px;
 
     resize: none;
 

@@ -27,7 +27,7 @@ const Header = ({ userName, onSignOut }: IHeader) => {
         </div>
         <div>
           <button onClick={() => (userName ? onSignOut() : history.push('/'))}>
-            <RiShutDownLine size={32} />
+            <RiShutDownLine size={40} />
           </button>
         </div>
       </S.HeaderContent>

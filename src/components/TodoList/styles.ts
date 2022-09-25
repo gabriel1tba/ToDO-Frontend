@@ -44,6 +44,13 @@ export const ListHeader = styled.div`
   }
 `;
 
+export const TodosWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+`;
+
 export const ListInfos = styled.div`
   display: flex;
   justify-content: space-between;

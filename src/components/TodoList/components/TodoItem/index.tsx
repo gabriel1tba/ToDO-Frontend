@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FaEdit } from 'react-icons/fa';
-import { BsTrash } from 'react-icons/bs';
-import { useTheme } from 'styled-components';
+import { TbTrash, TbEdit } from 'react-icons/tb';
 
 import * as S from './styles';
 
@@ -21,7 +19,6 @@ import CheckBox from 'components/CheckBox';
 const TodoItem = ({ todo }: ITodoItem) => {
   const { addToast } = useToast();
   const { todoDispatch } = useTodos();
-  const theme = useTheme();
 
   const [openModal, hadleToggleModal] = useToggle();
 
@@ -100,6 +97,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
       <S.Wrapper>
         <CheckBox
           id="completed"
+          border="round"
           name="completed"
           checked={todo.completed}
           onChange={(event) => {
@@ -107,28 +105,11 @@ const TodoItem = ({ todo }: ITodoItem) => {
           }}
         />
 
-        <a
-          style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-          onClick={handleViewTodo}
-        >
-          {todo.title}
-        </a>
+        <p>{todo.title}</p>
 
         <div>
-          <button onClick={handleEditTodo}>
-            <FaEdit
-              size={20}
-              color={theme.colors.warning.main}
-              data-testid="edit-todo"
-            />
-          </button>
-          <button onClick={handleDeleteTodo}>
-            <BsTrash
-              size={20}
-              color={theme.colors.danger.main}
-              data-testid="delete-todo"
-            />
-          </button>
+          <TbEdit onClick={handleEditTodo} />
+          <TbTrash onClick={handleDeleteTodo} />
         </div>
       </S.Wrapper>
     </>

@@ -58,6 +58,7 @@ const TodoList = () => {
         <input
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Busca..."
         />
 
         <Button
@@ -89,10 +90,19 @@ const TodoList = () => {
         </div>
       </S.ListInfos>
 
+      <S.TodosWrapper>
+        {Boolean(filteredTodos.length) &&
+          filteredTodos
+            .sort((a: ITodo, b: ITodo) =>
+              a.created_at.localeCompare(b.created_at)
+            )
+            .map((todo) => <TodoItem key={todo.id} todo={todo} />)}
+      </S.TodosWrapper>
+
       {todos.length === 0 && (
         <Card
           title="Você ainda não tem tarefas cadastradas"
-          description="Crie tarefas clicando no botão Nova Tarefa"
+          description="Crie tarefas clicando no botão <strong>Nova tarefa</strong>"
           icon={CgNotes}
         />
       )}

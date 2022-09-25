@@ -1,38 +1,34 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.li`
+export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 
-  width: fit-content;
-  margin: 15px 5px -5px;
-  padding-bottom: 14px;
-  position: relative;
+  width: 100%;
+  padding: 1rem;
+  gap: 12px;
+  background: #fefefe;
 
-  &:before {
-    content: '';
-    position: absolute;
-    left: 1px;
-    bottom: 5px;
+  border: 1px solid ${({ theme }) => theme.colors.gray[200]};
+  border-radius: 8px;
+
+  p {
     width: 100%;
-    border: 0.5px solid rgba(0, 0, 0, 0.125);
+    text-align: initial;
   }
 
-  > a {
+  input[type='checkbox'] {
     cursor: pointer;
-    width: calc(100vw - 860px);
   }
 
-  > div {
-    margin-left: 35px;
-    button {
-      background: transparent;
-      border: none;
-      svg {
-        cursor: pointer;
-        margin-left: 5px;
-      }
+  div {
+    display: flex;
+
+    svg {
+      font-size: 1.3rem;
+      color: #808080;
+      cursor: pointer;
     }
   }
 `;
