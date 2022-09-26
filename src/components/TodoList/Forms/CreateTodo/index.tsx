@@ -1,21 +1,21 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import * as S from './styles';
+import TodoService from 'services/TodoService';
+
+import { useToast, useAuth } from 'hooks';
+import { useHome } from 'pages/Home';
+import { ActionType } from 'pages/Home/utils/actions';
 
 import Input from 'components/Input';
 import TextArea from 'components/TextArea';
 import Button from 'components/Button';
 
-import { useToast, useTodos, useAuth } from 'hooks';
-
-import TodoService from 'services/TodoService';
+import * as S from './styles';
 
 import { schema } from './schema';
 
 import { IFormData, ICreateTodo } from '../../interfaces';
-
-import { ActionType } from 'context/todos/actions';
 
 const CreateTodo = ({ onCloseModal }: ICreateTodo) => {
   const {
@@ -27,7 +27,7 @@ const CreateTodo = ({ onCloseModal }: ICreateTodo) => {
   });
 
   const { addToast } = useToast();
-  const { todoDispatch } = useTodos();
+  const { todoDispatch } = useHome();
   const { user } = useAuth();
 
   const onSubmit = async (formData: IFormData) => {

@@ -1,16 +1,17 @@
 import { useState, useEffect, useCallback } from 'react';
 import { TbTrash, TbEdit } from 'react-icons/tb';
 
-import * as S from './styles';
-
-import { useToast, useTodos, useToggle } from 'hooks';
-import { ActionType } from 'context/todos/actions';
-
 import TodoService from 'services/TodoService';
+
+import { useToast, useToggle } from 'hooks';
+import { useHome } from 'pages/Home';
+import { ActionType } from 'pages/Home/utils/actions';
 
 import Alert from 'components/Alert';
 import Modal from 'components/Modal';
 import CheckBox from 'components/CheckBox';
+
+import * as S from './styles';
 
 import { ITodoItem } from 'components/TodoList/interfaces';
 
@@ -18,7 +19,7 @@ import EditTodo from '../Forms/EditTodo';
 
 const TodoItem = ({ todo }: ITodoItem) => {
   const { addToast } = useToast();
-  const { todoDispatch } = useTodos();
+  const { todoDispatch } = useHome();
 
   const [openModal, handleToggleModal] = useToggle();
   const [openAlert, handleToggleAlert] = useToggle();

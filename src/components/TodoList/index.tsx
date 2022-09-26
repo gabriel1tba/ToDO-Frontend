@@ -1,11 +1,12 @@
 import { useState, useMemo } from 'react';
 import { BiPlusCircle } from 'react-icons/bi';
 import { CgNotes } from 'react-icons/cg';
+import { MdSearchOff } from 'react-icons/md';
 import { useTheme } from 'styled-components';
 
-import * as S from './styles';
+import { useToggle } from 'hooks';
 
-import { useTodos, useToggle } from 'hooks';
+import { useHome } from 'pages/Home';
 
 import Badge from 'components/Badge';
 import Modal from 'components/Modal';
@@ -14,11 +15,13 @@ import Card from 'components/Card';
 import TodoItem from './TodoItem';
 import CreateTodo from './Forms/CreateTodo';
 
+import * as S from './styles';
+
 import { ITodo } from 'interfaces';
 
 const TodoList = () => {
   const theme = useTheme();
-  const { todos } = useTodos();
+  const { todos } = useHome();
   const [openModal, handleToggleModal] = useToggle();
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -60,7 +63,7 @@ const TodoList = () => {
         <input
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Busca..."
+          placeholder="Busca"
         />
 
         <Button
@@ -102,6 +105,15 @@ const TodoList = () => {
           title="Você ainda não tem tarefas cadastradas"
           description="Crie tarefas clicando no botão <strong>Nova tarefa</strong>"
           icon={CgNotes}
+        />
+      )}
+
+      {todos.length > 0 && filteredTodos.length === 0 && (
+        <Card
+          title="Nenhuma tarefa encontrada"
+          description={`Não encontramos nenhuma tarefa com o termo <strong>"${searchTerm}"</strong>`}
+          icon={MdSearchOff}
+          color="danger"
         />
       )}
 

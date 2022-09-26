@@ -2,19 +2,19 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import * as S from './styles';
+import TodoService from 'services/TodoService';
+
+import { useToast } from 'hooks';
+import { useHome } from 'pages/Home';
+import { ActionType } from 'pages/Home/utils/actions';
 
 import Input from 'components/Input';
 import TextArea from 'components/TextArea';
 import Button from 'components/Button';
 
-import { useToast, useTodos } from 'hooks';
-
-import TodoService from 'services/TodoService';
+import * as S from './styles';
 
 import { schema } from './schema';
-
-import { ActionType } from 'context/todos/actions';
 
 import { IFormData, IEditTodo } from '../../interfaces';
 
@@ -28,7 +28,7 @@ const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
   });
 
   const { addToast } = useToast();
-  const { todoDispatch } = useTodos();
+  const { todoDispatch } = useHome();
 
   const [, setDidMount] = useState(false);
 
