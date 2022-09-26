@@ -13,7 +13,7 @@ import Modal from 'components/Modal';
 import Button from 'components/Button';
 import Card from 'components/Card';
 import TodoItem from './TodoItem';
-import CreateTodo from './Forms/CreateTodo';
+import CreateTodo from '../Forms/CreateTodo';
 
 import * as S from './styles';
 

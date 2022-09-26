@@ -28,7 +28,7 @@ exports[`<TextArea /> should render the TextArea correctly with Label 1`] = `
   flex: 1;
   border: 0;
   background: transparent;
-  font-size: 16px;
+  font-size: 1rem;
   resize: none;
   color: #202124;
   box-shadow: 0 0 0 30px #FFFFFF inset;

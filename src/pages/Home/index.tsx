@@ -2,7 +2,6 @@ import {
   useReducer,
   useState,
   useEffect,
-  useCallback,
   createContext,
   useContext,
 } from 'react';
@@ -12,7 +11,7 @@ import { useAuth, useToast } from 'hooks';
 import TodoService from 'services/TodoService';
 
 import Header from 'components/Header';
-import TodoList from 'components/TodoList';
+import TodoList from './TodoList';
 import Loader from 'components/Loader';
 
 import { ActionType } from './utils/actions';
@@ -30,31 +29,29 @@ const Home = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const getTodosFromApi = useCallback(async () => {
-    if (user) {
-      try {
-        const { data } = await TodoService.getTodos({ id: user.id });
-
-        todoDispatch({
-          type: ActionType.GetTodos,
-          payload: data,
-        });
-      } catch {
-        addToast({
-          type: 'error',
-          title: 'Erro ao obter dados.',
-          description: 'Por favor, tente novamente mais tarde!',
-          secondsDuration: 5,
-        });
-      } finally {
-        setIsLoading(false);
-      }
-    }
-  }, [addToast, todoDispatch, user]);
-
   useEffect(() => {
-    getTodosFromApi();
-  }, [getTodosFromApi]);
+    (async () => {
+      if (user) {
+        try {
+          const { data } = await TodoService.getTodos({ id: user.id });
+
+          todoDispatch({
+            type: ActionType.GetTodos,
+            payload: data,
+          });
+        } catch {
+          addToast({
+            type: 'error',
+            title: 'Erro ao obter dados.',
+            description: 'Por favor, tente novamente mais tarde!',
+            secondsDuration: 5,
+          });
+        } finally {
+          setIsLoading(false);
+        }
+      }
+    })();
+  }, [addToast, user]);
 
   return (
     <HomeContext.Provider

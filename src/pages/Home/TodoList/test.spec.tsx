@@ -3,7 +3,7 @@ import { render, screen } from 'utils/test-utils';
 
 import TodoList from '.';
 
-jest.mock('../Badge', () => {
+jest.mock('components/Badge', () => {
   return {
     __esModule: true,
     default: function Mock() {
@@ -12,7 +12,7 @@ jest.mock('../Badge', () => {
   };
 });
 
-jest.mock('../Modal', () => {
+jest.mock('components/Modal', () => {
   return {
     __esModule: true,
     default: function Mock() {

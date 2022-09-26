@@ -10,12 +10,11 @@ import { ActionType } from 'pages/Home/utils/actions';
 import Alert from 'components/Alert';
 import Modal from 'components/Modal';
 import CheckBox from 'components/CheckBox';
+import EditTodo from '../../Forms/EditTodo';
 
 import * as S from './styles';
 
-import { ITodoItem } from 'components/TodoList/interfaces';
-
-import EditTodo from '../Forms/EditTodo';
+import { ITodoItem } from '../../interfaces';
 
 const TodoItem = ({ todo }: ITodoItem) => {
   const { addToast } = useToast();

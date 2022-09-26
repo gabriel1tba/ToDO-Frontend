@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import TodoService from 'services/TodoService';
 
-import { useToast } from 'hooks';
+import { useToast, useAuth } from 'hooks';
 import { useHome } from 'pages/Home';
 import { ActionType } from 'pages/Home/utils/actions';
 
@@ -12,13 +11,13 @@ import Input from 'components/Input';
 import TextArea from 'components/TextArea';
 import Button from 'components/Button';
 
+import { schema } from '../../utils/schema';
+
 import * as S from './styles';
 
-import { schema } from './schema';
+import { IFormData, ICreateTodo } from '../../interfaces';
 
-import { IFormData, IEditTodo } from '../../interfaces';
-
-const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
+const CreateTodo = ({ onCloseModal }: ICreateTodo) => {
   const {
     register,
     handleSubmit,
@@ -29,27 +28,21 @@ const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
 
   const { addToast } = useToast();
   const { todoDispatch } = useHome();
-
-  const [, setDidMount] = useState(false);
-
-  useEffect(() => {
-    setDidMount(true);
-    return () => setDidMount(false);
-  }, []);
+  const { user } = useAuth();
 
   const onSubmit = async (formData: IFormData) => {
     try {
-      const { data } = await TodoService.updateTodo({
-        id: todo.id,
+      const { data } = await TodoService.createTodo({
+        user_id: user.id,
         title: formData.title,
         description: formData.description,
       });
 
-      todoDispatch({ type: ActionType.UpdateTodo, payload: data });
+      todoDispatch({ type: ActionType.CreateTodo, payload: data });
 
       addToast({
         type: 'success',
-        title: 'Atualizado com sucesso!',
+        title: 'Tarefa criada com sucesso!',
         secondsDuration: 3,
       });
 
@@ -57,7 +50,7 @@ const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
     } catch {
       addToast({
         type: 'error',
-        title: 'Erro ao tentar executar ação!',
+        title: 'Erro ao criar tarefa!',
         description:
           'Um erro inesperado aconteceu... Tente novamente mais tarde.',
         secondsDuration: 5,
@@ -73,7 +66,6 @@ const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
           id="title"
           type="text"
           error={errors.title?.message}
-          defaultValue={todo.title}
           {...register('title')}
         />
 
@@ -82,7 +74,6 @@ const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
           rows={4}
           id="description"
           error={errors.description?.message}
-          defaultValue={todo.description ?? ''}
           {...register('description')}
         />
 
@@ -96,4 +87,4 @@ const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
   );
 };
 
-export default EditTodo;
+export default CreateTodo;
