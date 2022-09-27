@@ -5,7 +5,6 @@ import signInBackgroundImg from '../../assets/sign-in-background.jpg';
 export const Wrapper = styled.div`
   display: flex;
   align-items: stretch;
-
   height: 100vh;
 `;
 
@@ -17,10 +16,6 @@ export const Content = styled.div`
 
   width: 100%;
   max-width: 700px;
-
-  @media (max-width: 1024px) {
-    max-width: 100%;
-  }
 `;
 
 const animationFromLeft = keyframes`
@@ -48,15 +43,15 @@ export const AnimationContainer = styled.div`
     text-align: center;
 
     h1 {
-      margin-bottom: 24px;
+      margin-bottom: 2.5rem;
       color: ${({ theme }) => theme.colors.gray[500]};
-      font-size: 24px;
+      font-size: 2.5rem;
     }
 
     a {
       color: ${({ theme }) => theme.colors.gray[500]};
       display: block;
-      margin-top: 24px;
+      margin-top: 2.5rem;
       text-decoration: none;
       transition: filter 0.3s;
 
@@ -66,19 +61,7 @@ export const AnimationContainer = styled.div`
     }
 
     button {
-      margin-top: 16px;
-    }
-
-    @media (max-width: 1024px) {
-      width: 400px;
-    }
-
-    @media (max-width: 540px) {
-      width: 300px;
-    }
-
-    @media (max-width: 320px) {
-      width: 280px;
+      margin-top: 1rem;
     }
   }
 
@@ -110,6 +93,6 @@ export const Background = styled.div`
   background-size: cover;
 
   @media (max-width: 1024px) {
-    visibility: hidden;
+    display: none;
   }
 `;

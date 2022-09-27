@@ -14,14 +14,6 @@ export const ListHeader = styled.div`
 
   gap: 0.5rem;
 
-  @media (max-width: 360px) {
-    flex-direction: column;
-
-    button {
-      min-width: 100%;
-    }
-  }
-
   input {
     height: 54px;
     width: 100%;
@@ -30,16 +22,25 @@ export const ListHeader = styled.div`
     border: 1px solid #0d0d0d;
     border-radius: 8px;
 
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   button {
+    font-size: 1rem;
     height: 54px;
     width: 160px;
     font-weight: 700;
 
     svg {
-      font-size: 18px;
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+
+    button {
+      min-width: 100%;
     }
   }
 `;
@@ -62,7 +63,7 @@ export const ListInfos = styled.div`
     display: inline-block;
     margin-right: 0.5rem;
     font-weight: 700;
-    line-height: 17px;
+    line-height: 1rem;
   }
 
   div:first-child p {
@@ -71,5 +72,13 @@ export const ListInfos = styled.div`
 
   div:last-child p {
     color: #3172b7;
+  }
+
+  @media (max-width: 375px) {
+    flex-direction: column;
+
+    p + span {
+      margin-top: 0.5rem;
+    }
   }
 `;

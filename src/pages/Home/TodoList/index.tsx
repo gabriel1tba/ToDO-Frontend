@@ -63,7 +63,7 @@ const TodoList = () => {
         <input
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Busca"
+          placeholder="Buscar..."
         />
 
         <Button

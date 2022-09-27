@@ -26,30 +26,16 @@ export const HeaderContent = styled.div`
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
+
       h3 {
         color: ${({ theme }) => theme.colors.primary.main};
       }
 
       @media (max-width: 540px) {
-        h3 {
-          font-size: 16px;
-        }
-
+        h3,
         h4 {
-          font-size: 14px;
+          display: none;
         }
-      }
-    }
-
-    @media (max-width: 768px) {
-      img {
-        transform: scale(0.8);
-      }
-    }
-
-    @media (max-width: 540px) {
-      img {
-        transform: scale(0.4);
       }
     }
   }

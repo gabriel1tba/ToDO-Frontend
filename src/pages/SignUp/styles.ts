@@ -13,14 +13,10 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  place-content: center;
+  justify-content: center;
 
   width: 100%;
   max-width: 700px;
-
-  @media (max-width: 1024px) {
-    max-width: 100%;
-  }
 `;
 
 const animationFromRight = keyframes`
@@ -40,6 +36,8 @@ export const AnimationContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
+  margin: 0 1rem;
+
   animation: ${animationFromRight} 1s;
 
   form {
@@ -48,26 +46,14 @@ export const AnimationContainer = styled.div`
     text-align: center;
 
     h1 {
-      margin-bottom: 24px;
+      margin-bottom: 2.5rem;
       color: ${({ theme }) => theme.colors.gray[500]};
-      font-size: 24px;
-    }
-
-    @media (max-width: 1024px) {
-      width: 400px;
-    }
-
-    @media (max-width: 540px) {
-      width: 300px;
-    }
-
-    @media (max-width: 320px) {
-      width: 280px;
+      font-size: 2.5rem;
     }
   }
 
   button {
-    margin-top: 16px;
+    margin-top: 1rem;
   }
 
   > a {
@@ -98,6 +84,6 @@ export const Background = styled.div`
   background-size: cover;
 
   @media (max-width: 1024px) {
-    visibility: hidden;
+    display: none;
   }
 `;

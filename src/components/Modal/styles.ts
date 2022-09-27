@@ -12,6 +12,7 @@ export const Overlay = styled.div`
   justify-content: center;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
+  padding: 1rem;
 `;
 
 export const Wrapper = styled.div`
