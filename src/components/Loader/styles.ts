@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled, { keyframes, css, DefaultTheme } from 'styled-components';
 
 const load = keyframes`
   0% {
@@ -35,12 +35,12 @@ const round = keyframes`
 `;
 
 const colorModifiers = {
-  white: () => css`
-    color: ${({ theme }) => theme.colors.background};
+  white: ({ colors }: DefaultTheme) => css`
+    color: ${colors.background};
   `,
 
-  primary: () => css`
-    color: ${({ theme }) => theme.colors.primary.main};
+  primary: ({ colors }: DefaultTheme) => css`
+    color: ${colors.primary.main};
   `,
 };
 
@@ -76,5 +76,5 @@ export const Loader = styled.div<ILoaderProps>`
   -webkit-animation: ${load} 1.5s infinite ease, ${round} 1.5s infinite ease;
   animation: ${load} 1.5s infinite ease, ${round} 1.5s infinite ease;
 
-  ${({ color }) => colorModifiers[color]()};
+  ${({ theme, color }) => colorModifiers[color](theme)};
 `;

@@ -80,8 +80,8 @@ const TodoList = () => {
           <p>Tarefas criadas</p>
           <Badge
             title={quantities.total}
-            fontColor={theme.colors.gray[100]}
-            backgroundColor={theme.colors.gray[700]}
+            color={theme.colors.gray[100]}
+            background={theme.colors.gray[700]}
           />
         </div>
 
@@ -89,8 +89,8 @@ const TodoList = () => {
           <p>Concluídas</p>
           <Badge
             title={`${quantities.completeds} de ${quantities.total} `}
-            fontColor={theme.colors.gray[100]}
-            backgroundColor={theme.colors.gray[700]}
+            color={theme.colors.gray[100]}
+            background={theme.colors.gray[700]}
           />
         </div>
       </S.ListInfos>

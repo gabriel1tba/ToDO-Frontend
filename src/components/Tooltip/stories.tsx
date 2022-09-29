@@ -1,8 +1,7 @@
 import { Story, Meta } from '@storybook/react';
 import { FiAlertCircle } from 'react-icons/fi';
 
-import Tooltip from '.';
-import { ITooltip } from './interfaces';
+import Tooltip, { ITooltip } from '.';
 
 export default {
   title: 'Tooltip',

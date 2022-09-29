@@ -1,21 +1,21 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 
-interface ContainerProps {
+interface WrapperProps {
   color: 'info' | 'danger';
 }
 
 const colorModifiers = {
-  info: (theme: DefaultTheme) => css`
-    border: 1px solid ${theme.colors.gray[200]};
-    color: ${theme.colors.gray[300]};
+  info: ({ colors }: DefaultTheme) => css`
+    border: 1px solid ${colors.gray[200]};
+    color: ${colors.gray[300]};
   `,
-  danger: (theme: DefaultTheme) => css`
-    border: 1px solid ${theme.colors.danger.light};
-    color: ${theme.colors.danger.main};
+  danger: ({ colors }: DefaultTheme) => css`
+    border: 1px solid ${colors.danger.light};
+    color: ${colors.danger.main};
   `,
 };
 
-export const Container = styled.div<ContainerProps>`
+export const Wrapper = styled.div<WrapperProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;

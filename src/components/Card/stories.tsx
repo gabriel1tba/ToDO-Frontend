@@ -1,8 +1,7 @@
 import { Story, Meta } from '@storybook/react';
 import { CgNotes } from 'react-icons/cg';
 
-import Card from '.';
-import { ICard } from './interfaces';
+import Card, { ICard } from '.';
 
 export default {
   title: 'Card',

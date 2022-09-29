@@ -4,7 +4,10 @@ import { useTheme } from 'styled-components';
 
 import * as S from './styles';
 
-import { ITextArea } from './interfaces';
+export interface ITextArea
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  error: string | undefined;
+}
 
 const TextArea: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
   { error, ...rest },

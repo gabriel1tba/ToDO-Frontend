@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 
-import Modal from '.';
-import { IModal } from './interfaces';
+import Modal, { IModal } from '.';
 
 export default {
   title: 'Modal',

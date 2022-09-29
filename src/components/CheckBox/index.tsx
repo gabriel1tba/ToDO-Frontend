@@ -1,9 +1,11 @@
-import { Wrapper } from './styles';
+import * as S from './styles';
 
-import { ICheckBox } from './interfaces';
+export interface ICheckBox extends React.InputHTMLAttributes<HTMLInputElement> {
+  border?: 'round' | 'square';
+}
 
 const CheckBox = ({ border = 'square', ...rest }: ICheckBox) => {
-  return <Wrapper border={border} type="checkbox" {...rest} />;
+  return <S.Wrapper border={border} type="checkbox" {...rest} />;
 };
 
 export default CheckBox;

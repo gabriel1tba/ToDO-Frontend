@@ -1,14 +1,19 @@
-import { Container } from './styles';
+import * as S from './styles';
 
-import { ICard } from './interfaces';
+export interface ICard {
+  title: string;
+  color?: 'info' | 'danger';
+  description: string;
+  icon: React.ElementType;
+}
 
 const Card = ({ title, description, icon: Icon, color = 'info' }: ICard) => {
   return (
-    <Container color={color}>
+    <S.Wrapper color={color}>
       <Icon />
       <strong>{title}</strong>
       <p dangerouslySetInnerHTML={{ __html: description }} />
-    </Container>
+    </S.Wrapper>
   );
 };
 

@@ -1,8 +1,7 @@
 import { Story, Meta } from '@storybook/react';
 import { FaUser } from 'react-icons/fa';
 
-import Button from '.';
-import { IButton } from './interfaces';
+import Button, { IButton } from '.';
 
 export default {
   title: 'Button',

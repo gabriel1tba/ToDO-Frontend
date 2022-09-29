@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 
-import Header from '.';
-import { IHeader } from './interfaces';
+import Header, { IHeader } from '.';
 
 export default {
   title: 'Header',

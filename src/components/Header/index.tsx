@@ -1,11 +1,15 @@
 import { RiShutDownLine } from 'react-icons/ri';
 
-import * as S from './styles';
+import { useAuth } from 'hooks';
 
 import logoImg from 'assets/logo.png';
 
-import { IHeader } from './interfaces';
-import { useAuth } from 'hooks';
+import * as S from './styles';
+
+export interface IHeader {
+  userName?: string;
+  onSignOut: () => void;
+}
 
 const Header = ({ userName }: IHeader) => {
   const { signOut } = useAuth();

@@ -7,10 +7,9 @@ import {
 } from 'react-icons/fi';
 
 import { useToast } from 'hooks';
+import { IToast } from 'components/ToastContainer';
 
 import * as S from './styles';
-
-import { IToast } from 'components/ToastContainer/interfaces';
 
 const icons = {
   info: <FiInfo size={24} />,

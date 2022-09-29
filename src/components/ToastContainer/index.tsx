@@ -1,10 +1,19 @@
-import { useTransition } from 'react-spring';
-
-import * as S from './styles';
+import { useTransition, AnimatedValue, ForwardedProps } from 'react-spring';
 
 import Toast from './components/Toast';
 
-import { IToastContainer } from './interfaces';
+import * as S from './styles';
+
+import { IToastMessage } from 'context/toast/interfaces';
+
+export interface IToastContainer {
+  messages: IToastMessage[];
+}
+
+export interface IToast {
+  toastMessage: IToastMessage;
+  style: AnimatedValue<ForwardedProps<ForwardedProps<React.CSSProperties>>>;
+}
 
 const ToastContainer = ({ messages }: IToastContainer) => {
   const toastTransition = useTransition(messages, (message) => message.id, {

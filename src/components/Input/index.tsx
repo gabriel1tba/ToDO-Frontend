@@ -1,10 +1,14 @@
 import { useRef, useState, forwardRef, ForwardRefRenderFunction } from 'react';
-import { FiAlertCircle } from 'react-icons/fi';
 import { useTheme } from 'styled-components';
+import { FiAlertCircle } from 'react-icons/fi';
+import { IconBaseProps } from 'react-icons';
 
 import * as S from './styles';
 
-import { IInput } from './interfaces';
+export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
+  icon?: React.ComponentType<IconBaseProps>;
+  error: string | undefined;
+}
 
 const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
   { icon: Icon, error, ...rest },

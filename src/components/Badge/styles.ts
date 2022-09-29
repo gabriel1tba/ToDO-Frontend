@@ -1,15 +1,21 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Badge = styled.span`
-  cursor: default;
+import { IBadge } from '.';
 
-  display: inline-block;
-  border-radius: 10px;
-  text-align: start;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 15px;
-  height: 25px;
+export const Wrapper = styled.span<Omit<IBadge, 'title'>>`
+  ${({ color, background }) => css`
+    cursor: default;
 
-  padding: 0.3rem 0.6rem 0.1rem;
+    display: inline-block;
+    border-radius: 10px;
+    text-align: start;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 15px;
+    height: 25px;
+    color: ${color};
+    background: ${background};
+
+    padding: 0.3rem 0.6rem 0.1rem;
+  `}
 `;

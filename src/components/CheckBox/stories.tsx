@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 
-import CheckBox from '.';
-import { ICheckBox } from './interfaces';
+import CheckBox, { ICheckBox } from '.';
 
 export default {
   title: 'Form/CheckBox',

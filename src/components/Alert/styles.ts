@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Overlay = styled.div`
   z-index: 1;
@@ -16,37 +16,39 @@ export const Overlay = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  gap: 24px;
-
-  width: 432px;
-  height: 238px;
-
-  background: ${({ theme }) => theme.colors.background};
-  border-radius: 8px;
-
-  color: ${({ theme }) => theme.colors.gray[500]};
-
-  h1 {
-    font-size: 2rem;
-    line-height: 2rem;
-    font-weight: 700;
-  }
-
-  p {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    font-weight: 400;
-    max-width: 240px;
-    text-align: center;
-  }
-
-  div {
+  ${({ theme }) => css`
+    z-index: 2;
     display: flex;
-    gap: 1rem;
-  }
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 24px;
+
+    width: 432px;
+    height: 238px;
+
+    background: ${theme.colors.background};
+    border-radius: 8px;
+
+    color: ${theme.colors.gray[500]};
+
+    h1 {
+      font-size: 2rem;
+      line-height: 2rem;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      font-weight: 400;
+      max-width: 240px;
+      text-align: center;
+    }
+
+    div {
+      display: flex;
+      gap: 1rem;
+    }
+  `}
 `;

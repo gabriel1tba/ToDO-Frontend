@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Overlay = styled.div`
   z-index: 1;
@@ -16,39 +16,41 @@ export const Overlay = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  z-index: 2;
+  ${({ theme }) => css`
+    z-index: 2;
 
-  position: relative;
-  text-align: flex;
-  width: 600px;
-  background: ${({ theme }) => theme.colors.background};
-  border-radius: 8px;
-  header {
-    margin: 15px 0;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.gray[200]};
+    position: relative;
+    text-align: flex;
+    width: 600px;
+    background: ${theme.colors.background};
+    border-radius: 8px;
+    header {
+      margin: 15px 0;
+      border-bottom: 1px solid ${theme.colors.gray[200]};
 
-    > h1 {
-      color: ${({ theme }) => theme.colors.gray[700]};
-      font-size: 1.5rem;
+      > h1 {
+        color: ${theme.colors.gray[700]};
+        font-size: 1.5rem;
 
-      margin: 0 0 15px 21px;
+        margin: 0 0 15px 21px;
 
-      cursor: default;
-    }
+        cursor: default;
+      }
 
-    button {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      background: transparent;
-      border: none;
+      button {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background: transparent;
+        border: none;
 
-      > svg {
-        cursor: pointer;
-        fill: ${({ theme }) => theme.colors.gray[700]};
+        > svg {
+          cursor: pointer;
+          fill: ${theme.colors.gray[700]};
+        }
       }
     }
-  }
+  `}
 `;
 
 export const ModalWrapper = styled.div`

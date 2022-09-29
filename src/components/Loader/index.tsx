@@ -2,7 +2,12 @@ import ReactDOM from 'react-dom';
 
 import * as S from './styles';
 
-import { ILoader } from './interfaces';
+export interface ILoader {
+  isLoading?: boolean;
+  alwaysOnTop?: boolean;
+  size: number;
+  color?: 'white' | 'primary';
+}
 
 const Loader = ({
   isLoading = true,

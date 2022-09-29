@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 
-import Badge from '.';
-import { IBadge } from './interfaces';
+import Badge, { IBadge } from '.';
 
 export default {
   title: 'Badge',
@@ -10,10 +9,10 @@ export default {
     title: {
       type: 'string',
     },
-    fontColor: {
+    color: {
       type: 'string',
     },
-    backgroundColor: {
+    background: {
       type: 'string',
     },
   },
@@ -23,22 +22,22 @@ export const Default: Story<IBadge> = (args) => <Badge {...args} />;
 
 Default.args = {
   title: '1 de 5',
-  fontColor: '#D9D9D9',
-  backgroundColor: '#333333',
+  color: '#D9D9D9',
+  background: '#333333',
 };
 
 export const Success: Story<IBadge> = (args) => <Badge {...args} />;
 
 Success.args = {
   title: 'Success',
-  fontColor: '#1e9250',
-  backgroundColor: '#e0fded',
+  color: '#1e9250',
+  background: '#e0fded',
 };
 
 export const Error: Story<IBadge> = (args) => <Badge {...args} />;
 
 Error.args = {
   title: 'Error',
-  fontColor: '#FC5050',
-  backgroundColor: '#ffe3e3',
+  color: '#FC5050',
+  background: '#ffe3e3',
 };

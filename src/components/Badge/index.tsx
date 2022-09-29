@@ -1,17 +1,16 @@
 import * as S from './styles';
 
-import { IBadge } from './interfaces';
+export interface IBadge {
+  title: string | number;
+  color: string;
+  background: string;
+}
 
-const Badge = ({ title, fontColor, backgroundColor }: IBadge) => {
+const Badge = ({ title, color, background }: IBadge) => {
   return (
-    <S.Badge
-      style={{
-        color: fontColor,
-        backgroundColor,
-      }}
-    >
+    <S.Wrapper color={color} background={background}>
       {title}
-    </S.Badge>
+    </S.Wrapper>
   );
 };
 

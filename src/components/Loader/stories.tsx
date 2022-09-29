@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 
-import Loader from '.';
-import { ILoader } from './interfaces';
+import Loader, { ILoader } from '.';
 
 export default {
   title: 'Loader',

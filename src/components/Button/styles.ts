@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
 
 interface WrapperButton {
   size: 'large' | 'normal';
@@ -6,90 +6,90 @@ interface WrapperButton {
 }
 
 const colorModifiers = {
-  primary: () => css`
-    background: ${({ theme }) => theme.colors.primary.main};
+  primary: ({ colors }: DefaultTheme) => css`
+    background: ${colors.primary.main};
 
     :hover {
-      background: ${({ theme }) => theme.colors.primary.light};
+      background: ${colors.primary.light};
     }
     :active {
-      background: ${({ theme }) => theme.colors.primary.dark};
+      background: ${colors.primary.dark};
     }
     :disabled {
-      background: ${({ theme }) => theme.colors.primary.dark};
+      background: ${colors.primary.dark};
       opacity: 0.6;
       cursor: not-allowed;
     }
   `,
 
-  info: () => css`
-    background: ${({ theme }) => theme.colors.info.main};
+  info: ({ colors }: DefaultTheme) => css`
+    background: ${colors.info.main};
 
     :hover {
-      background: ${({ theme }) => theme.colors.info.light};
+      background: ${colors.info.light};
     }
     :active {
-      background: ${({ theme }) => theme.colors.info.dark};
+      background: ${colors.info.dark};
     }
     :disabled {
-      background: ${({ theme }) => theme.colors.info.dark};
+      background: ${colors.info.dark};
       opacity: 0.6;
       cursor: not-allowed;
     }
   `,
 
-  warning: () => css`
-    background: ${({ theme }) => theme.colors.warning.main};
+  warning: ({ colors }: DefaultTheme) => css`
+    background: ${colors.warning.main};
 
     :hover {
-      background: ${({ theme }) => theme.colors.warning.light};
+      background: ${colors.warning.light};
     }
     :active {
-      background: ${({ theme }) => theme.colors.warning.dark};
+      background: ${colors.warning.dark};
     }
     :disabled {
-      background: ${({ theme }) => theme.colors.warning.dark};
+      background: ${colors.warning.dark};
       opacity: 0.6;
       cursor: not-allowed;
     }
   `,
 
-  success: () => css`
-    background: ${({ theme }) => theme.colors.success.main};
+  success: ({ colors }: DefaultTheme) => css`
+    background: ${colors.success.main};
 
     :hover {
-      background: ${({ theme }) => theme.colors.success.light};
+      background: ${colors.success.light};
     }
     :active {
-      background: ${({ theme }) => theme.colors.success.dark};
+      background: ${colors.success.dark};
     }
     :disabled {
-      background: ${({ theme }) => theme.colors.success.dark};
+      background: ${colors.success.dark};
       opacity: 0.6;
       cursor: not-allowed;
     }
   `,
 
-  danger: () => css`
-    background: ${({ theme }) => theme.colors.danger.main};
+  danger: ({ colors }: DefaultTheme) => css`
+    background: ${colors.danger.main};
 
     :hover {
-      background: ${({ theme }) => theme.colors.danger.light};
+      background: ${colors.danger.light};
     }
     :active {
-      background: ${({ theme }) => theme.colors.danger.dark};
+      background: ${colors.danger.dark};
     }
     :disabled {
-      background: ${({ theme }) => theme.colors.danger.dark};
+      background: ${colors.danger.dark};
       opacity: 0.6;
       cursor: not-allowed;
     }
   `,
 
-  outline: () => css`
+  outline: ({ colors }: DefaultTheme) => css`
     background: transparent;
-    border: 1px solid ${({ theme }) => theme.colors.gray[200]};
-    color: ${({ theme }) => theme.colors.gray[500]};
+    border: 1px solid ${colors.gray[200]};
+    color: ${colors.gray[500]};
 
     :disabled {
       opacity: 0.6;
@@ -124,19 +124,21 @@ const sizeModifiers = {
 };
 
 export const Wrapper = styled.button<WrapperButton>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${({ theme, color, size }) => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  transition: background 0.2s ease-in;
+    transition: background 0.2s ease-in;
 
-  svg {
-    margin-left: 0.25rem;
-  }
+    svg {
+      margin-left: 0.25rem;
+    }
 
-  ${({ size }) => sizeModifiers[size]()};
+    ${sizeModifiers[size]()};
 
-  ${({ color }) => colorModifiers[color]()};
+    ${colorModifiers[color](theme)};
+  `}
 `;
 
 export const WrapperLoading = styled.div<Omit<WrapperButton, 'color'>>`

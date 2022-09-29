@@ -1,9 +1,9 @@
 import { Story, Meta } from '@storybook/react';
+import { v4 } from 'uuid';
 
 import Toast from '.';
 
-import { IToast } from 'components/ToastContainer/interfaces';
-import { v4 } from 'uuid';
+import { IToast } from 'components/ToastContainer';
 
 export default {
   title: 'Toast',

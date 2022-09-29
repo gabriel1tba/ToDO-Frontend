@@ -9,84 +9,85 @@ export interface IWrapper {
 }
 
 export const Wrapper = styled.div<IWrapper>`
-  display: flex;
-  align-items: center;
+  ${({ theme, isFocused, isFilled, hasError }) => css`
+    display: flex;
+    align-items: center;
 
-  background: ${({ theme }) => theme.colors.background};
-  border-radius: 10px;
-  border: 1px solid ${({ theme }) => theme.colors.gray[500]};
-  padding: 12px;
-  width: 100%;
-  color: ${({ theme }) => theme.colors.gray[500]};
+    background: ${theme.colors.background};
+    border-radius: 10px;
+    border: 1px solid ${theme.colors.gray[500]};
+    padding: 12px;
+    width: 100%;
+    color: ${theme.colors.gray[500]};
 
-  & + div {
-    margin-top: 10px;
-  }
+    & + div {
+      margin-top: 10px;
+    }
 
-  ${({ hasError }) =>
-    hasError &&
+    ${hasError &&
     css`
-      border-color: ${({ theme }) => theme.colors.danger.main};
+      border-color: ${theme.colors.danger.main};
       > svg {
-        stroke: ${({ theme }) => theme.colors.danger.main};
+        stroke: ${theme.colors.danger.main};
       }
     `}
 
-  ${({ isFilled }) =>
-    isFilled &&
+    ${isFilled &&
     css`
-      color: ${({ theme }) => theme.colors.primary.main};
-      border-color: ${({ theme }) => theme.colors.primary.main};
+      color: ${theme.colors.primary.main};
+      border-color: ${theme.colors.primary.main};
     `}
 
-    ${({ isFocused }) =>
-    isFocused &&
+    ${isFocused &&
     css`
-      color: ${({ theme }) => theme.colors.primary.main};
-      border-color: ${({ theme }) => theme.colors.primary.main};
+      color: ${theme.colors.primary.main};
+      border-color: ${theme.colors.primary.main};
       > svg {
-        stroke: ${({ theme }) => theme.colors.primary.main};
+        stroke: ${theme.colors.primary.main};
       }
     `}
 
   input {
-    flex: 1;
-    border: 0;
-    background: transparent;
-    font-size: 1rem;
+      flex: 1;
+      border: 0;
+      background: transparent;
+      font-size: 1rem;
 
-    color: #202124;
-    box-shadow: 0 0 0 30px ${({ theme }) => theme.colors.background} inset;
-
-    &:-webkit-autofill {
-      -webkit-text-fill-color: ${({ theme }) => theme.colors.primary.main};
-    }
-
-    &::placeholder {
       color: #202124;
-    }
-  }
+      box-shadow: 0 0 0 30px ${theme.colors.background} inset;
 
-  svg {
-    margin-right: 1rem;
-  }
+      &:-webkit-autofill {
+        -webkit-text-fill-color: ${theme.colors.primary.main};
+      }
+
+      &::placeholder {
+        color: #202124;
+      }
+    }
+
+    svg {
+      margin-right: 1rem;
+    }
+  `}
 `;
 
 export const Error = styled(Tooltip)`
-  height: 20px;
-  margin-left: 16px;
+  ${({ theme }) => css`
+    height: 20px;
+    margin-left: 16px;
 
-  > svg {
-    margin: 0;
-  }
-
-  span {
-    background: ${({ theme }) => theme.colors.danger.main};
-    color: ${({ theme }) => theme.colors.background};
-    font-size: 15px;
-
-    &::before {
-      border-color: ${({ theme }) => theme.colors.danger.main} transparent;
+    > svg {
+      margin: 0;
     }
-  }
+
+    span {
+      background: ${theme.colors.danger.main};
+      color: ${theme.colors.background};
+      font-size: 15px;
+
+      &::before {
+        border-color: ${theme.colors.danger.main} transparent;
+      }
+    }
+  `}
 `;

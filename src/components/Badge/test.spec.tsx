@@ -7,8 +7,8 @@ describe('<Badge />', () => {
     const { container } = render(
       <Badge
         title="Tarefas atuais"
-        fontColor="#3498db"
-        backgroundColor="rgba(52, 152, 219, 0.2)"
+        color="#3498db"
+        background="rgba(52, 152, 219, 0.2)"
       />
     );
 

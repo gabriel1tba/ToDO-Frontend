@@ -1,8 +1,14 @@
-import * as S from './styles';
-
 import Loader from 'components/Loader';
 
-import { IButton } from './interfaces';
+import * as S from './styles';
+
+export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  loading?: boolean;
+  color?: 'primary' | 'info' | 'warning' | 'danger' | 'success' | 'outline';
+  icon?: JSX.Element;
+  size?: 'large' | 'normal';
+}
 
 const Button = ({
   children,

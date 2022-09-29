@@ -1,8 +1,7 @@
 import { Story, Meta } from '@storybook/react';
 import { FaUser } from 'react-icons/fa';
 
-import Input from '.';
-import { IInput } from './interfaces';
+import Input, { IInput } from '.';
 
 export default {
   title: 'Form/Input',

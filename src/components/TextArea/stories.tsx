@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 
-import TextArea from '.';
-import { ITextArea } from './interfaces';
+import TextArea, { ITextArea } from '.';
 
 export default {
   title: 'Form/TextArea',

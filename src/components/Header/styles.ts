@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.header`
   width: 100vw;
@@ -8,48 +8,50 @@ export const Wrapper = styled.header`
 `;
 
 export const HeaderContent = styled.div`
-  display: flex;
-  align-items: center;
-  height: 100%;
-  justify-content: space-between;
-  margin: 0 auto;
-
-  max-width: 1032px;
-  padding: 0 2rem;
-
-  div:first-child {
+  ${({ theme }) => css`
     display: flex;
     align-items: center;
+    height: 100%;
+    justify-content: space-between;
+    margin: 0 auto;
 
-    div {
+    max-width: 1032px;
+    padding: 0 2rem;
+
+    div:first-child {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
+      align-items: center;
 
-      h3 {
-        color: ${({ theme }) => theme.colors.primary.main};
-      }
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
 
-      @media (max-width: 540px) {
-        h3,
-        h4 {
-          display: none;
+        h3 {
+          color: ${theme.colors.primary.main};
+        }
+
+        @media (max-width: 540px) {
+          h3,
+          h4 {
+            display: none;
+          }
         }
       }
     }
-  }
 
-  div:last-child {
-    display: flex;
-    align-items: center;
-    > button {
-      background: none;
-      border: none;
+    div:last-child {
+      display: flex;
+      align-items: center;
+      > button {
+        background: none;
+        border: none;
 
-      svg {
-        color: ${({ theme }) => theme.colors.primary.main};
+        svg {
+          color: ${theme.colors.primary.main};
+        }
       }
     }
-  }
+  `}
 `;
