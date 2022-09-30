@@ -1,8 +1,10 @@
 import { useState, useMemo } from 'react';
+import { useTheme } from 'styled-components';
 import { BiPlusCircle } from 'react-icons/bi';
 import { CgNotes } from 'react-icons/cg';
 import { MdSearchOff } from 'react-icons/md';
-import { useTheme } from 'styled-components';
+
+import { TTodo } from 'services/TodoService/interfaces';
 
 import { useToggle } from 'hooks';
 
@@ -17,8 +19,6 @@ import CreateTodo from '../Forms/CreateTodo';
 
 import * as S from './styles';
 
-import { ITodo } from 'interfaces';
-
 const TodoList = () => {
   const theme = useTheme();
   const { todos } = useHome();
@@ -32,7 +32,7 @@ const TodoList = () => {
         .filter((todo) =>
           todo.title.toLowerCase().includes(searchTerm.toLowerCase())
         )
-        .sort((a: ITodo, b: ITodo) => a.created_at.localeCompare(b.created_at)),
+        .sort((a: TTodo, b: TTodo) => a.created_at.localeCompare(b.created_at)),
     [todos, searchTerm]
   );
 

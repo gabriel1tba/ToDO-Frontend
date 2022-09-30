@@ -7,14 +7,14 @@ import { AxiosError } from 'axios';
 
 import { useAuth, useToast } from 'hooks';
 
-import * as S from './styles';
-
-import logoImg from 'assets/logo.png';
+import { ILoginUserRequest } from 'services/UserService/interfaces';
 
 import Input from 'components/Input';
 import Button from 'components/Button';
 
-import { ICredentials } from 'interfaces';
+import logoImg from 'assets/logo.png';
+
+import * as S from './styles';
 
 import { schema } from './schema';
 
@@ -23,7 +23,7 @@ const SignIn = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<ICredentials>({
+  } = useForm<ILoginUserRequest>({
     resolver: yupResolver(schema),
   });
 
@@ -33,9 +33,9 @@ const SignIn = () => {
   // State to useEffect cleanup function
   const [, setDidMount] = useState(false);
 
-  const onSubmit = async (data: ICredentials) => {
+  const onSubmit = async ({ email, password }: ILoginUserRequest) => {
     try {
-      await signIn({ email: data.email, password: data.password });
+      await signIn({ email, password });
     } catch (err) {
       const error = err as AxiosError;
 

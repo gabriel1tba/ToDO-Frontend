@@ -37,12 +37,12 @@ const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
     return () => setDidMount(false);
   }, []);
 
-  const onSubmit = async (formData: IFormData) => {
+  const onSubmit = async ({ title, description }: IFormData) => {
     try {
       const { data } = await TodoService.updateTodo({
         id: todo.id,
-        title: formData.title,
-        description: formData.description,
+        title,
+        description,
       });
 
       todoDispatch({ type: ActionType.UpdateTodo, payload: data });

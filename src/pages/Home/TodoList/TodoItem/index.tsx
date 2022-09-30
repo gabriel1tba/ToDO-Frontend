@@ -79,7 +79,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
 
   return (
     <>
-      <S.Wrapper isCompleted={todo.completed}>
+      <S.Wrapper isCompleted={!!todo.completed}>
         <CheckBox
           id="completed"
           border="round"

@@ -1,4 +1,4 @@
-import { ITodo } from 'interfaces';
+import { TTodo } from 'services/TodoService/interfaces';
 
 export enum ActionType {
   GetTodos,
@@ -9,21 +9,21 @@ export enum ActionType {
 
 export interface GetTodos {
   type: ActionType.GetTodos;
-  payload: ITodo[];
+  payload: TTodo[];
 }
 export interface CreateTodo {
   type: ActionType.CreateTodo;
-  payload: ITodo;
+  payload: TTodo;
 }
 
 export interface UpdateTodo {
   type: ActionType.UpdateTodo;
-  payload: ITodo;
+  payload: TTodo;
 }
 
 export interface DeleteTodo {
   type: ActionType.DeleteTodo;
-  payload: ITodo;
+  payload: TTodo;
 }
 
 export type TodoActions = GetTodos | CreateTodo | UpdateTodo | DeleteTodo;

@@ -3,28 +3,28 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FiArrowLeft, FiMail, FiUser, FiLock } from 'react-icons/fi';
 
-import * as S from './styles';
-
 import { useToast } from 'hooks';
 
-import UserService from 'services/UserService';
+import delay from 'utils/delay';
 
-import logoImg from 'assets/logo.png';
+import UserService from 'services/UserService';
+import { ICreateUserRequest } from 'services/UserService/interfaces';
 
 import Input from 'components/Input';
 import Button from 'components/Button';
 
-import { schema } from './schema';
-import delay from 'utils/delay';
+import logoImg from 'assets/logo.png';
 
-import { ICredentialsRegister } from 'interfaces';
+import * as S from './styles';
+
+import { schema } from './schema';
 
 const SignUp = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<ICredentialsRegister>({
+  } = useForm<ICreateUserRequest>({
     resolver: yupResolver(schema),
   });
 
@@ -32,9 +32,19 @@ const SignUp = () => {
 
   const history = useHistory();
 
-  const onSubmit = async (dataForm: ICredentialsRegister) => {
+  const onSubmit = async ({
+    name,
+    email,
+    password,
+    confirmPassword,
+  }: ICreateUserRequest) => {
     try {
-      await UserService.createUser(dataForm);
+      await UserService.createUser({
+        name,
+        email,
+        password,
+        confirmPassword,
+      });
 
       addToast({
         type: 'success',

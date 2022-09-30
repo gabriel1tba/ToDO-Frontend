@@ -4,14 +4,14 @@ import Toast from './components/Toast';
 
 import * as S from './styles';
 
-import { IToastMessage } from 'context/toast/interfaces';
+import { TToastMessage } from 'context/toast/interfaces';
 
 export interface IToastContainer {
-  messages: IToastMessage[];
+  messages: TToastMessage[];
 }
 
 export interface IToast {
-  toastMessage: IToastMessage;
+  toastMessage: TToastMessage;
   style: AnimatedValue<ForwardedProps<ForwardedProps<React.CSSProperties>>>;
 }
 

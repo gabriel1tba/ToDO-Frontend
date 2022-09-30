@@ -1,14 +1,14 @@
-import { ITodo } from 'interfaces';
+import { TTodo } from 'services/TodoService/interfaces';
 
 import { TodoActions } from './utils/actions';
 
 export interface IHomeContext {
-  todos: ITodo[];
+  todos: TTodo[];
   todoDispatch: React.Dispatch<TodoActions>;
 }
 
 export interface ITodoItem {
-  todo: ITodo;
+  todo: TTodo;
 }
 export interface IFormData {
   title: string;
@@ -21,5 +21,5 @@ export interface ICreateTodo {
 
 export interface IEditTodo {
   onCloseModal: () => void;
-  todo: ITodo;
+  todo: TTodo;
 }

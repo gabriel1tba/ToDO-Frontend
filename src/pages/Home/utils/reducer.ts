@@ -1,7 +1,8 @@
-import { ITodo } from 'interfaces';
+import { TTodo } from 'services/TodoService/interfaces';
+
 import { ActionType, TodoActions } from './actions';
 
-const todoReducer = (state: ITodo[], action: TodoActions): ITodo[] => {
+const todoReducer = (state: TTodo[], action: TodoActions): TTodo[] => {
   switch (action.type) {
     case ActionType.GetTodos: {
       return action.payload;

@@ -1,13 +1,13 @@
-import { ICredentials, IUser } from 'interfaces';
+import { ILoginUserRequest, TUser } from 'services/UserService/interfaces';
 
 export interface IAuthState {
   token: string;
-  user: IUser;
+  user: TUser;
 }
 
 export interface IAuthContext {
-  user: IUser;
-  signIn: (crendentials: ICredentials) => Promise<void>;
+  user: TUser;
+  signIn: ({ email, password }: ILoginUserRequest) => Promise<void>;
   signOut: () => void;
 }
 

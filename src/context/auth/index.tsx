@@ -3,6 +3,7 @@ import { useState, createContext, useCallback } from 'react';
 import HttpClient from 'services/utils/HttpClient';
 
 import UserService from 'services/UserService';
+import { ILoginUserRequest } from 'services/UserService/interfaces';
 
 import { IAuthContext, IAuthProvider, IAuthState } from './interfaces';
 
@@ -22,7 +23,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     return {} as IAuthState;
   });
 
-  const signIn = useCallback(async ({ email, password }) => {
+  const signIn = useCallback(async ({ email, password }: ILoginUserRequest) => {
     const {
       data: { token, user },
     } = await UserService.createUserSession({ email, password });

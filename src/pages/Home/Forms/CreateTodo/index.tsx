@@ -30,12 +30,12 @@ const CreateTodo = ({ onCloseModal }: ICreateTodo) => {
   const { todoDispatch } = useHome();
   const { user } = useAuth();
 
-  const onSubmit = async (formData: IFormData) => {
+  const onSubmit = async ({ title, description }: IFormData) => {
     try {
       const { data } = await TodoService.createTodo({
         user_id: user.id,
-        title: formData.title,
-        description: formData.description,
+        title,
+        description,
       });
 
       todoDispatch({ type: ActionType.CreateTodo, payload: data });

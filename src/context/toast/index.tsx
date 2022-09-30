@@ -3,12 +3,12 @@ import { v4 } from 'uuid';
 
 import ToastContainer from 'components/ToastContainer';
 
-import { IToastProvider, IToastContext, IToastMessage } from './interfaces';
+import { IToastProvider, IToastContext, TToastMessage } from './interfaces';
 
 const ToastContext = createContext({} as IToastContext);
 
 const ToastProvider = ({ children }: IToastProvider) => {
-  const [toastMessage, setToastMessage] = useState<IToastMessage[]>([]);
+  const [toastMessage, setToastMessage] = useState<TToastMessage[]>([]);
 
   const addToast = useCallback(
     ({
@@ -16,7 +16,7 @@ const ToastProvider = ({ children }: IToastProvider) => {
       title,
       description,
       secondsDuration,
-    }: Omit<IToastMessage, 'id'>) => {
+    }: Omit<TToastMessage, 'id'>) => {
       const id = v4();
 
       const toast = {

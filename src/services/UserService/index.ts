@@ -1,14 +1,14 @@
 import { AxiosInstance } from 'axios';
 
-import HttpClient from './utils/HttpClient';
+import HttpClient from '../utils/HttpClient';
 
 import {
-  ICredentials,
-  ICredentialsRegister,
   IUserService,
+  ICreateUserRequest,
   ICreateUserResponse,
-  ICreateUserSessionResponse,
-} from 'interfaces';
+  ILoginUserRequest,
+  ILoginUserResponse,
+} from './interfaces';
 
 class UserService implements IUserService {
   private _httpClient: AxiosInstance;
@@ -18,14 +18,14 @@ class UserService implements IUserService {
   }
 
   async createUser(
-    credentialsRegister: ICredentialsRegister
+    credentialsRegister: ICreateUserRequest
   ): Promise<ICreateUserResponse> {
     return await this._httpClient.post('user', credentialsRegister);
   }
 
   async createUserSession(
-    credentials: ICredentials
-  ): Promise<ICreateUserSessionResponse> {
+    credentials: ILoginUserRequest
+  ): Promise<ILoginUserResponse> {
     return await this._httpClient.post('auth', credentials);
   }
 }
