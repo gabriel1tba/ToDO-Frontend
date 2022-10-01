@@ -93,8 +93,12 @@ const TodoItem = ({ todo }: ITodoItem) => {
         <p>{todo.title}</p>
 
         <div>
-          <TbEdit onClick={handleToggleModal} />
-          <TbTrash onClick={handleToggleAlert} />
+          <button onClick={handleToggleModal} data-testid="edit-todo">
+            <TbEdit />
+          </button>
+          <button onClick={handleToggleAlert} data-testid="delete-todo">
+            <TbTrash />
+          </button>
         </div>
       </S.Wrapper>
 

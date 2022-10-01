@@ -13,7 +13,6 @@ type Todo = {
 };
 
 type TodoList = {
-  btnTitle: string | RegExp;
   todos: Todo[];
 };
 

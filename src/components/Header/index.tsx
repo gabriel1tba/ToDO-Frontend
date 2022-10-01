@@ -30,7 +30,7 @@ const Header = ({ userName }: IHeader) => {
           </div>
         </div>
         <div>
-          <button onClick={signOut}>
+          <button onClick={signOut} data-testid="sign-out">
             <RiShutDownLine size={40} />
           </button>
         </div>

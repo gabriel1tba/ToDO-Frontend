@@ -3,7 +3,6 @@
 import { createTodoList } from '../support/generate';
 
 const todoList = {
-  btnTitle: /salvar/i,
   todos: createTodoList(5),
 };
 
@@ -15,24 +14,13 @@ describe('Dashboard', () => {
 
     cy.signIn();
 
-    cy.findByText(/totais 0/i).should('exist');
+    cy.findByText(/tarefas criadas/i).should('exist');
+    cy.findByLabelText('0').should('exist');
 
     cy.createTodos(todoList);
 
-    cy.findByText(/totais 5/i).should('exist');
-  });
-
-  it('should view all items', () => {
-    cy.visit('/');
-
-    cy.signIn();
-
-    todoList.todos.forEach((todo) => {
-      cy.findByText(todo.title).click();
-      cy.findByText(todo.description).should('exist');
-
-      cy.findByRole('button', { name: /fechar/i }).click();
-    });
+    cy.findByText(/tarefas criadas/i).should('exist');
+    cy.findByLabelText('5').should('exist');
   });
 
   it('should check all items', () => {
@@ -40,15 +28,18 @@ describe('Dashboard', () => {
 
     cy.signIn();
 
-    cy.findByText(`Pendentes ${todoList.todos.length}`).should('exist');
-    cy.findByText(/concluídas 0/i).should('exist');
+    cy.findByText('Tarefas criadas').should('exist');
+    cy.findByLabelText(String(todoList.todos.length)).should('exist');
+
+    cy.findByText('Concluídas').should('exist');
+    cy.findByLabelText(`0 de ${todoList.todos.length}`).should('exist');
 
     cy.findAllByRole('checkbox').each((checkbox) => {
       cy.wrap(checkbox).check();
     });
 
-    cy.findByText(`Concluídas ${todoList.todos.length}`).should('exist');
-    cy.findByText(/pendentes 0/i).should('exist');
+    cy.findByText('Concluídas').should('exist');
+    cy.findByLabelText(`5 de ${todoList.todos.length}`).should('exist');
   });
 
   it('should edit all items', () => {
@@ -66,7 +57,7 @@ describe('Dashboard', () => {
         .clear()
         .type(editList[index]?.description);
 
-      cy.findByRole('button', { name: /salvar alterações/i }).click();
+      cy.findByRole('button', { name: /salvar/i }).click();
     });
   });
 
@@ -75,14 +66,16 @@ describe('Dashboard', () => {
 
     cy.signIn();
 
-    cy.findByText(`Totais ${todoList.todos.length}`).should('exist');
+    cy.findByText('Tarefas criadas').should('exist');
+    cy.findByLabelText(String(todoList.todos.length)).should('exist');
 
     cy.findAllByTestId('delete-todo').each((btn) => {
       cy.wrap(btn).click();
 
-      cy.findByRole('button', { name: /confirmar exclusão/i }).click();
+      cy.findByRole('button', { name: /sim, excluir/i }).click();
     });
 
-    cy.findByText(/totais 0/i).should('exist');
+    cy.findByText('Tarefas criadas').should('exist');
+    cy.findByLabelText('0').should('exist');
   });
 });

@@ -6,7 +6,7 @@ describe('SignUp', () => {
 
     cy.signIn();
 
-    cy.url().should('eq', `${Cypress.config().baseUrl}/dashboard`);
+    cy.url().should('eq', `${Cypress.config().baseUrl}/home`);
 
     cy.findByTestId('sign-out').click();
 

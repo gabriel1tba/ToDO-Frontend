@@ -30,7 +30,6 @@ import '@testing-library/cypress/add-commands';
 import { User, Todo } from './generate';
 
 type TodoList = {
-  btnTitle: string | RegExp;
   todos: Todo[];
 };
 
@@ -51,25 +50,12 @@ Cypress.Commands.add('signIn', () => {
 });
 
 Cypress.Commands.add('createTodos', (todoList: TodoList) => {
-  todoList.todos.forEach((todo, index) => {
-    if (index === 0) {
-      cy.findByRole('button', {
-        name: /adicione sua primeira tarefa/i,
-      }).click();
-
-      cy.findByLabelText(/título/i).type(todo.title);
-      cy.findByLabelText(/descrição/i).type(todo?.description);
-
-      cy.findByRole('button', { name: todoList.btnTitle }).click();
-
-      return;
-    }
-
-    cy.findByRole('button', { name: /adicionar tarefa/i }).click();
+  todoList.todos.forEach((todo) => {
+    cy.findByRole('button', { name: /nova tarefa/i }).click();
 
     cy.findByLabelText(/título/i).type(todo.title);
     cy.findByLabelText(/descrição/i).type(todo?.description);
 
-    cy.findByRole('button', { name: todoList.btnTitle }).click();
+    cy.findByRole('button', { name: /salvar/i }).click();
   });
 });

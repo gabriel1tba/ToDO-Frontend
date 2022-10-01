@@ -8,7 +8,7 @@ export interface IBadge {
 
 const Badge = ({ title, color, background }: IBadge) => {
   return (
-    <S.Wrapper color={color} background={background}>
+    <S.Wrapper aria-label={String(title)} color={color} background={background}>
       {title}
     </S.Wrapper>
   );

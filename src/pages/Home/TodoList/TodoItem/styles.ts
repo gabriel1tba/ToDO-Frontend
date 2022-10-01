@@ -29,10 +29,15 @@ export const Wrapper = styled.div<WrapperProps>`
   div {
     display: flex;
 
-    svg {
-      font-size: 1.3rem;
-      color: #808080;
-      cursor: pointer;
+    button {
+      background: transparent;
+      border: none;
+
+      svg {
+        font-size: 1.3rem;
+        color: #808080;
+        cursor: pointer;
+      }
     }
   }
 
