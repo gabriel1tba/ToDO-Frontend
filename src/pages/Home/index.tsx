@@ -22,7 +22,7 @@ import { IHomeContext } from './interfaces';
 const HomeContext = createContext({} as IHomeContext);
 
 const Home = () => {
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
   const { addToast } = useToast();
 
   const [todos, todoDispatch] = useReducer(todoReducer, []);
@@ -60,7 +60,7 @@ const Home = () => {
         todoDispatch,
       }}
     >
-      <Header userName={user.name} onSignOut={signOut} />
+      <Header userName={user.name} />
 
       {!isLoading && <TodoList />}
       {isLoading && <Loader isLoading={isLoading} size={90} alwaysOnTop />}

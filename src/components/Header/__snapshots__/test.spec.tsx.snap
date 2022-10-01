@@ -107,7 +107,9 @@ exports[`<Header /> should render the Header correctly 1`] = `
       </div>
     </div>
     <div>
-      <button>
+      <button
+        data-testid="sign-out"
+      >
         <svg
           fill="currentColor"
           height="40"

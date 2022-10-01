@@ -8,7 +8,6 @@ import * as S from './styles';
 
 export interface IHeader {
   userName?: string;
-  onSignOut: () => void;
 }
 
 const Header = ({ userName }: IHeader) => {

@@ -5,9 +5,7 @@ import Header from '.';
 
 describe('<Header />', () => {
   it('should render the Header correctly', () => {
-    const { container } = render(
-      <Header userName="Gabriel Ferreira" onSignOut={() => ({})} />
-    );
+    const { container } = render(<Header userName="Gabriel Ferreira" />);
 
     expect(
       screen.getByRole('img', { name: /logo image/i })
@@ -24,20 +22,8 @@ describe('<Header />', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should check if the onSignOut was called when click button', async () => {
-    const onSignOut = jest.fn();
-
-    render(<Header userName="Gabriel Ferreira" onSignOut={onSignOut} />);
-
-    userEvent.click(screen.getByRole('button'));
-
-    await waitFor(() => {
-      expect(onSignOut).toBeCalled();
-    });
-  });
-
   it('should render the Header correctly without userName', () => {
-    render(<Header onSignOut={() => ({})} />);
+    render(<Header />);
 
     expect(
       screen.queryByRole('heading', { name: /gabriel ferreira/i })
