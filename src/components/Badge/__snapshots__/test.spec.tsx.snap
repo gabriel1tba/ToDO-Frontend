@@ -16,6 +16,7 @@ exports[`<Badge /> should render the Badge correctly 1`] = `
 }
 
 <span
+  aria-label="Tarefas atuais"
   class="c0"
   color="#3498db"
 >
