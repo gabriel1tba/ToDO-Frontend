@@ -2,7 +2,7 @@ import Button from 'components/Button';
 
 import * as S from './styles';
 
-interface AlertProps {
+export interface IAlert {
   title: string;
   description: string;
   isOpen: boolean;
@@ -18,7 +18,7 @@ const Alert = ({
   isLoading,
   onClose,
   onConfirm,
-}: AlertProps) => {
+}: IAlert) => {
   if (!isOpen) return null;
 
   return (

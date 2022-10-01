@@ -74,6 +74,7 @@ const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
           type="text"
           error={errors.title?.message}
           defaultValue={todo.title}
+          autoFocus
           {...register('title')}
         />
 

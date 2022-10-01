@@ -66,6 +66,7 @@ const CreateTodo = ({ onCloseModal }: ICreateTodo) => {
           id="title"
           type="text"
           error={errors.title?.message}
+          autoFocus
           {...register('title')}
         />
 

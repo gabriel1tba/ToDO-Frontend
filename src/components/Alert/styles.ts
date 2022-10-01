@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 2rem;
-    gap: 24px;
+    gap: 1.5rem;
 
     width: 432px;
     height: 238px;
