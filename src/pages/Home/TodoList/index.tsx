@@ -1,8 +1,7 @@
 import { useState, useMemo } from 'react';
 import { useTheme } from 'styled-components';
 import { BiPlusCircle } from 'react-icons/bi';
-import { CgNotes } from 'react-icons/cg';
-import { MdSearchOff } from 'react-icons/md';
+import { BsClipboard, BsClipboardX } from 'react-icons/bs';
 
 import { TTodo } from 'services/TodoService/interfaces';
 
@@ -104,7 +103,7 @@ const TodoList = () => {
         <Card
           title="Você ainda não tem tarefas cadastradas"
           description="Crie tarefas clicando no botão <strong>Nova tarefa</strong>"
-          icon={CgNotes}
+          icon={BsClipboard}
         />
       )}
 
@@ -112,7 +111,7 @@ const TodoList = () => {
         <Card
           title="Nenhuma tarefa encontrada"
           description={`Não encontramos nenhuma tarefa com o termo <strong>"${searchTerm}"</strong>`}
-          icon={MdSearchOff}
+          icon={BsClipboardX}
           color="danger"
         />
       )}

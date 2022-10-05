@@ -17,7 +17,7 @@ export const ListHeader = styled.div`
   input {
     height: 54px;
     width: 100%;
-    padding: 16px;
+    padding: 1rem;
 
     border: 1px solid #0d0d0d;
     border-radius: 8px;
@@ -41,6 +41,7 @@ export const ListHeader = styled.div`
 
     button {
       min-width: 100%;
+      margin-top: 0.5rem;
     }
   }
 `;
@@ -58,6 +59,10 @@ export const ListInfos = styled.div`
   align-items: center;
 
   margin-top: 3rem;
+
+  @media (max-width: 576px) {
+    margin-top: 1rem;
+  }
 
   p {
     display: inline-block;

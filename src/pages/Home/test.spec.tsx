@@ -1,9 +1,18 @@
-import React from 'react';
-import { waitFor } from 'utils/test-utils';
+import { waitFor, screen } from 'utils/test-utils';
 import { renderHook } from '@testing-library/react-hooks';
 
-import { useHome } from './index';
 import Home from '.';
+
+jest.mock('components/Header', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock Header"></div>;
+    },
+  };
+});
+
+import { useHome } from './index';
 
 const todoMock = [
   {
@@ -51,6 +60,8 @@ describe('<TodoProvider />', () => {
     await waitFor(() => {
       expect(result.current.todos).toStrictEqual(todoMock);
     });
+
+    expect(screen.getByTestId('Mock Header')).toBeInTheDocument();
   });
 
   it('should change the completed property of the first whole to true', async () => {

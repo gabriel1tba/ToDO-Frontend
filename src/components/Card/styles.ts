@@ -6,7 +6,7 @@ interface WrapperProps {
 
 const colorModifiers = {
   info: ({ colors }: DefaultTheme) => css`
-    border: 1px solid ${colors.gray[200]};
+    border: 1px solid ${colors.gray[700]};
     color: ${colors.gray[300]};
   `,
   danger: ({ colors }: DefaultTheme) => css`
