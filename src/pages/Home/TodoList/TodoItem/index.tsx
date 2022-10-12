@@ -5,7 +5,7 @@ import TodoService from 'services/TodoService';
 
 import { useToast, useToggle } from 'hooks';
 import { useTodos } from 'pages/Home';
-import { ActionType } from 'pages/Home/utils/actions';
+import { updateTodoAction, deleteTodoAction } from 'pages/Home/utils/actions';
 
 import Alert from 'components/Alert';
 import Modal from 'components/Modal';
@@ -39,7 +39,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
         completed: checked,
       });
 
-      dispatchTodos({ type: ActionType.UpdateTodo, payload: data });
+      dispatchTodos(updateTodoAction(data));
     } catch {
       addToast({
         type: 'error',
@@ -50,7 +50,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
     }
   };
 
-  const handleDeleteTodo = useCallback(async () => {
+  const handleDeleteTodoAcdeleteTodoAction = useCallback(async () => {
     toggleLoadingAlert();
 
     try {
@@ -58,7 +58,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
         id: todo.id,
       });
 
-      dispatchTodos({ type: ActionType.DeleteTodo, payload: todo });
+      dispatchTodos(deleteTodoAction(todo.id));
 
       addToast({
         type: 'success',
@@ -116,7 +116,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
         title="Excluir tarefa"
         description="Tem certeza que deseja excluir essa tarefa?"
         onClose={handleToggleAlert}
-        onConfirm={handleDeleteTodo}
+        onConfirm={handleDeleteTodoAcdeleteTodoAction}
       />
     </>
   );

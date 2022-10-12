@@ -1,18 +1,18 @@
 import { TTodo } from 'services/TodoService/interfaces';
 
-import { ActionType, TodoActions } from './actions';
+import { Types, Action } from './actions';
 
-const todoReducer = (state: TTodo[], action: TodoActions): TTodo[] => {
+const todosReducer = (state: TTodo[], action: Action): TTodo[] => {
   switch (action.type) {
-    case ActionType.GetTodos: {
+    case Types.GET_TODOS: {
       return action.payload;
     }
 
-    case ActionType.CreateTodo: {
+    case Types.CREATE_TODO: {
       return [...state, action.payload];
     }
 
-    case ActionType.UpdateTodo: {
+    case Types.UPDATE_TODO: {
       return state.map((todo) => {
         if (action.payload.id === todo.id) {
           todo = { ...action.payload, created_at: todo.created_at };
@@ -21,9 +21,9 @@ const todoReducer = (state: TTodo[], action: TodoActions): TTodo[] => {
       });
     }
 
-    case ActionType.DeleteTodo: {
+    case Types.DELETE_TODO: {
       return state.filter((todo) => {
-        return todo !== action.payload;
+        return todo.id !== action.payload;
       });
     }
 
@@ -32,4 +32,4 @@ const todoReducer = (state: TTodo[], action: TodoActions): TTodo[] => {
   }
 };
 
-export default todoReducer;
+export default todosReducer;

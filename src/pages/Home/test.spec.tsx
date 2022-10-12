@@ -35,7 +35,11 @@ const todoMock = [
   },
 ];
 
-import { ActionType } from './utils/actions';
+import {
+  createTodoAction,
+  updateTodoAction,
+  deleteTodoAction,
+} from './utils/actions';
 
 describe('<TodoProvider />', () => {
   it('should create two Todos and add a whole to the state', async () => {
@@ -46,15 +50,9 @@ describe('<TodoProvider />', () => {
     });
 
     await waitFor(() => {
-      result.current.dispatchTodos({
-        type: ActionType.CreateTodo,
-        payload: todoMock[0],
-      });
+      result.current.dispatchTodos(createTodoAction(todoMock[0]));
 
-      result.current.dispatchTodos({
-        type: ActionType.CreateTodo,
-        payload: todoMock[1],
-      });
+      result.current.dispatchTodos(createTodoAction(todoMock[1]));
     });
 
     await waitFor(() => {
@@ -73,23 +71,16 @@ describe('<TodoProvider />', () => {
 
     // Create todos
     await waitFor(() => {
-      result.current.dispatchTodos({
-        type: ActionType.CreateTodo,
-        payload: todoMock[0],
-      });
+      result.current.dispatchTodos(createTodoAction(todoMock[0]));
 
-      result.current.dispatchTodos({
-        type: ActionType.CreateTodo,
-        payload: todoMock[1],
-      });
+      result.current.dispatchTodos(createTodoAction(todoMock[1]));
     });
 
     // Update second todo
     await waitFor(() => {
-      result.current.dispatchTodos({
-        type: ActionType.UpdateTodo,
-        payload: { ...todoMock[1], completed: true },
-      });
+      result.current.dispatchTodos(
+        updateTodoAction({ ...todoMock[1], completed: true })
+      );
     });
 
     await waitFor(() => {
@@ -106,23 +97,14 @@ describe('<TodoProvider />', () => {
 
     // Create todos
     await waitFor(() => {
-      result.current.dispatchTodos({
-        type: ActionType.CreateTodo,
-        payload: todoMock[0],
-      });
+      result.current.dispatchTodos(createTodoAction(todoMock[0]));
 
-      result.current.dispatchTodos({
-        type: ActionType.CreateTodo,
-        payload: todoMock[1],
-      });
+      result.current.dispatchTodos(createTodoAction(todoMock[1]));
     });
 
     // Update second todo
     await waitFor(() => {
-      result.current.dispatchTodos({
-        type: ActionType.DeleteTodo,
-        payload: todoMock[1],
-      });
+      result.current.dispatchTodos(deleteTodoAction(todoMock[1].id));
     });
 
     await waitFor(() => {

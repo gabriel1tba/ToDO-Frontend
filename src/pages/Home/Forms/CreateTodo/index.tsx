@@ -5,7 +5,7 @@ import TodoService from 'services/TodoService';
 
 import { useToast, useAuth } from 'hooks';
 import { useTodos } from 'pages/Home';
-import { ActionType } from 'pages/Home/utils/actions';
+import { createTodoAction } from 'pages/Home/utils/actions';
 
 import Input from 'components/Input';
 import TextArea from 'components/TextArea';
@@ -38,7 +38,7 @@ const CreateTodo = ({ onCloseModal }: ICreateTodo) => {
         description,
       });
 
-      dispatchTodos({ type: ActionType.CreateTodo, payload: data });
+      dispatchTodos(createTodoAction(data));
 
       addToast({
         type: 'success',

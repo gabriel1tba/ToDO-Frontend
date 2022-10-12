@@ -14,15 +14,16 @@ import Header from 'components/Header';
 import TodoList from './TodoList';
 import Loader from 'components/Loader';
 
-import { ActionType } from './utils/actions';
-import todoReducer from './utils/reducer';
+import { getTodosAction } from './utils/actions';
+
+import todosReducer from './utils/reducer';
 
 import { ITodosContext } from './interfaces';
 
 const TodosContext = createContext({} as ITodosContext);
 
 const Home = () => {
-  const [todos, dispatchTodos] = useReducer(todoReducer, []);
+  const [todos, dispatchTodos] = useReducer(todosReducer, []);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -35,10 +36,7 @@ const Home = () => {
         try {
           const { data } = await TodoService.getTodos({ id: user.id });
 
-          dispatchTodos({
-            type: ActionType.GetTodos,
-            payload: data,
-          });
+          dispatchTodos(getTodosAction(data));
         } catch {
           addToast({
             type: 'error',

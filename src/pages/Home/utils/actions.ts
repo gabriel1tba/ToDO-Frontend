@@ -1,29 +1,50 @@
 import { TTodo } from 'services/TodoService/interfaces';
 
-export enum ActionType {
-  GetTodos,
-  CreateTodo,
-  UpdateTodo,
-  DeleteTodo,
+export enum Types {
+  GET_TODOS = 'GET_TODOS',
+  CREATE_TODO = 'CREATE_TODO',
+  UPDATE_TODO = 'UPDATE_TODO',
+  DELETE_TODO = 'DELETE_TODO',
 }
 
-export interface GetTodos {
-  type: ActionType.GetTodos;
+interface GetTodos {
+  type: Types.GET_TODOS;
   payload: TTodo[];
 }
-export interface CreateTodo {
-  type: ActionType.CreateTodo;
+
+interface CreateTodo {
+  type: Types.CREATE_TODO;
   payload: TTodo;
 }
 
-export interface UpdateTodo {
-  type: ActionType.UpdateTodo;
+interface UpdateTodo {
+  type: Types.UPDATE_TODO;
   payload: TTodo;
 }
 
-export interface DeleteTodo {
-  type: ActionType.DeleteTodo;
-  payload: TTodo;
+interface DeleteTodo {
+  type: Types.DELETE_TODO;
+  payload: string;
 }
 
-export type TodoActions = GetTodos | CreateTodo | UpdateTodo | DeleteTodo;
+export type Action = GetTodos | CreateTodo | UpdateTodo | DeleteTodo;
+
+export const getTodosAction = (todos: TTodo[]): GetTodos => ({
+  type: Types.GET_TODOS,
+  payload: todos,
+});
+
+export const createTodoAction = (todo: TTodo): CreateTodo => ({
+  type: Types.CREATE_TODO,
+  payload: todo,
+});
+
+export const updateTodoAction = (todo: TTodo): UpdateTodo => ({
+  type: Types.UPDATE_TODO,
+  payload: todo,
+});
+
+export const deleteTodoAction = (id: string): DeleteTodo => ({
+  type: Types.DELETE_TODO,
+  payload: id,
+});
