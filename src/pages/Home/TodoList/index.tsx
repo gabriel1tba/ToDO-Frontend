@@ -7,7 +7,7 @@ import { TTodo } from 'services/TodoService/interfaces';
 
 import { useToggle } from 'hooks';
 
-import { useHome } from 'pages/Home';
+import { useTodo } from 'pages/Home';
 
 import Badge from 'components/Badge';
 import Modal from 'components/Modal';
@@ -19,11 +19,11 @@ import CreateTodo from '../Forms/CreateTodo';
 import * as S from './styles';
 
 const TodoList = () => {
-  const theme = useTheme();
-  const { todos } = useHome();
-  const [openModal, handleToggleModal] = useToggle();
-
   const [searchTerm, setSearchTerm] = useState('');
+
+  const theme = useTheme();
+  const { todos } = useTodo();
+  const [openModal, handleToggleModal] = useToggle();
 
   const filteredTodos = useMemo(
     () =>
@@ -66,7 +66,7 @@ const TodoList = () => {
         />
 
         <Button
-          color="primary"
+          variant="primary"
           icon={<BiPlusCircle />}
           onClick={handleToggleModal}
         >

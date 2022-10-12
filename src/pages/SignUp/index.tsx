@@ -28,9 +28,9 @@ const SignUp = () => {
     resolver: yupResolver(schema),
   });
 
-  const { addToast } = useToast();
-
   const history = useHistory();
+
+  const { addToast } = useToast();
 
   const onSubmit = async ({
     name,

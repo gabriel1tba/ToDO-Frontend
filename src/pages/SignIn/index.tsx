@@ -19,6 +19,13 @@ import * as S from './styles';
 import { schema } from './schema';
 
 const SignIn = () => {
+  const [, setDidMount] = useState(false);
+
+  useEffect(() => {
+    setDidMount(true);
+    return () => setDidMount(false);
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -29,9 +36,6 @@ const SignIn = () => {
 
   const { signIn } = useAuth();
   const { addToast } = useToast();
-
-  // State to useEffect cleanup function
-  const [, setDidMount] = useState(false);
 
   const onSubmit = async ({ email, password }: ILoginUserRequest) => {
     try {
@@ -58,12 +62,6 @@ const SignIn = () => {
       });
     }
   };
-
-  // useEffect cleanup function
-  useEffect(() => {
-    setDidMount(true);
-    return () => setDidMount(false);
-  }, []);
 
   return (
     <S.Wrapper>

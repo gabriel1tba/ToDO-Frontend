@@ -3,7 +3,7 @@ import { render, RenderOptions } from '@testing-library/react';
 import AppProvider from 'context';
 import { ThemeProvider } from 'styled-components';
 
-import theme from 'styles/themes/light';
+import defaultTheme from 'styles/themes/default';
 
 interface IWrapperProvider {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ interface IWrapperProvider {
 // Adiciona os Providers ao método de render
 const WrapperProvider = ({ children }: IWrapperProvider) => (
   <AppProvider>
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    <ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>
   </AppProvider>
 );
 

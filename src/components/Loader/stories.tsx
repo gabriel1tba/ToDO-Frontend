@@ -12,7 +12,7 @@ export default {
     alwaysOnTop: {
       type: 'boolean',
     },
-    color: {
+    variant: {
       control: {
         type: 'select',
         options: ['primary', 'white'],
@@ -41,7 +41,7 @@ export const Default: Story<ILoader> = (args) => (
 Default.args = {
   isLoading: true,
   alwaysOnTop: false,
-  color: 'primary',
+  variant: 'primary',
   size: 32,
 };
 
@@ -63,6 +63,6 @@ export const White: Story<ILoader> = (args) => (
 White.args = {
   isLoading: true,
   alwaysOnTop: false,
-  color: 'white',
+  variant: 'white',
   size: 32,
 };

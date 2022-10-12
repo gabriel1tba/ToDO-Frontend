@@ -1,6 +1,5 @@
 import { forwardRef, ForwardRefRenderFunction, useRef, useState } from 'react';
 import { FiAlertCircle } from 'react-icons/fi';
-import { useTheme } from 'styled-components';
 
 import * as S from './styles';
 
@@ -13,8 +12,6 @@ const TextArea: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
   { error, ...rest },
   ref
 ) => {
-  const theme = useTheme();
-
   const [isFocused, setIsFocued] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
 
@@ -41,12 +38,7 @@ const TextArea: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
       <textarea ref={ref} {...rest} />
       {error && (
         <S.Error title={error}>
-          <FiAlertCircle
-            color={
-              isFocused ? theme.colors.gray[500] : theme.colors.primary.main
-            }
-            size={20}
-          />
+          <FiAlertCircle />
         </S.Error>
       )}
     </S.Wrapper>

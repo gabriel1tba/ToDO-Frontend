@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import TodoService from 'services/TodoService';
 
 import { useToast } from 'hooks';
-import { useHome } from 'pages/Home';
+import { useTodo } from 'pages/Home';
 import { ActionType } from 'pages/Home/utils/actions';
 
 import Input from 'components/Input';
@@ -19,6 +19,13 @@ import * as S from './styles';
 import { IFormData, IEditTodo } from '../../interfaces';
 
 const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
+  const [, setDidMount] = useState(false);
+
+  useEffect(() => {
+    setDidMount(true);
+    return () => setDidMount(false);
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -28,14 +35,7 @@ const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
   });
 
   const { addToast } = useToast();
-  const { todoDispatch } = useHome();
-
-  const [, setDidMount] = useState(false);
-
-  useEffect(() => {
-    setDidMount(true);
-    return () => setDidMount(false);
-  }, []);
+  const { todoDispatch } = useTodo();
 
   const onSubmit = async ({ title, description }: IFormData) => {
     try {

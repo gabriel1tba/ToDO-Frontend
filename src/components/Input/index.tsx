@@ -1,21 +1,18 @@
 import { useRef, useState, forwardRef, ForwardRefRenderFunction } from 'react';
-import { useTheme } from 'styled-components';
 import { FiAlertCircle } from 'react-icons/fi';
-import { IconBaseProps } from 'react-icons';
+import { IconType } from 'react-icons';
 
 import * as S from './styles';
 
 export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
-  icon?: React.ComponentType<IconBaseProps>;
+  icon?: IconType;
   error: string | undefined;
 }
 
 const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
-  { icon: Icon, error, ...rest },
+  { icon: Icon, error, ...props },
   ref
 ) => {
-  const theme = useTheme();
-
   const [isFocused, setIsFocued] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
 
@@ -41,13 +38,11 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
       ref={inputRef}
     >
       {Icon && <Icon size={20} />}
-      <input ref={ref} {...rest} />
+
+      <input ref={ref} {...props} />
       {error && (
         <S.Error title={error}>
-          <FiAlertCircle
-            color={error ? theme.colors.danger.main : theme.colors.primary.main}
-            size={20}
-          />
+          <FiAlertCircle />
         </S.Error>
       )}
     </S.Wrapper>

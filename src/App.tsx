@@ -6,13 +6,13 @@ import Routes from './routes';
 
 import GlobalStyles from './styles/global';
 
-import theme from 'styles/themes/light';
+import defaultTheme from 'styles/themes/default';
 
 const App = () => {
   return (
     <Router>
       <AppProvider>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={defaultTheme}>
           <Routes />
           <GlobalStyles />
         </ThemeProvider>

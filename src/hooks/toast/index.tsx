@@ -7,7 +7,7 @@ const useToast = (): IToastContext => {
   const context = useContext(ToastContext);
 
   if (!context) {
-    throw new Error('useToast depende do ToastProvider');
+    throw new Error('useToast depends on ToastProvider');
   }
 
   return context;

@@ -13,7 +13,7 @@ export default {
     size: {
       type: 'string',
     },
-    color: {
+    variant: {
       control: {
         type: 'select',
         options: ['primary', 'info', 'warning', 'danger', 'success'],
@@ -48,7 +48,7 @@ export const Success: Story<IButton> = (args) => <Button {...args} />;
 
 Success.args = {
   children: 'Success',
-  color: 'success',
+  variant: 'success',
 };
 
 export const Loading: Story<IButton> = (args) => <Button {...args} />;

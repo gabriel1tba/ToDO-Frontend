@@ -17,17 +17,17 @@ import Loader from 'components/Loader';
 import { ActionType } from './utils/actions';
 import todoReducer from './utils/reducer';
 
-import { IHomeContext } from './interfaces';
+import { ITodoContext } from './interfaces';
 
-const HomeContext = createContext({} as IHomeContext);
+const TodoContext = createContext({} as ITodoContext);
 
 const Home = () => {
-  const { user } = useAuth();
-  const { addToast } = useToast();
-
   const [todos, todoDispatch] = useReducer(todoReducer, []);
 
   const [isLoading, setIsLoading] = useState(true);
+
+  const { user } = useAuth();
+  const { addToast } = useToast();
 
   useEffect(() => {
     (async () => {
@@ -54,7 +54,7 @@ const Home = () => {
   }, [addToast, user]);
 
   return (
-    <HomeContext.Provider
+    <TodoContext.Provider
       value={{
         todos,
         todoDispatch,
@@ -64,17 +64,17 @@ const Home = () => {
 
       {!isLoading && <TodoList />}
       {isLoading && <Loader isLoading={isLoading} size={90} alwaysOnTop />}
-    </HomeContext.Provider>
+    </TodoContext.Provider>
   );
 };
 
 export default Home;
 
-export const useHome = (): IHomeContext => {
-  const context = useContext(HomeContext);
+export const useTodo = (): ITodoContext => {
+  const context = useContext(TodoContext);
 
   if (!context) {
-    throw new Error('useHome depende do Home');
+    throw new Error('useTodo depends on TodoProvider');
   }
 
   return context;

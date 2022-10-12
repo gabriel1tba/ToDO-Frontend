@@ -6,12 +6,10 @@ export interface IBadge {
   background: string;
 }
 
-const Badge = ({ title, color, background }: IBadge) => {
-  return (
-    <S.Wrapper aria-label={String(title)} color={color} background={background}>
-      {title}
-    </S.Wrapper>
-  );
-};
+const Badge = ({ title, color, background }: IBadge) => (
+  <S.Wrapper aria-label={String(title)} color={color} background={background}>
+    {title}
+  </S.Wrapper>
+);
 
 export default Badge;

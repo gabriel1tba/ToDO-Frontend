@@ -2,7 +2,7 @@ import styled, { css, DefaultTheme } from 'styled-components';
 
 interface WrapperButton {
   size: 'large' | 'normal';
-  color: 'primary' | 'info' | 'warning' | 'danger' | 'success' | 'outline';
+  variant: 'primary' | 'info' | 'warning' | 'danger' | 'success' | 'outline';
 }
 
 const colorModifiers = {
@@ -124,7 +124,7 @@ const sizeModifiers = {
 };
 
 export const Wrapper = styled.button<WrapperButton>`
-  ${({ theme, color, size }) => css`
+  ${({ theme, variant, size }) => css`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,11 +137,11 @@ export const Wrapper = styled.button<WrapperButton>`
 
     ${sizeModifiers[size]()};
 
-    ${colorModifiers[color](theme)};
+    ${colorModifiers[variant](theme)};
   `}
 `;
 
-export const WrapperLoading = styled.div<Omit<WrapperButton, 'color'>>`
+export const WrapperLoading = styled.div<Omit<WrapperButton, 'variant'>>`
   display: flex;
   align-items: center;
   justify-content: center;

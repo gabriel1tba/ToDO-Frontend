@@ -6,7 +6,7 @@ import { IAuthContext } from 'context/auth/interfaces';
 const useAuth = (): IAuthContext => {
   const context = useContext(AuthContext);
 
-  if (!context) throw new Error('useAuth depende do AuthProvider');
+  if (!context) throw new Error('useAuth depends on AuthProvider');
 
   return context;
 };

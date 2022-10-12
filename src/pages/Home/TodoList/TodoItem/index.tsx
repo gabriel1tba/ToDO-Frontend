@@ -4,7 +4,7 @@ import { TbTrash, TbEdit } from 'react-icons/tb';
 import TodoService from 'services/TodoService';
 
 import { useToast, useToggle } from 'hooks';
-import { useHome } from 'pages/Home';
+import { useTodo } from 'pages/Home';
 import { ActionType } from 'pages/Home/utils/actions';
 
 import Alert from 'components/Alert';
@@ -17,19 +17,19 @@ import * as S from './styles';
 import { ITodoItem } from '../../interfaces';
 
 const TodoItem = ({ todo }: ITodoItem) => {
-  const { addToast } = useToast();
-  const { todoDispatch } = useHome();
-
-  const [openModal, handleToggleModal] = useToggle();
-  const [openAlert, handleToggleAlert] = useToggle();
-  const [loadingAlert, toggleLoadingAlert] = useToggle();
-
   const [, setDidMount] = useState(false);
 
   useEffect(() => {
     setDidMount(true);
     return () => setDidMount(false);
   }, []);
+
+  const { addToast } = useToast();
+  const { todoDispatch } = useTodo();
+
+  const [openModal, handleToggleModal] = useToggle();
+  const [openAlert, handleToggleAlert] = useToggle();
+  const [loadingAlert, toggleLoadingAlert] = useToggle();
 
   const handleCompletedTodo = async (checked: boolean) => {
     try {

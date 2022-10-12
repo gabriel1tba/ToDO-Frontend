@@ -2,7 +2,7 @@ import { TTodo } from 'services/TodoService/interfaces';
 
 import { TodoActions } from './utils/actions';
 
-export interface IHomeContext {
+export interface ITodoContext {
   todos: TTodo[];
   todoDispatch: React.Dispatch<TodoActions>;
 }

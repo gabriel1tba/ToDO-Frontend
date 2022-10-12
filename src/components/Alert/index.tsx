@@ -27,10 +27,10 @@ const Alert = ({
         <h1>{title}</h1>
         <p>{description}</p>
         <div>
-          <Button disabled={isLoading} color="outline" onClick={onClose}>
+          <Button disabled={isLoading} variant="outline" onClick={onClose}>
             Cancelar
           </Button>
-          <Button loading={isLoading} color="danger" onClick={onConfirm}>
+          <Button loading={isLoading} variant="danger" onClick={onConfirm}>
             Sim, excluir
           </Button>
         </div>

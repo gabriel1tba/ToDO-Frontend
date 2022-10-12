@@ -59,7 +59,7 @@ export const Overlay = styled.div`
 
 interface ILoaderProps {
   size: number;
-  color: 'white' | 'primary';
+  variant: 'white' | 'primary';
 }
 
 export const Loader = styled.div<ILoaderProps>`
@@ -76,5 +76,5 @@ export const Loader = styled.div<ILoaderProps>`
   -webkit-animation: ${load} 1.5s infinite ease, ${round} 1.5s infinite ease;
   animation: ${load} 1.5s infinite ease, ${round} 1.5s infinite ease;
 
-  ${({ theme, color }) => colorModifiers[color](theme)};
+  ${({ theme, variant }) => colorModifiers[variant](theme)};
 `;

@@ -12,7 +12,7 @@ jest.mock('components/Header', () => {
   };
 });
 
-import { useHome } from './index';
+import { useTodo } from './index';
 
 const todoMock = [
   {
@@ -41,7 +41,7 @@ describe('<TodoProvider />', () => {
   it('should create two Todos and add a whole to the state', async () => {
     const wrapper = () => <Home />;
 
-    const { result } = renderHook(() => useHome(), {
+    const { result } = renderHook(() => useTodo(), {
       wrapper,
     });
 
@@ -67,7 +67,7 @@ describe('<TodoProvider />', () => {
   it('should change the completed property of the first whole to true', async () => {
     const wrapper = () => <Home />;
 
-    const { result } = renderHook(() => useHome(), {
+    const { result } = renderHook(() => useTodo(), {
       wrapper,
     });
 
@@ -100,7 +100,7 @@ describe('<TodoProvider />', () => {
   it('should remove the second whole and update the state', async () => {
     const wrapper = () => <Home />;
 
-    const { result } = renderHook(() => useHome(), {
+    const { result } = renderHook(() => useTodo(), {
       wrapper,
     });
 

@@ -27,8 +27,9 @@ export const Wrapper = styled.div<IWrapper>`
     ${hasError &&
     css`
       border-color: ${theme.colors.danger.main};
-      > svg {
-        stroke: ${theme.colors.danger.main};
+
+      svg {
+        color: ${theme.colors.danger.main};
       }
     `}
 
@@ -42,8 +43,9 @@ export const Wrapper = styled.div<IWrapper>`
     css`
       color: ${theme.colors.primary.main};
       border-color: ${theme.colors.primary.main};
-      > svg {
-        stroke: ${theme.colors.primary.main};
+
+      svg {
+        color: ${theme.colors.primary.main};
       }
     `}
 
@@ -78,6 +80,7 @@ export const Error = styled(Tooltip)`
 
     > svg {
       margin: 0;
+      font-size: 20px;
     }
 
     span {

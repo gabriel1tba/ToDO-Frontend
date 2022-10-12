@@ -5,7 +5,7 @@ import * as S from './styles';
 export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   loading?: boolean;
-  color?: 'primary' | 'info' | 'warning' | 'danger' | 'success' | 'outline';
+  variant?: 'primary' | 'info' | 'warning' | 'danger' | 'success' | 'outline';
   icon?: JSX.Element;
   size?: 'large' | 'normal';
 }
@@ -13,23 +13,23 @@ export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = ({
   children,
   loading,
-  color = 'primary',
+  variant = 'primary',
   size = 'normal',
   type = 'button',
   disabled,
   icon,
-  ...rest
+  ...props
 }: IButton) => (
   <S.Wrapper
     type={type}
     size={size}
-    color={color}
+    variant={variant}
     disabled={loading || disabled}
-    {...rest}
+    {...props}
   >
     {loading ? (
       <S.WrapperLoading size={size}>
-        {children} <Loader size={12} color="white" />
+        {children} <Loader size={12} variant="white" />
       </S.WrapperLoading>
     ) : (
       <>

@@ -27,6 +27,10 @@ export const Wrapper = styled.div<IWrapper>`
     ${hasError &&
     css`
       border-color: ${theme.colors.danger.main};
+
+      svg {
+        color: ${theme.colors.danger.main};
+      }
     `}
 
     ${isFilled &&
@@ -39,6 +43,10 @@ export const Wrapper = styled.div<IWrapper>`
     css`
       color: ${theme.colors.primary.main};
       border-color: ${theme.colors.primary.main};
+
+      svg {
+        color: ${theme.colors.primary.main};
+      }
     `}
 
   textarea {
@@ -67,6 +75,11 @@ export const Error = styled(Tooltip)`
   ${({ theme }) => css`
     height: 20px;
     margin-left: 1rem;
+
+    > svg {
+      margin: 0;
+      font-size: 20px;
+    }
 
     span {
       background: ${theme.colors.danger.main};

@@ -1,7 +1,7 @@
-import light from 'styles/themes/light';
+import defaultTheme from 'styles/themes/default';
 
 // inferência de tipos
-type Theme = typeof light;
+type Theme = typeof defaultTheme;
 
 declare module 'styled-components' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
