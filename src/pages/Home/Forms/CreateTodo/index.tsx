@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import TodoService from 'services/TodoService';
 
 import { useToast, useAuth } from 'hooks';
-import { useTodo } from 'pages/Home';
+import { useTodos } from 'pages/Home';
 import { ActionType } from 'pages/Home/utils/actions';
 
 import Input from 'components/Input';
@@ -27,7 +27,7 @@ const CreateTodo = ({ onCloseModal }: ICreateTodo) => {
   });
 
   const { addToast } = useToast();
-  const { todoDispatch } = useTodo();
+  const { dispatchTodos } = useTodos();
   const { user } = useAuth();
 
   const onSubmit = async ({ title, description }: IFormData) => {
@@ -38,7 +38,7 @@ const CreateTodo = ({ onCloseModal }: ICreateTodo) => {
         description,
       });
 
-      todoDispatch({ type: ActionType.CreateTodo, payload: data });
+      dispatchTodos({ type: ActionType.CreateTodo, payload: data });
 
       addToast({
         type: 'success',

@@ -4,7 +4,7 @@ import { TbTrash, TbEdit } from 'react-icons/tb';
 import TodoService from 'services/TodoService';
 
 import { useToast, useToggle } from 'hooks';
-import { useTodo } from 'pages/Home';
+import { useTodos } from 'pages/Home';
 import { ActionType } from 'pages/Home/utils/actions';
 
 import Alert from 'components/Alert';
@@ -25,7 +25,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
   }, []);
 
   const { addToast } = useToast();
-  const { todoDispatch } = useTodo();
+  const { dispatchTodos } = useTodos();
 
   const [openModal, handleToggleModal] = useToggle();
   const [openAlert, handleToggleAlert] = useToggle();
@@ -39,7 +39,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
         completed: checked,
       });
 
-      todoDispatch({ type: ActionType.UpdateTodo, payload: data });
+      dispatchTodos({ type: ActionType.UpdateTodo, payload: data });
     } catch {
       addToast({
         type: 'error',
@@ -58,7 +58,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
         id: todo.id,
       });
 
-      todoDispatch({ type: ActionType.DeleteTodo, payload: todo });
+      dispatchTodos({ type: ActionType.DeleteTodo, payload: todo });
 
       addToast({
         type: 'success',
@@ -75,7 +75,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
       handleToggleAlert();
       toggleLoadingAlert();
     }
-  }, [toggleLoadingAlert, todo, todoDispatch, addToast, handleToggleAlert]);
+  }, [toggleLoadingAlert, todo, dispatchTodos, addToast, handleToggleAlert]);
 
   return (
     <>

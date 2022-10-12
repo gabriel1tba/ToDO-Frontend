@@ -12,7 +12,7 @@ jest.mock('components/Header', () => {
   };
 });
 
-import { useTodo } from './index';
+import { useTodos } from './index';
 
 const todoMock = [
   {
@@ -41,17 +41,17 @@ describe('<TodoProvider />', () => {
   it('should create two Todos and add a whole to the state', async () => {
     const wrapper = () => <Home />;
 
-    const { result } = renderHook(() => useTodo(), {
+    const { result } = renderHook(() => useTodos(), {
       wrapper,
     });
 
     await waitFor(() => {
-      result.current.todoDispatch({
+      result.current.dispatchTodos({
         type: ActionType.CreateTodo,
         payload: todoMock[0],
       });
 
-      result.current.todoDispatch({
+      result.current.dispatchTodos({
         type: ActionType.CreateTodo,
         payload: todoMock[1],
       });
@@ -67,18 +67,18 @@ describe('<TodoProvider />', () => {
   it('should change the completed property of the first whole to true', async () => {
     const wrapper = () => <Home />;
 
-    const { result } = renderHook(() => useTodo(), {
+    const { result } = renderHook(() => useTodos(), {
       wrapper,
     });
 
     // Create todos
     await waitFor(() => {
-      result.current.todoDispatch({
+      result.current.dispatchTodos({
         type: ActionType.CreateTodo,
         payload: todoMock[0],
       });
 
-      result.current.todoDispatch({
+      result.current.dispatchTodos({
         type: ActionType.CreateTodo,
         payload: todoMock[1],
       });
@@ -86,7 +86,7 @@ describe('<TodoProvider />', () => {
 
     // Update second todo
     await waitFor(() => {
-      result.current.todoDispatch({
+      result.current.dispatchTodos({
         type: ActionType.UpdateTodo,
         payload: { ...todoMock[1], completed: true },
       });
@@ -100,18 +100,18 @@ describe('<TodoProvider />', () => {
   it('should remove the second whole and update the state', async () => {
     const wrapper = () => <Home />;
 
-    const { result } = renderHook(() => useTodo(), {
+    const { result } = renderHook(() => useTodos(), {
       wrapper,
     });
 
     // Create todos
     await waitFor(() => {
-      result.current.todoDispatch({
+      result.current.dispatchTodos({
         type: ActionType.CreateTodo,
         payload: todoMock[0],
       });
 
-      result.current.todoDispatch({
+      result.current.dispatchTodos({
         type: ActionType.CreateTodo,
         payload: todoMock[1],
       });
@@ -119,7 +119,7 @@ describe('<TodoProvider />', () => {
 
     // Update second todo
     await waitFor(() => {
-      result.current.todoDispatch({
+      result.current.dispatchTodos({
         type: ActionType.DeleteTodo,
         payload: todoMock[1],
       });

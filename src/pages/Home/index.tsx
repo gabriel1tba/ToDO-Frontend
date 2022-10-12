@@ -17,12 +17,12 @@ import Loader from 'components/Loader';
 import { ActionType } from './utils/actions';
 import todoReducer from './utils/reducer';
 
-import { ITodoContext } from './interfaces';
+import { ITodosContext } from './interfaces';
 
-const TodoContext = createContext({} as ITodoContext);
+const TodosContext = createContext({} as ITodosContext);
 
 const Home = () => {
-  const [todos, todoDispatch] = useReducer(todoReducer, []);
+  const [todos, dispatchTodos] = useReducer(todoReducer, []);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -35,7 +35,7 @@ const Home = () => {
         try {
           const { data } = await TodoService.getTodos({ id: user.id });
 
-          todoDispatch({
+          dispatchTodos({
             type: ActionType.GetTodos,
             payload: data,
           });
@@ -54,27 +54,27 @@ const Home = () => {
   }, [addToast, user]);
 
   return (
-    <TodoContext.Provider
+    <TodosContext.Provider
       value={{
         todos,
-        todoDispatch,
+        dispatchTodos,
       }}
     >
       <Header userName={user.name} />
 
       {!isLoading && <TodoList />}
       {isLoading && <Loader isLoading={isLoading} size={90} alwaysOnTop />}
-    </TodoContext.Provider>
+    </TodosContext.Provider>
   );
 };
 
 export default Home;
 
-export const useTodo = (): ITodoContext => {
-  const context = useContext(TodoContext);
+export const useTodos = (): ITodosContext => {
+  const context = useContext(TodosContext);
 
   if (!context) {
-    throw new Error('useTodo depends on TodoProvider');
+    throw new Error('useTodos depends on TodoProvider');
   }
 
   return context;
