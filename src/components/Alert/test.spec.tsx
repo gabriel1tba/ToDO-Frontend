@@ -13,7 +13,7 @@ describe('<Alert />', () => {
         isOpen
         title="Deseja mesmo excluir essa tarefa?"
         description="Essa ação não poderá ser desfeita"
-        onClose={() => null}
+        onCancel={() => null}
         onConfirm={() => null}
       />
     );
@@ -35,7 +35,7 @@ describe('<Alert />', () => {
         isLoading
         title="Deseja mesmo excluir essa tarefa?"
         description="Essa ação não poderá ser desfeita"
-        onClose={() => null}
+        onCancel={() => null}
         onConfirm={() => null}
       />
     );

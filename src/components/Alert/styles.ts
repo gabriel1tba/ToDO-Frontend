@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
     color: ${theme.colors.gray[500]};
 
     h1 {
-      font-size: 2rem;
+      font-size: 1.5rem;
       line-height: 2rem;
       font-weight: 700;
     }

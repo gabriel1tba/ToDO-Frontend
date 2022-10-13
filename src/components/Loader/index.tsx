@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import CreatePortalWrapper from 'components/CreatePortalWrapper';
 
 import * as S from './styles';
 
@@ -15,17 +15,14 @@ const Loader = ({
   variant = 'primary',
   size,
 }: ILoader) => {
-  const portalRoot = document.querySelector('#portal-loader-root') as Element;
-
   if (!isLoading) return null;
 
   return alwaysOnTop ? (
-    ReactDOM.createPortal(
+    <CreatePortalWrapper divElementId="loader-root">
       <S.Overlay>
         <S.Loader size={size} variant={variant} data-testid="loader" />
-      </S.Overlay>,
-      portalRoot
-    )
+      </S.Overlay>
+    </CreatePortalWrapper>
   ) : (
     <S.Loader size={size} variant={variant} />
   );

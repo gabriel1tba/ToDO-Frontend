@@ -115,7 +115,8 @@ const TodoItem = ({ todo }: ITodoItem) => {
         isLoading={loadingAlert}
         title="Excluir tarefa"
         description="Tem certeza que deseja excluir essa tarefa?"
-        onClose={handleToggleAlert}
+        confirmLabel="Sim, excluir"
+        onCancel={handleToggleAlert}
         onConfirm={handleDeleteTodoAcdeleteTodoAction}
       />
     </>

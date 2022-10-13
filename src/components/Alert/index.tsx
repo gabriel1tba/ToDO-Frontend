@@ -1,4 +1,5 @@
 import Button from 'components/Button';
+import CreatePortalWrapper from 'components/CreatePortalWrapper';
 
 import * as S from './styles';
 
@@ -7,35 +8,41 @@ export interface IAlert {
   description: string;
   isOpen: boolean;
   isLoading?: boolean;
-  onClose: () => void;
+  cancelLabel?: string;
+  confirmLabel?: string;
+  onCancel: () => void;
   onConfirm: () => void;
 }
 
 const Alert = ({
-  title,
-  description,
   isOpen,
   isLoading,
-  onClose,
+  title,
+  description,
+  cancelLabel = 'Cancelar',
+  confirmLabel = 'Confirmar',
+  onCancel,
   onConfirm,
 }: IAlert) => {
   if (!isOpen) return null;
 
   return (
-    <S.Overlay>
-      <S.Wrapper>
-        <h1>{title}</h1>
-        <p>{description}</p>
-        <div>
-          <Button disabled={isLoading} variant="outline" onClick={onClose}>
-            Cancelar
-          </Button>
-          <Button loading={isLoading} variant="danger" onClick={onConfirm}>
-            Sim, excluir
-          </Button>
-        </div>
-      </S.Wrapper>
-    </S.Overlay>
+    <CreatePortalWrapper>
+      <S.Overlay>
+        <S.Wrapper>
+          <h1>{title}</h1>
+          <p>{description}</p>
+          <div>
+            <Button disabled={isLoading} variant="outline" onClick={onCancel}>
+              {cancelLabel}
+            </Button>
+            <Button loading={isLoading} variant="danger" onClick={onConfirm}>
+              {confirmLabel}
+            </Button>
+          </div>
+        </S.Wrapper>
+      </S.Overlay>
+    </CreatePortalWrapper>
   );
 };
 
