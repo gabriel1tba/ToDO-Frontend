@@ -6,6 +6,10 @@ export const Wrapper = styled.div`
   max-width: 1032px;
   padding: 0 2rem;
   margin: 4rem auto;
+
+  .flex {
+    display: flex;
+  }
 `;
 
 export const ListHeader = styled.div`

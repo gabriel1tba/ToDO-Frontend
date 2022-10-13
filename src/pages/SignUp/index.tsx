@@ -32,39 +32,36 @@ const SignUp = () => {
 
   const { addToast } = useToast();
 
-  const onSubmit = async ({
-    name,
-    email,
-    password,
-    confirmPassword,
-  }: ICreateUserRequest) => {
-    try {
-      await UserService.createUser({
-        name,
-        email,
-        password,
-        confirmPassword,
-      });
+  const onSubmit = handleSubmit(
+    async ({ name, email, password, confirmPassword }: ICreateUserRequest) => {
+      try {
+        await UserService.createUser({
+          name,
+          email,
+          password,
+          confirmPassword,
+        });
 
-      addToast({
-        type: 'success',
-        title: 'Cadastrado com sucesso!',
-        description: 'Você será redirecionado em instantes...',
-        secondsDuration: 3,
-      });
+        addToast({
+          type: 'success',
+          title: 'Cadastrado com sucesso!',
+          description: 'Você será redirecionado em instantes...',
+          secondsDuration: 3,
+        });
 
-      await delay(3000);
-      history.push('/');
-    } catch {
-      addToast({
-        type: 'error',
-        title: 'Erro ao cadastrar!',
-        description:
-          'Um erro inesperado aconteceu... Tente novamente mais tarde.',
-        secondsDuration: 5,
-      });
+        await delay(3000);
+        history.push('/');
+      } catch {
+        addToast({
+          type: 'error',
+          title: 'Erro ao cadastrar!',
+          description:
+            'Um erro inesperado aconteceu... Tente novamente mais tarde.',
+          secondsDuration: 5,
+        });
+      }
     }
-  };
+  );
 
   return (
     <S.Wrapper>
@@ -78,7 +75,7 @@ const SignUp = () => {
             alt="logo com nome da pagina"
           />
 
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={onSubmit}>
             <h1>Faça seu cadastro</h1>
 
             <Input

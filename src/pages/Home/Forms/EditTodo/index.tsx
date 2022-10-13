@@ -37,7 +37,7 @@ const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
   const { addToast } = useToast();
   const { dispatchTodos } = useTodos();
 
-  const onSubmit = async ({ title, description }: IFormData) => {
+  const onSubmit = handleSubmit(async ({ title, description }: IFormData) => {
     try {
       const { data } = await TodoService.updateTodo({
         id: todo.id,
@@ -63,11 +63,11 @@ const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
         secondsDuration: 5,
       });
     }
-  };
+  });
 
   return (
     <S.Wrapper>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={onSubmit}>
         <label htmlFor="title">Título</label>
         <Input
           id="title"

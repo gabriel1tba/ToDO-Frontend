@@ -30,7 +30,6 @@ export const Default: Story<ICard> = (args) => (
 
 Default.args = {
   title: 'Você ainda não tem tarefas cadastradas',
-  description: 'Crie tarefas clicando no botão Nova Tarefa',
   icon: CgNotes,
 };
 

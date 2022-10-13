@@ -9,9 +9,7 @@ describe('<Card />', () => {
   });
 
   it('should render the Card correctly', () => {
-    const { container } = render(
-      <Card icon={FaUser} title="Card Title" description="Card Description" />
-    );
+    const { container } = render(<Card icon={FaUser} title="Card Title" />);
 
     expect(screen.getByText(/card title/i)).toBeInTheDocument();
     expect(screen.getByText(/card description/i)).toBeInTheDocument();
@@ -25,14 +23,7 @@ describe('<Card />', () => {
   });
 
   it('should render the Card variant Danger correctly', () => {
-    render(
-      <Card
-        icon={FaUser}
-        title="Card Title"
-        description="Card Description"
-        color="danger"
-      />
-    );
+    render(<Card icon={FaUser} title="Card Title" color="danger" />);
 
     expect(screen.getByText(/card title/i).parentElement).toHaveStyle({
       color: '#FF1744',

@@ -3,15 +3,16 @@ import * as S from './styles';
 export interface ICard {
   title: string;
   color?: 'info' | 'danger';
-  description: string;
   icon: React.ElementType;
+  children?: React.ReactNode;
 }
 
-const Card = ({ title, description, icon: Icon, color = 'info' }: ICard) => (
+const Card = ({ title, icon: Icon, color = 'info', children }: ICard) => (
   <S.Wrapper color={color}>
     <Icon />
     <strong>{title}</strong>
-    <p dangerouslySetInnerHTML={{ __html: description }} />
+
+    {children && children}
   </S.Wrapper>
 );
 

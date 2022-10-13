@@ -17,6 +17,11 @@ import * as S from './styles';
 import { ITodoItem } from '../../interfaces';
 
 const TodoItem = ({ todo }: ITodoItem) => {
+  const [openAlert, setOpenAlert] = useState({
+    isOpen: false,
+    todoTitle: '',
+  });
+
   const [, setDidMount] = useState(false);
 
   useEffect(() => {
@@ -28,10 +33,9 @@ const TodoItem = ({ todo }: ITodoItem) => {
   const { dispatchTodos } = useTodos();
 
   const [openModal, handleToggleModal] = useToggle();
-  const [openAlert, handleToggleAlert] = useToggle();
-  const [loadingAlert, toggleLoadingAlert] = useToggle();
+  const [loadingAlert, handleToggleLoading] = useToggle();
 
-  const handleCompletedTodo = async (checked: boolean) => {
+  const handleCompleteTodo = async (checked: boolean) => {
     try {
       const { data } = await TodoService.updateTodo({
         id: todo.id,
@@ -50,8 +54,8 @@ const TodoItem = ({ todo }: ITodoItem) => {
     }
   };
 
-  const handleDeleteTodoAcdeleteTodoAction = useCallback(async () => {
-    toggleLoadingAlert();
+  const handleDeleteTodo = useCallback(async () => {
+    handleToggleLoading();
 
     try {
       await TodoService.deleteTodo({
@@ -72,10 +76,13 @@ const TodoItem = ({ todo }: ITodoItem) => {
         secondsDuration: 8,
       });
     } finally {
-      handleToggleAlert();
-      toggleLoadingAlert();
+      setOpenAlert((prevState) => ({
+        isOpen: !prevState.isOpen,
+        todoTitle: '',
+      }));
+      handleToggleLoading();
     }
-  }, [toggleLoadingAlert, todo, dispatchTodos, addToast, handleToggleAlert]);
+  }, [addToast, dispatchTodos, todo.id, handleToggleLoading]);
 
   return (
     <>
@@ -86,7 +93,7 @@ const TodoItem = ({ todo }: ITodoItem) => {
           name="completed"
           checked={todo.completed}
           onChange={(event) => {
-            handleCompletedTodo(event.target.checked);
+            handleCompleteTodo(event.target.checked);
           }}
         />
 
@@ -96,7 +103,15 @@ const TodoItem = ({ todo }: ITodoItem) => {
           <button onClick={handleToggleModal} data-testid="edit-todo">
             <TbEdit />
           </button>
-          <button onClick={handleToggleAlert} data-testid="delete-todo">
+          <button
+            onClick={() =>
+              setOpenAlert((prevState) => ({
+                isOpen: !prevState.isOpen,
+                todoTitle: todo.title,
+              }))
+            }
+            data-testid="delete-todo"
+          >
             <TbTrash />
           </button>
         </div>
@@ -111,13 +126,18 @@ const TodoItem = ({ todo }: ITodoItem) => {
       </Modal>
 
       <Alert
-        isOpen={openAlert}
+        isOpen={openAlert.isOpen}
         isLoading={loadingAlert}
-        title="Excluir tarefa"
+        title={`Excluir tarefa "${openAlert.todoTitle}"?`}
         description="Tem certeza que deseja excluir essa tarefa?"
         confirmLabel="Sim, excluir"
-        onCancel={handleToggleAlert}
-        onConfirm={handleDeleteTodoAcdeleteTodoAction}
+        onCancel={() =>
+          setOpenAlert((prevState) => ({
+            isOpen: !prevState.isOpen,
+            todoTitle: '',
+          }))
+        }
+        onConfirm={handleDeleteTodo}
       />
     </>
   );

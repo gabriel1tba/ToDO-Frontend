@@ -100,20 +100,28 @@ const TodoList = () => {
       </S.TodosWrapper>
 
       {todos.length === 0 && (
-        <Card
-          title="Você ainda não tem tarefas cadastradas"
-          description="Crie tarefas clicando no botão <strong>Nova tarefa</strong>"
-          icon={BsClipboard}
-        />
+        <Card title="Você ainda não tem tarefas cadastradas" icon={BsClipboard}>
+          <p>
+            <div className="flex">
+              Crie tarefas clicando no botão <strong>Nova tarefa</strong>
+            </div>
+          </p>
+        </Card>
       )}
 
       {todos.length > 0 && filteredTodos.length === 0 && (
         <Card
           title="Nenhuma tarefa encontrada"
-          description={`Não encontramos nenhuma tarefa com o termo <strong>"${searchTerm}"</strong>`}
           icon={BsClipboardX}
           color="danger"
-        />
+        >
+          <div className="flex">
+            <p>
+              Não encontramos nenhuma tarefa com o termo{' '}
+              <strong>{`"${searchTerm}"`}</strong>
+            </p>
+          </div>
+        </Card>
       )}
 
       <Modal

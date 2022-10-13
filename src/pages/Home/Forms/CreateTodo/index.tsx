@@ -30,7 +30,7 @@ const CreateTodo = ({ onCloseModal }: ICreateTodo) => {
   const { dispatchTodos } = useTodos();
   const { user } = useAuth();
 
-  const onSubmit = async ({ title, description }: IFormData) => {
+  const onSubmit = handleSubmit(async ({ title, description }: IFormData) => {
     try {
       const { data } = await TodoService.createTodo({
         user_id: user.id,
@@ -56,11 +56,11 @@ const CreateTodo = ({ onCloseModal }: ICreateTodo) => {
         secondsDuration: 5,
       });
     }
-  };
+  });
 
   return (
     <S.Wrapper>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={onSubmit}>
         <label htmlFor="title">Título</label>
         <Input
           id="title"

@@ -37,31 +37,33 @@ const SignIn = () => {
   const { signIn } = useAuth();
   const { addToast } = useToast();
 
-  const onSubmit = async ({ email, password }: ILoginUserRequest) => {
-    try {
-      await signIn({ email, password });
-    } catch (err) {
-      const error = err as AxiosError;
+  const onSubmit = handleSubmit(
+    async ({ email, password }: ILoginUserRequest) => {
+      try {
+        await signIn({ email, password });
+      } catch (err) {
+        const error = err as AxiosError;
 
-      if (error.response?.status === 401) {
+        if (error.response?.status === 401) {
+          addToast({
+            type: 'error',
+            title: 'Dados não cadastrados!',
+            description: 'E-mail e/ou senha inválidos.',
+            secondsDuration: 5,
+          });
+          return;
+        }
+
         addToast({
           type: 'error',
-          title: 'Dados não cadastrados!',
-          description: 'E-mail e/ou senha inválidos.',
+          title: 'Erro ao tentar logar!',
+          description:
+            'Um erro inesperado aconteceu... Tente novamente mais tarde.',
           secondsDuration: 5,
         });
-        return;
       }
-
-      addToast({
-        type: 'error',
-        title: 'Erro ao tentar logar!',
-        description:
-          'Um erro inesperado aconteceu... Tente novamente mais tarde.',
-        secondsDuration: 5,
-      });
     }
-  };
+  );
 
   return (
     <S.Wrapper>
@@ -73,7 +75,7 @@ const SignIn = () => {
             alt="logo com nome da pagina"
           />
 
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={onSubmit}>
             <h1>Faça seu login </h1>
 
             <Input
