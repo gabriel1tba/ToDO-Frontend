@@ -1,10 +1,10 @@
 import { TTodo } from 'services/TodoService/interfaces';
 
-import { Action } from './utils/actions';
+import { Actions } from './utils/actions';
 
 export interface ITodosContext {
   todos: TTodo[];
-  dispatchTodos: React.Dispatch<Action>;
+  dispatchTodos: React.Dispatch<Actions>;
 }
 
 export interface ITodoItem {
