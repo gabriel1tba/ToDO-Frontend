@@ -72,7 +72,7 @@ export const useTodos = (): ITodosContext => {
   const context = useContext(TodosContext);
 
   if (!context) {
-    throw new Error('useTodos depends on TodoProvider');
+    throw new Error('useTodos must be used within Home');
   }
 
   return context;
