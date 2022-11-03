@@ -9,7 +9,7 @@ export interface ITextArea
 }
 
 const TextArea: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
-  { error, ...rest },
+  { error, ...props },
   ref
 ) => {
   const [isFocused, setIsFocued] = useState(false);
@@ -35,7 +35,7 @@ const TextArea: ForwardRefRenderFunction<HTMLTextAreaElement, ITextArea> = (
       onFocus={handleInputFocus}
       onBlur={handleInputBlur}
     >
-      <textarea ref={ref} {...rest} />
+      <textarea ref={ref} {...props} />
       {error && (
         <S.Error title={error}>
           <FiAlertCircle />

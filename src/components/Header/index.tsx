@@ -1,6 +1,6 @@
 import { RiShutDownLine } from 'react-icons/ri';
 
-import { useAuth } from 'hooks';
+import { useAuthContext } from 'hooks';
 
 import logoImg from 'assets/logo.png';
 
@@ -11,7 +11,7 @@ export interface IHeader {
 }
 
 const Header = ({ userName }: IHeader) => {
-  const { signOut } = useAuth();
+  const { signOut } = useAuthContext();
 
   return (
     <S.Wrapper>

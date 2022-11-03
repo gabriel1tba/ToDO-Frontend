@@ -4,7 +4,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import { useAuth } from 'hooks';
+import { useAuthContext } from 'hooks';
 
 interface IRoute extends ReactDOMRouteProps {
   isPrivate?: boolean;
@@ -14,13 +14,13 @@ interface IRoute extends ReactDOMRouteProps {
 const Route = ({
   isPrivate = false,
   component: Component,
-  ...rest
+  ...props
 }: IRoute) => {
-  const { user: Logged } = useAuth();
+  const { user: Logged } = useAuthContext();
 
   return (
     <ReactDOMRoute
-      {...rest}
+      {...props}
       render={({ location }) => {
         return isPrivate === !!Logged ? (
           <Component />

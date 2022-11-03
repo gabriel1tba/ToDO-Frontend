@@ -2,7 +2,7 @@ import React from 'react';
 import { waitFor } from 'utils/test-utils';
 import { renderHook } from '@testing-library/react-hooks';
 
-import { useToast } from 'hooks';
+import { useToastContext } from 'hooks';
 import { ToastProvider } from '.';
 
 describe('<ToastProvider />', () => {
@@ -13,7 +13,7 @@ describe('<ToastProvider />', () => {
       <ToastProvider>{children}</ToastProvider>
     );
 
-    const { result } = renderHook(() => useToast(), {
+    const { result } = renderHook(() => useToastContext(), {
       wrapper,
     });
 

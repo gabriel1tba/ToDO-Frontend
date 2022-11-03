@@ -7,7 +7,7 @@ import { TTodo } from 'services/TodoService/interfaces';
 
 import { useToggle } from 'hooks';
 
-import { useTodos } from 'pages/Home';
+import { useTodosContext } from 'pages/Home';
 
 import Badge from 'components/Badge';
 import Modal from 'components/Modal';
@@ -22,7 +22,7 @@ const TodoList = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const theme = useTheme();
-  const { todos } = useTodos();
+  const { todos } = useTodosContext();
   const [openModal, handleToggleModal] = useToggle();
 
   const filteredTodos = useMemo(

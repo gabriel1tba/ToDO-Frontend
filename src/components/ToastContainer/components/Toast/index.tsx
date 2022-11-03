@@ -6,7 +6,7 @@ import {
   FiXCircle,
 } from 'react-icons/fi';
 
-import { useToast } from 'hooks';
+import { useToastContext } from 'hooks';
 import { IToast } from 'components/ToastContainer';
 
 import * as S from './styles';
@@ -18,7 +18,7 @@ const icons = {
 };
 
 const Toast = ({ toastMessage, style }: IToast) => {
-  const { removeToast } = useToast();
+  const { removeToast } = useToastContext();
 
   useEffect(() => {
     const timer = setTimeout(() => {

@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import { AxiosError } from 'axios';
 
-import { useAuth, useToast } from 'hooks';
+import { useAuthContext, useToastContext } from 'hooks';
 
 import { ILoginUserRequest } from 'services/UserService/interfaces';
 
@@ -34,8 +34,8 @@ const SignIn = () => {
     resolver: yupResolver(schema),
   });
 
-  const { signIn } = useAuth();
-  const { addToast } = useToast();
+  const { signIn } = useAuthContext();
+  const { addToast } = useToastContext();
 
   const onSubmit = handleSubmit(
     async ({ email, password }: ILoginUserRequest) => {

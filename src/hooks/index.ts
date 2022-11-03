@@ -1,5 +1,5 @@
-import useAuth from './auth';
-import useToast from './toast';
+import useAuthContext from './auth';
+import useToastContext from './toast';
 import useToggle from './toggle';
 
-export { useAuth, useToast, useToggle };
+export { useAuthContext, useToastContext, useToggle };

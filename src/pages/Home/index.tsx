@@ -6,7 +6,7 @@ import {
   useContext,
 } from 'react';
 
-import { useAuth, useToast } from 'hooks';
+import { useAuthContext, useToastContext } from 'hooks';
 
 import TodoService from 'services/TodoService';
 
@@ -27,8 +27,8 @@ const Home = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const { user } = useAuth();
-  const { addToast } = useToast();
+  const { user } = useAuthContext();
+  const { addToast } = useToastContext();
 
   useEffect(() => {
     (async () => {
@@ -68,11 +68,11 @@ const Home = () => {
 
 export default Home;
 
-export const useTodos = (): ITodosContext => {
+export const useTodosContext = (): ITodosContext => {
   const context = useContext(TodosContext);
 
   if (!context) {
-    throw new Error('useTodos must be used within Home');
+    throw new Error('useTodosContext must be used within Home Page');
   }
 
   return context;

@@ -2,7 +2,7 @@ import { waitFor } from 'utils/test-utils';
 import { renderHook } from '@testing-library/react-hooks';
 import MockAdapter from 'axios-mock-adapter';
 
-import { useAuth } from 'hooks';
+import { useAuthContext } from 'hooks';
 import { AuthProvider } from '.';
 
 import HttpClient from 'services/utils/HttpClient';
@@ -32,7 +32,7 @@ describe('<AuthProvider />', () => {
       <AuthProvider>{children}</AuthProvider>
     );
 
-    const { result, waitForNextUpdate } = renderHook(() => useAuth(), {
+    const { result, waitForNextUpdate } = renderHook(() => useAuthContext(), {
       wrapper,
     });
 
@@ -63,7 +63,7 @@ describe('<AuthProvider />', () => {
       <AuthProvider>{children}</AuthProvider>
     );
 
-    const { result } = renderHook(() => useAuth(), {
+    const { result } = renderHook(() => useAuthContext(), {
       wrapper,
     });
 
@@ -83,7 +83,7 @@ describe('<AuthProvider />', () => {
       <AuthProvider>{children}</AuthProvider>
     );
 
-    const { result } = renderHook(() => useAuth(), {
+    const { result } = renderHook(() => useAuthContext(), {
       wrapper,
     });
 

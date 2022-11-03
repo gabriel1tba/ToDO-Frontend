@@ -47,7 +47,6 @@ exports[`<Button /> should render the Button correctly 1`] = `
 
 <button
   class="c0"
-  color="primary"
   type="button"
 >
   Salvar

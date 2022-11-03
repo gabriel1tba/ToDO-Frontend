@@ -3,8 +3,8 @@ import { TbTrash, TbEdit } from 'react-icons/tb';
 
 import TodoService from 'services/TodoService';
 
-import { useToast, useToggle } from 'hooks';
-import { useTodos } from 'pages/Home';
+import { useToastContext, useToggle } from 'hooks';
+import { useTodosContext } from 'pages/Home';
 import { updateTodoAction, deleteTodoAction } from 'pages/Home/utils/actions';
 
 import Alert from 'components/Alert';
@@ -29,8 +29,8 @@ const TodoItem = ({ todo }: ITodoItem) => {
     return () => setDidMount(false);
   }, []);
 
-  const { addToast } = useToast();
-  const { dispatchTodos } = useTodos();
+  const { addToast } = useToastContext();
+  const { dispatchTodos } = useTodosContext();
 
   const [openModal, handleToggleModal] = useToggle();
   const [loadingAlert, handleToggleLoading] = useToggle();

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FiArrowLeft, FiMail, FiUser, FiLock } from 'react-icons/fi';
 
-import { useToast } from 'hooks';
+import { useToastContext } from 'hooks';
 
 import delay from 'utils/delay';
 
@@ -30,7 +30,7 @@ const SignUp = () => {
 
   const history = useHistory();
 
-  const { addToast } = useToast();
+  const { addToast } = useToastContext();
 
   const onSubmit = handleSubmit(
     async ({ name, email, password, confirmPassword }: ICreateUserRequest) => {
