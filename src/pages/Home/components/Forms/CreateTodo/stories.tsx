@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react';
 
 import CreateTodo from '.';
 
-import { ICreateTodo } from '../../interfaces';
+import { ICreateTodo } from '../../../interfaces';
 
 export default {
   title: 'Todo/CreateTodo',

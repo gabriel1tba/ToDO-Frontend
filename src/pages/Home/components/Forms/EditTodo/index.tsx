@@ -12,11 +12,11 @@ import Input from 'components/Input';
 import TextArea from 'components/TextArea';
 import Button from 'components/Button';
 
-import { schema } from '../../utils/schema';
+import { schema } from '../../../utils/schema';
 
 import * as S from './styles';
 
-import { IFormData, IEditTodo } from '../../interfaces';
+import { IFormData, IEditTodo } from '../../../interfaces';
 
 const EditTodo = ({ todo, onCloseModal }: IEditTodo) => {
   const [, setDidMount] = useState(false);

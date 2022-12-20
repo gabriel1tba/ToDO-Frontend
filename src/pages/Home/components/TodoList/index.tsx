@@ -1,6 +1,4 @@
 import { useState, useMemo } from 'react';
-import { useTheme } from 'styled-components';
-import { BiPlusCircle } from 'react-icons/bi';
 import { BsClipboard, BsClipboardX } from 'react-icons/bs';
 
 import { TTodo } from 'services/TodoService/interfaces';
@@ -9,19 +7,20 @@ import { useToggle } from 'hooks';
 
 import { useTodosContext } from 'pages/Home';
 
-import Badge from 'components/Badge';
 import Modal from 'components/Modal';
-import Button from 'components/Button';
-import Card from 'components/Card';
-import TodoItem from './TodoItem';
+
+import Card from '../Card';
 import CreateTodo from '../Forms/CreateTodo';
+
+import TodoItem from './components/TodoItem';
+import Header from './components/Header';
+import TasksInformation from './components/TasksInformation';
 
 import * as S from './styles';
 
 const TodoList = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const theme = useTheme();
   const { todos } = useTodosContext();
   const [openModal, handleToggleModal] = useToggle();
 
@@ -56,50 +55,26 @@ const TodoList = () => {
     [todos]
   );
 
+  const hasFilteredTodos = filteredTodos.length > 0;
+  const hasTodos = todos.length === 0;
+  const notFoundTodos = !hasTodos && !hasFilteredTodos;
+
   return (
     <S.Wrapper>
-      <S.ListHeader>
-        <input
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Buscar..."
-        />
+      <Header
+        searchTerm={searchTerm}
+        onSearchTerm={setSearchTerm}
+        onToggleModal={handleToggleModal}
+      />
 
-        <Button
-          variant="primary"
-          icon={<BiPlusCircle />}
-          onClick={handleToggleModal}
-        >
-          Nova tarefa
-        </Button>
-      </S.ListHeader>
-
-      <S.ListInfos>
-        <div>
-          <p>Tarefas criadas</p>
-          <Badge
-            title={quantities.total}
-            color={theme.colors.gray[100]}
-            background={theme.colors.gray[700]}
-          />
-        </div>
-
-        <div>
-          <p>Concluídas</p>
-          <Badge
-            title={`${quantities.completeds} de ${quantities.total} `}
-            color={theme.colors.gray[100]}
-            background={theme.colors.gray[700]}
-          />
-        </div>
-      </S.ListInfos>
+      <TasksInformation quantities={quantities} />
 
       <S.TodosWrapper>
-        {Boolean(filteredTodos.length) &&
+        {hasFilteredTodos &&
           filteredTodos.map((todo) => <TodoItem key={todo.id} todo={todo} />)}
       </S.TodosWrapper>
 
-      {todos.length === 0 && (
+      {hasTodos && (
         <Card title="Você ainda não tem tarefas cadastradas" icon={BsClipboard}>
           <p>
             <div className="flex">
@@ -109,7 +84,7 @@ const TodoList = () => {
         </Card>
       )}
 
-      {todos.length > 0 && filteredTodos.length === 0 && (
+      {notFoundTodos && (
         <Card
           title="Nenhuma tarefa encontrada"
           icon={BsClipboardX}

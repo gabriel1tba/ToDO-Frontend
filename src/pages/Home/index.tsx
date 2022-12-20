@@ -11,7 +11,7 @@ import { useAuthContext, useToastContext } from 'hooks';
 import TodoService from 'services/TodoService';
 
 import Header from 'components/Header';
-import TodoList from './TodoList';
+import TodoList from './components/TodoList';
 import Loader from 'components/Loader';
 
 import { getTodosAction } from './utils/actions';

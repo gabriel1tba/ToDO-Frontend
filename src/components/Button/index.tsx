@@ -1,8 +1,10 @@
+import { ComponentPropsWithoutRef } from 'react';
+
 import Loader from 'components/Loader';
 
 import * as S from './styles';
 
-export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IButton extends ComponentPropsWithoutRef<'button'> {
   children: React.ReactNode;
   loading?: boolean;
   variant?: 'primary' | 'info' | 'warning' | 'danger' | 'success' | 'outline';

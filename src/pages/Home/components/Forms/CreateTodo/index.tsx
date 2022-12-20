@@ -11,11 +11,11 @@ import Input from 'components/Input';
 import TextArea from 'components/TextArea';
 import Button from 'components/Button';
 
-import { schema } from '../../utils/schema';
+import { schema } from '../../../utils/schema';
 
 import * as S from './styles';
 
-import { IFormData, ICreateTodo } from '../../interfaces';
+import { IFormData, ICreateTodo } from '../../../interfaces';
 
 const CreateTodo = ({ onCloseModal }: ICreateTodo) => {
   const {

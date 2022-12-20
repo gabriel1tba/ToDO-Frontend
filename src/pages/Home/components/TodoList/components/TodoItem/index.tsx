@@ -10,11 +10,11 @@ import { updateTodoAction, deleteTodoAction } from 'pages/Home/utils/actions';
 import Alert from 'components/Alert';
 import Modal from 'components/Modal';
 import CheckBox from 'components/CheckBox';
-import EditTodo from '../../Forms/EditTodo';
+import EditTodo from '../../../Forms/EditTodo';
 
 import * as S from './styles';
 
-import { ITodoItem } from '../../interfaces';
+import { ITodoItem } from '../../../../interfaces';
 
 const TodoItem = ({ todo }: ITodoItem) => {
   const [openAlert, setOpenAlert] = useState({
