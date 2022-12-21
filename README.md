@@ -25,6 +25,7 @@ PS: Clique [aqui](https://github.com/gabrielitba/ToDO-API) para acessar o reposi
 - **react-hook-form**
 - **yup**
 - **axios**
+- **sentry**
 
 &nbsp;
 

@@ -8,17 +8,15 @@ import GlobalStyles from './styles/global';
 
 import defaultTheme from 'styles/themes/default';
 
-const App = () => {
-  return (
-    <Router>
-      <AppProvider>
-        <ThemeProvider theme={defaultTheme}>
-          <Routes />
-          <GlobalStyles />
-        </ThemeProvider>
-      </AppProvider>
-    </Router>
-  );
-};
+const App = () => (
+  <Router>
+    <AppProvider>
+      <ThemeProvider theme={defaultTheme}>
+        <Routes />
+        <GlobalStyles />
+      </ThemeProvider>
+    </AppProvider>
+  </Router>
+);
 
 export default App;
