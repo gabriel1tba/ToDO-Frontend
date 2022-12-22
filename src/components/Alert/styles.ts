@@ -20,11 +20,11 @@ const scaleOut = keyframes`
   to { transform: scale(0); }
 `;
 
-interface AlertProps {
+interface IAlert {
   isLeaving: boolean;
 }
 
-export const Overlay = styled.div<AlertProps>`
+export const Overlay = styled.div<IAlert>`
   z-index: 1;
   position: fixed;
   width: 100vw;
@@ -45,7 +45,7 @@ export const Overlay = styled.div<AlertProps>`
     `}
 `;
 
-export const Wrapper = styled.div<AlertProps>`
+export const Wrapper = styled.div<IAlert>`
   ${({ theme, isLeaving }) => css`
     z-index: 2;
     display: flex;
@@ -53,8 +53,7 @@ export const Wrapper = styled.div<AlertProps>`
     align-items: center;
     padding: 2rem;
     gap: 1.5rem;
-    width: 432px;
-    height: 238px;
+    width: 27rem;
     background: ${theme.colors.background};
     border-radius: 8px;
     color: ${theme.colors.gray[500]};

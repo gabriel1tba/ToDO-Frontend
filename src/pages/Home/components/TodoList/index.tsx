@@ -1,59 +1,39 @@
-import { useState, useMemo } from 'react';
 import { BsClipboard, BsClipboardX } from 'react-icons/bs';
+import { BiPlusCircle } from 'react-icons/bi';
 
-import { TTodo } from 'services/TodoService/interfaces';
-
-import { useToggle } from 'hooks';
-
-import { useTodosContext } from 'pages/Home';
-
+import Button from 'components/Button';
 import Modal from 'components/Modal';
+import Alert from 'components/Alert';
 
+import FormEditTodo from '../FormEditTodo';
+import InputSearch from '../InputSearch';
+import TasksInformation from '../TasksInformation';
 import Card from '../Card';
-import CreateTodo from '../Forms/CreateTodo';
+import FormCreateTodo from '../FormCreateTodo';
+import TodoItem from '../TodoItem';
 
-import TodoItem from './components/TodoItem';
-import Header from './components/Header';
-import TasksInformation from './components/TasksInformation';
+import useTodoList from './useTodoList';
 
 import * as S from './styles';
 
 const TodoList = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const { todos } = useTodosContext();
-  const [openModal, handleToggleModal] = useToggle();
-
-  const filteredTodos = useMemo(
-    () =>
-      todos
-        .filter((todo) =>
-          todo.title.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-        .sort((a: TTodo, b: TTodo) => a.created_at.localeCompare(b.created_at)),
-    [todos, searchTerm]
-  );
-
-  const quantities = useMemo(
-    () =>
-      todos.reduce(
-        (acc, todo) => {
-          if (todo.completed) {
-            acc.completeds += Number(todo.completed);
-            acc.total += Number(todo.completed);
-          } else if (!todo.completed) {
-            acc.total += Number(!todo.completed);
-          }
-
-          return acc;
-        },
-        {
-          completeds: 0,
-          total: 0,
-        }
-      ),
-    [todos]
-  );
+  const {
+    searchTerm,
+    todos,
+    filteredTodos,
+    quantities,
+    openAlert,
+    openCreateTodoModal,
+    alertLoading,
+    editTodoModal,
+    setSearchTerm,
+    handleToggleCreateTodoModal,
+    handleOpenAlert,
+    handleCloseAlert,
+    handleDeleteTodo,
+    handleOpenEditTodoModal,
+    handleCloseEditTodoModal,
+  } = useTodoList();
 
   const hasFilteredTodos = filteredTodos.length > 0;
   const hasTodos = todos.length === 0;
@@ -61,17 +41,30 @@ const TodoList = () => {
 
   return (
     <S.Wrapper>
-      <Header
-        searchTerm={searchTerm}
-        onSearchTerm={setSearchTerm}
-        onToggleModal={handleToggleModal}
-      />
+      <section>
+        <InputSearch searchTerm={searchTerm} onSearchTerm={setSearchTerm} />
+
+        <Button
+          variant="primary"
+          icon={<BiPlusCircle />}
+          onClick={handleToggleCreateTodoModal}
+        >
+          Nova tarefa
+        </Button>
+      </section>
 
       <TasksInformation quantities={quantities} />
 
       <S.TodosWrapper>
         {hasFilteredTodos &&
-          filteredTodos.map((todo) => <TodoItem key={todo.id} todo={todo} />)}
+          filteredTodos.map((todo) => (
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              onEditTodoModal={handleOpenEditTodoModal}
+              onOpenAlert={handleOpenAlert}
+            />
+          ))}
       </S.TodosWrapper>
 
       {hasTodos && (
@@ -92,7 +85,7 @@ const TodoList = () => {
         >
           <div className="flex">
             <p>
-              Não encontramos nenhuma tarefa com o termo{' '}
+              Não encontramos nenhuma tarefa com{' '}
               <strong>{`"${searchTerm}"`}</strong>
             </p>
           </div>
@@ -101,11 +94,32 @@ const TodoList = () => {
 
       <Modal
         title="Nova tarefa"
-        open={openModal}
-        onCloseModal={handleToggleModal}
+        isOpen={openCreateTodoModal}
+        onCloseModal={handleToggleCreateTodoModal}
       >
-        <CreateTodo onCloseModal={handleToggleModal} />
+        <FormCreateTodo onCloseModal={handleToggleCreateTodoModal} />
       </Modal>
+
+      <Modal
+        title="Editar tarefa"
+        onCloseModal={handleCloseEditTodoModal}
+        isOpen={editTodoModal.isOpen}
+      >
+        <FormEditTodo
+          todo={editTodoModal.todo}
+          onCloseModal={handleCloseEditTodoModal}
+        />
+      </Modal>
+
+      <Alert
+        isOpen={openAlert.isOpen}
+        isLoading={alertLoading}
+        title={`Excluir tarefa "${openAlert.todo.title}"?`}
+        description="Tem certeza que deseja excluir essa tarefa?"
+        confirmLabel="Sim, excluir"
+        onCancel={handleCloseAlert}
+        onConfirm={() => handleDeleteTodo(openAlert.todo)}
+      />
     </S.Wrapper>
   );
 };

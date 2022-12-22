@@ -10,7 +10,7 @@ describe('<Modal />', () => {
 
   it('should render the Modal correctly', () => {
     const { container } = render(
-      <Modal title="Cadastro de pessoas" open onCloseModal={() => ({})}>
+      <Modal title="Cadastro de pessoas" isOpen onCloseModal={() => ({})}>
         <form>
           <input type="text" placeholder="Digite seu nome" />
           <input type="email" placeholder="Digite seu email" />
@@ -37,7 +37,11 @@ describe('<Modal />', () => {
 
   it('should no render Modal if open is false', () => {
     render(
-      <Modal title="Cadastro de pessoas" open={false} onCloseModal={() => ({})}>
+      <Modal
+        title="Cadastro de pessoas"
+        isOpen={false}
+        onCloseModal={() => ({})}
+      >
         <h1>Content Modal</h1>
       </Modal>
     );
@@ -49,7 +53,7 @@ describe('<Modal />', () => {
     const onCloseModal = jest.fn();
 
     render(
-      <Modal title="Cadastro de pessoas" open onCloseModal={onCloseModal}>
+      <Modal title="Cadastro de pessoas" isOpen onCloseModal={onCloseModal}>
         <h1>Content Modal</h1>
       </Modal>
     );

@@ -14,10 +14,10 @@ const useAnimatedUnmount = <T extends HTMLElement>(isOpen: boolean) => {
       setShouldRender(false);
     };
 
-    const currentElementRef = animetedElementRef?.current;
+    const currentElementRef = animetedElementRef.current;
 
     if (!isOpen && currentElementRef) {
-      currentElementRef?.addEventListener('animationend', handleAnimationEnd);
+      currentElementRef.addEventListener('animationend', handleAnimationEnd);
     }
 
     return () => {

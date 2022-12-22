@@ -1,6 +1,7 @@
+import { useAnimatedUnmount } from 'hooks';
+
 import Button from 'components/Button';
 import CreatePortalWrapper from 'components/CreatePortalWrapper';
-import { useAnimatedUnmount } from 'hooks';
 
 import * as S from './styles';
 

@@ -11,7 +11,7 @@ const colorModifiers = {
   `,
   danger: ({ colors }: DefaultTheme) => css`
     border: 1px solid ${colors.danger.light};
-    color: ${colors.danger.main};
+    color: ${colors.danger.light};
   `,
 };
 

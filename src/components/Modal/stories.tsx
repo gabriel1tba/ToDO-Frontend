@@ -12,7 +12,7 @@ export default {
     title: {
       type: 'string',
     },
-    open: {
+    isOpen: {
       type: 'boolean',
     },
     onCloseModal: {
@@ -26,5 +26,5 @@ export const Default: Story<IModal> = (args) => <Modal {...args} />;
 Default.args = {
   children: 'Content in modal',
   title: 'Content On Modal',
-  open: true,
+  isOpen: true,
 };

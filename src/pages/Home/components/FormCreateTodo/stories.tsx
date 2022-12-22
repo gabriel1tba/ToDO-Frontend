@@ -1,12 +1,12 @@
 import { Story, Meta } from '@storybook/react';
 
-import CreateTodo from '.';
+import FormCreateTodo from '.';
 
-import { ICreateTodo } from '../../../interfaces';
+import { IFormTodo } from '../../interfaces';
 
 export default {
-  title: 'Todo/CreateTodo',
-  component: CreateTodo,
+  title: 'Todo/FormCreateTodo',
+  component: FormCreateTodo,
   argTypes: {
     onCloseModal: {
       type: 'function',
@@ -17,7 +17,7 @@ export default {
   },
 } as Meta;
 
-export const Default: Story<ICreateTodo> = (args) => (
+export const Default: Story<IFormTodo> = (args) => (
   <div
     style={{
       width: '540px',
@@ -27,6 +27,6 @@ export const Default: Story<ICreateTodo> = (args) => (
       borderRadius: '5px',
     }}
   >
-    <CreateTodo {...args} />
+    <FormCreateTodo {...args} />
   </div>
 );

@@ -9,17 +9,18 @@ export interface ITodosContext {
 
 export interface ITodoItem {
   todo: TTodo;
+  onEditTodoModal?: (todo: TTodo) => void;
+  onOpenAlert?: (todo: TTodo) => void;
 }
 export interface IFormData {
   title: string;
   description: string;
 }
 
-export interface ICreateTodo {
+export interface IFormTodo {
   onCloseModal: () => void;
 }
 
-export interface IEditTodo {
-  onCloseModal: () => void;
+export interface IFormEditTodo extends IFormTodo {
   todo: TTodo;
 }

@@ -1,8 +1,8 @@
 import { Story, Meta } from '@storybook/react';
 
-import EditTodo from '.';
+import FormEditTodo from '.';
 
-import { IEditTodo } from '../../../interfaces';
+import { IFormEditTodo } from '../../interfaces';
 
 const todoMock = {
   id: '7b403461-2579-4635-af53-9c07f644f2ec',
@@ -15,8 +15,8 @@ const todoMock = {
 };
 
 export default {
-  title: 'Todo/EditTodo',
-  component: EditTodo,
+  title: 'Todo/FormEditTodo',
+  component: FormEditTodo,
   argTypes: {
     onCloseModal: {
       type: 'function',
@@ -36,7 +36,7 @@ export default {
   },
 } as Meta;
 
-export const Default: Story<IEditTodo> = (args) => (
+export const Default: Story<IFormEditTodo> = (args) => (
   <div
     style={{
       width: '540px',
@@ -46,6 +46,6 @@ export const Default: Story<IEditTodo> = (args) => (
       borderRadius: '5px',
     }}
   >
-    <EditTodo {...args} />
+    <FormEditTodo {...args} />
   </div>
 );
