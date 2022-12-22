@@ -1,36 +1,70 @@
-import styled, { css } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
-export const Overlay = styled.div`
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+
+const fadeOut = keyframes`
+  from { opacity: 1; }
+  to { opacity: 0; }
+`;
+
+const scaleIn = keyframes`
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+`;
+
+const scaleOut = keyframes`
+  from { transform: scale(1); }
+  to { transform: scale(0); }
+`;
+
+interface AlertProps {
+  isLeaving: boolean;
+}
+
+export const Overlay = styled.div<AlertProps>`
   z-index: 1;
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px);
   padding: 1rem;
+
+  animation: ${fadeIn} 0.3s;
+  ${({ isLeaving }) =>
+    isLeaving &&
+    css`
+      animation: ${fadeOut} 0.2s;
+    `}
 `;
 
-export const Wrapper = styled.div`
-  ${({ theme }) => css`
+export const Wrapper = styled.div<AlertProps>`
+  ${({ theme, isLeaving }) => css`
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2rem;
     gap: 1.5rem;
-
     width: 432px;
     height: 238px;
-
     background: ${theme.colors.background};
     border-radius: 8px;
-
     color: ${theme.colors.gray[500]};
+
+    animation: ${scaleIn} 0.3s;
+
+    ${isLeaving &&
+    css`
+      animation: ${scaleOut} 0.2s;
+    `}
 
     h1 {
       font-size: 1.5rem;

@@ -1,4 +1,4 @@
-import { useEffect, ReactNode } from 'react';
+import { useEffect, useRef, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 
 interface ICreatePortalWrapper {
@@ -10,7 +10,7 @@ const CreatePortalWrapper = ({
   divElementId = 'portal-root',
   children,
 }: ICreatePortalWrapper) => {
-  const divElement = document.createElement('div');
+  const divElement = useRef(document.createElement('div')).current;
 
   useEffect(() => {
     divElement.setAttribute('id', divElementId);

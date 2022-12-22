@@ -1,5 +1,6 @@
 import Button from 'components/Button';
 import CreatePortalWrapper from 'components/CreatePortalWrapper';
+import { useAnimatedUnmount } from 'hooks';
 
 import * as S from './styles';
 
@@ -24,12 +25,17 @@ const Alert = ({
   onCancel,
   onConfirm,
 }: IAlert) => {
-  if (!isOpen) return null;
+  const { shouldRender, animetedElementRef } =
+    useAnimatedUnmount<HTMLDivElement>(isOpen);
+
+  if (!shouldRender) {
+    return null;
+  }
 
   return (
     <CreatePortalWrapper>
-      <S.Overlay>
-        <S.Wrapper>
+      <S.Overlay isLeaving={!isOpen} ref={animetedElementRef}>
+        <S.Wrapper isLeaving={!isOpen}>
           <h1>{title}</h1>
           <p>{description}</p>
           <div>
