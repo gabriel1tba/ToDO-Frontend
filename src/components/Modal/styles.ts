@@ -27,10 +27,11 @@ export const Overlay = styled.div<IOverlay>`
   padding: 1rem;
 
   animation: ${fadeIn} 0.3s;
+
   ${({ isLeaving }) =>
     isLeaving &&
     css`
-      animation: ${fadeOut} 0.2s;
+      animation: ${fadeOut} 0.2s forwards;
     `}
 `;
 
